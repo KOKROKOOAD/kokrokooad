@@ -89,7 +89,7 @@ Route::middleware(['auth'])->prefix('user-account')->group(function (){
     Route::get('media-program-api/{mediaHouse}', 'SubController@fetchMediaProgram');
     Route::get('program-date-api/{mediaProgram}', 'SubController@fetchProgramDates');
     Route::get('fetch-segments-titles/{mediaHouse}', 'SegmentController@fetchSegmentTitles');
-    Route::get('fetch-segments/{mediaHouse}/{segmentTitle}', 'SegmentController@fetchSegments');
+    Route::get('fetch-segments/{mediaHouse}/{segmentTitle}/{date}', 'SegmentController@fetchSegments');
     Route::get('test-api', 'SegmentController@api');
 
     Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
@@ -99,6 +99,7 @@ Route::middleware(['auth'])->prefix('user-account')->group(function (){
 
 });
 
+//Route::get('test-api', 'SegmentController@api');
 
 
 Route::resource('user-register', 'UserController');

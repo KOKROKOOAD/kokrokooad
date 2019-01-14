@@ -50698,7 +50698,7 @@ var routes = [{
     path: '/user-account/subscriptions',
     component: __webpack_require__(152)
 }, { name: 'selectSegments',
-    path: '/user-account/subscriptions/select-segment',
+    path: '/user-account/select-segment',
     component: __webpack_require__(214)
 }];
 
@@ -60659,19 +60659,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'selectSegments',
 
-    mounted: function mounted() {
-        this.fetchSegments();
+    mounted: function mounted() {},
+    created: function created() {
+        //this.fetchSegments();
     },
-    created: function created() {},
     data: function data() {
         return {
             invoice: '/user-account/create-sub-invoice',
@@ -60686,18 +60683,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fetchSegments: function fetchSegments() {
             var self = this;
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
-
-            setTimeout(function () {
-                axios.get('test-api').then(function (res) {
-                    console.log(res.data);
-                });
-
-                console.log('Hello');
-                console.log(self.getRateCardTitle);
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
-            }, 3000);
             //  store.dispatch('getProcessing', true);
+            console.log(self.segData[1]);
+            axios.get('fetch-segments/' + self.getSelectMedia + '/' + self.getRateCardTitle + '/' + self.segmentDay).then(function (res) {
+                console.log(res.data);
+                //                        self.selMedia = res.data[1];
+                //                        let dat = res.data[0];
+
+                //                        for (let key in dat) {
+                //                            if (dat.hasOwnProperty(key)) {
+                //                                //  console.log(dat[key].segments);
+                //                                if(self.selMedia.toLowerCase() === 'print'){
+                //                                    self.print_segments = dat[key].segments;
+                //                                    console.log(self.print_segments);
+                //                                }
+                //                                else{
+                //                                  //  store.dispatch('getSelMediaId',dat[key].client_id);
+                //                                  //  self.segments_data = dat[key].segments;
+                //                                  //  self.wsegments_data = dat[key].weekends_segments;
+                //                                      self.segments_data = dat[key].durations;
+                //                                      console.log(self.segments_data);
+                //                                   // self.wsegments_headings = JSON.parse(dat[key].weekends_durations);
+                //
+                //                                }
+                //                            }
+                //                        }
+
+                //                    if(self.selMedia.toLowerCase() !== 'print'){
+                //                        self.show = true;
+                //                        $('#mol').modal('show');
+                //                    }
+                //                    else{
+                //                        self.show = true;
+                //                        $('#mol2').modal('show');
+                //                    }
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     },
 
@@ -60716,9 +60738,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         segData: function segData() {
             return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentsData;
-        },
-        getProcessStatus: function getProcessStatus() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
         }
     }
 
@@ -60734,23 +60753,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page-wrapper" }, [
     _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.getProcessStatus,
-            expression: "getProcessStatus"
-          }
-        ],
-        staticClass: "default-grid row"
-      },
-      [_c("show-processing")],
-      1
-    ),
     _vm._v(" "),
     _c("div", { staticClass: "page-body" }, [
       _c("div", { staticClass: "row" }, [
@@ -60825,6 +60827,18 @@ var render = function() {
                           attrs: { to: _vm.invoice }
                         },
                         [_vm._v("Next")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.fetchSegments()
+                            }
+                          }
+                        },
+                        [_vm._v("click me")]
                       )
                     ],
                     1

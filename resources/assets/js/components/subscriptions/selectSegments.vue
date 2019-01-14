@@ -27,9 +27,6 @@
         <!-- Page-header end -->
 
         <!--<button class="btn btn-inverse waves-effect" data-type="inverse" data-from="top" data-align="right" data-icon="fa fa-check">Inverse</button>-->
-        <div v-show="getProcessStatus" class="default-grid row">
-            <show-processing></show-processing>
-        </div>
 
 
         <!-- Page body start -->
@@ -61,7 +58,7 @@
                                     <div style="padding-top: 20px;">
                                         <router-link :to="segment_date"  class="btn btn-mat btn-info" >Back</router-link>
                                         <router-link :to="invoice" class="btn btn-mat btn-inverse ">Next</router-link>
-                                        <!--<button @click="checkSubAvailabilty()">click me</button>-->
+                                        <button @click="fetchSegments()">click me</button>
                                     </div>
                                 </div>
 
@@ -85,10 +82,10 @@
         name : 'selectSegments',
 
         mounted(){
-            this.fetchSegments();
 
         },
         created(){
+            //this.fetchSegments();
         },
         data(){
             return {
@@ -103,20 +100,44 @@
         methods: {
             fetchSegments(){
                 let self = this;
-                store.dispatch('getProcessing', true);
-
-                setTimeout(function () {
-                    axios.get('test-api').then(function (res) {
-                        console.log(res.data);
-                    });
-
-                    console.log('Hello');
-                    console.log(self.getRateCardTitle);
-                    store.dispatch('getProcessing', false);
-
-
-                },3000);
               //  store.dispatch('getProcessing', true);
+                console.log(self.segData[1]);
+                axios.get('fetch-segments/' +  self.getSelectMedia + '/' + self.getRateCardTitle + '/' + self.segmentDay).then(function (res) {
+                        console.log(res.data);
+//                        self.selMedia = res.data[1];
+//                        let dat = res.data[0];
+
+//                        for (let key in dat) {
+//                            if (dat.hasOwnProperty(key)) {
+//                                //  console.log(dat[key].segments);
+//                                if(self.selMedia.toLowerCase() === 'print'){
+//                                    self.print_segments = dat[key].segments;
+//                                    console.log(self.print_segments);
+//                                }
+//                                else{
+//                                  //  store.dispatch('getSelMediaId',dat[key].client_id);
+//                                  //  self.segments_data = dat[key].segments;
+//                                  //  self.wsegments_data = dat[key].weekends_segments;
+//                                      self.segments_data = dat[key].durations;
+//                                      console.log(self.segments_data);
+//                                   // self.wsegments_headings = JSON.parse(dat[key].weekends_durations);
+//
+//                                }
+//                            }
+//                        }
+
+//                    if(self.selMedia.toLowerCase() !== 'print'){
+//                        self.show = true;
+//                        $('#mol').modal('show');
+//                    }
+//                    else{
+//                        self.show = true;
+//                        $('#mol2').modal('show');
+//                    }
+
+                }).catch(function (error) {
+                    console.log(error);
+                });
             },
         },
 
@@ -135,10 +156,7 @@
             },
             segData(){
                 return store.getters.segmentsData;
-            },
-            getProcessStatus(){
-                return  store.state.processing;
-            },
+            }
         },
 
     }

@@ -23,7 +23,7 @@ class SegmentController extends Controller
        return response()->json($adTitle);
 }
 
-    public function  fetchSegments($mediaHouse,$segment){
+    public function  fetchSegments($mediaHouse,$segment, $date){
 
 //        $user_info  = User::select('id','client_id','media')->where('media_house','=',$mediaHouse)->get();
 //        $segment_title_id = ProgramTitle::select('id')->where( 'adTitle', '=', $segment)->get();
