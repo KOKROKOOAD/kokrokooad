@@ -32,7 +32,7 @@
       },
       {   name : 'selectSegments',
           path : '/user-account/subscriptions/select-segment',
-          component : require('../components/subscriptions/selectSegment.vue')
+          component : require('../components/subscriptions/selectSegments.vue')
       },
 
 

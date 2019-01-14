@@ -50699,7 +50699,7 @@ var routes = [{
     component: __webpack_require__(152)
 }, { name: 'selectSegments',
     path: '/user-account/subscriptions/select-segment',
-    component: __webpack_require__(274)
+    component: __webpack_require__(214)
 }];
 
 /***/ }),
@@ -60529,9 +60529,367 @@ if (false) {
 }
 
 /***/ }),
-/* 214 */,
-/* 215 */,
-/* 216 */,
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(215)
+/* template */
+var __vue_template__ = __webpack_require__(216)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/subscriptions/selectSegments.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7f2383e8", Component.options)
+  } else {
+    hotAPI.reload("data-v-7f2383e8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 215 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'selectSegments',
+
+    mounted: function mounted() {
+        this.fetchSegments();
+    },
+    created: function created() {},
+    data: function data() {
+        return {
+            invoice: '/user-account/create-sub-invoice',
+            segment_date: '/user-account/create-sub-date',
+            segments_data: [],
+            selSegment: '',
+            selMedia: '',
+            print_segments: []
+        };
+    },
+
+    methods: {
+        fetchSegments: function fetchSegments() {
+            var self = this;
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
+
+            setTimeout(function () {
+                axios.get('test-api').then(function (res) {
+                    console.log(res.data);
+                });
+
+                console.log('Hello');
+                console.log(self.getRateCardTitle);
+                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
+            }, 3000);
+            //  store.dispatch('getProcessing', true);
+        }
+    },
+
+    computed: {
+        notification: function notification() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkAvailableDate;
+        },
+        segmentDay: function segmentDay() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
+        },
+        getSelectMedia: function getSelectMedia() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
+        },
+        getRateCardTitle: function getRateCardTitle() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
+        },
+        segData: function segData() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentsData;
+        },
+        getProcessStatus: function getProcessStatus() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+        }
+    }
+
+});
+
+/***/ }),
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "page-wrapper" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.getProcessStatus,
+            expression: "getProcessStatus"
+          }
+        ],
+        staticClass: "default-grid row"
+      },
+      [_c("show-processing")],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "page-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: " col-md-12 col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-2" }),
+                _vm._v(" "),
+                _c("div", { staticClass: " col-md-8" }, [
+                  _c("h4", { staticClass: "sub-title" }, [
+                    _vm._v("Select segment")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selSegment,
+                          expression: "selSegment"
+                        }
+                      ],
+                      staticClass: "form-control form-control-primary",
+                      attrs: { name: "select" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.selSegment = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { disabled: "", value: "", selected: "" } },
+                        [_vm._v("Select a segment")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticStyle: { "padding-top": "20px" } },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-mat btn-info",
+                          attrs: { to: _vm.segment_date }
+                        },
+                        [_vm._v("Back")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn-mat btn-inverse ",
+                          attrs: { to: _vm.invoice }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-2" })
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-header" }, [
+      _c("div", { staticClass: "row align-items-end" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("div", { staticClass: "page-header-title" }, [
+            _c("div", { staticClass: "d-inline" }, [
+              _c("h4", [_vm._v("Segment selection form")]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v("Which segments do you want to "),
+                _c("code", [_vm._v("Publish  ")]),
+                _vm._v(", Select segments  to get continue.")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4" }, [
+          _c("div", { staticClass: "page-header-breadcrumb" }, [
+            _c("ul", { staticClass: "breadcrumb-title" }, [
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "index.html" } }, [
+                  _c("i", { staticClass: "feather icon-home" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "#!" } }, [_vm._v("Select segments")])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7f2383e8", module.exports)
+  }
+}
+
+/***/ }),
 /* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -63304,384 +63662,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(275)
-/* template */
-var __vue_template__ = __webpack_require__(276)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/subscriptions/selectSegment.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7171a1f7", Component.options)
-  } else {
-    hotAPI.reload("data-v-7171a1f7", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 275 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'selectSegments',
-
-    mounted: function mounted() {
-        this.fetchSegments();
-    },
-    data: function data() {
-        return {
-            invoice: '/user-account/create-sub-invoice',
-            segment_date: '/user-account/create-sub-date',
-            segments_data: [],
-            selSegment: '',
-            selMedia: '',
-            print_segments: []
-        };
-    },
-
-    methods: {
-        fetchSegments: function fetchSegments() {
-            var self = this;
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
-
-            setTimeout(function () {
-                axios.get('test-api').then(function (res) {
-                    console.log(res.data);
-                });
-
-                console.log('Hello');
-                console.log(self.getRateCardTitle);
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
-            }, 3000);
-            //  store.dispatch('getProcessing', true);
-        }
-    },
-
-    computed: {
-        notification: function notification() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkAvailableDate;
-        },
-        segmentDay: function segmentDay() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
-        },
-        getSelectMedia: function getSelectMedia() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
-        },
-        getRateCardTitle: function getRateCardTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
-        },
-
-        //            segData(){
-        //                return store.getters.segmentsData;
-        //            },
-        getProcessStatus: function getProcessStatus() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
-        }
-    }
-
-});
-
-/***/ }),
-/* 276 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page-wrapper" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.getProcessStatus,
-            expression: "getProcessStatus"
-          }
-        ],
-        staticClass: "default-grid row"
-      },
-      [_c("show-processing")],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "page-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: " col-md-12 col-sm-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-block" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-2" }),
-                _vm._v(" "),
-                _c("div", { staticClass: " col-md-8" }, [
-                  _c("h4", { staticClass: "sub-title" }, [
-                    _vm._v("Select segment")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.selSegment,
-                          expression: "selSegment"
-                        }
-                      ],
-                      staticClass: "form-control form-control-primary",
-                      attrs: { name: "select" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.selSegment = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "option",
-                        { attrs: { disabled: "", value: "", selected: "" } },
-                        [_vm._v("Select a segment")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticStyle: { "padding-top": "20px" } },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-mat btn-info",
-                          attrs: { to: _vm.segment_date }
-                        },
-                        [_vm._v("Back")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-mat btn-inverse ",
-                          attrs: { to: _vm.invoice }
-                        },
-                        [_vm._v("Next")]
-                      )
-                    ],
-                    1
-                  )
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-2" })
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-header" }, [
-      _c("div", { staticClass: "row align-items-end" }, [
-        _c("div", { staticClass: "col-lg-8" }, [
-          _c("div", { staticClass: "page-header-title" }, [
-            _c("div", { staticClass: "d-inline" }, [
-              _c("h4", [_vm._v("Segment selection form")]),
-              _vm._v(" "),
-              _c("span", [
-                _vm._v("Which segments do you want to "),
-                _c("code", [_vm._v("Publish  ")]),
-                _vm._v(", Select segments  to get continue.")
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _c("div", { staticClass: "page-header-breadcrumb" }, [
-            _c("ul", { staticClass: "breadcrumb-title" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "index.html" } }, [
-                  _c("i", { staticClass: "feather icon-home" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#!" } }, [_vm._v("Select segments")])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7171a1f7", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
