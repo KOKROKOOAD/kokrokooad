@@ -19,7 +19,7 @@
       },
       {
           name : 'segments',
-      path : '/user-account/create-sub-segments',
+      path : '/user-account/create-sub-date',
       component : require('../components/subscriptions/rateCardSegments')
   },
       {   name : 'invoice',
@@ -30,6 +30,11 @@
           path : '/user-account/subscriptions',
           component : require('../components/subscriptions/subs')
       },
+      {   name : 'selectSegments',
+          path : '/user-account/subscriptions/select-segment',
+          component : require('../components/subscriptions/selectSegment.vue')
+      },
 
-    ];
+
+  ];
 

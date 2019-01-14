@@ -8,7 +8,7 @@ Vue.config.debug = true;
 const debug = process.env.NODE_ENV !== 'production';
 
  export default  new Vuex.Store({
-    state: {
+   state: {
         selMedia: '',
         segment_titles: [],
         media: '',
@@ -27,6 +27,11 @@ const debug = process.env.NODE_ENV !== 'production';
         media_houses: [],
         fadeIn: '',
         notify: '',
+       segment_data :{
+            selSegmentDay : '',
+           rate_card_title : '',
+       },
+       selMediaHouse : ''
     },
 
 
@@ -85,6 +90,15 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setAvailableDate(state,payload){
              state.notify = payload;
+         },
+         setSelSegmentDay(state,payload){
+             state.segment_data.selSegmentDay = payload;
+         },
+         setRateCardTitle(state, payload){
+             state.segment_data.rate_card_title = payload;
+         },
+         setSelMediaHouse(state,payload){
+             state.selMediaHouse = payload;
          }
 
 
@@ -153,6 +167,15 @@ const debug = process.env.NODE_ENV !== 'production';
          getAvailableDate(context, payload){
              context.commit('setAvailableDate',payload);
          },
+         getSelSegmentDay(context, payload){
+             context.commit('setSelSegmentDay',payload);
+         },
+         getRateCardTitle(context, payload){
+             context.commit('setRateCardTitle', payload);
+         },
+         getSelMediaHouse(context, payload){
+             context.commit('setSelMediaHouse', payload);
+         }
      },
      getters:{
           getMediaFormStatus(state){
@@ -169,6 +192,16 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          checkAvailableDate(state){
              return state.notify;
+         },
+         segmentDay(state){
+             return state.segment_data.selSegmentDay;
+         },
+         segmentTitle(state){
+             return state.segment_data.rate_card_title;
+         },
+         segmentsData(state){
+             let data = [state.media,state.selMedia,state.fileName,state.segment_data];
+             return data;
          }
 
 

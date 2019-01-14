@@ -90,6 +90,8 @@ Route::middleware(['auth'])->prefix('user-account')->group(function (){
     Route::get('program-date-api/{mediaProgram}', 'SubController@fetchProgramDates');
     Route::get('fetch-segments-titles/{mediaHouse}', 'SegmentController@fetchSegmentTitles');
     Route::get('fetch-segments/{mediaHouse}/{segmentTitle}', 'SegmentController@fetchSegments');
+    Route::get('test-api', 'SegmentController@api');
+
     Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
     Route::post('api-payment','PaymentController@payment');
     Route::get('check-segment-api/{sub_date}','CheckSubController@checkSubAvailable');

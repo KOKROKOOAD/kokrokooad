@@ -6,7 +6,7 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Media Segments form</h4>
+                            <h4>Segment selection form</h4>
                             <span>Which segments do you want to <code>Publish  </code>, Select segments  to get continue.</span>
                         </div>
                     </div>
@@ -26,7 +26,10 @@
         </div>
         <!-- Page-header end -->
 
-                    <!--<button class="btn btn-inverse waves-effect" data-type="inverse" data-from="top" data-align="right" data-icon="fa fa-check">Inverse</button>-->
+        <!--<button class="btn btn-inverse waves-effect" data-type="inverse" data-from="top" data-align="right" data-icon="fa fa-check">Inverse</button>-->
+        <div v-show="getProcessStatus" class="default-grid row">
+            <show-processing></show-processing>
+        </div>
 
 
         <!-- Page body start -->
@@ -43,27 +46,30 @@
                         </div>
                         <div class="card-block">
                             <div class="row">
-                               <!--segments goes here-->
+                                <!--segments goes here-->
                                 <div class="col-md-2"></div>
 
                                 <div class=" col-md-8">
-                                    <h4 class="sub-title">Select date</h4>
+                                    <h4 class="sub-title">Select segment</h4>
                                     <!--<p>Add <code>id="#dropper-animation"</code></p>-->
-                                    <input id="dropper-animation"  class="form-control sub_date" type="text" placeholder="Click to select subscription date"/>
+                                    <!--<input id="dropper-animation"  class="form-control sub_date" type="text" placeholder="Click to select subscription date"/>-->
+                                    <select name="select" class="form-control form-control-primary" v-model="selSegment">
+                                        <option disabled value="" selected>Select a segment</option>
+                                        <!--<option v-for="segments in segments_data" :value="segments.segment">{{segments in segments_data}}</option>-->
+
+                                    </select>
                                     <div style="padding-top: 20px;">
-                                    <router-link :to="rate_cards"  class="btn btn-mat btn-info" >Back</router-link>
-                                    <router-link :to="segments" class="btn btn-mat btn-inverse " @click.native="fetchSegments">Next</router-link>
-                                        <!--<button @click="fetchSegments">click me</button>-->
+                                        <router-link :to="segment_date"  class="btn btn-mat btn-info" >Back</router-link>
+                                        <router-link :to="invoice" class="btn btn-mat btn-inverse ">Next</router-link>
+                                        <!--<button @click="checkSubAvailabilty()">click me</button>-->
                                     </div>
                                 </div>
 
                             </div>
 
                         </div>
-
                     </div>
                     <!-- Default select end -->
-
                 </div>
                 <div class="col-md-2"></div>
 
@@ -76,70 +82,63 @@
     import  store from  '../../vuex/store';
 
     export default {
-        name : 'rateCardSegments',
+        name : 'selectSegments',
 
         mounted(){
+            this.fetchSegments();
 
-
+        },
+        created(){
         },
         data(){
             return {
-
-                showBtn : true,
-                select_rate_card : '/user-account/create-sub-rate-card',
-                bill : '/user-account/create-sub-summary',
                 invoice : '/user-account/create-sub-invoice',
-                segments : '/user-account/subscriptions/select-segment',
-                rate_cards : 'selectRateCard',
-                sub_date : '',
-                notify : 'Slot available'
-
-
+                segment_date : '/user-account/create-sub-date',
+                segments_data : [],
+                selSegment : '',
+                selMedia : '',
+                print_segments : []
             }
         },
         methods: {
-
-            checkSubAvailabilty(){
-                let self = this;
-                 let dat =  $('.sub_date').val();
-                 self.sub_date = dat.split("/").join("-");
-               // console.log(self.sub_date);
-                axios.get('check-segment-api/' + self.sub_date).then(function (res) {
-                   // console.log(typeof res.data);
-                     self.isEmpt(res.data,self);
-                });
-
-            },
-            isEmpt(obj,self) {
-                if (jQuery.isEmptyObject(obj)){
-                    store.dispatch('getAvailableDate', self.notify);
-                    console.log(self.notification)
-
-                }
-                else{
-                    console.log('no');
-
-                }
-        },
             fetchSegments(){
-                let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
-                let selDay =  $('.sub_date').val();
-               // this.sub_date = dat.split("/").join("-");
-                console.log(this.sub_date);
-                let d = new Date(selDay);
-                this.sub_date = days[d.getDay() - 1];
-                store.dispatch('getSelSegmentDay', this.sub_date);
-            }
+                let self = this;
+                store.dispatch('getProcessing', true);
 
+                setTimeout(function () {
+                    axios.get('test-api').then(function (res) {
+                        console.log(res.data);
+                    });
+
+                    console.log('Hello');
+                    console.log(self.getRateCardTitle);
+                    store.dispatch('getProcessing', false);
+
+
+                },3000);
+              //  store.dispatch('getProcessing', true);
+            },
         },
 
         computed:{
-          notification(){
-              return store.getters.checkAvailableDate;
-          },
+            notification(){
+                return store.getters.checkAvailableDate;
+            },
+            segmentDay(){
+                return store.getters.segmentDay;
+            },
+            getSelectMedia(){
+                return store.state.selMedia;
+            },
+            getRateCardTitle(){
+                return store.getters.segmentTitle;
+            },
             segData(){
                 return store.getters.segmentsData;
-            }
+            },
+            getProcessStatus(){
+                return  store.state.processing;
+            },
         },
 
     }

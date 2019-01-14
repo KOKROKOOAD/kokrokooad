@@ -266,3 +266,41 @@
 </div> <!--  big container -->
 
 
+<script>
+    axios.get('fetch-segments/' + self.getSelectMedia + '/' + self.getRateCardTitle).then(function (res) {
+        console.log(res.data);
+//                        self.selMedia = res.data[1];
+//                        let dat = res.data[0];
+
+//                        for (let key in dat) {
+//                            if (dat.hasOwnProperty(key)) {
+//                                //  console.log(dat[key].segments);
+//                                if(self.selMedia.toLowerCase() === 'print'){
+//                                    self.print_segments = dat[key].segments;
+//                                    console.log(self.print_segments);
+//                                }
+//                                else{
+//                                  //  store.dispatch('getSelMediaId',dat[key].client_id);
+//                                  //  self.segments_data = dat[key].segments;
+//                                  //  self.wsegments_data = dat[key].weekends_segments;
+//                                      self.segments_data = dat[key].durations;
+//                                      console.log(self.segments_data);
+//                                   // self.wsegments_headings = JSON.parse(dat[key].weekends_durations);
+//
+//                                }
+//                            }
+//                        }
+
+//                    if(self.selMedia.toLowerCase() !== 'print'){
+//                        self.show = true;
+//                        $('#mol').modal('show');
+//                    }
+//                    else{
+//                        self.show = true;
+//                        $('#mol2').modal('show');
+//                    }
+
+    }).catch(function (error) {
+        console.log(error);
+    });
+</script>

@@ -125,7 +125,7 @@
                                 <!--<img class="img-fluid" src="https://colorlib.com//polygon/adminty/files/assets/images/gallery-grid/masonry-1.jpg" alt="masonary">-->
                                 <label class="image-checkbox" :id="index">
                                 <img  class="img-fluid" v-bind:src="['/thumbnails/' + logos.logo]" @click="getSelMediaHouse(index)">
-                                <input type="checkbox"  :value="logos.media_house"  v-model="selMediaH" />
+                                <input type="radio"  :value="logos.media_house"  v-model="selMediaH" />
                                 <i class="fa fa-check hidden"></i>
                                 </label>
 
@@ -179,7 +179,7 @@
         data(){
             return {
                 r_animate : '',
-                selMediaH:[],
+                selMediaH: '',
                 selMediaHouse : '',
                  showBtn : true,
                 file_upload : '/user-account/create-sub-file',
@@ -225,8 +225,10 @@
                 });
             },
             getSelMediaHouse(id){
-                $('.' + id).toggleClass('selected-media');
-                console.log(id);
+//                $('.' + id).toggleClass('selected-media');
+//                console.log(id);
+                store.dispatch('getSelMediaHouse', this.selMediaH);
+
             },
             showSubmitBtn(){
                 if(this.selMediaH.length > 0){
@@ -254,6 +256,9 @@
             },
             getProcessStatus(){
                 return  store.state.processing;
+            },
+            mediaHousesss(){
+               return store.state.selMediaHouse;
             }
         },
 

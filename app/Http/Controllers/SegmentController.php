@@ -25,12 +25,16 @@ class SegmentController extends Controller
 
     public function  fetchSegments($mediaHouse,$segment){
 
-        $user_info  = User::select('id','client_id','media')->where('media_house','=',$mediaHouse)->get();
-        $segment_title_id = ProgramTitle::select('id')->where( 'adTitle', '=', $segment)->get();
-        $user = User::find($user_info[0]->id);
-        $segments =    $user->segment->where('ad_types_id', '=', $segment_title_id[0]->id);
-        return response()->json([$segments,$user_info[0]->media]);
+//        $user_info  = User::select('id','client_id','media')->where('media_house','=',$mediaHouse)->get();
+//        $segment_title_id = ProgramTitle::select('id')->where( 'adTitle', '=', $segment)->get();
+//        $user = User::find($user_info[0]->id);
+//        $segments =    $user->segment->where('ad_types_id', '=', $segment_title_id[0]->id);
+        return response()->json('am in the controller');
 
+    }
+
+    public function api(){
+        return  response()->json('am in the controller');
     }
 
 }
