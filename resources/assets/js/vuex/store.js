@@ -31,7 +31,10 @@ const debug = process.env.NODE_ENV !== 'production';
             selSegmentDay : '',
            rate_card_title : '',
        },
-       selMediaHouse : ''
+       selMediaHouse : '',
+       seg_date : '',
+       selSegment : '',
+
     },
 
 
@@ -99,6 +102,12 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setSelMediaHouse(state,payload){
              state.selMediaHouse = payload;
+         },
+         setSegmentDate(state, payload){
+             state.seg_date = payload;
+         },
+         setSelSegment(state, payload){
+             state.selSegment = payload;
          }
 
 
@@ -175,6 +184,12 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          getSelMediaHouse(context, payload){
              context.commit('setSelMediaHouse', payload);
+         },
+         getSegmentDate(context, payload){
+             context.commit('setSegmentDate', payload);
+         },
+         getSelSegment(context, payload){
+             context.commit('setSelSegment', payload);
          }
      },
      getters:{
@@ -202,6 +217,12 @@ const debug = process.env.NODE_ENV !== 'production';
          segmentsData(state){
              let data = [state.media,state.selMedia,state.fileName,state.segment_data];
              return data;
+         },
+         segmentDate(state){
+             return state.seg_date;
+         },
+         selectedSegment(state){
+             return state.selSegment;
          }
 
 

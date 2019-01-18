@@ -6,8 +6,8 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Segment selection form</h4>
-                            <span>Which segments do you want to <code>Publish  </code>, Select segments  to get continue.</span>
+                            <h4>Rate selection form</h4>
+                            <span>Which segments do you want to <code>Publish  </code>, Select rate  to get continue.</span>
                         </div>
                     </div>
                 </div>
@@ -15,9 +15,16 @@
                     <div class="page-header-breadcrumb">
                         <ul class="breadcrumb-title">
                             <li class="breadcrumb-item">
-                                <a href="index.html"> <i class="feather icon-home"></i> </a>
+                                {{getSelectMedia}}
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Select segments</a>
+                            <li class="breadcrumb-item" style="color: #9e1317">
+                                {{getRateCardTitle}}
+                            </li>
+                            <li class="breadcrumb-item">
+                                {{segmentDay}} - {{segDate}}
+                            </li>
+                            <li class="breadcrumb-item" style="color: #9e1317">
+                                {{selSegments}}
                             </li>
                         </ul>
                     </div>
@@ -46,20 +53,51 @@
                         <div class="card-block">
                             <div class="row">
                                 <!--segments goes here-->
-                                <div class="col-md-2"></div>
+                                <!--<div class="col-md-2"></div>-->
 
-                                <div class=" col-md-8">
-                                    <h4 class="sub-title">Select segment</h4>
-                                    <!--<p>Add <code>id="#dropper-animation"</code></p>-->
-                                    <!--<input id="dropper-animation"  class="form-control sub_date" type="text" placeholder="Click to select subscription date"/>-->
-                                    <select name="select" class="form-control form-control-primary" v-model="selSegment" @change="checkSpots(selSegment)">
-                                        <option disabled value="" selected>Select a segment</option>
-                                        <option v-for="segments in segments_data" :value="segments.tue_duration + ' ' + segments.tue_b_duration">{{segments.tue_duration}} -- {{segments.tue_b_duration}}</option>
+                                <div class=" col-md-12 col-sm-12">
+                                    <h4 class="sub-title">Select Rate</h4>
+                                    <div class="card-block table-border-style">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                <tr style="background: #36475F;color: #ffffff;">
+                                                    <th>#</th>
+                                                    <th>Day</th>
+                                                    <th>Segment</th>
+                                                    <th>Spots</th>
+                                                    <th>15sec</th>
+                                                    <th>25sec</th>
+                                                    <th>30sec</th>
+                                                    <th>35sec</th>
+                                                    <th>40sec</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>{{segmentDay}}</td>
+                                                    <td>{{selSegments}}</td>
+                                                   <td> <select name="select" class="form-control form-control-primary" v-model="selSegment">
+                                                        <option disabled value="" selected>1</option>
+                                                        <option>2</option>
+                                                   </select></td>
+                                                    <td><input type="radio" name="rate"> GHC 400 </td>
+                                                    <td><input type="radio" name="rate"> GHC 700 </td>
+                                                    <td><input type="radio" name="rate"> GHC 1200 </td>
+                                                    <td><input type="radio" name="rate"> GHC 1400 </td>
+                                                    <td><input type="radio" name="rate"> GHC 1700 </td>
 
-                                    </select>
+
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                     <div style="padding-top: 20px;">
-                                        <router-link :to="segment_date"  class="btn btn-mat btn-info" >Back</router-link>
-                                        <router-link :to="segment_rate" class="btn btn-mat btn-inverse ">Next</router-link>
+                                        <router-link :to="selSegment_url"  class="btn btn-mat btn-info" >Back</router-link>
+                                        <router-link :to="invoice" class="btn btn-mat btn-inverse ">Next</router-link>
                                         <!--<button @click="fetchSegments()">click me</button>-->
                                     </div>
                                 </div>
@@ -70,7 +108,7 @@
                     </div>
                     <!-- Default select end -->
                 </div>
-                <div class="col-md-2"></div>
+                <!--<div class="col-md-2"></div>-->
 
             </div>
         </div>
@@ -93,7 +131,7 @@
             return {
                 invoice : '/user-account/create-sub-invoice',
                 segment_date : '/user-account/create-sub-date',
-                 segment_rate : '/user-account/select-rate',
+                 selSegment_url : '/user-account/select-segment',
                 segments_data : [],
                 selSegment : '',
                 selMedia : '',
@@ -104,18 +142,18 @@
             fetchSegments(){
                 let self = this;
                 store.dispatch('getProcessing', true);
-               // console.log(self.segData[1]);
+                // console.log(self.segData[1]);
                 setTimeout(function () {
                     axios.get('fetch-segments/' +  self.getSelectMedia + '/' + self.getRateCardTitle + '/' + self.segmentDay).then(function (res) {
                         console.log(res.data[0].segments);
-                     self.segments_data  = res.data[0].segments;
+                        self.segments_data  = res.data[0].segments;
                         store.dispatch('getProcessing', false);
 
                         self.selMedia = res.data[1];
-                          let dat = res.data[0];
+                        let dat = res.data[0];
                         for (let key in dat) {
                             if (dat.hasOwnProperty(key)) {
-                              //  console.log(dat[key].segments);
+                                //  console.log(dat[key].segments);
                                 //console.log(self.segments_data);
                             }
                         }
@@ -132,7 +170,6 @@
                 setTimeout(function () {
                     axios.get('check-spots-api/' +  segment ).then(function (res) {
                         console.log(res.data);
-                        store.dispatch('getSelSegment', self.selSegment);
                         store.dispatch('getProcessing', false);
                     }).catch(function (error) {
                         console.log(error);
@@ -160,6 +197,12 @@
             getProcessStatus(){
                 return  store.state.processing;
             },
+            segDate(){
+                return store.getters.segmentDate;
+            },
+            selSegments(){
+                return store.getters.selectedSegment;
+            }
         },
 
     }

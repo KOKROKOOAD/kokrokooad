@@ -28,12 +28,21 @@
       },
       {   name : 'subs',
           path : '/user-account/subscriptions',
-          component : require('../components/subscriptions/subs')
+          component : require('../components/subscriptions/subscriptions')
       },
       {   name : 'selectSegments',
           path : '/user-account/select-segment',
           component : require('../components/subscriptions/selectSegments.vue')
       },
+      {   name : 'selectRateAndTime',
+          path : '/user-account/select-rate',
+          component : require('../components/subscriptions/selectRateAndTime')
+      },
+      {   name : 'fullcalender',
+          path : '/user-account/select-calender',
+          component : require('../components/subscriptions/fullcalender')
+      },
+
 
 
   ];

@@ -89,7 +89,7 @@
                 select_rate_card : '/user-account/create-sub-rate-card',
                 bill : '/user-account/create-sub-summary',
                 invoice : '/user-account/create-sub-invoice',
-                segments : '/user-account/subscriptions/select-segment',
+                segments : '/user-account/select-segment',
                 rate_cards : 'selectRateCard',
                 sub_date : '',
                 notify : 'Slot available'
@@ -124,6 +124,7 @@
             fetchSegments(){
                 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
                 let selDay =  $('.sub_date').val();
+                store.dispatch('getSegmentDate',selDay);
                // this.sub_date = dat.split("/").join("-");
                 console.log(this.sub_date);
                 let d = new Date(selDay);

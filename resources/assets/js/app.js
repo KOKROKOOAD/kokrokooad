@@ -20,7 +20,7 @@
 // require('jquery-validation');
 //require('./dashboard/js/multi-step-modal');
 //require('./dashboard/js/validations');
-//require('./dashboard/js/main');
+//require('./calender/calendar');
 
 // require('../dash/jquery-ui/jquery-ui.min');
 // //require('../dash/jquery-slimscrolljs/jquery-ui.min');
