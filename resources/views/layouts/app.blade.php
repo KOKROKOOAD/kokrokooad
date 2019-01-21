@@ -20,7 +20,9 @@
     <!-- Styles -->
 
         @yield('styles')
+    @auth()
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+        @endauth
 </head>
 @guest()
 <body  data-spy="scroll" data-target=".navbar" data-offset="50">

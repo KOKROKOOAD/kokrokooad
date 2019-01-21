@@ -48,7 +48,7 @@
                                 </div>
                                 <div style="padding-left: 16px;">
                                     <router-link :to="file_upload" role="button" type="button" class="btn btn-mat btn-inverse ">Back</router-link>
-                                    <router-link :to="rate_card_segments" role="button" type="button" class="btn btn-mat btn-info ">Next</router-link>
+                                    <router-link :to="calender_url" role="button" type="button" class="btn btn-mat btn-info ">Next</router-link>
 
                                 </div>
                             </div>
@@ -74,7 +74,9 @@
                 title : '',
                 file : '',
                 file_upload : '/user-account/create-sub-file',
-                rate_card_segments : '/user-account/create-sub-date'
+                rate_card_segments : '/user-account/create-sub-date',
+                calender_url : '/user-account/select-calender'
+
 
             }
         },

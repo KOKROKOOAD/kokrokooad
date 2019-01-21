@@ -77,6 +77,14 @@ Vue.component('select-rate-card', require('./components/subscriptions/selectRate
 Vue.component('side-bar', require('./components/navigation/sidebar.vue'));
 Vue.component('pre-loader', require('./components/preloader/preLoader'));
 Vue.component('sub', require('./components/subscriptions/subs'));
+Vue.component('segments', require('./components/subscriptions/selectRateAndTime'));
+Vue.component('modals', require('./components/tests/modals'));
+Vue.component('segment-title', require('./components/subscriptions/segmentTitle'));
+
+
+
+
+
 
 
 

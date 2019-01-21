@@ -1,7 +1,7 @@
 <template>
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 col-sm-12">
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4 class="card-title"> Weekdays</h4>

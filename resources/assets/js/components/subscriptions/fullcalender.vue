@@ -40,12 +40,9 @@
                 <div class="row">
                     <div class="col-xl-2 col-md-12">
                         <div id="external-events">
-                            <h6 class="m-b-30 m-t-20">Subscriptions</h6>
+                            <h6 class="m-b-30 m-t-20">Subscription lists</h6>
                             <div class="fc-event ui-draggable ui-draggable-handle">My Event 1</div>
-                            <div class="fc-event ui-draggable ui-draggable-handle">My Event 2</div>
-                            <div class="fc-event ui-draggable ui-draggable-handle">My Event 3</div>
-                            <div class="fc-event ui-draggable ui-draggable-handle">My Event 4</div>
-                            <div class="fc-event ui-draggable ui-draggable-handle">My Event 5</div>
+
                             <div class="checkbox-fade fade-in-primary m-t-10">
                                 <label>
                                     <input type="checkbox" value="">
@@ -77,9 +74,14 @@
     </div>
         <div style="padding-top: 20px;">
             <router-link :to="selSegment_url"  class="btn btn-mat btn-info" >Back</router-link>
+            <router-link :to="invoice" class="btn btn-mat btn-secondary ">save</router-link>
             <router-link :to="invoice" class="btn btn-mat btn-inverse ">Next</router-link>
             <!--<button @click="fetchSegments()">click me</button>-->
         </div>
+
+        <segment-title></segment-title>
+        <segments></segments>
+
     </div>
 
     <!-- Main-body end -->
@@ -106,14 +108,19 @@
                 selSegment : '',
                 selMedia : '',
                 print_segments : [],
-                title : '',
+                title : 'meet Francis',
                 start : '',
                 end : '',
+                sub_date : '',
+                day : '',
+                segments : [],
             }
         },
         methods: {
 
             calender(){
+                let self = this;
+
                 $(document).ready(function() {
                     $('#external-events .fc-event').each(function() {
 
@@ -154,99 +161,72 @@
                         selectable : true,
                         selectHelper : true,
                         select : function (start,end,allDay) {
-                            start  = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                            end  = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                            let title = prompt("Enter Event Title");
+                            $('#segmentTitle').modal('show');
+
+                            if(self.segTitle !== ''){
+                                 let dat  = $.fullCalendar.formatDate(start, "Y-MM-DD ");
+                                start  = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                                self.start = start;
+                                 end  = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                                 self.end = end;
+
+                                 self.sub_date = dat.split("-").join("/");
+                                 self.getSelDay(self.sub_date);
+                                 console.log(self.sub_date);
+                                 let segments = [{'title' : self.title,start: start,constraint: 'businessHours',borderColor:'#FC6180',background:'#FC6180',textColor : '#fff'}];
+                                console.log(self.segTitle);
+                                 calender.fullCalendar('refetchEvents');
+
+
+                             }
+                            else{
+                                console.log('titlel is empty');
+                            }
 
                             let formData = new FormData();
-                            formData.append('title',title);
+                            // formData.append('title',title);
                             formData.append('start',start);
                             formData.append('end',end);
-                            let self = this;
 
-                            axios.get('test-api',formData).then(function (res) {
-                                self.title = res.data.title;
-                                calender.fullCalendar('refetchEvents');
-                            });
+                            // axios.get('test-api',formData).then(function (res) {
+                            //     self.title = res.data.title;
+                            // });
                         },
-                        events: [{
-                            title:  this.title,
-                            start: '2016-09-03T13:00:00',
+                         events:
+                      [{
+                            title:  self.segTitle,
+                            start:  '2019-01-20',
                             constraint: 'businessHours',
                             borderColor: '#FC6180',
                             backgroundColor: '#FC6180',
                             textColor: '#fff'
-                        }, {
-                            title: 'Meeting',
-                            start: '2016-09-13T11:00:00',
-                            constraint: 'availableForMeeting',
-                            editable: true,
-                            borderColor: '#4680ff',
-                            backgroundColor: '#4680ff',
-                            textColor: '#fff'
-                        }, {
-                            title: 'Conference',
-                            start: '2016-09-18',
-                            end: '2016-09-20',
-                            borderColor: '#93BE52',
-                            backgroundColor: '#93BE52',
-                            textColor: '#fff'
-                        }, {
-                            title: 'Party',
-                            start: '2016-09-29T20:00:00',
-                            borderColor: '#FFB64D',
-                            backgroundColor: '#FFB64D',
-                            textColor: '#fff'
                         },
-
-                            // areas where "Meeting" must be dropped
-                            {
-                                id: 'availableForMeeting',
-                                start: '2016-09-11T10:00:00',
-                                end: '2016-09-11T16:00:00',
-                                rendering: 'background',
-                                borderColor: '#ab7967',
-                                backgroundColor: '#ab7967',
-                                textColor: '#fff'
-                            }, {
-                                id: 'availableForMeeting',
-                                start: '2016-09-13T10:00:00',
-                                end: '2016-09-13T16:00:00',
-                                rendering: 'background',
-                                borderColor: '#39ADB5',
-                                backgroundColor: '#39ADB5',
-                                textColor: '#fff'
-                            },
-
-                            // red areas where no events can be dropped
-                            {
-                                start: '2016-09-24',
-                                end: '2016-09-28',
-                                overlap: false,
-                                rendering: 'background',
-                                borderColor: '#FFB64D',
-                                backgroundColor: '#FFB64D',
-                                color: '#d8d6d6'
-                            }, {
-                                start: '2016-09-06',
-                                end: '2016-09-08',
-                                overlap: false,
-                                rendering: 'background',
-                                borderColor: '#ab7967',
-                                backgroundColor: '#ab7967',
-                                color: '#d8d6d6'
-                            }
                         ]
                     });
                 });
 
+            },
+            getSelDay(date){
+                let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
+                // let selDay =  $('.sub_date').val();
+                //segment date
+                store.dispatch('getSegmentDate',date);
+                // this.sub_date = dat.split("/").join("-");
+                let d = new Date(date);
+                this.day = days[d.getDay() - 1];
+                console.log(this.day);
+                //selected segment day
+                store.dispatch('getSelSegmentDay', this.day);
             }
+
 
 
         },
 
         computed:{
-
+            segTitle(){
+                return store.getters.segTitle;
+            },
         },
 
     }

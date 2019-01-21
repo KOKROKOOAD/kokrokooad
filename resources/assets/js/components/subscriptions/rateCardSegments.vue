@@ -121,16 +121,17 @@
 
                 }
         },
-            fetchSegments(){
+            fetchSegments(date){
                 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
-                let selDay =  $('.sub_date').val();
-                store.dispatch('getSegmentDate',selDay);
+               // let selDay =  $('.sub_date').val();
+                store.dispatch('getSegmentDate',date);
                // this.sub_date = dat.split("/").join("-");
                 console.log(this.sub_date);
                 let d = new Date(selDay);
-                this.sub_date = days[d.getDay() - 1];
-                store.dispatch('getSelSegmentDay', this.sub_date);
-            }
+                this.day = days[d.getDay() - 1];
+                store.dispatch('getSelSegmentDay', this.day);
+            },
+
 
         },
 

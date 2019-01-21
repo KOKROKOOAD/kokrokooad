@@ -4730,7 +4730,8 @@ var debug = "development" !== 'production';
         },
         selMediaHouse: '',
         seg_date: '',
-        selSegment: ''
+        selSegment: '',
+        segment_title: ''
 
     },
 
@@ -4804,6 +4805,9 @@ var debug = "development" !== 'production';
         },
         setSelSegment: function setSelSegment(state, payload) {
             state.selSegment = payload;
+        },
+        setSegmentTitle: function setSegmentTitle(state, payload) {
+            state.segment_title = payload;
         }
     },
     actions: {
@@ -4884,6 +4888,9 @@ var debug = "development" !== 'production';
         },
         getSelSegment: function getSelSegment(context, payload) {
             context.commit('setSelSegment', payload);
+        },
+        getSegmentTitle: function getSegmentTitle(context, payload) {
+            context.commit('setSegmentTitle', payload);
         }
     },
     getters: {
@@ -4917,6 +4924,9 @@ var debug = "development" !== 'production';
         },
         selectedSegment: function selectedSegment(state) {
             return state.selSegment;
+        },
+        segTitle: function segTitle(state) {
+            return state.segment_title;
         }
     }
 }));
@@ -29550,9 +29560,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(212)
+var __vue_script__ = __webpack_require__(218)
 /* template */
-var __vue_template__ = __webpack_require__(213)
+var __vue_template__ = __webpack_require__(219)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -29569,7 +29579,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/subscriptions/subs.vue"
+Component.options.__file = "resources/assets/js/components/subscriptions/selectRateAndTime.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -29578,9 +29588,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-485ed3fa", Component.options)
+    hotAPI.createRecord("data-v-9a562ef0", Component.options)
   } else {
-    hotAPI.reload("data-v-485ed3fa", Component.options)
+    hotAPI.reload("data-v-9a562ef0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -29646,8 +29656,8 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(155);
-__webpack_require__(261);
-module.exports = __webpack_require__(262);
+__webpack_require__(272);
+module.exports = __webpack_require__(273);
 
 
 /***/ }),
@@ -29736,7 +29746,10 @@ Vue.component('file-upload', __webpack_require__(148));
 Vue.component('select-rate-card', __webpack_require__(151));
 Vue.component('side-bar', __webpack_require__(258));
 Vue.component('pre-loader', __webpack_require__(150));
-Vue.component('sub', __webpack_require__(152));
+Vue.component('sub', __webpack_require__(261));
+Vue.component('segments', __webpack_require__(152));
+Vue.component('modals', __webpack_require__(264));
+Vue.component('segment-title', __webpack_require__(267));
 
 var app = new Vue({
   el: '#app',
@@ -50717,13 +50730,13 @@ var routes = [{
     component: __webpack_require__(10)
 }, { name: 'subs',
     path: '/user-account/subscriptions',
-    component: __webpack_require__(280)
+    component: __webpack_require__(212)
 }, { name: 'selectSegments',
     path: '/user-account/select-segment',
-    component: __webpack_require__(214)
+    component: __webpack_require__(215)
 }, { name: 'selectRateAndTime',
     path: '/user-account/select-rate',
-    component: __webpack_require__(217)
+    component: __webpack_require__(152)
 }, { name: 'fullcalender',
     path: '/user-account/select-calender',
     component: __webpack_require__(220)
@@ -53558,7 +53571,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-12" }, [
+    _c("div", { staticClass: "col-md-12 col-sm-12" }, [
       _c("div", { staticClass: "card" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -59160,7 +59173,7 @@ var render = function() {
                     {
                       staticClass: "btn btn-mat btn-info ",
                       attrs: {
-                        to: _vm.calender_url,
+                        to: _vm.select_rate_card,
                         role: "button",
                         type: "button"
                       }
@@ -59968,7 +59981,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             title: '',
             file: '',
             file_upload: '/user-account/create-sub-file',
-            rate_card_segments: '/user-account/create-sub-date'
+            rate_card_segments: '/user-account/create-sub-date',
+            calender_url: '/user-account/select-calender'
 
         };
     },
@@ -60125,7 +60139,7 @@ var render = function() {
                       {
                         staticClass: "btn btn-mat btn-info ",
                         attrs: {
-                          to: _vm.rate_card_segments,
+                          to: _vm.calender_url,
                           role: "button",
                           type: "button"
                         }
@@ -60361,15 +60375,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log('no');
             }
         },
-        fetchSegments: function fetchSegments() {
+        fetchSegments: function fetchSegments(date) {
             var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-            var selDay = $('.sub_date').val();
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentDate', selDay);
+            // let selDay =  $('.sub_date').val();
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentDate', date);
             // this.sub_date = dat.split("/").join("-");
             console.log(this.sub_date);
             var d = new Date(selDay);
-            this.sub_date = days[d.getDay() - 1];
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelSegmentDay', this.sub_date);
+            this.day = days[d.getDay() - 1];
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelSegmentDay', this.day);
         }
     },
 
@@ -60510,6 +60524,53 @@ if (false) {
 
 /***/ }),
 /* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(213)
+/* template */
+var __vue_template__ = __webpack_require__(214)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/subscriptions/subscriptions.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d3211254", Component.options)
+  } else {
+    hotAPI.reload("data-v-d3211254", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 213 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60519,54 +60580,450 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'sub',
+    name: 'subscriptions',
+
+    mounted: function mounted() {},
+    created: function created() {
+        this.calender();
+    },
     data: function data() {
-        return {};
+        return {
+            invoice: '/user-account/create-sub-invoice',
+            segment_date: '/user-account/create-sub-date',
+            selSegment_url: '/user-account/select-segment',
+            segments_data: [],
+            selSegment: '',
+            selMedia: '',
+            print_segments: [],
+            title: '',
+            start: '',
+            end: '',
+            sub: '/user-account/subscriptions'
+        };
     },
 
-    methods: {},
-    computed: {
-        processing: function processing() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+    methods: {
+        calender: function calender() {
+            $(document).ready(function () {
+                $('#external-events .fc-event').each(function () {
+
+                    // store data so the calendar knows to render an event upon drop
+                    $(this).data('event', {
+                        title: $.trim($(this).text()), // use the element's text as the event title
+                        stick: true // maintain when user navigates (see docs on the renderEvent method)
+                    });
+
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 999,
+                        revert: true, // will cause the event to go back to its
+                        revertDuration: 0 //  original position after the drag
+                    });
+                });
+
+                var calender = $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,listMonth'
+                    },
+                    defaultDate: $('#calendar').fullCalendar('today'),
+                    navLinks: true, // can click day/week names to navigate views
+                    businessHours: true, // display business hours
+                    editable: true,
+                    //                        droppable: true, // this allows things to be dropped onto the calendar
+                    //                        drop: function() {
+                    //
+                    //                            // is the "remove after drop" checkbox checked?
+                    //                            if ($('#checkbox2').is(':checked')) {
+                    //                                // if so, remove the element from the "Draggable Events" list
+                    //                                $(this).remove();
+                    //                            }
+                    //                        },
+                    selectable: true,
+                    selectHelper: true,
+                    select: function select(start, end, allDay) {
+                        start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                        end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                        var title = prompt("Enter Event Title");
+
+                        var formData = new FormData();
+                        formData.append('title', title);
+                        formData.append('start', start);
+                        formData.append('end', end);
+                        var self = this;
+
+                        axios.get('test-api', formData).then(function (res) {
+                            self.title = res.data.title;
+                            calender.fullCalendar('refetchEvents');
+                        });
+                    },
+                    events: [{
+                        title: this.title,
+                        start: '2016-09-03T13:00:00',
+                        constraint: 'businessHours',
+                        borderColor: '#FC6180',
+                        backgroundColor: '#FC6180',
+                        textColor: '#fff'
+                    }, {
+                        title: 'Meeting',
+                        start: '2016-09-13T11:00:00',
+                        constraint: 'availableForMeeting',
+                        editable: true,
+                        borderColor: '#4680ff',
+                        backgroundColor: '#4680ff',
+                        textColor: '#fff'
+                    }, {
+                        title: 'Conference',
+                        start: '2016-09-18',
+                        end: '2016-09-20',
+                        borderColor: '#93BE52',
+                        backgroundColor: '#93BE52',
+                        textColor: '#fff'
+                    }, {
+                        title: 'Party',
+                        start: '2016-09-29T20:00:00',
+                        borderColor: '#FFB64D',
+                        backgroundColor: '#FFB64D',
+                        textColor: '#fff'
+                    },
+
+                    // areas where "Meeting" must be dropped
+                    {
+                        id: 'availableForMeeting',
+                        start: '2016-09-11T10:00:00',
+                        end: '2016-09-11T16:00:00',
+                        rendering: 'background',
+                        borderColor: '#ab7967',
+                        backgroundColor: '#ab7967',
+                        textColor: '#fff'
+                    }, {
+                        id: 'availableForMeeting',
+                        start: '2016-09-13T10:00:00',
+                        end: '2016-09-13T16:00:00',
+                        rendering: 'background',
+                        borderColor: '#39ADB5',
+                        backgroundColor: '#39ADB5',
+                        textColor: '#fff'
+                    },
+
+                    // red areas where no events can be dropped
+                    {
+                        start: '2016-09-24',
+                        end: '2016-09-28',
+                        overlap: false,
+                        rendering: 'background',
+                        borderColor: '#FFB64D',
+                        backgroundColor: '#FFB64D',
+                        color: '#d8d6d6'
+                    }, {
+                        start: '2016-09-06',
+                        end: '2016-09-08',
+                        overlap: false,
+                        rendering: 'background',
+                        borderColor: '#ab7967',
+                        backgroundColor: '#ab7967',
+                        color: '#d8d6d6'
+                    }]
+                });
+            });
         }
-    }
+    },
+
+    computed: {}
 
 });
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "page-wrapper full-calender" }, [
+    _c("div", { staticClass: "page-header" }, [
+      _c("div", { staticClass: "row align-items-end" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4" }, [
+          _c("div", { staticClass: "page-header-breadcrumb" }, [
+            _c(
+              "ul",
+              { staticClass: "breadcrumb-title" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "breadcrumb-item", attrs: { to: _vm.sub } },
+                  [
+                    _c("a", { attrs: { href: "#!" } }, [
+                      _vm._v("Create Subscription")
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3)
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-8" }, [
+      _c("div", { staticClass: "page-header-title" }, [
+        _c("div", { staticClass: "d-inline" }, [
+          _c("h4", [_vm._v("Subscriptions")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "breadcrumb-item" }, [
+      _c("a", { attrs: { href: "index.html" } }, [
+        _c("i", { staticClass: "feather icon-home" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-body" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("h5", [_vm._v("Segment Calender")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-header-right" }, [
+            _c("ul", { staticClass: "list-unstyled card-option" }, [
+              _c("li", [
+                _c("i", { staticClass: "feather icon-maximize full-card" })
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("i", { staticClass: "feather icon-minus minimize-card" })
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("i", { staticClass: "feather icon-trash-2 close-card" })
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-block" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-xl-2 col-md-12" }, [
+              _c("div", { attrs: { id: "external-events" } }, [
+                _c("h6", { staticClass: "m-b-30 m-t-20" }, [
+                  _vm._v("Subscriptions")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
+                  [_vm._v("My Event 1")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
+                  [_vm._v("My Event 2")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
+                  [_vm._v("My Event 3")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
+                  [_vm._v("My Event 4")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
+                  [_vm._v("My Event 5")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "checkbox-fade fade-in-primary m-t-10" },
+                  [
+                    _c("label", [
+                      _c("input", { attrs: { type: "checkbox", value: "" } }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "cr" }, [
+                        _c("i", {
+                          staticClass:
+                            "cr-icon icofont icofont-ui-check txt-primary"
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Remove After Drop")])
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-xl-10 col-md-12" }, [
+              _c("div", { attrs: { id: "calendar" } })
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-error" }, [
+      _c("div", { staticClass: "card text-center" }, [
+        _c("div", { staticClass: "card-block" }, [
+          _c("div", { staticClass: "m-t-10" }, [
+            _c("i", {
+              staticClass: "icofont icofont-warning text-white bg-c-yellow"
+            }),
+            _vm._v(" "),
+            _c("h4", { staticClass: "f-w-600 m-t-25" }, [
+              _vm._v("Not supported")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-muted m-b-0" }, [
+              _vm._v("Full Calender not supported in this device")
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-485ed3fa", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-d3211254", module.exports)
   }
 }
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(215)
+var __vue_script__ = __webpack_require__(216)
 /* template */
-var __vue_template__ = __webpack_require__(216)
+var __vue_template__ = __webpack_require__(217)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -60605,7 +61062,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60775,7 +61232,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -60967,59 +61424,68 @@ if (false) {
 }
 
 /***/ }),
-/* 217 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(218)
-/* template */
-var __vue_template__ = __webpack_require__(219)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/subscriptions/selectRateAndTime.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9a562ef0", Component.options)
-  } else {
-    hotAPI.reload("data-v-9a562ef0", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 218 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61155,7 +61621,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             segments_data: [],
             selSegment: '',
             selMedia: '',
-            print_segments: []
+            print_segments: [],
+            segments: [{
+                'seg': '08:00am-09:930am',
+                'rt1': 'GHC400',
+                'rt2': 'GHC800',
+                'rt3': 'GHC900',
+                'rt4': 'GHC200',
+                'rt5': 'GHC500,'
+            }, {
+                'seg': '10:00am-11:00am',
+                'rt1': 'GHC700',
+                'rt2': 'GHC900',
+                'rt3': 'GHC1200',
+                'rt4': 'GH1400',
+                'rt5': 'GHC700'
+            }],
+            day: 'Monday'
         };
     },
 
@@ -61234,230 +61716,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page-wrapper" }, [
-    _c("div", { staticClass: "page-header" }, [
-      _c("div", { staticClass: "row align-items-end" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _c("div", { staticClass: "page-header-breadcrumb" }, [
-            _c("ul", { staticClass: "breadcrumb-title" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade",
+      staticStyle: { "margin-left": "220px" },
+      attrs: { id: "mol", tabindex: "-1", role: "dialog" }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
+        [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c("h4", { staticClass: "modal-title" }, [
+                _c("b", { staticClass: "text-danger" }, [
+                  _vm._v(_vm._s(_vm.segData[1]))
+                ]),
                 _vm._v(
-                  "\n                            " +
-                    _vm._s(_vm.getSelectMedia) +
-                    "\n                        "
+                  "- " + _vm._s(_vm.segData[3].rate_card_title) + " rate card"
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "breadcrumb-item",
-                  staticStyle: { color: "#9e1317" }
-                },
-                [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(_vm.getRateCardTitle) +
-                      "\n                        "
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _vm._v(
-                  "\n                            " +
-                    _vm._s(_vm.segmentDay) +
-                    " - " +
-                    _vm._s(_vm.segDate) +
-                    "\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "li",
-                {
-                  staticClass: "breadcrumb-item",
-                  staticStyle: { color: "#9e1317" }
-                },
-                [
-                  _vm._v(
-                    "\n                            " +
-                      _vm._s(_vm.selSegments) +
-                      "\n                        "
-                  )
-                ]
-              )
-            ])
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.getProcessStatus,
-            expression: "getProcessStatus"
-          }
-        ],
-        staticClass: "default-grid row"
-      },
-      [_c("show-processing")],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "page-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: " col-md-12 col-sm-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }),
+              _vm._m(0)
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-block" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: " col-md-12 col-sm-12" }, [
-                  _c("h4", { staticClass: "sub-title" }, [
-                    _vm._v("Select Rate")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-block table-border-style" }, [
-                    _c("div", { staticClass: "table-responsive" }, [
-                      _c("table", { staticClass: "table table-bordered" }, [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("tbody", [
-                          _c("tr", [
-                            _c("th", { attrs: { scope: "row" } }, [
-                              _vm._v("1")
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.segmentDay))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(_vm.selSegments))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.selSegment,
-                                      expression: "selSegment"
-                                    }
-                                  ],
-                                  staticClass:
-                                    "form-control form-control-primary",
-                                  attrs: { name: "select" },
-                                  on: {
-                                    change: function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.selSegment = $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    }
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "option",
-                                    {
-                                      attrs: {
-                                        disabled: "",
-                                        value: "",
-                                        selected: ""
-                                      }
-                                    },
-                                    [_vm._v("1")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("option", [_vm._v("2")])
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(2),
-                            _vm._v(" "),
-                            _vm._m(3),
-                            _vm._v(" "),
-                            _vm._m(4),
-                            _vm._v(" "),
-                            _vm._m(5),
-                            _vm._v(" "),
-                            _vm._m(6)
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "table-responsive" }, [
+                _c("table", { staticClass: "table table-bordered" }, [
+                  _vm._m(1),
                   _vm._v(" "),
                   _c(
-                    "div",
-                    { staticStyle: { "padding-top": "20px" } },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-mat btn-info",
-                          attrs: { to: _vm.selSegment_url }
-                        },
-                        [_vm._v("Back")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-mat btn-inverse ",
-                          attrs: { to: _vm.invoice }
-                        },
-                        [_vm._v("Next")]
-                      )
-                    ],
-                    1
+                    "tbody",
+                    _vm._l(_vm.segments, function(seg, index) {
+                      return _c("tr", [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(seg.seg))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.selSegment,
+                                  expression: "selSegment"
+                                }
+                              ],
+                              staticClass: "form-control form-control-primary",
+                              attrs: { name: "select" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.selSegment = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                {
+                                  attrs: {
+                                    disabled: "",
+                                    value: "",
+                                    selected: ""
+                                  }
+                                },
+                                [_vm._v("1")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", [_vm._v("2")])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(seg.rt1))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(seg.rt2))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(seg.rt3))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(seg.rt4))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(seg.rt5))])
+                      ])
+                    })
                   )
                 ])
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2)
           ])
-        ])
-      ])
-    ])
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-8" }, [
-      _c("div", { staticClass: "page-header-title" }, [
-        _c("div", { staticClass: "d-inline" }, [
-          _c("h4", [_vm._v("Rate selection form")]),
-          _vm._v(" "),
-          _c("span", [
-            _vm._v("Which segments do you want to "),
-            _c("code", [_vm._v("Publish  ")]),
-            _vm._v(", Select rate  to get continue.")
-          ])
-        ])
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   },
   function() {
     var _vm = this
@@ -61466,8 +61854,6 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", { staticStyle: { background: "#36475F", color: "#ffffff" } }, [
         _c("th", [_vm._v("#")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Day")]),
         _vm._v(" "),
         _c("th", [_vm._v("Segment")]),
         _vm._v(" "),
@@ -61489,45 +61875,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "rate" } }),
-      _vm._v(" GHC 400 ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "rate" } }),
-      _vm._v(" GHC 700 ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "rate" } }),
-      _vm._v(" GHC 1200 ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "rate" } }),
-      _vm._v(" GHC 1400 ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("input", { attrs: { type: "radio", name: "rate" } }),
-      _vm._v(" GHC 1700 ")
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default waves-effect ",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary waves-effect waves-light ",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Save")]
+      )
     ])
   }
 ]
@@ -61681,6 +62046,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -61700,14 +62067,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             selSegment: '',
             selMedia: '',
             print_segments: [],
-            title: '',
+            title: 'meet Francis',
             start: '',
-            end: ''
+            end: '',
+            sub_date: '',
+            day: '',
+            segments: []
         };
     },
 
     methods: {
         calender: function calender() {
+            var self = this;
+
             $(document).ready(function () {
                 $('#external-events .fc-event').each(function () {
 
@@ -61747,94 +62119,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     selectable: true,
                     selectHelper: true,
                     select: function select(start, end, allDay) {
-                        start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                        end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                        var title = prompt("Enter Event Title");
+                        $('#segmentTitle').modal('show');
+
+                        if (self.segTitle !== '') {
+                            var dat = $.fullCalendar.formatDate(start, "Y-MM-DD ");
+                            start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                            self.start = start;
+                            end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                            self.end = end;
+
+                            self.sub_date = dat.split("-").join("/");
+                            self.getSelDay(self.sub_date);
+                            console.log(self.sub_date);
+                            var segments = [{ 'title': self.title, start: start, constraint: 'businessHours', borderColor: '#FC6180', background: '#FC6180', textColor: '#fff' }];
+                            console.log(self.segTitle);
+                            calender.fullCalendar('refetchEvents');
+                        } else {
+                            console.log('titlel is empty');
+                        }
 
                         var formData = new FormData();
-                        formData.append('title', title);
+                        // formData.append('title',title);
                         formData.append('start', start);
                         formData.append('end', end);
-                        var self = this;
 
-                        axios.get('test-api', formData).then(function (res) {
-                            self.title = res.data.title;
-                            calender.fullCalendar('refetchEvents');
-                        });
+                        // axios.get('test-api',formData).then(function (res) {
+                        //     self.title = res.data.title;
+                        // });
                     },
                     events: [{
-                        title: this.title,
-                        start: '2016-09-03T13:00:00',
+                        title: self.segTitle,
+                        start: '2019-01-20',
                         constraint: 'businessHours',
                         borderColor: '#FC6180',
                         backgroundColor: '#FC6180',
                         textColor: '#fff'
-                    }, {
-                        title: 'Meeting',
-                        start: '2016-09-13T11:00:00',
-                        constraint: 'availableForMeeting',
-                        editable: true,
-                        borderColor: '#4680ff',
-                        backgroundColor: '#4680ff',
-                        textColor: '#fff'
-                    }, {
-                        title: 'Conference',
-                        start: '2016-09-18',
-                        end: '2016-09-20',
-                        borderColor: '#93BE52',
-                        backgroundColor: '#93BE52',
-                        textColor: '#fff'
-                    }, {
-                        title: 'Party',
-                        start: '2016-09-29T20:00:00',
-                        borderColor: '#FFB64D',
-                        backgroundColor: '#FFB64D',
-                        textColor: '#fff'
-                    },
-
-                    // areas where "Meeting" must be dropped
-                    {
-                        id: 'availableForMeeting',
-                        start: '2016-09-11T10:00:00',
-                        end: '2016-09-11T16:00:00',
-                        rendering: 'background',
-                        borderColor: '#ab7967',
-                        backgroundColor: '#ab7967',
-                        textColor: '#fff'
-                    }, {
-                        id: 'availableForMeeting',
-                        start: '2016-09-13T10:00:00',
-                        end: '2016-09-13T16:00:00',
-                        rendering: 'background',
-                        borderColor: '#39ADB5',
-                        backgroundColor: '#39ADB5',
-                        textColor: '#fff'
-                    },
-
-                    // red areas where no events can be dropped
-                    {
-                        start: '2016-09-24',
-                        end: '2016-09-28',
-                        overlap: false,
-                        rendering: 'background',
-                        borderColor: '#FFB64D',
-                        backgroundColor: '#FFB64D',
-                        color: '#d8d6d6'
-                    }, {
-                        start: '2016-09-06',
-                        end: '2016-09-08',
-                        overlap: false,
-                        rendering: 'background',
-                        borderColor: '#ab7967',
-                        backgroundColor: '#ab7967',
-                        color: '#d8d6d6'
                     }]
                 });
             });
+        },
+        getSelDay: function getSelDay(date) {
+            var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            // let selDay =  $('.sub_date').val();
+            //segment date
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentDate', date);
+            // this.sub_date = dat.split("/").join("-");
+            var d = new Date(date);
+            this.day = days[d.getDay() - 1];
+            console.log(this.day);
+            //selected segment day
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelSegmentDay', this.day);
         }
     },
 
-    computed: {}
+    computed: {
+        segTitle: function segTitle() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+        }
+    }
 
 });
 
@@ -61846,38 +62188,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page-wrapper full-calender" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticStyle: { "padding-top": "20px" } },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-mat btn-info",
-            attrs: { to: _vm.selSegment_url }
-          },
-          [_vm._v("Back")]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-mat btn-inverse ",
-            attrs: { to: _vm.invoice }
-          },
-          [_vm._v("Next")]
-        )
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "page-wrapper full-calender" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticStyle: { "padding-top": "20px" } },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-mat btn-info",
+              attrs: { to: _vm.selSegment_url }
+            },
+            [_vm._v("Back")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-mat btn-secondary ",
+              attrs: { to: _vm.invoice }
+            },
+            [_vm._v("save")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-mat btn-inverse ",
+              attrs: { to: _vm.invoice }
+            },
+            [_vm._v("Next")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("segment-title"),
+      _vm._v(" "),
+      _c("segments")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -61947,37 +62307,13 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-xl-2 col-md-12" }, [
               _c("div", { attrs: { id: "external-events" } }, [
                 _c("h6", { staticClass: "m-b-30 m-t-20" }, [
-                  _vm._v("Subscriptions")
+                  _vm._v("Subscription lists")
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
                   { staticClass: "fc-event ui-draggable ui-draggable-handle" },
                   [_vm._v("My Event 1")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 2")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 3")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 4")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 5")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -64807,43 +65143,14 @@ if (false) {
 
 /***/ }),
 /* 261 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 262 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(281)
+var __vue_script__ = __webpack_require__(262)
 /* template */
-var __vue_template__ = __webpack_require__(282)
+var __vue_template__ = __webpack_require__(263)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -64860,7 +65167,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/subscriptions/subscriptions.vue"
+Component.options.__file = "resources/assets/js/components/subscriptions/subs.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -64869,9 +65176,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d3211254", Component.options)
+    hotAPI.createRecord("data-v-485ed3fa", Component.options)
   } else {
-    hotAPI.reload("data-v-d3211254", Component.options)
+    hotAPI.reload("data-v-485ed3fa", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -64882,7 +65189,3507 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 281 */
+/* 262 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'sub',
+    data: function data() {
+        return {};
+    },
+
+    methods: {},
+    computed: {
+        processing: function processing() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+        }
+    }
+
+});
+
+/***/ }),
+/* 263 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-485ed3fa", module.exports)
+  }
+}
+
+/***/ }),
+/* 264 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(265)
+/* template */
+var __vue_template__ = __webpack_require__(266)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/tests/modals.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3ce5caaa", Component.options)
+  } else {
+    hotAPI.reload("data-v-3ce5caaa", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 265 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'modals'
+});
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-body button-page" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [_vm._v("Static Example")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block" }, [
+              _c("div", { staticClass: "bd-example bd-example-modal" }, [
+                _c("div", { staticClass: "modal" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog",
+                      attrs: { role: "document" }
+                    },
+                    [
+                      _c("div", { staticClass: "modal-content" }, [
+                        _c("div", { staticClass: "modal-header" }, [
+                          _c("h5", { staticClass: "modal-title" }, [
+                            _vm._v("Modal title")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "close",
+                              attrs: {
+                                type: "button",
+                                "data-dismiss": "modal",
+                                "aria-label": "Close"
+                              }
+                            },
+                            [
+                              _c("span", { attrs: { "aria-hidden": "true" } }, [
+                                _vm._v("×")
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-body" }, [
+                          _c("p", [_vm._v("Modal body text goes here.")])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "modal-footer" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-secondary mobtn",
+                              attrs: { type: "button", "data-dismiss": "modal" }
+                            },
+                            [_vm._v("Close")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary mobtn",
+                              attrs: { type: "button" }
+                            },
+                            [_vm._v("Save changes")]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12 col-md-12  col-sm-12 col-xl-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [_vm._v("Bootstrap Modals")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block" }, [
+              _c("p", [
+                _vm._v("use code"),
+                _c("code", [_vm._v(" modal-lg, modal-sm")]),
+                _vm._v(" to use large and small popup modal.")
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-default waves-effect",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#default-Modal"
+                      }
+                    },
+                    [_vm._v("Static")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "default-Modal",
+                        tabindex: "-1",
+                        role: "dialog"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-header" }, [
+                              _c("h4", { staticClass: "modal-title" }, [
+                                _vm._v("Modal title")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "close",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                    "aria-label": "Close"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("h5", [_vm._v("Static Modal")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing"
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default waves-effect ",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal"
+                                  }
+                                },
+                                [_vm._v("Close")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-primary waves-effect waves-light ",
+                                  attrs: { type: "button" }
+                                },
+                                [_vm._v("Save changes")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary waves-effect",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#large-Modal"
+                      }
+                    },
+                    [_vm._v("Large")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      staticStyle: { width: "1500px" },
+                      attrs: {
+                        id: "large-Modal",
+                        tabindex: "-1",
+                        role: "dialog"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog modal-lg",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-header" }, [
+                              _c("h4", { staticClass: "modal-title" }, [
+                                _vm._v("Modal title")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "close",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                    "aria-label": "Close"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("h5", [_vm._v("Default Modal")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velitqwedqweqweqw eqweqweqweqweqweqweqw weqweqweqweqweqweqweqw eqweqwemqweqweqweqwe qweqwe qwe qwe qwe qweqweqw eqw eqw eqw eqw  auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit."
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default waves-effect ",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal"
+                                  }
+                                },
+                                [_vm._v("Close")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-primary waves-effect waves-light ",
+                                  attrs: { type: "button" }
+                                },
+                                [_vm._v("Save changes")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success waves-effect",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#small-Modal"
+                      }
+                    },
+                    [_vm._v("Small")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "small-Modal",
+                        tabindex: "-1",
+                        role: "dialog"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog modal-sm",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-header" }, [
+                              _c("h4", { staticClass: "modal-title" }, [
+                                _vm._v("Modal title")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "close",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                    "aria-label": "Close"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c("h5", [_vm._v("Small Modal")]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "Lorem ipsum dolor sit amet, consectetur adipiscing ."
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default waves-effect ",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal"
+                                  }
+                                },
+                                [_vm._v("Close")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-12 col-xl-6" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [_vm._v("Custom Modals")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block" }, [
+              _c("p", [
+                _vm._v(
+                  "use custom modals tabs, overflow, lightbox, Multi modal."
+                )
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning waves-effect",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#Modal-tab"
+                      }
+                    },
+                    [_vm._v("Tabs")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade modal-flex",
+                      attrs: { id: "Modal-tab", tabindex: "-1", role: "dialog" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "close",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                    "aria-label": "Close"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "ul",
+                                {
+                                  staticClass: "nav nav-tabs",
+                                  attrs: { role: "tablist" }
+                                },
+                                [
+                                  _c("li", { staticClass: "nav-item" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "nav-link active",
+                                        attrs: {
+                                          "data-toggle": "tab",
+                                          href: "#tab-home",
+                                          role: "tab"
+                                        }
+                                      },
+                                      [_vm._v("Home")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "nav-item" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "nav-link",
+                                        attrs: {
+                                          "data-toggle": "tab",
+                                          href: "#tab-profile",
+                                          role: "tab"
+                                        }
+                                      },
+                                      [_vm._v("Profile")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "nav-item" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "nav-link",
+                                        attrs: {
+                                          "data-toggle": "tab",
+                                          href: "#tab-messages",
+                                          role: "tab"
+                                        }
+                                      },
+                                      [_vm._v("Messages")]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "nav-item" }, [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "nav-link",
+                                        attrs: {
+                                          "data-toggle": "tab",
+                                          href: "#tab-settings",
+                                          role: "tab"
+                                        }
+                                      },
+                                      [_vm._v("Settings")]
+                                    )
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tab-content modal-body" },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "tab-pane active",
+                                      attrs: {
+                                        id: "tab-home",
+                                        role: "tabpanel"
+                                      }
+                                    },
+                                    [
+                                      _c("h6", [_vm._v("Home")]),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _vm._v(
+                                          "Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing"
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "tab-pane",
+                                      attrs: {
+                                        id: "tab-profile",
+                                        role: "tabpanel"
+                                      }
+                                    },
+                                    [
+                                      _c("h6", [_vm._v("Profile")]),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _vm._v(
+                                          "Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing"
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "tab-pane",
+                                      attrs: {
+                                        id: "tab-messages",
+                                        role: "tabpanel"
+                                      }
+                                    },
+                                    [
+                                      _c("h6", [_vm._v("Messages")]),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _vm._v(
+                                          "Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing"
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "tab-pane",
+                                      attrs: {
+                                        id: "tab-settings",
+                                        role: "tabpanel"
+                                      }
+                                    },
+                                    [
+                                      _c("h6", [_vm._v("Settings")]),
+                                      _vm._v(" "),
+                                      _c("p", [
+                                        _vm._v(
+                                          "Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing"
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger waves-effect",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#Modal-overflow"
+                      }
+                    },
+                    [_vm._v("Overflow")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade modal-flex",
+                      attrs: {
+                        id: "Modal-overflow",
+                        tabindex: "-1",
+                        role: "dialog"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c(
+                              "div",
+                              { staticClass: "modal-body model-container" },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "close",
+                                    attrs: {
+                                      type: "button",
+                                      "data-dismiss": "modal",
+                                      "aria-label": "Close"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "span",
+                                      { attrs: { "aria-hidden": "true" } },
+                                      [_vm._v("×")]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("h5", { staticClass: "font-header" }, [
+                                  _vm._v("Some text above the scrollable box")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _vm._v(
+                                    "This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit."
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "overflow-container" },
+                                  [_c("h5", [_vm._v("Overflow container")])]
+                                ),
+                                _vm._v(" "),
+                                _c("img", {
+                                  staticClass: "img img-fluid",
+                                  attrs: {
+                                    src:
+                                      "https://colorlib.com//polygon/adminty/files/assets/images/Modal/overflow.jpg",
+                                    alt: ""
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "p-t-15" }, [
+                                  _vm._v(
+                                    "Similique velit aut et cumque illum consequatur doloribus quis ipsam sunt sint qui impedit nihil voluptate animi nesciunt corporis aspernatur quaerat sed rem voluptas commodi magnam porro eum sunt quis ullam aut odit laudantium quia soluta corrupti aut qui officiis hic voluptatibus aut itaque voluptates qui expedita minus autem aliquid et debitis omnis provident quia voluptate illo tempora illum maiores perferendis dolorem recusandae ut reprehenderit ad est eum occaecati quam non et quod amet illo id doloremque vitae porro porro sit amet voluptatem quia laboriosam aliquam quia quis facilis eveniet dolorum sunt neque rerum earum ut eaque ab tenetur quia nam quis rerum cumque eos excepturi nostrum qui distinctio porro enim vitae eligendi accusantium quia possimus et autem error repellendus vitae ad quia laborum minima autem nulla optio ad ea nobis animi illo voluptates cum recusandae temporibus voluptate amet quam excepturi odio quia suscipit inventore et rerum quos rerum aut doloribus aut consequatur earum impedit reiciendis saepe voluptates exercitationem maxime culpa saepe ducimus culpa ut aliquam magnam aut veniam sit totam architecto vel distinctio aspernatur aut qui labore quaerat rerum voluptatem sapiente sint sed explicabo et hic laboriosam sit nesciunt et minus et aut dignissimos ut porro incidunt sint et nihil id tempora aut et illum molestiae aperiam minus earum repellendus tempora illo itaque amet facilis quia rem iure quod corrupti dolores et sequi sunt ipsa labore quia unde qui blanditiis ut eos at quia beatae sit repellat quibusdam neque natus expedita sed perspiciatis atque quas voluptatem autem velit enim qui omnis molestiae et repellat sapiente corporis ipsam sed veritatis in quo quod et occaecati quia rerum iusto cumque accusamus numquam sunt quo sequi id molestiae consequatur doloribus molestiae autem nisi nostrum blanditiis et nihil sed nobis incidunt omnis quos minima eius quo accusamus qui ea minus aut est tempora quia inventore ad delectus vel et accusamus fuga eius ipsa aliquam alias sint maxime quae enim atque corrupti libero eos nesciunt et voluptas velit numquam illo non qui quaerat enim omnis et ex asperiores inventore quisquam est enim labore ut nobis consequatur fuga ut quo vel molestiae alias eius quod aspernatur laudantium pariatur eius fuga inventore esse at alias repudiandae perspiciatis id qui fuga consequatur recusandae atque iste commodi sapiente eaque labore ipsa aut sint quo vel recusandae ab iusto ducimus minus voluptas ex et illo commodi ipsa pariatur qui quae adipisci saepe dicta delectus nostrum illum incidunt laboriosam est maxime eum debitis et explicabo quia doloribus quod occaecati tempore tempora labore nihil enim recusandae et dolorum temporibus molestiae sint non porro neque minus provident reprehenderit similique illum voluptate qui dicta dolorum totam quia ut nihil dolore fugiat laboriosam molestiae eveniet omnis consequatur non magni nemo consequatur laboriosam non facilis harum eaque illo pariatur rerum dolores quis autem nemo aut enim tenetur pariatur et non quam repudiandae quia aliquam sunt corporis aperiam natus aut reprehenderit non non illum cum laboriosam nulla quaerat eligendi laudantium perspiciatis."
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "p-15" }, [
+                              _c("h5", { staticClass: "font-header" }, [
+                                _vm._v("Some text above the scrollable box")
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(
+                                  "This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit."
+                                )
+                              ])
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info waves-effect",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#Modal-lightbox"
+                      }
+                    },
+                    [_vm._v("Light Box")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade",
+                      attrs: {
+                        id: "Modal-lightbox",
+                        tabindex: "-1",
+                        role: "dialog"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-body" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "close",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                    "aria-label": "Close"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "img img-fluid",
+                                attrs: {
+                                  src:
+                                    "https://colorlib.com//polygon/adminty/files/assets/images/Modal/overflow.jpg",
+                                  alt: ""
+                                }
+                              })
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success waves-effect m-b-10",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#myModal"
+                      }
+                    },
+                    [_vm._v("Multi Model")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal fade modal-flex",
+                      attrs: {
+                        id: "Modal-Multi",
+                        tabindex: "-1",
+                        role: "dialog"
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal-dialog",
+                          attrs: { role: "document" }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-content" }, [
+                            _c("div", { staticClass: "modal-header" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "close",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal",
+                                    "aria-label": "Close"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    { attrs: { "aria-hidden": "true" } },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("h4", { staticClass: "modal-title" }, [
+                                _vm._v("Modal title")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "modal-body text-center" },
+                              [
+                                _c("div", [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-default waves-effect m-t-20 ",
+                                      attrs: {
+                                        type: "button",
+                                        "data-toggle": "modal",
+                                        "data-target": "#meta-Modal"
+                                      }
+                                    },
+                                    [_vm._v("Click Here!")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "modal fade",
+                                    attrs: {
+                                      id: "meta-Modal",
+                                      tabindex: "-1",
+                                      role: "dialog"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "modal-dialog modal-sm",
+                                        attrs: { role: "document" }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "modal-content" },
+                                          [
+                                            _c(
+                                              "div",
+                                              { staticClass: "modal-header" },
+                                              [
+                                                _c(
+                                                  "h4",
+                                                  {
+                                                    staticClass: "modal-title"
+                                                  },
+                                                  [_vm._v("Modal title")]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "modal-body" },
+                                              [
+                                                _c("h5", [
+                                                  _vm._v("Small Modal")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("p", [
+                                                  _vm._v(
+                                                    "Lorem ipsum dolor sit amet, consectetur adipiscing ."
+                                                  )
+                                                ])
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "modal-footer" },
+                                              [
+                                                _c(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-default waves-effect",
+                                                    attrs: {
+                                                      type: "button",
+                                                      "data-dismiss": "modal"
+                                                    }
+                                                  },
+                                                  [_vm._v("Close")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "m-t-10" }, [
+                                  _vm._v(
+                                    "Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing"
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "modal-footer" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default waves-effect ",
+                                  attrs: {
+                                    type: "button",
+                                    "data-dismiss": "modal"
+                                  }
+                                },
+                                [_vm._v("Close")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-primary waves-effect waves-light ",
+                                  attrs: { type: "button" }
+                                },
+                                [_vm._v("Save changes")]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal fade", attrs: { id: "myModal" } },
+                    [
+                      _c("div", { staticClass: "modal-dialog" }, [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c("h4", { staticClass: "modal-title" }, [
+                              _vm._v("Modal 1")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal",
+                                  "aria-hidden": "true"
+                                }
+                              },
+                              [_vm._v("×")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "container" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _vm._v(
+                              "Content for the dialog / modal goes here.\n                                            "
+                            ),
+                            _c("p", { staticClass: "p-t-40 p-b-40" }, [
+                              _vm._v("more content")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  href: "#myModal2"
+                                }
+                              },
+                              [_vm._v("Launch modal")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn",
+                                attrs: { href: "#", "data-dismiss": "modal" }
+                              },
+                              [_vm._v("Close")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("Save changes")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal fade", attrs: { id: "myModal2" } },
+                    [
+                      _c("div", { staticClass: "modal-dialog" }, [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c("h4", { staticClass: "modal-title" }, [
+                              _vm._v("Modal 2")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal",
+                                  "aria-hidden": "true"
+                                }
+                              },
+                              [_vm._v("×")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "container" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _vm._v(
+                              "Content for the dialog / modal goes here.\n                                            "
+                            ),
+                            _c("p", { staticClass: "p-t-30 p-b-40" }, [
+                              _vm._v("come content")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  href: "#myModal3"
+                                }
+                              },
+                              [_vm._v("Launch modal")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn",
+                                attrs: { href: "#", "data-dismiss": "modal" }
+                              },
+                              [_vm._v("Close")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("Save changes")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal fade", attrs: { id: "myModal3" } },
+                    [
+                      _c("div", { staticClass: "modal-dialog" }, [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c("h4", { staticClass: "modal-title" }, [
+                              _vm._v("Modal 3")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal",
+                                  "aria-hidden": "true"
+                                }
+                              },
+                              [_vm._v("×")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "container" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _vm._v(
+                              "Content for the dialog / modal goes here.\n                                            "
+                            ),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  href: "#myModal4"
+                                }
+                              },
+                              [_vm._v("Launch modal")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn",
+                                attrs: { href: "#", "data-dismiss": "modal" }
+                              },
+                              [_vm._v("Close")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("Save changes")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "modal fade", attrs: { id: "myModal4" } },
+                    [
+                      _c("div", { staticClass: "modal-dialog" }, [
+                        _c("div", { staticClass: "modal-content" }, [
+                          _c("div", { staticClass: "modal-header" }, [
+                            _c("h4", { staticClass: "modal-title" }, [
+                              _vm._v("Modal 4")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "close",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal",
+                                  "aria-hidden": "true"
+                                }
+                              },
+                              [_vm._v("×")]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "container" }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-body" }, [
+                            _vm._v("Content for the dialog / modal goes here.")
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "modal-footer" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn",
+                                attrs: { href: "#", "data-dismiss": "modal" }
+                              },
+                              [_vm._v("Close")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("Save changes")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [_vm._v("Bootstrap Modals")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block" }, [
+              _c("p", [
+                _vm._v("use button"),
+                _c("code", [
+                  _vm._v(
+                    " onclick=\"_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);\""
+                  )
+                ]),
+                _vm._v(" to use effect.")
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary sweet-1 m-b-10",
+                      attrs: {
+                        type: "button",
+                        onclick:
+                          "_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);"
+                      }
+                    },
+                    [_vm._v("Basic")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success alert-success-msg m-b-10",
+                      attrs: {
+                        type: "button",
+                        onclick:
+                          "_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);"
+                      }
+                    },
+                    [_vm._v("Success")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning alert-confirm m-b-10",
+                      attrs: {
+                        type: "button",
+                        onclick:
+                          "_gaq.push(['_trackEvent', 'example', 'try', 'alert-confirm']);"
+                      }
+                    },
+                    [_vm._v("Confirm")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger alert-success-cancel m-b-10",
+                      attrs: {
+                        type: "button",
+                        onclick:
+                          "_gaq.push(['_trackEvent', 'example', 'try', 'alert-success-cancel']);"
+                      }
+                    },
+                    [_vm._v("Success or Cancel")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary alert-prompt m-b-10",
+                      attrs: {
+                        type: "button",
+                        onclick:
+                          "_gaq.push(['_trackEvent', 'example', 'try', 'alert-prompt']);"
+                      }
+                    },
+                    [_vm._v("Prompt")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success alert-ajax m-b-10",
+                      attrs: {
+                        type: "button",
+                        onclick:
+                          "_gaq.push(['_trackEvent', 'example', 'try', 'alert-ajax']);"
+                      }
+                    },
+                    [_vm._v("Ajax")]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [_vm._v("Bootstrap Modals")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block" }, [
+              _c("p", [
+                _vm._v("use button with class"),
+                _c("code", [_vm._v(" md-effect-1 to 18")]),
+                _vm._v(" to use effect.")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "animation-model" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-default btn-outline-default waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-1" }
+                  },
+                  [_vm._v("Fade in & Scale")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-primary btn-outline-primary waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-2" }
+                  },
+                  [_vm._v("Slide in (right)")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-success btn-outline-success waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-3" }
+                  },
+                  [_vm._v("Slide in (bottom)")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-warning btn-outline-warning waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-4" }
+                  },
+                  [_vm._v("Newspaper")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-danger btn-outline-danger waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-5" }
+                  },
+                  [_vm._v("Fall")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-info btn-outline-info waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-6" }
+                  },
+                  [_vm._v("Side Fall")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-default btn-outline-default waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-7" }
+                  },
+                  [_vm._v("Sticky Up")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-primary btn-outline-primary waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-8" }
+                  },
+                  [_vm._v("3D Flip (horizontal)")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-success btn-outline-success waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-9" }
+                  },
+                  [_vm._v("3D Flip (vertical)")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-warning btn-outline-warning waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-10" }
+                  },
+                  [_vm._v("3D Sign")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-danger btn-outline-danger waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-11" }
+                  },
+                  [_vm._v("Super Scaled")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-info btn-outline-info waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-12" }
+                  },
+                  [_vm._v("Just Me")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-primary btn-outline-primary waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-13" }
+                  },
+                  [_vm._v("3D Slit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-success btn-outline-success waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-14" }
+                  },
+                  [_vm._v("3D Rotate Bottom")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-warning btn-outline-warning waves-effect md-trigger",
+                    attrs: { type: "button", "data-modal": "modal-15" }
+                  },
+                  [_vm._v("3D Rotate In Left")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-danger btn-outline-danger waves-effect md-trigger md-setperspective",
+                    attrs: { type: "button", "data-modal": "modal-17" }
+                  },
+                  [_vm._v("Let me in")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-default btn-outline-default waves-effect md-trigger md-setperspective",
+                    attrs: { type: "button", "data-modal": "modal-18" }
+                  },
+                  [_vm._v("Make way!")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "btn btn-primary btn-outline-primary waves-effect md-trigger md-setperspective",
+                    attrs: { type: "button", "data-modal": "modal-19" }
+                  },
+                  [_vm._v("Slip from top")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-1",
+                    attrs: { id: "modal-1" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-2",
+                    attrs: { id: "modal-2" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-3",
+                    attrs: { id: "modal-3" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-4",
+                    attrs: { id: "modal-4" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-5",
+                    attrs: { id: "modal-5" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-6",
+                    attrs: { id: "modal-6" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-7",
+                    attrs: { id: "modal-7" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-8",
+                    attrs: { id: "modal-8" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-9",
+                    attrs: { id: "modal-9" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-10",
+                    attrs: { id: "modal-10" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-11",
+                    attrs: { id: "modal-11" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-12",
+                    attrs: { id: "modal-12" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [
+                        _c("span", { staticClass: "text-muted text-center" }, [
+                          _vm._v("Modal Dialog")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-13",
+                    attrs: { id: "modal-13" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-14",
+                    attrs: { id: "modal-14" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-15",
+                    attrs: { id: "modal-15" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-17",
+                    attrs: { id: "modal-17" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-18",
+                    attrs: { id: "modal-18" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-19",
+                    attrs: { id: "modal-19" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "md-modal md-effect-20",
+                    attrs: { id: "modal-20" }
+                  },
+                  [
+                    _c("div", { staticClass: "md-content" }, [
+                      _c("h3", [_vm._v("Modal Dialog")]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c("p", [
+                          _vm._v(
+                            "This is a modal window. You can do the following things with it:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("strong", [_vm._v("Read:")]),
+                            _vm._v(
+                              " modal windows will probably tell you something important so don't forget to read what they say."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Look:")]),
+                            _vm._v(
+                              " a modal window enjoys a certain kind of attention; just look at it and appreciate its presence."
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("strong", [_vm._v("Close:")]),
+                            _vm._v(
+                              " click on the button below to close the modal."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary waves-effect md-close",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Close")]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "md-overlay" })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3ce5caaa", module.exports)
+  }
+}
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(268)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(270)
+/* template */
+var __vue_template__ = __webpack_require__(271)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-c9f87496"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/subscriptions/segmentTitle.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c9f87496", Component.options)
+  } else {
+    hotAPI.reload("data-v-c9f87496", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(269);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("18deb3e8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c9f87496\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./segmentTitle.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-c9f87496\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./segmentTitle.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -64913,407 +68720,134 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'subscriptions',
-
-    mounted: function mounted() {},
-    created: function created() {
-        this.calender();
-    },
+    name: "segmentTitle",
     data: function data() {
         return {
-            invoice: '/user-account/create-sub-invoice',
-            segment_date: '/user-account/create-sub-date',
-            selSegment_url: '/user-account/select-segment',
-            segments_data: [],
-            selSegment: '',
-            selMedia: '',
-            print_segments: [],
-            title: '',
-            start: '',
-            end: '',
-            sub: '/user-account/subscriptions'
+            seg_title: ''
+
         };
+    },
+    created: function created() {
+        //this.segmentName();
     },
 
     methods: {
-        calender: function calender() {
-            $(document).ready(function () {
-                $('#external-events .fc-event').each(function () {
-
-                    // store data so the calendar knows to render an event upon drop
-                    $(this).data('event', {
-                        title: $.trim($(this).text()), // use the element's text as the event title
-                        stick: true // maintain when user navigates (see docs on the renderEvent method)
-                    });
-
-                    // make the event draggable using jQuery UI
-                    $(this).draggable({
-                        zIndex: 999,
-                        revert: true, // will cause the event to go back to its
-                        revertDuration: 0 //  original position after the drag
-                    });
-                });
-
-                var calender = $('#calendar').fullCalendar({
-                    header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'month,listMonth'
-                    },
-                    defaultDate: $('#calendar').fullCalendar('today'),
-                    navLinks: true, // can click day/week names to navigate views
-                    businessHours: true, // display business hours
-                    editable: true,
-                    //                        droppable: true, // this allows things to be dropped onto the calendar
-                    //                        drop: function() {
-                    //
-                    //                            // is the "remove after drop" checkbox checked?
-                    //                            if ($('#checkbox2').is(':checked')) {
-                    //                                // if so, remove the element from the "Draggable Events" list
-                    //                                $(this).remove();
-                    //                            }
-                    //                        },
-                    selectable: true,
-                    selectHelper: true,
-                    select: function select(start, end, allDay) {
-                        start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                        end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                        var title = prompt("Enter Event Title");
-
-                        var formData = new FormData();
-                        formData.append('title', title);
-                        formData.append('start', start);
-                        formData.append('end', end);
-                        var self = this;
-
-                        axios.get('test-api', formData).then(function (res) {
-                            self.title = res.data.title;
-                            calender.fullCalendar('refetchEvents');
-                        });
-                    },
-                    events: [{
-                        title: this.title,
-                        start: '2016-09-03T13:00:00',
-                        constraint: 'businessHours',
-                        borderColor: '#FC6180',
-                        backgroundColor: '#FC6180',
-                        textColor: '#fff'
-                    }, {
-                        title: 'Meeting',
-                        start: '2016-09-13T11:00:00',
-                        constraint: 'availableForMeeting',
-                        editable: true,
-                        borderColor: '#4680ff',
-                        backgroundColor: '#4680ff',
-                        textColor: '#fff'
-                    }, {
-                        title: 'Conference',
-                        start: '2016-09-18',
-                        end: '2016-09-20',
-                        borderColor: '#93BE52',
-                        backgroundColor: '#93BE52',
-                        textColor: '#fff'
-                    }, {
-                        title: 'Party',
-                        start: '2016-09-29T20:00:00',
-                        borderColor: '#FFB64D',
-                        backgroundColor: '#FFB64D',
-                        textColor: '#fff'
-                    },
-
-                    // areas where "Meeting" must be dropped
-                    {
-                        id: 'availableForMeeting',
-                        start: '2016-09-11T10:00:00',
-                        end: '2016-09-11T16:00:00',
-                        rendering: 'background',
-                        borderColor: '#ab7967',
-                        backgroundColor: '#ab7967',
-                        textColor: '#fff'
-                    }, {
-                        id: 'availableForMeeting',
-                        start: '2016-09-13T10:00:00',
-                        end: '2016-09-13T16:00:00',
-                        rendering: 'background',
-                        borderColor: '#39ADB5',
-                        backgroundColor: '#39ADB5',
-                        textColor: '#fff'
-                    },
-
-                    // red areas where no events can be dropped
-                    {
-                        start: '2016-09-24',
-                        end: '2016-09-28',
-                        overlap: false,
-                        rendering: 'background',
-                        borderColor: '#FFB64D',
-                        backgroundColor: '#FFB64D',
-                        color: '#d8d6d6'
-                    }, {
-                        start: '2016-09-06',
-                        end: '2016-09-08',
-                        overlap: false,
-                        rendering: 'background',
-                        borderColor: '#ab7967',
-                        backgroundColor: '#ab7967',
-                        color: '#d8d6d6'
-                    }]
-                });
-            });
+        displaySegment: function displaySegment() {
+            $('#mol').modal('show');
+            this.segmentName();
+        },
+        segmentName: function segmentName() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', this.seg_title);
         }
     },
-
-    computed: {}
+    computed: {
+        segTitle: function segTitle() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+        }
+    }
 
 });
 
 /***/ }),
-/* 282 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "page-wrapper full-calender" }, [
-    _c("div", { staticClass: "page-header" }, [
-      _c("div", { staticClass: "row align-items-end" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-4" }, [
-          _c("div", { staticClass: "page-header-breadcrumb" }, [
-            _c(
-              "ul",
-              { staticClass: "breadcrumb-title" },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  { staticClass: "breadcrumb-item", attrs: { to: _vm.sub } },
-                  [
-                    _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v("Create Subscription")
-                    ])
-                  ]
-                )
-              ],
-              1
-            )
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade",
+      attrs: { id: "segmentTitle", tabindex: "-1", role: "dialog" }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "modal-dialog modal-sm", attrs: { role: "document" } },
+        [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.seg_title,
+                      expression: "seg_title"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { placeholder: "Provide segment title" },
+                  domProps: { value: _vm.seg_title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.seg_title = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default waves-effect ",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary waves-effect ",
+                  attrs: { type: "button", "data-dismiss": "modal" },
+                  on: { click: _vm.displaySegment }
+                },
+                [_vm._v("Submit")]
+              )
+            ])
           ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _vm._m(3)
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-8" }, [
-      _c("div", { staticClass: "page-header-title" }, [
-        _c("div", { staticClass: "d-inline" }, [
-          _c("h4", [_vm._v("Subscriptions")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "breadcrumb-item" }, [
-      _c("a", { attrs: { href: "index.html" } }, [
-        _c("i", { staticClass: "feather icon-home" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-body" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("h5", [_vm._v("Segment Calender")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-header-right" }, [
-            _c("ul", { staticClass: "list-unstyled card-option" }, [
-              _c("li", [
-                _c("i", { staticClass: "feather icon-maximize full-card" })
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "feather icon-minus minimize-card" })
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("i", { staticClass: "feather icon-trash-2 close-card" })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-block" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-xl-2 col-md-12" }, [
-              _c("div", { attrs: { id: "external-events" } }, [
-                _c("h6", { staticClass: "m-b-30 m-t-20" }, [
-                  _vm._v("Subscriptions")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 1")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 2")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 3")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 4")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "fc-event ui-draggable ui-draggable-handle" },
-                  [_vm._v("My Event 5")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "checkbox-fade fade-in-primary m-t-10" },
-                  [
-                    _c("label", [
-                      _c("input", { attrs: { type: "checkbox", value: "" } }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "cr" }, [
-                        _c("i", {
-                          staticClass:
-                            "cr-icon icofont icofont-ui-check txt-primary"
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("Remove After Drop")])
-                    ])
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-xl-10 col-md-12" }, [
-              _c("div", { attrs: { id: "calendar" } })
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-error" }, [
-      _c("div", { staticClass: "card text-center" }, [
-        _c("div", { staticClass: "card-block" }, [
-          _c("div", { staticClass: "m-t-10" }, [
-            _c("i", {
-              staticClass: "icofont icofont-warning text-white bg-c-yellow"
-            }),
-            _vm._v(" "),
-            _c("h4", { staticClass: "f-w-600 m-t-25" }, [
-              _vm._v("Not supported")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted m-b-0" }, [
-              _vm._v("Full Calender not supported in this device")
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _vm._v("Provide segment title")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
   }
 ]
@@ -65322,9 +68856,21 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d3211254", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-c9f87496", module.exports)
   }
 }
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

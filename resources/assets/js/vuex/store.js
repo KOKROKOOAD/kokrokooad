@@ -34,6 +34,7 @@ const debug = process.env.NODE_ENV !== 'production';
        selMediaHouse : '',
        seg_date : '',
        selSegment : '',
+       segment_title : ''
 
     },
 
@@ -108,6 +109,9 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setSelSegment(state, payload){
              state.selSegment = payload;
+         },
+         setSegmentTitle(state,payload){
+             state.segment_title = payload;
          }
 
 
@@ -190,6 +194,9 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          getSelSegment(context, payload){
              context.commit('setSelSegment', payload);
+         },
+         getSegmentTitle(context, payload){
+            context.commit('setSegmentTitle', payload);
          }
      },
      getters:{
@@ -223,7 +230,11 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          selectedSegment(state){
              return state.selSegment;
+         },
+         segTitle(state){
+              return state.segment_title;
          }
+
 
 
      },

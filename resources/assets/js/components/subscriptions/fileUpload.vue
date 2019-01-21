@@ -48,7 +48,7 @@
                             <input type="file" name="files" id="filer_input1" ref="file" v-on:change="onFileChange($event)">
                             <div style="padding-top: 16px;">
                                 <router-link :to="select_media_house" role="button" type="button" class="btn btn-mat btn-inverse " >Back</router-link>
-                                <router-link :to="calender_url" role="button" type="button" class="btn btn-mat btn-info " >Next</router-link>
+                                <router-link :to="select_rate_card" role="button" type="button" class="btn btn-mat btn-info " >Next</router-link>
 
                             </div>
                         </div>
