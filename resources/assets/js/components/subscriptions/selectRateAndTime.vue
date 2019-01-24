@@ -130,6 +130,10 @@
                         </div>
                         <!--{{segments}}-->
                         <div class="modal-body">
+                            {{segTitle}}
+                            <div class="form-group">
+                                <input class="form-control" type="text" v-model="title" placeholder="Enter segment title  eg:short video  on  history of gold coast">
+                            </div>
                             <div class="table-responsive">
                             <table class="table table-bordered">
                             <thead>
@@ -164,7 +168,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary waves-effect waves-light ">Save</button>
+                            <button type="button" class="btn btn-primary waves-effect waves-light " @click="saveSegment(title)">Save</button>
                         </div>
                     </div>
                 </div>
@@ -175,6 +179,7 @@
     import  store from  '../../vuex/store';
 
     export default {
+        props :['saveSegment'],
         name : 'selectSegments',
 
         mounted(){
@@ -192,6 +197,7 @@
                 selSegment: '',
                 selMedia: '',
                 print_segments: [],
+                title : '',
                 segments: [{
                     'seg': '08:00am-09:930am',
                     'rt1': 'GHC400',
@@ -249,7 +255,11 @@
                         console.log(error);
                     });
                 },3000);
-            }
+            },
+            save(){
+                 store.dispatch('getSegmentTitle', this.title);
+                $('#mol').modal('hide');
+            },
         },
 
         computed:{
@@ -276,7 +286,10 @@
             },
             selSegments(){
                 return store.getters.selectedSegment;
-            }
+            },
+            segTitle(){
+                return store.getters.segTitle;
+            },
         },
 
     }

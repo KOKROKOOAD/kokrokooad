@@ -28,6 +28,7 @@
         <div class="card">
             <div class="card-header">
                 <h5>Segment Calender</h5>
+                {{day}}
                 <div class="card-header-right">
                     <ul class="list-unstyled card-option">
                         <li><i class="feather icon-maximize full-card"></i></li>
@@ -41,7 +42,8 @@
                     <div class="col-xl-2 col-md-12">
                         <div id="external-events">
                             <h6 class="m-b-30 m-t-20">Subscription lists</h6>
-                            <div class="fc-event ui-draggable ui-draggable-handle">My Event 1</div>
+
+                            <div v-for="event in eventLists" class="fc-event ui-draggable ui-draggable-handle">{{event.title}}</div>
 
                             <div class="checkbox-fade fade-in-primary m-t-10">
                                 <label>
@@ -51,11 +53,14 @@
                                                                     </span>
                                     <span>Remove After Drop</span>
                                 </label>
+                                <button class="btn btn-primary" @click="test">test</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-10 col-md-12">
-                        <div id='calendar'></div>
+                        <!--<div id='calendar'></div>-->
+                        <full-calendar ref="calendar" :config="config" :event-sources="eventSources" @day-click="daySelected"></full-calendar>
+
                     </div>
                 </div>
             </div>
@@ -80,7 +85,7 @@
         </div>
 
         <segment-title></segment-title>
-        <segments></segments>
+        <segments :saveSegment="saveSegmentData"></segments>
 
     </div>
 
@@ -88,7 +93,9 @@
 </template>
 
 <script>
+    "use strict";
     import  store from  '../../vuex/store';
+    import segmentTitle from "./segmentTitle";
 
     export default {
         name : 'fullcalender',
@@ -97,7 +104,8 @@
 
         },
         created(){
-           this.calender();
+            //let self = this;
+
         },
         data(){
             return {
@@ -108,104 +116,51 @@
                 selSegment : '',
                 selMedia : '',
                 print_segments : [],
-                title : 'meet Francis',
-                start : '',
-                end : '',
                 sub_date : '',
                 day : '',
                 segments : [],
+                selectedStartTime : null,
+                myTime : null,
+                myEvents : 'creating events',
+                eventLists : [],
+                config : {
+                    defaultDate: '2019-01-24',
+                    defaultView: 'month'
+                },
             }
         },
         methods: {
-
-            calender(){
-                let self = this;
-
-                $(document).ready(function() {
-                    $('#external-events .fc-event').each(function() {
-
-                        // store data so the calendar knows to render an event upon drop
-                        $(this).data('event', {
-                            title: $.trim($(this).text()), // use the element's text as the event title
-                            stick: true // maintain when user navigates (see docs on the renderEvent method)
-                        });
-
-                        // make the event draggable using jQuery UI
-                        $(this).draggable({
-                            zIndex: 999,
-                            revert: true, // will cause the event to go back to its
-                            revertDuration: 0 //  original position after the drag
-                        });
-
-                    });
-
-                  let calender =  $('#calendar').fullCalendar({
-                        header: {
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'month,listMonth'
-                        },
-                        defaultDate: $('#calendar').fullCalendar('today'),
-                        navLinks: true, // can click day/week names to navigate views
-                        businessHours: true, // display business hours
-                        editable: true,
-                        droppable: true, // this allows things to be dropped onto the calendar
-                        drop: function() {
-
-                            // is the "remove after drop" checkbox checked?
-                            if ($('#checkbox2').is(':checked')) {
-                                // if so, remove the element from the "Draggable Events" list
-                                $(this).remove();
-                            }
-                        },
-                        selectable : true,
-                        selectHelper : true,
-                        select : function (start,end,allDay) {
-                            $('#segmentTitle').modal('show');
-
-                            if(self.segTitle !== ''){
-                                 let dat  = $.fullCalendar.formatDate(start, "Y-MM-DD ");
-                                start  = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                                self.start = start;
-                                 end  = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                                 self.end = end;
-
-                                 self.sub_date = dat.split("-").join("/");
-                                 self.getSelDay(self.sub_date);
-                                 console.log(self.sub_date);
-                                 let segments = [{'title' : self.title,start: start,constraint: 'businessHours',borderColor:'#FC6180',background:'#FC6180',textColor : '#fff'}];
-                                console.log(self.segTitle);
-                                 calender.fullCalendar('refetchEvents');
-
-
-                             }
-                            else{
-                                console.log('titlel is empty');
-                            }
-
-                            let formData = new FormData();
-                            // formData.append('title',title);
-                            formData.append('start',start);
-                            formData.append('end',end);
-
-                            // axios.get('test-api',formData).then(function (res) {
-                            //     self.title = res.data.title;
-                            // });
-                        },
-                         events:
-                      [{
-                            title:  self.segTitle,
-                            start:  '2019-01-20',
-                            constraint: 'businessHours',
-                            borderColor: '#FC6180',
-                            backgroundColor: '#FC6180',
-                            textColor: '#fff'
-                        },
-                        ]
-                    });
-                });
-
+            refreshEvents() {
+                this.$refs.calendar.$emit('refetch-events');
             },
+            daySelected(date,jsEvent,view){
+                $('#mol').modal('show');
+                 this.selectedStartTime = date.format("YYYY-MM-DD HH:mm:ss");
+
+                // $(this).css('background-color', 'red');
+            },
+            saveSegmentData(title){
+                let self = this;
+                let formData = new FormData();
+                store.dispatch('getSegmentTitle', title);
+
+                formData.append('selDate',self.selectedStartTime);
+                formData.append('title',self.segTitle);
+                formData.append('events',self.myEvents);
+                axios.post('test-post',formData).then(function (response) {
+                    self.$refs.calendar.$emit('refetch-events');
+                });
+                $('#mol').modal('hide');
+            },
+            next() {
+                this.$refs.calendar.fireMethod('next')
+            },
+            changeView(view) {
+                this.$refs.calendar.fireMethod('changeView', view)
+            },
+
+
+
             getSelDay(date){
                 let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
                 // let selDay =  $('.sub_date').val();
@@ -217,9 +172,13 @@
                 console.log(this.day);
                 //selected segment day
                 store.dispatch('getSelSegmentDay', this.day);
+            },
+            test(){
+                axios.get('test-api').then(response => {
+                    console.log(response.data);
+                  //  callback(response.data.data)
+                });
             }
-
-
 
         },
 
@@ -227,6 +186,25 @@
             segTitle(){
                 return store.getters.segTitle;
             },
+            eventSources(){
+                return[
+                    {
+                        events(start,end,timezone,callback) {
+                            axios.get('test-api').then(function (res) {
+                                callback(res.data);
+                            });
+                        },
+                        color: 'blue',
+                        textColor : 'white',
+                    }
+                ]
+            },
+            eventRender: function(event, element) {
+                element.qtip({
+                    content: event.events
+                });
+            }
+
         },
 
     }

@@ -39,7 +39,7 @@
         },
         methods:{
             displaySegment(){
-                $('#mol').modal('show');
+
                 this.segmentName();
             },
             segmentName(){

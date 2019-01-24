@@ -38,10 +38,14 @@
 
 
 window.Vue = require('vue');
-
 import  VueRouter from 'vue-router';
 import {routes} from './vue-router/routes';
 Vue.use(VueRouter);
+
+import FullCalendar from 'vue-full-calendar'; //Import Full-calendar
+Vue.use(FullCalendar);
+
+
 
 const router  = new VueRouter({
     mode : 'history',
@@ -80,19 +84,6 @@ Vue.component('sub', require('./components/subscriptions/subs'));
 Vue.component('segments', require('./components/subscriptions/selectRateAndTime'));
 Vue.component('modals', require('./components/tests/modals'));
 Vue.component('segment-title', require('./components/subscriptions/segmentTitle'));
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 const app = new Vue({

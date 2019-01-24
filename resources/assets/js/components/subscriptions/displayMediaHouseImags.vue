@@ -206,6 +206,7 @@
                 store.dispatch('getProcessing', true);
 
                 axios.get('media-houses-api/' + self.getSelectMedia).then(function (res) {
+                    console.log(res.data);
                     setTimeout(function () {
                         //  self.mediaHouses = res.data;
                         if(res &&  res !== ''){

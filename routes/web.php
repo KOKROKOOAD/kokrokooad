@@ -93,6 +93,8 @@ Route::middleware(['auth'])->prefix('user-account')->group(function (){
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
 
     Route::get('test-api', 'SegmentController@api');
+    Route::post('test-post', 'SegmentController@apiPost');
+
 
     Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
     Route::post('api-payment','PaymentController@payment');

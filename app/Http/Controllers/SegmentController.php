@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MediaTypes;
 use App\Models\ProgramTitle;
+use App\MyEvents;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -47,9 +48,26 @@ class SegmentController extends Controller
 
 
     public function api(Request $request){
-        $data  = ['title'=>"in  a meeting",'start'=>"2016-09-07 00:00:00",'end'=> "2016-09-08 00:00:00"];
-  //  dd($data);
-        return  response()->json($data);
+        $events  = MyEvents::all();
+
+//        $data  = ['title'=>"meet joy",'start'=>"2019-01-24",'end'=> "2019-01-25",'color'=>'orange','textColor'=> 'white'];
+//        $data2 =['title'=>"Arrange meeting with Francis",'start'=>"2019-01-26",'end'=> "2019-01-27",'color'=>'red','textColor'=> 'white'];
+//        $data3 =['title'=>"play short ad in 20sec",'start'=>"2019-02-04",'end'=> "2019-02-07",'color'=>'red','textColor'=> 'white'];
+//        $data = ['title'=>$request->input('title'),'start'=> $request->input('selDat'),'end'=>'2019-01-24','color'=>'black','textColor'=> 'white'];
+//        $myData = array($data,$data2,$data3);
+//    //dd($data);
+        return  response()->json($events);
     }
+
+    public function apiPost(Request $request){
+        $events = MyEvents::create(['title'=>$request->input('title'),'start'=>$request->input('selDate'),'end'=>$request->input('selDate'),
+            'events'=> $request->input('events')]);
+        if($events){
+            return  response()->json('New event created successfully');
+
+        }
+
+    }
+
 
 }
