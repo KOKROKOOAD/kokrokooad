@@ -15,11 +15,13 @@
 // require('./dashboard/js/jquery.bootstrap.wizard');
 // require('./dashboard/js/lib/sweetalert/sweetalert.min');
 // require('./dashboard/js/core/jquery-ui');
-// require("./dashboard/js/jquery.validate.min");
+ require("./dashboard/js/jquery.validate.min");
 // require("./dashboard/js/notify.min");
-// require('jquery-validation');
+ require('jquery-validation');
 //require('./dashboard/js/multi-step-modal');
-//require('./dashboard/js/validations');
+require('./dashboard/js/validations');
+require('./calender/segment-validation');
+
 //require('./calender/calendar');
 
 // require('../dash/jquery-ui/jquery-ui.min');
@@ -32,9 +34,10 @@
 // require('../dash/js/pcoded.min');
 // require('../dash/js/vartical-layout.min');
 // require('../dash/js/pcoded.min');
-// require('../dash/js/script');
+require('../js/calender/notify');
+ require('../js/calender/script');
 // //require('../dash/js/jquery.mCustomScrollbar.concat.min');
-//
+
 
 
 window.Vue = require('vue');
@@ -84,6 +87,11 @@ Vue.component('sub', require('./components/subscriptions/subs'));
 Vue.component('segments', require('./components/subscriptions/selectRateAndTime'));
 Vue.component('modals', require('./components/tests/modals'));
 Vue.component('segment-title', require('./components/subscriptions/segmentTitle'));
+Vue.component('update-segment', require('./components/subscriptions/updateSegment'));
+Vue.component('home', require('./components/subscriptions/home'));
+Vue.component('print-rate-card', require('./components/subscriptions/printRateCare'));
+
+
 
 
 const app = new Vue({

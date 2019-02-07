@@ -82,18 +82,26 @@ Route::middleware(['auth'])->prefix('user-account')->group(function (){
     });
 
 
-    Route::post('ads-api/store', 'SubController@createSub');
+    Route::post('ads-store', 'SubController@createSub');
     Route::get('ads/media-api', 'SubController@loadMedia');
-    Route::get('ads/api', 'SubController@fetchAds');
+    Route::get('fetch-ads/api', 'SubController@fetchAds');
     Route::get('media-houses-api/{media}', 'SubController@fetchMediaHouse');
     Route::get('media-program-api/{mediaHouse}', 'SubController@fetchMediaProgram');
     Route::get('program-date-api/{mediaProgram}', 'SubController@fetchProgramDates');
-    Route::get('fetch-segments-titles/{mediaHouse}', 'SegmentController@fetchSegmentTitles');
+    Route::get('fetch-segments-titles/{id}', 'SegmentController@fetchSegmentTitles');
     Route::get('fetch-segments/{mediaHouse}/{segmentTitle}/{date}', 'SegmentController@fetchSegments');
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
+    Route::post('sub-update-api', 'SubController@updateAds');
 
     Route::get('test-api', 'SegmentController@api');
     Route::post('test-post', 'SegmentController@apiPost');
+    Route::post('test-update-event', 'SegmentController@eventUpdate');
+    Route::post('test-check-segment', 'SegmentController@eventCheck');
+    Route::post('check-sub/api','SubController@checkIfSubExist');
+    Route::get('fetch-transac/api','SubController@fetchUserTransac');
+
+
+
 
 
     Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');

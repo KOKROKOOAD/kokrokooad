@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Ads;
 use App\Events\SendAdCreatedMessageEvent;
 use App\Http\Requests\StoreAds;
+use App\Invoice;
+use App\Invoices;
 use App\Jobs\SendAdCreatedMessagedJob;
+use App\Models\ProgramTitle;
 use App\ScheduledAds;
+use App\Transactions;
 use App\TvRadioCardRates;
 use App\User;
 use Illuminate\Http\Request;
@@ -14,6 +18,7 @@ use Illuminate\Http\Response;
 
 use Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Spatie\PdfToImage\Pdf;
@@ -22,114 +27,173 @@ class SubController extends Controller
 
 {
 
+
+    // fetch media houses for selected media
+    public function fetchMediaHouse($media){
+        //  $media = $request->input('media');
+        $mediaHouses = User::select('client_id','media_house','logo','file_path')->where('media', '=', $media )->get();
+        return response()->json($mediaHouses);
+    }
+
+
+// create new subscriptions
     public function createSub(Request $request)
 
     {
 
-        $unique_id = uniqid('K',true);
-        if(Ads::where('subscription_id', '=',$unique_id)){
-            $unique_id = uniqid('K',true);
-        }
+        //$startDates = json_decode($request->input('startDate'));
+      //  $endDate = json_decode($request->input('endDate'));
+        $unique_id  = null;
+        $sub = null;
 
-//            $file = $request->file('image')->getClientOriginalExtension();
-//            dd($file);
-
-
-//        if( auth()->check() &&  $request->hasFile('uploadedFile') && $request->file('uploadedFile')->isValid()){
-//            $file_name = '';
-//           // $file = $request->file('file');
-//            $ext = $request->file('uploadedFile')->getClientOriginalName();
-//            dd($ext);
-//             }
-//        else{
-//            $file = 'NO FILE';
-//        }
+        // $event = MyEvents::select()->where('start','=',$request->input('startDate'))->get();
+//         foreach ($startDates as $key=>$value){
 //
-        if( auth()->check() && $request->hasFile('uploadedFile') && $request->file('uploadedFile')->isValid()){
+//             $sub = auth()->user()->scheduledAds->where('start','=',$value)->first();
+//         }
+//
+////        $sub = auth()->user()->scheduledAds->where('start','=',$request->input('startDate'))->first();
+//        if ($sub){
+//
+//            return response()->json($request->input('booked'));
+//        }
 
-            $file = $request->file('uploadedFile');
-            $name = $request->file('uploadedFile')->getClientOriginalName();
-            $ext = $request->file('uploadedFile')->getClientOriginalExtension();
-            $file_size = $request->file('uploadedFile')->getSize();
-            $mime_type = $request->file('uploadedFile')->getClientMimeType();
 
-            $thumbnailPath = public_path().'/thumbnails/';
-            $path = hash( 'sha256', time());
 
-                if(Storage::disk('uploads')){
-                    Storage::disk('uploads')->put($path.'.'.$ext,$name);
-                   // if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
-//                        $thumbnail = Image::make($file);
-//                        $thumbnail->resize(760,537);
-                       // $thumbnail->save($thumbnailPath.time().$name);
-                       /// $fileName = time().$name;
-                       // $path = $request->file('file')->storeAs($thumbnailPath,time().$fileName);
-                    //}
-//                    elseif ($extension === 'pdf' || $extension === 'txt' || 'xsls' || $extension === 'odt') {
-//                        $pdf = new Pdf($file);
-//                       // $pdf->setOutputFormat('jpg');
-//                        $pdf->saveImage($thumbnailPath.'hello.jpg');
-//                        $path = $request->file('file')->storeAs('/images','hello.jpg');
-//                       return  dd($pdf);
-//                    }
+            if (auth()->check() && $request->hasFile('uploadedFile') && $request->file('uploadedFile')->isValid()) {
 
+               $d = json_decode($request->input('created_ad_data'));
+               $startDate = array();
+               $endDate = array();
+               foreach ($d as $key){
+                   $startDate[]= $key->startDate . $key->startTime;
+                   $endDate[] = $key->endDate . $key->endTime;
+
+               }
+
+
+                $unique_id = uniqid('K', true);
+                if (Ads::where('subscription_id', '=', $unique_id)) {
+                    $unique_id = uniqid('K', true);
                 }
 
-            $ad = ScheduledAds::create([
+                $file = $request->file('uploadedFile');
+                $name = $request->file('uploadedFile')->getClientOriginalName();
+                $ext = $request->file('uploadedFile')->getClientOriginalExtension();
+                $file_size = $request->file('uploadedFile')->getSize();
+                $mime_type = $request->file('uploadedFile')->getClientMimeType();
+                $path = '';
 
-                'client_id' =>  auth()->user()->client_id,
-                'media_house_id'=> $request->input('media_house_id'),
-                'created_ad_data'=> $request->input('created_ad_data'),
-                'status' => 'pending',
-                'file_path'=>$path.'.'.$ext,
-                'file_name' => $name,
-                'file_size' => $file_size,
-                'file_type' => $mime_type
-            ]);
-             event(new SendAdCreatedMessageEvent($ad->user));
-            return  response()->json($ad->created_ad_data);
+                $thumbnailPath = public_path() . '/thumbnails/';
+                $path = hash('sha256', time());
 
-        }else{
-            return response()->json('failed');
+                if (Storage::disk('uploads')) {
+                    Storage::disk('uploads')->put($path . '.' . $ext, $name);
+
+                }
+                $segment_title_id = ProgramTitle::select('id')->where('adTitle', '=', $request->input('rate_card_title'), 'and', 'client_id', '=', $request->input('client_id'))->get();
+
+                $sub_data = array();
+                $subscription_id = uniqid('k',true);
+                $invoice_id = uniqid('k', true);
+
+                foreach ($startDate as $key => $values) {
+
+                    $sub_data[] = [
+                        'client_id' => auth()->user()->client_id,
+                        'media_house_id' => $request->input('media_house_id'),
+                        'rate_card_id' => $segment_title_id[0]->id,
+                        'subscription_id' => $subscription_id,
+                        'start' => $values,
+                        'end' => $endDate[$key],
+                        'title' => $request->input('title'),
+                        'created_ad_data' => $request->input('created_ad_data'),
+                        'status' => 'pending',
+                        'file_path' => $path . '.' . $ext,
+                        'file_name' => $name,
+                        'file_size' => $file_size,
+                        'file_type' => $mime_type];
+                }
+
+                $ad  = ScheduledAds::insert($sub_data);
+
+                    if ($ad) {
+
+                        $invoice = Invoices::create([
+                            'client_id' => auth()->user()->client_id,
+                            'invoice_id' => $invoice_id,
+                            'media_house_id' => $request->input('media_house_id'),
+                            'subscription_id' => $subscription_id,
+                        ]);
+
+                        if ($invoice){
+
+                            // event(new SendAdCreatedMessageEvent($ad->user));
+                            return response()->json(['success'=>'success','sub_id'=> $subscription_id,'invoice_id'=>$invoice_id]);
+                        }
+                        else {
+                            return response()->json('could not insert');
+                        }
+
+
+                    }
+
+            } else {
+                return response()->json('failed');
+            }
         }
 
-   }
 
-     public function loadMedia(){
-       $ads = User::select('account_type')->distinct()->get();
-         return response()->json($ads);
-     }
+        //fetch user transactions
+    public function fetchUserTransac(Request $request){
 
-     // login user subscriptions
+        $user = User::find(auth()->user()->client_id);
+
+         return response()->json($user->transaction);
+
+    }
+
+
+
+
+     // login user fetch subscriptions
      public function fetchAds(){
-        $ads = auth()->user()->ads;
-      //   $ads = $user->ads;
-         //  $ads = Ads::orderBy('created_at','DESC')->paginate(50);
-         return response()->json($ads);
+
+         $user_subscriptions = auth()->user()->scheduledAds;
+         return  response()->json($user_subscriptions);
      }
 
-     public function fetchMediaHouse($media){
-      //  $media = $request->input('media');
-        $mediaHouses = User::select('client_id','media_house','logo','file_path')->where('media', '=', $media )->get();
-         return response()->json($mediaHouses);
-     }
 
-    public function fetchMediaProgram($mediaHouse){
-        //  $media = $request-
-            $client_id = '';
-            $id = User::select('id')->where('media_house', '=', "$mediaHouse")->get();
-              foreach($id as $user_id){
-                  $client_id = $user_id->id;
-              }
-         $mediaProgram = User::find($client_id)->card;
-        return response()->json($mediaProgram);
+    public function checkIfSubExist(Request $request){
+
     }
 
-    public function fetchProgramDates($mediaProgram){
+
+     //update subscription
+    public function updateAds(Request $request){
+
+        $sub = auth()->user()->scheduledAds->where('start','=',$request->input('startDate'))->first();
+
+        if ($sub){
+
+            return response()->json($request->input('booked'));
+        }else{
+
+            $subscriptions = auth()->user()->scheduledAds()->save(['start'=>$request->input('startDate'),'end'=>$request->input('endDate')]);
+//            $subscriptions->start = $request->input('startDate');
+//            $subscriptions->end =  $request->input('endDate');
+//            $subscriptions->save();
+            if ($subscriptions){
+                return response()->json('success');
+            }
+            else{
+                return response()->json('failed');
+            }
+        }
 
 
-        $publishDate = TvRadioCardRates::select(array('publish_date', 'rates','spots'))->where('programs', '=', "$mediaProgram")->get();
-
-        return response()->json($publishDate);
     }
+
+
+
 }

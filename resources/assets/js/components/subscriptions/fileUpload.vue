@@ -45,10 +45,13 @@
                         </div>
                         <div class="card-block">
                             <!--<div class="sub-title">Example 1</div>-->
-                            <input type="file" name="files" id="filer_input1" ref="file" v-on:change="onFileChange($event)">
+                            <input  type="file" name="files" id="filer_input1" ref="file" accept=".xlsx,.xls,.pdf,.odt,.docx,.mp3,.wav,.jpeg,.png,.jpg,.mp4,.avi," v-on:change="onFileChange($event)">
+                            <!--<input v-show="getSelectMedia === 'TV'" type="file" name="files" id="filer_input2" ref="file" accept=".xlsx,.xls,.pdf,.odt,.docx,.mp3,.wav,.mp4,.avi,.jpeg,.png,.jpg" v-on:change="onFileChange($event)">-->
+                            <!--<input v-show="getSelectMedia === 'PRINT'" type="file" name="files" id="filer_input3" ref="file" accept=".xlsx,.xls,.pdf,.odt,.docx,.jpeg,.png,.jpg" v-on:change="onFileChange($event)">-->
+
                             <div style="padding-top: 16px;">
                                 <router-link :to="select_media_house" role="button" type="button" class="btn btn-mat btn-inverse " >Back</router-link>
-                                <router-link :to="select_rate_card" role="button" type="button" class="btn btn-mat btn-info " >Next</router-link>
+                                <router-link :to="select_rate_card" v-show="file" role="button" type="button" class="btn btn-mat btn-info animated fadeIn" >Next</router-link>
 
                             </div>
                         </div>
@@ -73,8 +76,15 @@
             return{
                 select_media_house : '/user-account/create-sub-media-house',
                 select_rate_card : '/user-account/create-sub-rate-card',
-                calender_url : '/user-account/select-calender'
-
+                calender_url : '/user-account/select-calender',
+                files : '',
+                radio_ext : ["xlsx","xls","pdf","odt","docx","mp3","wav","jpeg","jpg","png"],
+                tv_ext : ["xlsx","xls","pdf","odt","docx","mp3","wav","mp4","avi","jpeg","png","jpg"],
+                print_ext : ["xlsx","xls","pdf","odt","docx","jpeg","png","jpg" ],
+                ext : '',
+                file_size : '',
+                audio_video_ext : ['.mp3','.wav','mp4','avi'],
+                file_durations : ''
             }
         },
         mounted(){
@@ -83,21 +93,92 @@
         methods: {
 
             onFileChange(e) {
+
                 let files = e.target.files || e.dataTransfer.files;
-//                if (!files.length)
-//                    return;
-//                this.createImage(files[0]);
-                store.dispatch('getFileName' ,files[0]);
-                store.dispatch('getUploadFileName',files[0].name);
+                 this.ext  =  files[0].name.split('.').pop();
+                 this.file_size = files[0].size;
+
+                if (this.getSelectMedia === 'RADIO'){
+                        if(this.radio_ext.includes(this.ext)){
+                            store.dispatch('getFile' ,files[0]);
+                            store.dispatch('getUploadFileName',files[0].name);
+                            store.dispatch('getFileSize', this.file_size);
+                            console.log(this.ext);
+
+                        }
+                        else{
+                            store.dispatch('getFile' , '');
+                            store.dispatch('getUploadFileName', '');
+
+                            console.log('Invalid file selected');
+                            console.log(this.ext);
+
+                        }
+                }
+
+
+                 if (this.getSelectMedia === 'TV') {
+                     if (this.tv_ext.includes(this.ext)) {
+                         store.dispatch('getFile', files[0]);
+                         store.dispatch('getUploadFileName', files[0].name);
+                         store.dispatch('getFileSize', this.file_size);
+
+                     }
+                     else{
+                         store.dispatch('getFile' , '');
+                         store.dispatch('getUploadFileName', '');
+
+                         console.log('Invalid file selected');
+                         console.log(this.ext);
+
+                     }
+                 }
+
+
+                    if (this.getSelectMedia === 'PRINT'){
+                        if(this.print_ext.includes(this.ext)){
+                            store.dispatch('getFile' ,files[0]);
+                            store.dispatch('getUploadFileName',files[0].name);
+                            store.dispatch('getFileSize', this.file_size);
+
+                        }
+                    else{
+                        store.dispatch('getFile' , '');
+                        store.dispatch('getUploadFileName', '');
+
+                        console.log('Invalid file selected');
+
+                    }
+                }
+
+
+                    if(this.audio_video_ext.includes(this.ext)){
+                        let seconds = e.currentTarget.duration;
+                        let duration = moment.duration(seconds, "seconds");
+
+
+                        let time = "";
+                        let hours = duration.hours();
+                        if (hours > 0) { time = hours + ":" ; }
+
+                        time = time + duration.minutes() + ":" + duration.seconds();
+                       // $("#duration").text(time);
+                        self.file_durations =  moment.duration(time).asSeconds();
+                        console.log(self.file_durations);
+                    }
+
+
+
+
             },
 
-            handleFileUpload() {
-                this.file =  this.$refs.file.files[0];
-                // console.log(this.file);
-                store.dispatch('getFileName' ,this.$refs.file.files[0]);
-                console.log('Checking uploaded file :');
-                console.log(this.file.name);
-            },
+            // handleFileUpload() {
+            //     this.file =  this.$refs.file.files[0];
+            //     // console.log(this.file);
+            //     store.dispatch('getFile' ,this.$refs.file.files[0]);
+            //     console.log('Checking uploaded file :');
+            //     console.log(this.file.name);
+            // },
 
             upLoadFile(){
                 let objectUrl;
@@ -143,7 +224,14 @@
         computed:{
             segData(){
                 return store.getters.segmentsData;
+            },
+            getSelectMedia(){
+                return store.state.selMedia;
+            },
+            file(){
+                return store.state.file;
             }
+
 
             },
 

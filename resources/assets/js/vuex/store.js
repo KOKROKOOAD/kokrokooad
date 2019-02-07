@@ -13,7 +13,7 @@ const debug = process.env.NODE_ENV !== 'production';
         segment_titles: [],
         media: '',
         showSelMediaHouseTable: false,
-        create_ad_data: '',
+        create_ad_data: [],
         wizard: true,
         show_sched: false,
         mon_segments: [],
@@ -29,12 +29,22 @@ const debug = process.env.NODE_ENV !== 'production';
         notify: '',
        segment_data :{
             selSegmentDay : '',
-           rate_card_title : '',
+            rate_card_title : '',
        },
+       rate_card_title : '',
        selMediaHouse : '',
        seg_date : '',
        selSegment : '',
-       segment_title : ''
+       segment_title : '',
+       mediaHouseId : '',
+       eventTime : {
+            start : [],
+            end : [],
+       },
+       created_sub_data : [],
+       file_size : '',
+       sub_id : '',
+       invoice_id : '',
 
     },
 
@@ -71,7 +81,7 @@ const debug = process.env.NODE_ENV !== 'production';
          setSelMediaId(state,payload){
              state.selMediaId = payload;
          },
-         setFileName(state,payload){
+         setFile(state,payload){
              state.file = payload;
          },
          setUploadFileName(state,payload){
@@ -99,7 +109,7 @@ const debug = process.env.NODE_ENV !== 'production';
              state.segment_data.selSegmentDay = payload;
          },
          setRateCardTitle(state, payload){
-             state.segment_data.rate_card_title = payload;
+             state.rate_card_title = payload;
          },
          setSelMediaHouse(state,payload){
              state.selMediaHouse = payload;
@@ -112,6 +122,27 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setSegmentTitle(state,payload){
              state.segment_title = payload;
+         },
+         setMediaHouseId(state,payload){
+             state.mediaHouseId = payload;
+         },
+         setEventStart(state,payload){
+             state.eventTime.start = payload;
+         },
+         setEventEnd(state,payload){
+             state.eventTime.end = payload
+         },
+         setSubData(state, payload){
+             state.created_sub_data = payload;
+         },
+         setFileSize(state, payload){
+             state.file_size = payload;
+         },
+         setSubId(state, payload){
+             state.sub_id = payload;
+         },
+         setInvoiceId(state, payload){
+             state.invoice_id = payload;
          }
 
 
@@ -128,11 +159,12 @@ const debug = process.env.NODE_ENV !== 'production';
         },
 
          //fetch segment titles eg:LPMs for selected media house
-         fetchSegmentTitles(context, mediaHouse){
+         fetchSegmentTitles(context, mediaHouseId){
 
-           return axios.get('fetch-segments-titles/' + mediaHouse).then(function(res){
+           return axios.get('fetch-segments-titles/' + mediaHouseId).then(function(res){
                  context.commit('setSegment_titles',res.data);
                //  context.commit('getSelMediaId',res.data[1].client_id);
+               console.log(res.data);
 
                //self.showSelMediaHouseTable = true;
              });
@@ -156,8 +188,8 @@ const debug = process.env.NODE_ENV !== 'production';
          getSelMediaId(context,payload){
              context.commit('setSelMediaId', payload);
          },
-         getFileName(context,payload){
-             context.commit('setFileName', payload);
+         getFile(context,payload){
+             context.commit('setFile', payload);
          },
          getUploadFileName(context,payload) {
              context.commit('setUploadFileName', payload);
@@ -197,6 +229,27 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          getSegmentTitle(context, payload){
             context.commit('setSegmentTitle', payload);
+         },
+         getMediaHouseId(context, payload){
+            context.commit('setMediaHouseId', payload);
+         },
+         getEventStart(context,payload){
+            context.commit('setEventStart',payload);
+         },
+         getEventEnd(context,payload){
+            context.commit('setEventEnd', payload);
+         },
+         getSubData(context, payload){
+            context.commit('setSubData', payload);
+         },
+         getFileSize(context, payload){
+            context.commit('setFileSize', payload);
+         },
+         getSubId(context, payload){
+            context.commit('setSubId', payload);
+         },
+         getInvoiceId(context, payload){
+            context.commit('setInvoiceId',payload);
          }
      },
      getters:{
@@ -210,7 +263,7 @@ const debug = process.env.NODE_ENV !== 'production';
              return state.fadeIn;
          },
          selectedMediaHouse(state){
-             return state.media_houses;
+             return state.selMediaHouse;
          },
          checkAvailableDate(state){
              return state.notify;
@@ -233,6 +286,33 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          segTitle(state){
               return state.segment_title;
+         },
+         file(state){
+              return state.file;
+         },
+         mediaHouseId(state){
+              return state.mediaHouseId;
+         },
+         startTime(state){
+              return state.eventTime.start;
+         },
+         endTime(state){
+              return state.eventTime.end;
+         },
+         subData(state){
+              return state.created_sub_data;
+         },
+         fileName(state){
+              return state.fileName;
+         },
+         fileSize(state){
+              return state.file_size;
+         },
+         subId(state){
+              return state.sub_id;
+         },
+         invoiceId(state){
+              return state.invoice_id;
          }
 
 

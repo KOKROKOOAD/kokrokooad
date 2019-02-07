@@ -121,18 +121,26 @@
         <!--<div v-show="selMedia.toLowerCase() !== 'print' " class="modal fade modal-flex" id="mol" tabindex="-1" role="dialog" style="margin-left: 220px;">-->
             <div  class="modal fade" id="mol" tabindex="-1" role="dialog" style="margin-left: 220px;">
                 <div class="modal-dialog modal-lg" role="document">
+                    <form  @submit.prevent="" id="segment-form">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title"><b class="text-danger">{{segData[1]}}</b>- {{segData[3].rate_card_title}} rate card</h4>
+                            <h4 class="modal-title"><b class="text-danger">{{getMediaHouse}}</b>- {{getTitle}} rate card</h4>
+                            <span>Your file : <b class="text-info">{{fileName}}</b><i style="margin-left: 20px;">File size :</i> <b>{{fileSize}}bytes</b></span>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <!--{{segments}}-->
+                        <!--<ul v-show="event_time" v-for="sig in seg_data">-->
+                            <!--<li>{{start = sig.startTime}}</li>-->
+                            <!--<li>{{end = sig.endTime}}</li>-->
+                        <!--</ul>-->
+
+                                 <!--{{seg_data}}-->
                         <div class="modal-body">
-                            {{segTitle}}
+
                             <div class="form-group">
-                                <input class="form-control" type="text" v-model="title" placeholder="Enter segment title  eg:short video  on  history of gold coast">
+                                <input class="form-control" required="required" name="title" type="text" v-model="title"  placeholder="Enter segment title  eg:short video  on  history of gold coast">
+
                             </div>
                             <div class="table-responsive">
                             <table class="table table-bordered">
@@ -141,26 +149,29 @@
                             <th>#</th>
                             <th>Segment</th>
                             <th>Spots</th>
-                            <th>15sec</th>
-                            <th>25sec</th>
-                            <th>30sec</th>
-                            <th>35sec</th>
-                            <th>40sec</th>
+                            <th v-if="segments_headings.sec1 !== null">{{segments_headings.sec1}} sec</th>
+                            <th v-if="segments_headings.sec2 !== null">{{segments_headings.sec2}} sec</th>
+                            <th v-if="segments_headings.sec3 !== null">{{segments_headings.sec3}} sec</th>
+                            <th v-if="segments_headings.sec4 !== null">{{segments_headings.sec4}} sec</th>
+                            <th v-if="segments_headings.sec5 !== null">{{segments_headings.sec5}} sec</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(seg,index) in segments">
+                            <tr v-for="(segment,index) in segments_data">
                             <th scope="row">{{index + 1}}</th>
-                                <td>{{seg.seg}}</td>
-                                <td> <select name="select" class="form-control form-control-primary" v-model="selSegment">
-                                    <option disabled value="" selected>1</option>
-                                    <option>2</option>
+                                <td>{{segment.mon_seg_start}}-{{segment.mon_seg_end}}</td>
+                                <td> <select name="select" v-model="spots[index]">
+                                    <option disabled value="" selected></option>
+                                    <option v-for=" s in spot_avail(spots_available)" :name="'seA' + (index)"   :value="s" >{{s}}</option>
+
                                 </select></td>
-                                <td>{{seg.rt1}}</td>
-                                <td>{{seg.rt2}}</td>
-                                <td>{{seg.rt3}}</td>
-                                <td>{{seg.rt4}}</td>
-                                <td>{{seg.rt5}}</td>
+
+                                <td v-if="segment.sec1_rate  !== null "><input type="radio"   :name="'seA' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start,'endTime' :segment.mon_seg_end,durations : segments_headings.sec1,'rate':segment.sec1_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec1_rate}} GHC</td>
+                                <td v-if="segment.sec2_rate  !== null "><input type="radio"   :name="'seB' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start,'endTime' :segment.mon_seg_end,durations : segments_headings.sec2,'rate':segment.sec2_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec2_rate}} GHC</td>
+                                <td v-if="segment.sec3_rate  !== null "><input type="radio"   :name="'seC' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec3,'rate':segment.sec3_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec3_rate}} GHC</td>
+                                <td v-if="segment.sec4_rate  !== null "><input type="radio"   :name="'seD' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec4,'rate':segment.sec4_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec4_rate}} GHC</td>
+                                <td v-if="segment.sec5_rate  !== null "><input type="radio"   :name="'seE' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec5,'rate':segment.sec5_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec5_rate}} GHC</td>
+
                             </tr>
                             </tbody>
                             </table>
@@ -168,9 +179,11 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary waves-effect waves-light " @click="saveSegment(title)">Save</button>
+                            <!--<button class="btn btn-mat btn-secondary ">save</button>-->
+                            <router-link :to="{name : 'invoice'}"   :disabled="seg_data.length === 0" class="btn btn-primary waves-effect waves-light " @click.native="submit(title)" >Schedule</router-link>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
 </template>
@@ -179,46 +192,60 @@
     import  store from  '../../vuex/store';
 
     export default {
-        props :['saveSegment'],
+        props :['saveSegment','startDate','endDate'],
         name : 'selectSegments',
 
         mounted(){
-
+        // this.eventTime();
         },
         created(){
-            this.fetchSegments();
+
         },
         data(){
             return {
-                invoice: '/user-account/create-sub-invoice',
+                //invoice: '/user-account/create-sub-invoice',
                 segment_date: '/user-account/create-sub-date',
                 selSegment_url: '/user-account/select-segment',
-                segments_data: [],
+                segments_data:
+                    [{"mon_seg_start": "07:00","mon_seg_end": "08:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "08:00","mon_seg_end": "09:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "09:00","mon_seg_end": "10:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "10:00","mon_seg_end": "11:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "11:00","mon_seg_end": "12:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "13:00","mon_seg_end": "14:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "14:00","mon_seg_end": "15:00","mon_spots": "3",
+                        "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null}]
+                ,
+                segments_headings : {"sec1": 15, "sec2": 20, "sec3": 25, "sec4": 30, "sec5": null},
+                spots_available : 10,
                 selSegment: '',
                 selMedia: '',
-                print_segments: [],
+                seg_data : [],
+                spots : [],
+                print_segments: [{
+
+                }],
                 title : '',
-                segments: [{
-                    'seg': '08:00am-09:930am',
-                    'rt1': 'GHC400',
-                    'rt2': 'GHC800',
-                    'rt3': 'GHC900',
-                    'rt4': 'GHC200',
-                    'rt5' : 'GHC500,'
-                },
-                    {
-                        'seg': '10:00am-11:00am',
-                        'rt1': 'GHC700',
-                        'rt2': 'GHC900',
-                        'rt3': 'GHC1200',
-                        'rt4': 'GH1400',
-                        'rt5' : 'GHC700'
-                    }
-                ],
+                rate : '',
                 day: 'Monday',
+                invoice : 'invoice',
+                start : '',
+                end : '',
+                event_time : false,
+                startDates : [],
+                endDates : []
+
             }
         },
         methods: {
+            submit(title){
+                store.dispatch('getSegmentTitle', title);
+                this.eventTime();
+
+                $('#mol').modal('hide');
+                $('#print').modal('hide');
+            },
+
             fetchSegments(){
                 let self = this;
                 store.dispatch('getProcessing', true);
@@ -243,6 +270,18 @@
                     });
                 },3000);
 
+            },
+            eventTime(){
+
+                    store.dispatch('getSubData',this.seg_data);
+            },
+            spot_avail(spot){
+                let s = parseInt(spot);
+                let results = [];
+                for (let i = 1; i < s + 1; i++){
+                    results.push(i);
+                }
+                return results;
             },
             checkSpots(segment){
                 let self = this;
@@ -269,8 +308,8 @@
             segmentDay(){
                 return store.getters.segmentDay;
             },
-            getSelectMedia(){
-                return store.state.selMedia;
+            getMediaHouse(){
+                return store.getters.selectedMediaHouse;
             },
             getRateCardTitle(){
                 return store.getters.segmentTitle;
@@ -289,6 +328,27 @@
             },
             segTitle(){
                 return store.getters.segTitle;
+            },
+            startTimes(){
+                return store.getters.startTime;
+            },
+            endTimes(){
+                return store.getters.endTime;
+            },
+            getTitle(){
+                return store.state.rate_card_title;
+            },
+            fileName(){
+                return store.getters.fileName;
+            },
+            fileSize(){
+                return store.getters.fileSize;
+            },
+            startDat(){
+                return this.startDate;
+            },
+            schedAdsData(){
+                return  store.getters.subData;
             },
         },
 

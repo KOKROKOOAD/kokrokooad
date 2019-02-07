@@ -17,7 +17,7 @@
                             <li class="breadcrumb-item">
                                 <a href="index.html"> <i class="feather icon-home"></i> </a>
                             </li>
-                            <router-link :to="sub" class="breadcrumb-item"><a href="#!">Create Subscription</a> </router-link>
+                            <router-link :to="{name:selectMedia}" class="breadcrumb-item">Create Subscription </router-link>
                         </ul>
                     </div>
                 </div>
@@ -30,35 +30,35 @@
                     <h5>Segment Calender</h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
-                            <li><i class="feather icon-maximize full-card"></i></li>
-                            <li><i class="feather icon-minus minimize-card"></i></li>
-                            <li><i class="feather icon-trash-2 close-card"></i></li>
+                            <!--<li><i class="feather icon-maximize full-card"></i></li>-->
+                            <!--<li><i class="feather icon-minus minimize-card"></i></li>-->
+                            <!--<li><i class="feather icon-trash-2 close-card"></i></li>-->
                         </ul>
                     </div>
                 </div>
                 <div class="card-block">
                     <div class="row">
-                        <div class="col-xl-2 col-md-12">
-                            <div id="external-events">
-                                <h6 class="m-b-30 m-t-20">Subscriptions</h6>
-                                <div class="fc-event ui-draggable ui-draggable-handle">My Event 1</div>
-                                <div class="fc-event ui-draggable ui-draggable-handle">My Event 2</div>
-                                <div class="fc-event ui-draggable ui-draggable-handle">My Event 3</div>
-                                <div class="fc-event ui-draggable ui-draggable-handle">My Event 4</div>
-                                <div class="fc-event ui-draggable ui-draggable-handle">My Event 5</div>
-                                <div class="checkbox-fade fade-in-primary m-t-10">
-                                    <label>
-                                        <input type="checkbox" value="">
-                                        <span class="cr">
-                                                                        <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                                                    </span>
-                                        <span>Remove After Drop</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-10 col-md-12">
-                            <div id='calendar'></div>
+                        <!--<div class="col-xl-2 col-md-12">-->
+                            <!--<div id="external-events">-->
+                                <!--<h6 class="m-b-30 m-t-20">Subscriptions</h6>-->
+                                <!--<div class="fc-event ui-draggable ui-draggable-handle">My Event 1</div>-->
+                                <!--<div class="fc-event ui-draggable ui-draggable-handle">My Event 2</div>-->
+                                <!--<div class="fc-event ui-draggable ui-draggable-handle">My Event 3</div>-->
+                                <!--<div class="fc-event ui-draggable ui-draggable-handle">My Event 4</div>-->
+                                <!--<div class="fc-event ui-draggable ui-draggable-handle">My Event 5</div>-->
+                                <!--<div class="checkbox-fade fade-in-primary m-t-10">-->
+                                    <!--<label>-->
+                                        <!--<input type="checkbox" value="">-->
+                                        <!--<span class="cr">-->
+                                                                        <!--<i class="cr-icon icofont icofont-ui-check txt-primary"></i>-->
+                                                                    <!--</span>-->
+                                        <!--<span>Remove After Drop</span>-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="col-xl-12 col-md-12">
+                            <full-calendar ref="calendar" :config="config" :event-sources="eventSources" @event-render="eventRender" @event-drop="eventDrop"></full-calendar>
                         </div>
                     </div>
                 </div>
@@ -92,10 +92,10 @@
         name : 'subscriptions',
 
         mounted(){
-
+         let self = this;
         },
         created(){
-            this.calender();
+
         },
         data(){
             return {
@@ -109,146 +109,140 @@
                 title : '',
                 start : '',
                 end : '',
-                sub : '/user-account/subscriptions'
+                sub : '/user-account/subscriptions',
+                config: {
+                    defaultDate: new Date(),
+                    defaultView: 'month',
+                    droppable : true,
+                    editable : true,
+                    displayEventEnd : true,
+                    eventLimit : 2,
+                    eventLimitText : 'click to view more ads',
+                    header: {
+                        right: 'month,agendaWeek,agendaDay,listMonth',
+                    }
+                },
+                subs : [],
+                selectMedia: 'selectMedia',
             }
         },
         methods: {
+            eventDrop: function(event, delta, revertFunc) {
 
-            calender(){
-                $(document).ready(function() {
-                    $('#external-events .fc-event').each(function() {
+                sweetAlert({
+                    title: 'Warning',
+                    text: 'Are you sure about this change?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, Change',
+                    confirmButtonColor: '#FFB800',
+                    closeOnConfirm: true,
 
-                        // store data so the calendar knows to render an event upon drop
-                        $(this).data('event', {
-                            title: $.trim($(this).text()), // use the element's text as the event title
-                            stick: true // maintain when user navigates (see docs on the renderEvent method)
-                        });
+                    showLoaderOnConfirm: true,
+                },function(isConfirm){
 
-                        // make the event draggable using jQuery UI
-                        $(this).draggable({
-                            zIndex: 999,
-                            revert: true, // will cause the event to go back to its
-                            revertDuration: 0 //  original position after the drag
-                        });
+                    let  s = event.start.format("YYYY-MM-DD ") + event.start.format('h:mm');
 
-                    });
+                    if(isConfirm){
 
-                    let calender =  $('#calendar').fullCalendar({
-                        header: {
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'month,listMonth'
-                        },
-                        defaultDate: $('#calendar').fullCalendar('today'),
-                        navLinks: true, // can click day/week names to navigate views
-                        businessHours: true, // display business hours
-                        editable: true,
-//                        droppable: true, // this allows things to be dropped onto the calendar
-//                        drop: function() {
-//
-//                            // is the "remove after drop" checkbox checked?
-//                            if ($('#checkbox2').is(':checked')) {
-//                                // if so, remove the element from the "Draggable Events" list
-//                                $(this).remove();
-//                            }
-//                        },
-                        selectable : true,
-                        selectHelper : true,
-                        select : function (start,end,allDay) {
-                            start  = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                            end  = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                            let title = prompt("Enter Event Title");
+                        let formData = new FormData();
+                        formData.append('startDate', event.start.format("YYYY-MM-DD ") + event.start.format('h:mm'));
 
-                            let formData = new FormData();
-                            formData.append('title',title);
-                            formData.append('start',start);
-                            formData.append('end',end);
-                            let self = this;
 
-                            axios.get('test-api',formData).then(function (res) {
-                                self.title = res.data.title;
-                                calender.fullCalendar('refetchEvents');
-                            });
-                        },
-                        events: [{
-                            title:  this.title,
-                            start: '2016-09-03T13:00:00',
-                            constraint: 'businessHours',
-                            borderColor: '#FC6180',
-                            backgroundColor: '#FC6180',
-                            textColor: '#fff'
-                        }, {
-                            title: 'Meeting',
-                            start: '2016-09-13T11:00:00',
-                            constraint: 'availableForMeeting',
-                            editable: true,
-                            borderColor: '#4680ff',
-                            backgroundColor: '#4680ff',
-                            textColor: '#fff'
-                        }, {
-                            title: 'Conference',
-                            start: '2016-09-18',
-                            end: '2016-09-20',
-                            borderColor: '#93BE52',
-                            backgroundColor: '#93BE52',
-                            textColor: '#fff'
-                        }, {
-                            title: 'Party',
-                            start: '2016-09-29T20:00:00',
-                            borderColor: '#FFB64D',
-                            backgroundColor: '#FFB64D',
-                            textColor: '#fff'
-                        },
+                        axios.post('sub-update-api', formData).then(function(response) {
+                            console.log(response.data);
+                            if(response.data === 'available'){
 
-                            // areas where "Meeting" must be dropped
-                            {
-                                id: 'availableForMeeting',
-                                start: '2016-09-11T10:00:00',
-                                end: '2016-09-11T16:00:00',
-                                rendering: 'background',
-                                borderColor: '#ab7967',
-                                backgroundColor: '#ab7967',
-                                textColor: '#fff'
-                            }, {
-                                id: 'availableForMeeting',
-                                start: '2016-09-13T10:00:00',
-                                end: '2016-09-13T16:00:00',
-                                rendering: 'background',
-                                borderColor: '#39ADB5',
-                                backgroundColor: '#39ADB5',
-                                textColor: '#fff'
-                            },
+                                formData.append('endDate', event.end.format("YYYY-MM-DD " + event.end.format('h:mm')));
+                                formData.append('id',event.id);
 
-                            // red areas where no events can be dropped
-                            {
-                                start: '2016-09-24',
-                                end: '2016-09-28',
-                                overlap: false,
-                                rendering: 'background',
-                                borderColor: '#FFB64D',
-                                backgroundColor: '#FFB64D',
-                                color: '#d8d6d6'
-                            }, {
-                                start: '2016-09-06',
-                                end: '2016-09-08',
-                                overlap: false,
-                                rendering: 'background',
-                                borderColor: '#ab7967',
-                                backgroundColor: '#ab7967',
-                                color: '#d8d6d6'
+                                axios.post('sub-update-api', formData).then(function (response) {
+                                    //self.$refs.calendar.$emit('refetch-events');
+                                    if(response){
+                                        // PNotify.desktop.permission();
+                                        (new PNotify( {
+                                                title:'Update Desktop Notice', type:'info', text:'Subscription date updated successfully.', desktop: {
+                                                    desktop: true, icon: 'assets/images/pnotify/success.png'
+                                                }
+                                            }
+                                        ));
+                                    }
+
+                                });
                             }
-                        ]
-                    });
+                            else{
+                                revertFunc();
+                                (new PNotify( {
+                                        title:'Failure Desktop Notice', type:'error', text:'Please this segment is already booked.Try another segment', desktop: {
+                                            desktop: true, icon: 'assets/images/pnotify/success.png'
+                                        }
+                                    }
+                                ));
+                            }
+
+                        });
+                    }
+                    else{
+                        revertFunc();
+                    }
+
                 });
+            },
+            eventRender: function( event, element, view ) {
+                 element.find('.fc-time').after('<span class="glyphicon glyphicon-time"></span><br> ');
+                if(event.status === 'pending'){
+                    element.find('.fc-title').after("<br><span class='text-info fa fa-comment' style='font-weight: bolder'> " +event.status+"</span>");
+
+                }
+                else if(event.status === 'review'){
+                    element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #ffffff '> "+event.status+"</span>");
+
+                }
+                else if(event.status === 'inactive'){
+                    element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #7b0c32;'> "+event.status+"</span>");
+
+                }
+                else if(event.status === 'active'){
+                    element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder'> "+event.status+"</span>");
+
+                }
+                else if(event.status === 'completed'){
+                    element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder'> "+event.status+"</span>");
+
+                }
+                else if(event.status === 'cancelled'){
+                    element.find('.fc-title').after("<br><span class='text-danger fa fa-comment' style='font-weight: bolder'> "+event.status+"</span>");
+
+                }
+                else if(event.status === 'approved'){
+                    element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #0f3e68'> "+event.status+"</span>");
+
+                }
 
             }
-
 
         },
 
         computed:{
+            eventSources() {
+                let self = this;
+                return [
+                    {
+                        events(start, end, timezone, callback) {
+                            axios.get('fetch-ads/api').then(function (res) {
+                                self.sub = res.data;
+                                callback(res.data);
+                            });
+
+                        },
+                        color: '#6f6fbf',
+                        textColor: 'white',
+                    }
+                ]
+            },
 
         },
+
 
     }
 

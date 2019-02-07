@@ -16,11 +16,15 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('ads_id');
+            $table->integer('transaction_id');
+            $table->integer('subscription_id');
             $table->integer('invoice_id');
-          //  $table->string('Payment_method');
-            $table->string('Amount');
+            $table->integer('media_house_id');
             $table->string('transaction_status');
+            $table->string('amount');
+            $table->string('payment_source');
+            $table->integer('service');
+            $table->integer('total_charge');
             $table->timestamps();
         });
     }

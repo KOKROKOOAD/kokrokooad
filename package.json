@@ -29,6 +29,7 @@
         "jquery-ui": "^1.12.1",
         "jquery-validation": "^1.17.0",
         "moment": "^2.22.2",
+        "qtip2": "^3.0.3",
         "vue-full-calendar": "^2.7.0",
         "vue-router": "^3.0.2",
         "vuex": "^3.0.1"

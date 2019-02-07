@@ -26,8 +26,6 @@
                                                 <tr  class="tb-rw weekdays" style='background: #36475F;color:#ffffff;font-family: "Roboto", sans-serif;font-weight: 500;font-size: 13px;'>
                                                     <th>ADVERT SIZE</th>
                                                     <th>RATE(per insertion in GHC)</th>
-                                                    <!--<th>VAT (%)</th>-->
-                                                    <th>Date</th>
                                                 </tr>
                                                 </thead>
                                                 <tfoot>

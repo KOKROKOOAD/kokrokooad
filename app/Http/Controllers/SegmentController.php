@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MediaTypes;
 use App\Models\ProgramTitle;
 use App\MyEvents;
+use App\ScheduledAds;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,12 +17,10 @@ class SegmentController extends Controller
         return  response()->json($media_types);
     }
 
-   public function  fetchSegmentTitles($mediaHouse){
+   public function  fetchSegmentTitles($id){
 
-       $user_id  = User::select('id')->where('media_house','=',$mediaHouse)->get();
-       $user = User::find($user_id[0]->id);
-       $adTitle =    $user->segmentTitle;
-       return response()->json($adTitle);
+       $selected_media_house  = User::findOrFail($id);
+       return response()->json($selected_media_house->segmentTitle);
 }
 
     public function  fetchSegments($mediaHouse,$segment, $date){
@@ -48,25 +47,49 @@ class SegmentController extends Controller
 
 
     public function api(Request $request){
-        $events  = MyEvents::all();
+        $user_subscriptions = auth()->user()->scheduledAds;
+     //   $events  =  $user->scheduledAds;
 
 //        $data  = ['title'=>"meet joy",'start'=>"2019-01-24",'end'=> "2019-01-25",'color'=>'orange','textColor'=> 'white'];
 //        $data2 =['title'=>"Arrange meeting with Francis",'start'=>"2019-01-26",'end'=> "2019-01-27",'color'=>'red','textColor'=> 'white'];
 //        $data3 =['title'=>"play short ad in 20sec",'start'=>"2019-02-04",'end'=> "2019-02-07",'color'=>'red','textColor'=> 'white'];
 //        $data = ['title'=>$request->input('title'),'start'=> $request->input('selDat'),'end'=>'2019-01-24','color'=>'black','textColor'=> 'white'];
 //        $myData = array($data,$data2,$data3);
-//    //dd($data);
-        return  response()->json($events);
+   //   dd($user);
+       return  response()->json($user_subscriptions);
     }
 
     public function apiPost(Request $request){
-        $events = MyEvents::create(['title'=>$request->input('title'),'start'=>$request->input('selDate'),'end'=>$request->input('selDate'),
-            'events'=> $request->input('events')]);
+        $events = MyEvents::create(['title'=>$request->input('title'),'start'=>$request->input('startDate'),'end'=>$request->input('endDate'),
+            'description'=> $request->input('description')]);
         if($events){
             return  response()->json('New event created successfully');
 
         }
 
+    }
+
+    public function eventUpdate(Request $request){
+
+        $event =  MyEvents::find($request->input('id'));
+        $event->start =  $request->input('startDate');
+        $event->end   = $request->input('endDate');
+        $event->save();
+        if ($event){
+            return response()->json('Even successfully updated');
+        }
+    }
+
+    public function eventCheck(Request $request){
+        $event = MyEvents::select()->where('start','=',$request->input('startDate'))->get();
+        if (sizeof($event) > 0){
+
+            return response()->json($request->input('booked'));
+        }
+        else{
+            return response()->json('available');
+
+        }
     }
 
 

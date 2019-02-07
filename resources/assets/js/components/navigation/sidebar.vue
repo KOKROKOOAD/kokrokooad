@@ -12,16 +12,16 @@
                             </a>
                             <ul class="pcoded-submenu">
                                 <li class="active">
-                                    <a href="index.html">
-                                        <span class="pcoded-mtext">Default</span>
-                                    </a>
+                                    <router-link :to="{name : 'home'}">
+                                        <span class="pcoded-mtext">home</span>
+                                    </router-link>
                                 </li>
-                                <li class=" ">
-                                    <a href="dashboard-analytics.html">
-                                        <span class="pcoded-mtext">Analytics</span>
-                                        <span class="pcoded-badge label label-info ">NEW</span>
-                                    </a>
-                                </li>
+                                <!--<li class=" ">-->
+                                    <!--<a href="dashboard-analytics.html">-->
+                                        <!--<span class="pcoded-mtext">Analytics</span>-->
+                                        <!--<span class="pcoded-badge label label-info ">NEW</span>-->
+                                    <!--</a>-->
+                                <!--</li>-->
                             </ul>
                         </li>
                         <li class="pcoded-hasmenu active pcoded-trigger">
@@ -48,18 +48,18 @@
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class=" ">
-                            <router-link :to="{name : 'selectMedia'}">
+                            <router-link :to="{name : 'transactions'}">
                                 <span class="pcoded-micon"><i class="feather icon-edit-1"></i></span>
                                 <span class="pcoded-mtext" >Transactions</span>
                                 <!--<span class="pcoded-badge label label-warning">NEW</span>-->
                             </router-link>
                         </li>
-                        <li class=" ">
-                            <router-link :to="{name : 'selectMedia'}">
-                                <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                                <span class="pcoded-mtext" >User profile</span>
-                            </router-link>
-                        </li>
+                        <!--<li class=" ">-->
+                            <!--<router-link :to="{name : 'profile'}">-->
+                                <!--<span class="pcoded-micon"><i class="feather icon-user"></i></span>-->
+                                <!--<span class="pcoded-mtext" >User profile</span>-->
+                            <!--</router-link>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </nav>
@@ -103,6 +103,12 @@
 
         },
         methods:{
+            routeUrl(){
+
+                if(window.location !== 'localhost:8000/user-account/dashboard'){
+                    return false;
+                }
+            }
 
         },
         computed :{

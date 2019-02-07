@@ -42,6 +42,30 @@
           path : '/user-account/select-calender',
           component : require('../components/subscriptions/fullcalender')
       },
+      {   name : 'payment',
+          path : '/user-account/payment',
+          component : require('../components/payment/paymentType')
+      },
+      {   name : 'transactions',
+          path : '/user-account/transactions',
+          component : require('../components/subscriptions/transactions')
+      },
+      {   name : 'profile',
+          path : '/user-account/user-profile',
+          component : require('../components/userProfile/userProfile')
+      },
+      {   name : 'home',
+          path : '/user-account/dashboard',
+          component : require('../components/subscriptions/home')
+      },
+      {   name : 'payment-success',
+          path : '/user-account/payment-success',
+          component : require('../components/success-pages/success')
+      },
+
+
+
+
 
 
 

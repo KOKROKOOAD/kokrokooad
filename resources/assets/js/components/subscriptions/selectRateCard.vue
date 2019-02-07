@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h5>Selected Media house</h5>
-                            <span> <code>{{getSelectMedia[0]}}</code></span>
+                            <!--<span class="pull-right"> <code>{{getSelectMedia}}-</code></span>-->
 
                         </div>
                         <div class="card-block">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div style="padding-left: 16px;">
                                     <router-link :to="file_upload" role="button" type="button" class="btn btn-mat btn-inverse ">Back</router-link>
-                                    <router-link :to="calender_url" role="button" type="button" class="btn btn-mat btn-info ">Next</router-link>
+                                    <router-link v-show="title" :to="calender_url" role="button" type="button" class="btn btn-mat btn-info animated fadeIn">Next</router-link>
 
                                 </div>
                             </div>
@@ -130,6 +130,12 @@
             },
             mediaHouse(){
                 return store.getters.mediaHouse;
+            },
+            getTitle(){
+                return store.state.rate_card_title;
+            },
+            mediaHousesss(){
+                return store.state.selMediaHouse;
             }
 
         },

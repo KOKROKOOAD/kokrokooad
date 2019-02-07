@@ -7,21 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class Transactions extends Model
 {
 
-     protected $fillable = ['user_id','invoice_id','ads_id','amount','transaction_status'];
+     protected $fillable = ['client_id','invoice_id','phone','subscription_id','transaction_id','media_house_id','amount','transaction_status','payment_source','service','total_charge'];
 
     public function user(){
-      return  $this->belongsTo(User::class);
+      return  $this->belongsTo(User::class, 'client', 'client_id');
     }
 
     public function invoice(){
-        return $this->belongsTo(Invoice::class);
+        return $this->belongsTo(Invoices::class,'client_id', 'client_id');
     }
-
-    public function ads(){
-        return $this->belongsTo(Ads::class);
-    }
-
-    public function receipt(){
-        return $this->hasOne(Receipt::class);
-    }
+//
+//    public function schedAds(){
+//        return $this->belongsTo(ScheduledAds::class);
+//    }
+//
+//    public function receipt(){
+//        return $this->hasOne(Receipt::class);
+//    }
 }

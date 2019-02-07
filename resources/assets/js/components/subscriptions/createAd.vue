@@ -15,7 +15,7 @@
                     <div class="page-header-breadcrumb">
                         <ul class="breadcrumb-title">
                             <li class="breadcrumb-item">
-                                <a href="index.html"> <i class="feather icon-home"></i> </a>
+                                <router-link :to="{name:'home'}"> <i class="feather icon-home"></i> </router-link>
                             </li>
                             <li class="breadcrumb-item"><a href="#!">Select Media Type</a>
                             </li>
@@ -47,8 +47,8 @@
 
                                     </select>
                                 </div>
-                                    <div style="padding-left: 16px;">
-                                        <router-link :to="{name : select_media_house}" role="button" type="button" class="btn btn-mat btn-inverse">Next</router-link>
+                                    <div class="animated fadeIn" style="padding-left: 16px;" v-show="getMedia !== ''">
+                                        <router-link :to="{name : select_media_house}"  role="button" type="button" class="btn btn-mat btn-inverse">Next</router-link>
                                     </div>
                             </div>
                         </div>
@@ -409,6 +409,9 @@
             },
             showMedia(){
                 return store.state.showMediaForm;
+            },
+            getMedia(){
+                return  this.createAd.medias;
             }
 
 

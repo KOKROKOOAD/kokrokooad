@@ -9,6 +9,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $primaryKey = 'client_id';
+    protected $keyType = 'string';
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -34,36 +38,27 @@ class User extends Authenticatable
       return  $this->hasMany(Ads::class, 'client_id', 'client_id');
     }
 
-    public function scheduledAd(){
-        return  $this->hasMany(ScheduleAd::class, 'client_id', 'client_id');
+    public function scheduledAds(){
+        return  $this->hasMany(ScheduledAds::class, 'client_id', 'client_id');
 
     }
 
-    public function card(){
-        return $this->hasMany(TvRadioCardRates::class, 'client_id','client_id');
-    }
 
     public  function segmentTitle(){
         return $this->hasMany('App\Models\ProgramTitle','client_id', 'client_id');
     }
 
-    public  function segment(){
-        return $this->hasMany('App\Models\ProgramLineups', 'client_id', 'client_id' );
-    }
+
 
     public  function transaction(){
-      return  $this->hasMany(Transactions::class);
+      return  $this->hasMany(Transactions::class, 'client_id', 'client_id');
     }
 
-    public function messages(){
-        return $this->hasMany(Messages::class);
-    }
+
 
     public function invoice(){
-        return $this->hasMany(Invoice::class);
+        return $this->hasMany(Invoices::class, 'client_id', 'client_id');
     }
 
-    public function receipt(){
-        return $this->hasMany(Receipt::class);
-    }
+
 }
