@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -100,18 +99,25 @@ Route::middleware(['auth'])->prefix('/user-account/')->group(function (){
     Route::post('check-sub/api','SubController@checkIfSubExist');
     Route::get('fetch-transac/api','SubController@fetchUserTransac');
 
+//    Route::get('testme', 'SegmentController@test');
 
 
 
+//    Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
 
-    Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
     Route::post('api-payment','PaymentController@payment');
     Route::get('check-segment-api/{sub_date}','CheckSubController@checkSubAvailable');
 
+    Route::get('{any}', function () {
+        return view('userDashboard.dashboard');
+    })->where('any','.*');
 
 });
+Route::get('testme', 'SegmentController@test');
 
 //Route::get('test-api', 'SegmentController@api');
+Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
+
 
 
 Route::resource('user-register', 'UserController');
@@ -119,9 +125,8 @@ Route::resource('user-account/ad', 'AdsController');
 
 Auth::routes();
 
-Route::get('{any}', function () {
-    return view('userDashboard.dashboard');
-})->where('any','.*');
+
+
 
 
 

@@ -64,7 +64,7 @@ class PaymentController extends Controller
                        'subscription_id' => $subscription_id,
                        'service' => $service,
                        'transaction_status' => $success,
-                       'total_charge' => $amount_charge
+                       'transact_charge' => $amount_charge
 
                    ]);
                    if ($transac){

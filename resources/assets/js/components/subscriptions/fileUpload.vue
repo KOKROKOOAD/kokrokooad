@@ -36,11 +36,11 @@
                         <div class="card-header">
                             <h5>File Upload</h5>
                             <!--<div class="card-header-right">-->
-                                <!--<ul class="list-unstyled card-option">-->
-                                    <!--<li><i class="feather icon-maximize full-card"></i></li>-->
-                                    <!--<li><i class="feather icon-minus minimize-card"></i></li>-->
-                                    <!--<li><i class="feather icon-trash-2 close-card"></i></li>-->
-                                <!--</ul>-->
+                            <!--<ul class="list-unstyled card-option">-->
+                            <!--<li><i class="feather icon-maximize full-card"></i></li>-->
+                            <!--<li><i class="feather icon-minus minimize-card"></i></li>-->
+                            <!--<li><i class="feather icon-trash-2 close-card"></i></li>-->
+                            <!--</ul>-->
                             <!--</div>-->
                         </div>
                         <div class="card-block">
@@ -95,54 +95,60 @@
             onFileChange(e) {
 
                 let files = e.target.files || e.dataTransfer.files;
+
+                console.log(files);
+                this.ext  =  files[0].name.split('.').pop();
+                this.file_size = files[0].size;
+
                     console.log(files);
                  this.ext  =  files[0].name.split('.').pop();
                  this.file_size = files[0].size;
 
+
                 if (this.getSelectMedia === 'RADIO'){
-                        if(this.radio_ext.includes(this.ext)){
-                            store.dispatch('getFile' ,files[0]);
-                            store.dispatch('getUploadFileName',files[0].name);
-                            store.dispatch('getFileSize', this.file_size);
-                            console.log(this.ext);
+                    if(this.radio_ext.includes(this.ext)){
+                        store.dispatch('getFile' ,files[0]);
+                        store.dispatch('getUploadFileName',files[0].name);
+                        store.dispatch('getFileSize', this.file_size);
+                        console.log(this.ext);
 
-                        }
-                        else{
-                            store.dispatch('getFile' , '');
-                            store.dispatch('getUploadFileName', '');
+                    }
+                    else{
+                        store.dispatch('getFile' , '');
+                        store.dispatch('getUploadFileName', '');
 
-                            console.log('Invalid file selected');
-                            console.log(this.ext);
+                        console.log('Invalid file selected');
+                        console.log(this.ext);
 
-                        }
+                    }
                 }
 
 
-                 if (this.getSelectMedia === 'TV') {
-                     if (this.tv_ext.includes(this.ext)) {
-                         store.dispatch('getFile', files[0]);
-                         store.dispatch('getUploadFileName', files[0].name);
-                         store.dispatch('getFileSize', this.file_size);
+                if (this.getSelectMedia === 'TV') {
+                    if (this.tv_ext.includes(this.ext)) {
+                        store.dispatch('getFile', files[0]);
+                        store.dispatch('getUploadFileName', files[0].name);
+                        store.dispatch('getFileSize', this.file_size);
 
-                     }
-                     else{
-                         store.dispatch('getFile' , '');
-                         store.dispatch('getUploadFileName', '');
+                    }
+                    else{
+                        store.dispatch('getFile' , '');
+                        store.dispatch('getUploadFileName', '');
 
-                         console.log('Invalid file selected');
-                         console.log(this.ext);
+                        console.log('Invalid file selected');
+                        console.log(this.ext);
 
-                     }
-                 }
+                    }
+                }
 
 
-                    if (this.getSelectMedia === 'PRINT'){
-                        if(this.print_ext.includes(this.ext)){
-                            store.dispatch('getFile' ,files[0]);
-                            store.dispatch('getUploadFileName',files[0].name);
-                            store.dispatch('getFileSize', this.file_size);
+                if (this.getSelectMedia === 'PRINT'){
+                    if(this.print_ext.includes(this.ext)){
+                        store.dispatch('getFile' ,files[0]);
+                        store.dispatch('getUploadFileName',files[0].name);
+                        store.dispatch('getFileSize', this.file_size);
 
-                        }
+                    }
                     else{
                         store.dispatch('getFile' , '');
                         store.dispatch('getUploadFileName', '');
@@ -153,20 +159,20 @@
                 }
 
 
-                    if(this.audio_video_ext.includes(this.ext)){
-                        let seconds = e.currentTarget.duration;
-                        let duration = moment.duration(seconds, "seconds");
+                if(this.audio_video_ext.includes(this.ext)){
+                    let seconds = e.currentTarget.duration;
+                    let duration = moment.duration(seconds, "seconds");
 
 
-                        let time = "";
-                        let hours = duration.hours();
-                        if (hours > 0) { time = hours + ":" ; }
+                    let time = "";
+                    let hours = duration.hours();
+                    if (hours > 0) { time = hours + ":" ; }
 
-                        time = time + duration.minutes() + ":" + duration.seconds();
-                       // $("#duration").text(time);
-                        self.file_durations =  moment.duration(time).asSeconds();
-                        console.log(self.file_durations);
-                    }
+                    time = time + duration.minutes() + ":" + duration.seconds();
+                    // $("#duration").text(time);
+                    self.file_durations =  moment.duration(time).asSeconds();
+                    console.log(self.file_durations);
+                }
 
 
 
@@ -234,7 +240,7 @@
             }
 
 
-            },
+        },
 
 
     }

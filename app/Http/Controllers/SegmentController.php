@@ -9,6 +9,7 @@ use App\ScheduledAds;
 use App\User;
 use Illuminate\Http\Request;
 
+
 class SegmentController extends Controller
 {
 
@@ -91,6 +92,12 @@ class SegmentController extends Controller
 
         }
     }
+
+   public  function test(){
+
+        $user = User::all();
+        return response()->json('testing urls');
+   }
 
 
 }
