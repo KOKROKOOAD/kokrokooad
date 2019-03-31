@@ -26,6 +26,7 @@
         </div>
         <!-- Page-header end -->
 
+
         <!-- Page body start -->
         <div class="page-body">
             <div class="row">
@@ -181,8 +182,11 @@
             fetchMediaTypes(index){
                 let self = this;
                 axios.get('fetch-media-types-api').then(function (res) {
+                    console.log(res.data);
                     self.mediaTypes = res.data;
 
+                }).catch(function (error) {
+                    console.log(error);
                 });
             },
             getSelectedMedia(){

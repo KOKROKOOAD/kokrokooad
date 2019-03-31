@@ -14,6 +14,11 @@
                             <div class="col-md-8">
                                 <div class="invoice-box row">
                                     <div class="col-sm-12">
+
+                                        <div v-show="getProcessStatus" class="default-grid row">
+                                            <show-processing></show-processing>
+                                        </div>
+
                                         <table class="table table-responsive invoice-table table-borderless">
                                             <tbody>
                                             <tr>
@@ -65,7 +70,7 @@
                                         <tr>
                                             <!--<th>client id :</th>-->
                                             <!--<td>-->
-                                                <!--#145698-->
+                                            <!--#145698-->
                                             <!--</td>-->
                                         </tr>
                                         </tbody>
@@ -190,7 +195,7 @@
 
         },
         mounted(){
-
+            console.log(this.file);
         },
         methods: {
             amount(item) {
@@ -202,23 +207,23 @@
 
             },
             total(){
-              let total = [];
-              let t = 0;
-              for (let i =0; i < this.schedAdsData.length; i++){
+                let total = [];
+                let t = 0;
+                for (let i =0; i < this.schedAdsData.length; i++){
 
-                  total.push(this.schedAdsData[i].rate);
-              }
+                    total.push(this.schedAdsData[i].rate);
+                }
 
-              for(let j = 0; j < total.length; j++){
-                  t = parseInt(total[j]) + t;
-
-
+                for(let j = 0; j < total.length; j++){
+                    t = parseInt(total[j]) + t;
 
 
 
-              }
-            //  console.log(t);
-              return t;
+
+
+                }
+                //  console.log(t);
+                return t;
             },
             storeSub(title){
                 let self = this;
@@ -242,23 +247,25 @@
 
 
 
-                },
+            },
             // create a subscription
             saveSegmentData(title,segments) {
                 let self = this;
                 let formData = new FormData();
                 if(title !== ''){
-                   // store.dispatch('getSegmentTitle', title);
+                    // store.dispatch('getSegmentTitle', title);
                     formData.append('title', title);
                     formData.append('created_ad_data', JSON.stringify(self.schedAdsData));
                     formData.append('uploadedFile', self.file);
                     formData.append('rate_card_title', self.rateCard);
                     formData.append('media_house_id', self.mediaHouseIds);
+                    store.dispatch('getProcessing', true);
 
                     axios.post('ads-store', formData).then(function (response) {
                         if (response.data.success === 'success'){
                             store.dispatch('getSubId', response.data.sub_id);
                             store.dispatch('getInvoiceId', response.data.invoice_id);
+                            store.dispatch('getProcessing', false);
 
                             //self.$refs.calendar.$emit('refetch-events');
                             self.$router.push('payment');
@@ -317,11 +324,11 @@
                 return store.getters.fileName;
             },
             getDate(){
-               let today = new Date().toISOString().slice(0, 10);
-               return today ;
+                let today = new Date().toISOString().slice(0, 10);
+                return today ;
             },
             title(){
-              return store.getters.segTitle;
+                return store.getters.segTitle;
             },
             // get seleceted media house id
             mediaHouseIds(){
@@ -333,6 +340,9 @@
             },
             file(){
                 return  store.getters.file;
+            },
+            getProcessStatus(){
+                return  store.state.processing;
             },
 
 

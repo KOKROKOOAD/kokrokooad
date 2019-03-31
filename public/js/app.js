@@ -16132,8 +16132,8 @@ module.exports = __webpack_require__(15) ? function (object, key, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(14);
-var IE8_DOM_DEFINE = __webpack_require__(286);
-var toPrimitive = __webpack_require__(287);
+var IE8_DOM_DEFINE = __webpack_require__(291);
+var toPrimitive = __webpack_require__(292);
 var dP = Object.defineProperty;
 
 exports.f = __webpack_require__(15) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
@@ -40499,7 +40499,7 @@ module.exports = $export;
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(285);
+var aFunction = __webpack_require__(290);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -40551,7 +40551,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(294);
+var IObject = __webpack_require__(299);
 var defined = __webpack_require__(23);
 module.exports = function (it) {
   return IObject(defined(it));
@@ -40651,13 +40651,13 @@ module.exports = function (it) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(331)
+  __webpack_require__(336)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(333)
+var __vue_script__ = __webpack_require__(338)
 /* template */
-var __vue_template__ = __webpack_require__(334)
+var __vue_template__ = __webpack_require__(339)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40700,8 +40700,8 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(187);
-__webpack_require__(353);
-module.exports = __webpack_require__(354);
+__webpack_require__(358);
+module.exports = __webpack_require__(359);
 
 
 /***/ }),
@@ -40712,7 +40712,7 @@ module.exports = __webpack_require__(354);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vue_router_routes__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_full_calendar__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_full_calendar__ = __webpack_require__(281);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -40773,33 +40773,33 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(309));
+Vue.component('example-component', __webpack_require__(314));
 Vue.component('create-ad', __webpack_require__(36));
 Vue.component('user-transact', __webpack_require__(170));
-Vue.component('pending-sub', __webpack_require__(312));
-Vue.component('inactive-sub', __webpack_require__(317));
-Vue.component('active-sub', __webpack_require__(322));
-Vue.component('my-sub', __webpack_require__(327));
+Vue.component('pending-sub', __webpack_require__(317));
+Vue.component('inactive-sub', __webpack_require__(322));
+Vue.component('active-sub', __webpack_require__(327));
+Vue.component('my-sub', __webpack_require__(332));
 Vue.component('payment', __webpack_require__(185));
 Vue.component('create-print-rate-cards', __webpack_require__(19));
 Vue.component('create-ad-weekdays', __webpack_require__(160));
 Vue.component('file-size-warning-modal', __webpack_require__(161));
 Vue.component('display-media-houses', __webpack_require__(164));
 Vue.component('invoice', __webpack_require__(162));
-Vue.component('del-selected-media-house', __webpack_require__(336));
+Vue.component('del-selected-media-house', __webpack_require__(341));
 Vue.component('ad-summary', __webpack_require__(20));
 Vue.component('payment-type', __webpack_require__(21));
 Vue.component('show-processing', __webpack_require__(10));
 Vue.component('show-processing', __webpack_require__(10));
 Vue.component('file-upload', __webpack_require__(163));
 Vue.component('select-rate-card', __webpack_require__(166));
-Vue.component('side-bar', __webpack_require__(339));
+Vue.component('side-bar', __webpack_require__(344));
 Vue.component('pre-loader', __webpack_require__(165));
-Vue.component('sub', __webpack_require__(342));
+Vue.component('sub', __webpack_require__(347));
 Vue.component('segments', __webpack_require__(167));
-Vue.component('modals', __webpack_require__(345));
+Vue.component('modals', __webpack_require__(350));
 Vue.component('segment-title', __webpack_require__(168));
-Vue.component('update-segment', __webpack_require__(348));
+Vue.component('update-segment', __webpack_require__(353));
 Vue.component('home', __webpack_require__(171));
 Vue.component('print-rate-card', __webpack_require__(169));
 
@@ -65160,53 +65160,126 @@ if (inBrowser && window.Vue) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
 
 var routes = [{
-    path: '/user-account/create-subscription-media',
+    path: '/kokrokoo.com/create-subscription-media',
     name: 'selectMedia',
     component: __webpack_require__(36)
 }, { name: 'fileupload',
-    path: '/user-account/create-sub-file',
+    path: '/kokrokoo.com/user-account/create-sub-file',
     component: __webpack_require__(163)
 }, { name: 'selectMediaHouse',
-    path: '/user-account/create-sub-media-house',
+    path: '/kokrokoo.com/user-account/create-sub-media-house',
     component: __webpack_require__(164)
 }, { name: 'selectRateCard',
-    path: '/user-account/create-sub-rate-card',
+    path: '/kokrokoo.com/user-account/create-sub-rate-card',
     component: __webpack_require__(166)
 }, {
     name: 'segments',
-    path: '/user-account/create-sub-date',
+    path: '/kokrokoo.com/user-account/create-sub-date',
     component: __webpack_require__(247)
 }, { name: 'invoice',
-    path: '/user-account/create-sub-invoice',
+    path: '/kokrokoo.com/user-account/create-sub-invoice',
     component: __webpack_require__(20)
 }, { name: 'subs',
-    path: '/user-account/subscriptions',
+    path: '/kokrokoo.com/user-account/subscriptions',
     component: __webpack_require__(250)
 }, { name: 'selectSegments',
-    path: '/user-account/select-segment',
+    path: '/kokrokoo.com/user-account/select-segment',
     component: __webpack_require__(253)
 }, { name: 'selectRateAndTime',
-    path: '/user-account/select-rate',
+    path: '/kokrokoo.com/user-account/select-rate',
     component: __webpack_require__(167)
 }, { name: 'fullcalender',
-    path: '/user-account/select-calender',
+    path: '/kokrokoo.com/user-account/select-calender',
     component: __webpack_require__(258)
 }, { name: 'payment',
-    path: '/user-account/payment',
+    path: '/kokrokoo.com/user-account/payment',
     component: __webpack_require__(21)
 }, { name: 'transactions',
-    path: '/user-account/transactions',
+    path: '/kokrokoo.com/user-account/transactions',
     component: __webpack_require__(170)
 }, { name: 'profile',
-    path: '/user-account/user-profile',
+    path: '/kokrokoo.com/user-account/user-profile',
     component: __webpack_require__(271)
 }, { name: 'home',
-    path: '/user-account/dashboard',
+    path: '/kokrokoo.com/user-account/dashboard',
     component: __webpack_require__(171)
 }, { name: 'payment-success',
-    path: '/user-account/payment-success',
-    component: __webpack_require__(376)
+    path: '/kokrokoo.com/user-account/payment-success',
+    component: __webpack_require__(276)
 }];
+
+//
+// export const routes = [
+//     {
+//         path: '/user-account/create-subscription-media',
+//         name : 'selectMedia',
+//         component : require('../components/subscriptions/createAd'),
+//     },
+//     {   name : 'fileupload',
+//         path : '/user-account/create-sub-file',
+//         component : require('../components/subscriptions/fileUpload')
+//     },
+//     {   name : 'selectMediaHouse',
+//         path : '/user-account/create-sub-media-house',
+//         component : require('../components/subscriptions/displayMediaHouseImags')
+//     },
+//     {   name : 'selectRateCard',
+//         path : '/user-account/create-sub-rate-card',
+//         component : require('../components/subscriptions/selectRateCard')
+//     },
+//     {
+//         name : 'segments',
+//         path : '/user-account/create-sub-date',
+//         component : require('../components/subscriptions/rateCardSegments')
+//     },
+//     {   name : 'invoice',
+//         path : '/user-account/create-sub-invoice',
+//         component : require('../components/subscriptions/adSummary')
+//     },
+//     {   name : 'subs',
+//         path : '/user-account/subscriptions',
+//         component : require('../components/subscriptions/subscriptions')
+//     },
+//     {   name : 'selectSegments',
+//         path : '/user-account/select-segment',
+//         component : require('../components/subscriptions/selectSegments.vue')
+//     },
+//     {   name : 'selectRateAndTime',
+//         path : '/user-account/select-rate',
+//         component : require('../components/subscriptions/selectRateAndTime')
+//     },
+//     {   name : 'fullcalender',
+//         path : '/user-account/select-calender',
+//         component : require('../components/subscriptions/fullcalender')
+//     },
+//     {   name : 'payment',
+//         path : '/user-account/payment',
+//         component : require('../components/payment/paymentType')
+//     },
+//     {   name : 'transactions',
+//         path : '/user-account/transactions',
+//         component : require('../components/subscriptions/transactions')
+//     },
+//     {   name : 'profile',
+//         path : '/user-account/user-profile',
+//         component : require('../components/userProfile/userProfile')
+//     },
+//     {   name : 'home',
+//         path : '/user-account/dashboard',
+//         component : require('../components/subscriptions/home')
+//     },
+//     {   name : 'payment-success',
+//         path : '/user-account/payment-success',
+//         component : require('../components/success-pages/success')
+//     },
+//
+//
+//
+//
+//
+//
+//
+// ];
 
 /***/ }),
 /* 218 */
@@ -65243,7 +65316,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*!**/\n     /*=========================================================*/\n     /** Paper Bootstrap Wizard - v1.0.2*/\n     /*=========================================================*/\n\n     /** Product Page: https://www.creative-tim.com/product/paper-bootstrap-wizard*/\n     /** Copyright 2017 Creative Tim (http://www.creative-tim.com)*/\n     /** Licensed under MIT (https://github.com/creativetimofficial/paper-bootstrap-wizard/blob/master/LICENSE.md)*/\n\n     /*=========================================================*/\n\n     /** The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*/\n     /**!*/\n\n\n    /*h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {*/\n        /*-moz-osx-font-smoothing: grayscale;*/\n        /*-webkit-font-smoothing: antialiased;*/\n        /*font-family: 'Muli', 'Helvetica', Arial, sans-serif;*/\n    /*}*/\n\n    /*h1, .h1, h2, .h2, h3, .h3, h4, .h4 {*/\n        /*font-weight: 400;*/\n        /*margin: 30px 0 15px;*/\n    /*}*/\n\n    /*h1, .h1 {*/\n        /*font-size: 3.2em;*/\n    /*}*/\n\n    /*h2, .h2 {*/\n        /*font-size: 2.6em;*/\n    /*}*/\n\n    /*h3, .h3 {*/\n        /*font-size: 1.825em;*/\n        /*line-height: 1.4;*/\n        /*margin: 20px 0 10px;*/\n    /*}*/\n\n    /*h4, .h4 {*/\n        /*font-size: 1.5em;*/\n        /*font-weight: 600;*/\n        /*line-height: 1.2em;*/\n    /*}*/\n\n    /*h5, .h5 {*/\n        /*font-size: 1.25em;*/\n        /*font-weight: 400;*/\n        /*line-height: 1.4em;*/\n        /*margin-bottom: 15px;*/\n    /*}*/\n\n    /*h6, .h6 {*/\n        /*font-size: 0.9em;*/\n        /*font-weight: 600;*/\n        /*text-transform: uppercase;*/\n    /*}*/\n\n    /*p {*/\n        /*font-size: 16px;*/\n        /*line-height: 1.4em;*/\n    /*}*/\n\n    /*h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {*/\n        /*color: #9A9A9A;*/\n        /*font-weight: 300;*/\n        /*line-height: 1.4em;*/\n    /*}*/\n\n    /*h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {*/\n        /*font-size: 60%;*/\n    /*}*/\n\n    /*.form-control::-moz-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control:-moz-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control::-webkit-input-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control:-ms-input-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control {*/\n        /*background-color: #F3F2EE;*/\n        /*border: 1px solid #e8e7e3;*/\n        /*border-radius: 4px;*/\n        /*color: #66615b;*/\n        /*font-size: 14px;*/\n        /*padding: 7px 18px;*/\n        /*height: 40px;*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n    /*}*/\n    /*.form-control:focus {*/\n        /*border: 1px solid #e8e7e3;*/\n        /*background-color: #FFFFFF;*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n        /*outline: 0 !important;*/\n    /*}*/\n    /*.has-success .form-control, .has-error .form-control, .has-success .form-control:focus, .has-error .form-control:focus {*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n    /*}*/\n    /*.has-error .form-control, .form-control.error {*/\n        /*background-color: #FFC0A4;*/\n        /*color: #EB5E28;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.has-success .form-control, .form-control.valid {*/\n        /*color: #66615b;*/\n        /*border-color: #e8e7e3;*/\n    /*}*/\n    /*.has-error .form-control:focus, .form-control.error:focus {*/\n        /*background-color: #FFFFFF;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.has-success .form-control:focus, .form-control.valid:focus {*/\n        /*background-color: #FFFFFF;*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.form-control + .form-control-feedback {*/\n        /*border-radius: 6px;*/\n        /*font-size: 14px;*/\n        /*margin-top: -7px;*/\n        /*position: absolute;*/\n        /*right: 10px;*/\n        /*top: 50%;*/\n        /*vertical-align: middle;*/\n    /*}*/\n    /*.open .form-control {*/\n        /*border-bottom-color: transparent;*/\n    /*}*/\n    /*.form-control.input-no-border {*/\n        /*border: 0 none;*/\n    /*}*/\n    /*.input-group .form-control:not(:first-child):not(:last-child) {*/\n        /*border-left: 0;*/\n        /*border-right: 0;*/\n    /*}*/\n\n    /*label.error:not(.form-control) {*/\n        /*color: #EB5E28;*/\n        /*font-weight: 300;*/\n        /*font-size: 0.8em;*/\n    /*}*/\n\n    /*.input-lg {*/\n        /*height: 55px;*/\n        /*padding: 11px 30px;*/\n    /*}*/\n\n    /*.has-error .form-control-feedback, .has-error .control-label {*/\n        /*color: #EB5E28;*/\n    /*}*/\n\n    /*.has-success .form-control-feedback, .has-success .control-label {*/\n        /*color: #7AC29A;*/\n    /*}*/\n\n    /*.input-group-addon {*/\n        /*background-color: #F3F2EE;*/\n        /*border: 1px solid #e8e7e3;*/\n        /*border-radius: 4px;*/\n    /*}*/\n    /*.has-success .input-group-addon, .has-error .input-group-addon {*/\n        /*background-color: #FFFFFF;*/\n    /*}*/\n    /*.has-error .form-control:focus + .input-group-addon {*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.has-success .form-control:focus + .input-group-addon {*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.form-control:focus + .input-group-addon, .form-control:focus ~ .input-group-addon {*/\n        /*background-color: #FFFFFF;*/\n    /*}*/\n    /*.has-error .input-group-addon {*/\n        /*color: #EB5E28;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.has-error .input-group-addon {*/\n        /*color: #7AC29A;*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.input-group-addon + .form-control {*/\n        /*padding-left: 0;*/\n    /*}*/\n\n    /*.input-group {*/\n        /*margin-bottom: 15px;*/\n    /*}*/\n\n    /*.input-group[disabled] .input-group-addon {*/\n        /*background-color: #E3E3E3;*/\n    /*}*/\n\n    /*.input-group .form-control:first-child,*/\n    /*.input-group-addon:first-child,*/\n    /*.input-group-btn:first-child > .dropdown-toggle,*/\n    /*.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {*/\n        /*border-right: 0 none;*/\n    /*}*/\n\n    /*.input-group .form-control:last-child,*/\n    /*.input-group-addon:last-child,*/\n    /*.input-group-btn:last-child > .dropdown-toggle,*/\n    /*.input-group-btn:first-child > .btn:not(:first-child) {*/\n        /*border-left: 0 none;*/\n    /*}*/\n\n    /*.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {*/\n        /*background-color: #E3E3E3;*/\n        /*cursor: not-allowed;*/\n        /*color: #9A9A9A;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]::-moz-placeholder {*/\n        /*color: #9A9A9A;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]:-moz-placeholder {*/\n        /*color: #cfcfca;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]::-webkit-input-placeholder {*/\n        /*color: #cfcfca;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]:-ms-input-placeholder {*/\n        /*color: #cfcfca;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.input-group-btn .btn {*/\n        /*border-width: 1px;*/\n        /*padding: 9px 18px;*/\n    /*}*/\n\n    /*.input-group-btn .btn-default:not(.btn-fill) {*/\n        /*border-color: #cfcfca;*/\n    /*}*/\n\n    /*.input-group-btn:last-child > .btn {*/\n        /*margin-left: 0;*/\n    /*}*/\n\n    /*textarea.form-control {*/\n        /*max-width: 100%;*/\n        /*padding: 10px 18px;*/\n        /*resize: none;*/\n    /*}*/\n\n    /*.input-group-focus .input-group-addon {*/\n        /*background-color: #FFFFFF;*/\n    /*}*/\n\n    /*!*     General overwrite     *!*/\n    /*body {*/\n        /*color: #66615b;*/\n        /*font-size: 14px;*/\n        /*font-family: 'Muli', Arial, sans-serif;*/\n    /*}*/\n\n    /*a {*/\n        /*color: #2CA8FF;*/\n    /*}*/\n\n    /*a:hover, a:focus {*/\n        /*color: #109CFF;*/\n    /*}*/\n\n    /*a:focus, a:active,*/\n    /*button::-moz-focus-inner,*/\n    /*input[type=\"reset\"]::-moz-focus-inner,*/\n    /*input[type=\"button\"]::-moz-focus-inner,*/\n    /*input[type=\"submit\"]::-moz-focus-inner,*/\n    /*select::-moz-focus-inner,*/\n/*!**/\n    /*input[type=\"file\"] > input[type=\"button\"]::-moz-focus-inner,*/\n/**!*/\n    /*input[type=\"button\"]:focus {*/\n        /*outline: 0 !important;*/\n    /*}*/\n\n    /*.btn:focus,*/\n    /*.btn:hover,*/\n    /*.btn:active {*/\n        /*outline: 0;*/\n    /*}*/\n\n    /*!*           Animations              *!*/\n    /*.form-control, .input-group-addon {*/\n        /*-webkit-transition: all 300ms linear;*/\n        /*-moz-transition: all 300ms linear;*/\n        /*-o-transition: all 300ms linear;*/\n        /*-ms-transition: all 300ms linear;*/\n        /*transition: all 300ms linear;*/\n    /*}*/\n\n    /*.image-container {*/\n        /*min-height: 100vh;*/\n        /*background-position: center center;*/\n        /*background-size: cover;*/\n    /*}*/\n\n    /*.wizard-container {*/\n        /*padding-top: 100px;*/\n        /*z-index: 3;*/\n    /*}*/\n\n    /*.made-with-pk {*/\n        /*width: 50px;*/\n        /*height: 50px;*/\n        /*display: block;*/\n        /*position: fixed;*/\n        /*z-index: 555;*/\n        /*bottom: 40px;*/\n        /*right: 40px;*/\n        /*border-radius: 30px;*/\n        /*background-color: rgba(16, 16, 16, 0.35);*/\n        /*border: 1px solid rgba(255, 255, 255, 0.15);*/\n        /*color: #FFFFFF;*/\n        /*cursor: pointer;*/\n        /*padding: 10px 12px;*/\n        /*white-space: nowrap;*/\n        /*overflow: hidden;*/\n        /*-webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n    /*}*/\n    /*.made-with-pk:hover, .made-with-pk:active, .made-with-pk:focus {*/\n        /*width: 218px;*/\n        /*color: #FFFFFF;*/\n        /*transition-duration: .55s;*/\n        /*padding: 10px 19px;*/\n    /*}*/\n    /*.made-with-pk:hover .made-with, .made-with-pk:active .made-with, .made-with-pk:focus .made-with {*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.made-with-pk .brand,*/\n    /*.made-with-pk .made-with {*/\n        /*float: left;*/\n    /*}*/\n    /*.made-with-pk .brand {*/\n        /*position: relative;*/\n        /*top: 4px;*/\n        /*letter-spacing: 1px;*/\n        /*vertical-align: middle;*/\n        /*font-size: 16px;*/\n        /*font-weight: 600;*/\n    /*}*/\n    /*.made-with-pk .made-with {*/\n        /*color: rgba(255, 255, 255, 0.6);*/\n        /*position: absolute;*/\n        /*left: 58px;*/\n        /*top: 14px;*/\n        /*opacity: 0;*/\n        /*margin: 0;*/\n        /*-webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n    /*}*/\n    /*.made-with-pk .made-with strong {*/\n        /*font-weight: 400;*/\n        /*color: rgba(255, 255, 255, 0.9);*/\n    /*}*/\n\n    /*.col-sm-8 .col-sm-4 {*/\n        /*padding-right: 6px;*/\n        /*padding-left: 6px;*/\n    /*}*/\n\n    /*.btn,*/\n    /*.navbar .navbar-nav > li > a.btn {*/\n        /*border-radius: 20px;*/\n        /*box-sizing: border-box;*/\n        /*border-width: 2px;*/\n        /*background-color: transparent;*/\n        /*font-size: 14px;*/\n        /*font-weight: 600;*/\n        /*padding: 7px 18px;*/\n        /*border-color: #66615B;*/\n        /*color: #66615B;*/\n        /*-webkit-transition: all 150ms linear;*/\n        /*-moz-transition: all 150ms linear;*/\n        /*-o-transition: all 150ms linear;*/\n        /*-ms-transition: all 150ms linear;*/\n        /*transition: all 150ms linear;*/\n    /*}*/\n    /*.btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .open > .btn.dropdown-toggle, .open > .btn.dropdown-toggle:focus, .open > .btn.dropdown-toggle:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:active,*/\n    /*.navbar .navbar-nav > li > a.btn.active,*/\n    /*.navbar .navbar-nav > li > a.btn:active:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:active:hover, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:focus, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:hover {*/\n        /*background-color: #66615B;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #66615B;*/\n    /*}*/\n    /*.btn:hover .caret, .btn:focus .caret, .btn:active .caret, .btn.active .caret, .btn:active:focus .caret, .btn:active:hover .caret, .open > .btn.dropdown-toggle .caret, .open > .btn.dropdown-toggle:focus .caret, .open > .btn.dropdown-toggle:hover .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:hover .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:focus .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:active .caret,*/\n    /*.navbar .navbar-nav > li > a.btn.active .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:active:focus .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:active:hover .caret, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle .caret, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:focus .caret, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.btn.disabled, .btn.disabled:hover, .btn.disabled:focus, .btn.disabled.focus, .btn.disabled:active, .btn.disabled.active, .btn:disabled, .btn:disabled:hover, .btn:disabled:focus, .btn:disabled.focus, .btn:disabled:active, .btn:disabled.active, .btn[disabled], .btn[disabled]:hover, .btn[disabled]:focus, .btn[disabled].focus, .btn[disabled]:active, .btn[disabled].active, fieldset[disabled] .btn, fieldset[disabled] .btn:hover, fieldset[disabled] .btn:focus, fieldset[disabled] .btn.focus, fieldset[disabled] .btn:active, fieldset[disabled] .btn.active,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled:hover,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled:focus,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled.focus,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled:active,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled.active,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled.focus,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled:active,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled.active,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled],*/\n    /*.navbar .navbar-nav > li > a.btn[disabled]:hover,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled]:focus,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled].focus,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled]:active,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled].active, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn:hover, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn:focus, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn.focus, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn:active, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #66615B;*/\n    /*}*/\n    /*.btn.btn-fill,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #66615B;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.btn.btn-fill:hover, .btn.btn-fill:focus, .btn.btn-fill:active, .btn.btn-fill.active, .open > .btn.btn-fill.dropdown-toggle,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill:hover,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill:focus,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill:active,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill.active, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill.dropdown-toggle {*/\n        /*background-color: #484541;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #484541;*/\n    /*}*/\n    /*.btn.btn-fill .caret,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn.btn-simple:hover, .btn.btn-simple:focus, .btn.btn-simple:active, .btn.btn-simple.active, .open > .btn.btn-simple.dropdown-toggle,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple:hover,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple:focus,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple:active,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple.active, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #484541;*/\n    /*}*/\n    /*.btn.btn-simple .caret,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn .caret,*/\n    /*.navbar .navbar-nav > li > a.btn .caret {*/\n        /*border-top-color: #66615B;*/\n    /*}*/\n    /*.btn:hover, .btn:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:focus {*/\n        /*outline: 0 !important;*/\n    /*}*/\n    /*.btn:active, .btn.active, .open > .btn.dropdown-toggle,*/\n    /*.navbar .navbar-nav > li > a.btn:active,*/\n    /*.navbar .navbar-nav > li > a.btn.active, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle {*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n        /*outline: 0 !important;*/\n    /*}*/\n    /*.btn.btn-icon,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-icon {*/\n        /*border-radius: 25px;*/\n        /*padding: 7px 10px;*/\n    /*}*/\n    /*.btn.btn-icon i,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-icon i {*/\n        /*margin-right: 0px;*/\n    /*}*/\n    /*.btn [class*=\"ti-\"],*/\n    /*.navbar .navbar-nav > li > a.btn [class*=\"ti-\"] {*/\n        /*vertical-align: middle;*/\n    /*}*/\n\n    /*.btn-group .btn + .btn,*/\n    /*.btn-group .btn + .btn-group,*/\n    /*.btn-group .btn-group + .btn,*/\n    /*.btn-group .btn-group + .btn-group {*/\n        /*margin-left: -2px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-primary, .btn-primary {*/\n        /*border-color: #7A9E9F;*/\n        /*color: #7A9E9F;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary:hover, .navbar .navbar-nav > li > a.btn.btn-primary:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active, .navbar .navbar-nav > li > a.btn.btn-primary.active, .navbar .navbar-nav > li > a.btn.btn-primary:active:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .open > .btn-primary.dropdown-toggle, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover {*/\n        /*background-color: #7A9E9F;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary:hover .caret, .navbar .navbar-nav > li > a.btn.btn-primary:focus .caret, .navbar .navbar-nav > li > a.btn.btn-primary:active .caret, .navbar .navbar-nav > li > a.btn.btn-primary.active .caret, .navbar .navbar-nav > li > a.btn.btn-primary:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-primary:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover .caret, .btn-primary:hover .caret, .btn-primary:focus .caret, .btn-primary:active .caret, .btn-primary.active .caret, .btn-primary:active:focus .caret, .btn-primary:active:hover .caret, .open > .btn-primary.dropdown-toggle .caret, .open > .btn-primary.dropdown-toggle:focus .caret, .open > .btn-primary.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.disabled, .navbar .navbar-nav > li > a.btn.btn-primary.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-primary.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-primary.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-primary.disabled:active, .navbar .navbar-nav > li > a.btn.btn-primary.disabled.active, .navbar .navbar-nav > li > a.btn.btn-primary:disabled, .navbar .navbar-nav > li > a.btn.btn-primary:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-primary:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-primary:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-primary:disabled:active, .navbar .navbar-nav > li > a.btn.btn-primary:disabled.active, .navbar .navbar-nav > li > a.btn.btn-primary[disabled], .navbar .navbar-nav > li > a.btn.btn-primary[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-primary[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-primary[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-primary[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-primary[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary.active, .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary:disabled, .btn-primary:disabled:hover, .btn-primary:disabled:focus, .btn-primary:disabled.focus, .btn-primary:disabled:active, .btn-primary:disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-fill, .btn-primary.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #7A9E9F;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill.dropdown-toggle, .btn-primary.btn-fill:hover, .btn-primary.btn-fill:focus, .btn-primary.btn-fill:active, .btn-primary.btn-fill.active, .open > .btn-primary.btn-fill.dropdown-toggle {*/\n        /*background-color: #5e8283;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #5e8283;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-fill .caret, .btn-primary.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple.dropdown-toggle, .btn-primary.btn-simple:hover, .btn-primary.btn-simple:focus, .btn-primary.btn-simple:active, .btn-primary.btn-simple.active, .open > .btn-primary.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #5e8283;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-simple .caret, .btn-primary.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary .caret, .btn-primary .caret {*/\n        /*border-top-color: #7A9E9F;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-success, .btn-success {*/\n        /*border-color: #7AC29A;*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success:hover, .navbar .navbar-nav > li > a.btn.btn-success:focus, .navbar .navbar-nav > li > a.btn.btn-success:active, .navbar .navbar-nav > li > a.btn.btn-success.active, .navbar .navbar-nav > li > a.btn.btn-success:active:focus, .navbar .navbar-nav > li > a.btn.btn-success:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:hover, .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success:active:focus, .btn-success:active:hover, .open > .btn-success.dropdown-toggle, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle:hover {*/\n        /*background-color: #7AC29A;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success:hover .caret, .navbar .navbar-nav > li > a.btn.btn-success:focus .caret, .navbar .navbar-nav > li > a.btn.btn-success:active .caret, .navbar .navbar-nav > li > a.btn.btn-success.active .caret, .navbar .navbar-nav > li > a.btn.btn-success:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-success:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:hover .caret, .btn-success:hover .caret, .btn-success:focus .caret, .btn-success:active .caret, .btn-success.active .caret, .btn-success:active:focus .caret, .btn-success:active:hover .caret, .open > .btn-success.dropdown-toggle .caret, .open > .btn-success.dropdown-toggle:focus .caret, .open > .btn-success.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.disabled, .navbar .navbar-nav > li > a.btn.btn-success.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-success.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-success.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-success.disabled:active, .navbar .navbar-nav > li > a.btn.btn-success.disabled.active, .navbar .navbar-nav > li > a.btn.btn-success:disabled, .navbar .navbar-nav > li > a.btn.btn-success:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-success:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-success:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-success:disabled:active, .navbar .navbar-nav > li > a.btn.btn-success:disabled.active, .navbar .navbar-nav > li > a.btn.btn-success[disabled], .navbar .navbar-nav > li > a.btn.btn-success[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-success[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-success[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-success[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-success[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success.active, .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success:disabled, .btn-success:disabled:hover, .btn-success:disabled:focus, .btn-success:disabled.focus, .btn-success:disabled:active, .btn-success:disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-fill, .btn-success.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #7AC29A;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-success.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-success.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-success.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-success.btn-fill.dropdown-toggle, .btn-success.btn-fill:hover, .btn-success.btn-fill:focus, .btn-success.btn-fill:active, .btn-success.btn-fill.active, .open > .btn-success.btn-fill.dropdown-toggle {*/\n        /*background-color: #54b07d;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #54b07d;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-fill .caret, .btn-success.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-success.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-success.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-success.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-success.btn-simple.dropdown-toggle, .btn-success.btn-simple:hover, .btn-success.btn-simple:focus, .btn-success.btn-simple:active, .btn-success.btn-simple.active, .open > .btn-success.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #54b07d;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-simple .caret, .btn-success.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success .caret, .btn-success .caret {*/\n        /*border-top-color: #7AC29A;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-info, .btn-info {*/\n        /*border-color: #68B3C8;*/\n        /*color: #68B3C8;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info:hover, .navbar .navbar-nav > li > a.btn.btn-info:focus, .navbar .navbar-nav > li > a.btn.btn-info:active, .navbar .navbar-nav > li > a.btn.btn-info.active, .navbar .navbar-nav > li > a.btn.btn-info:active:focus, .navbar .navbar-nav > li > a.btn.btn-info:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:hover, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info:active:focus, .btn-info:active:hover, .open > .btn-info.dropdown-toggle, .open > .btn-info.dropdown-toggle:focus, .open > .btn-info.dropdown-toggle:hover {*/\n        /*background-color: #68B3C8;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info:hover .caret, .navbar .navbar-nav > li > a.btn.btn-info:focus .caret, .navbar .navbar-nav > li > a.btn.btn-info:active .caret, .navbar .navbar-nav > li > a.btn.btn-info.active .caret, .navbar .navbar-nav > li > a.btn.btn-info:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-info:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:hover .caret, .btn-info:hover .caret, .btn-info:focus .caret, .btn-info:active .caret, .btn-info.active .caret, .btn-info:active:focus .caret, .btn-info:active:hover .caret, .open > .btn-info.dropdown-toggle .caret, .open > .btn-info.dropdown-toggle:focus .caret, .open > .btn-info.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.disabled, .navbar .navbar-nav > li > a.btn.btn-info.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-info.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-info.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-info.disabled:active, .navbar .navbar-nav > li > a.btn.btn-info.disabled.active, .navbar .navbar-nav > li > a.btn.btn-info:disabled, .navbar .navbar-nav > li > a.btn.btn-info:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-info:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-info:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-info:disabled:active, .navbar .navbar-nav > li > a.btn.btn-info:disabled.active, .navbar .navbar-nav > li > a.btn.btn-info[disabled], .navbar .navbar-nav > li > a.btn.btn-info[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-info[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-info[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-info[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-info[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info.active, .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info:disabled, .btn-info:disabled:hover, .btn-info:disabled:focus, .btn-info:disabled.focus, .btn-info:disabled:active, .btn-info:disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-fill, .btn-info.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #68B3C8;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-info.btn-fill.dropdown-toggle, .btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {*/\n        /*background-color: #429cb6;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #429cb6;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-fill .caret, .btn-info.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-info.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-info.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-info.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-info.btn-simple.dropdown-toggle, .btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active, .btn-info.btn-simple.active, .open > .btn-info.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #429cb6;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-simple .caret, .btn-info.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info .caret, .btn-info .caret {*/\n        /*border-top-color: #68B3C8;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-warning, .btn-warning {*/\n        /*border-color: #F3BB45;*/\n        /*color: #F3BB45;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning:hover, .navbar .navbar-nav > li > a.btn.btn-warning:focus, .navbar .navbar-nav > li > a.btn.btn-warning:active, .navbar .navbar-nav > li > a.btn.btn-warning.active, .navbar .navbar-nav > li > a.btn.btn-warning:active:focus, .navbar .navbar-nav > li > a.btn.btn-warning:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:hover, .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning:active:focus, .btn-warning:active:hover, .open > .btn-warning.dropdown-toggle, .open > .btn-warning.dropdown-toggle:focus, .open > .btn-warning.dropdown-toggle:hover {*/\n        /*background-color: #F3BB45;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning:hover .caret, .navbar .navbar-nav > li > a.btn.btn-warning:focus .caret, .navbar .navbar-nav > li > a.btn.btn-warning:active .caret, .navbar .navbar-nav > li > a.btn.btn-warning.active .caret, .navbar .navbar-nav > li > a.btn.btn-warning:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-warning:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:hover .caret, .btn-warning:hover .caret, .btn-warning:focus .caret, .btn-warning:active .caret, .btn-warning.active .caret, .btn-warning:active:focus .caret, .btn-warning:active:hover .caret, .open > .btn-warning.dropdown-toggle .caret, .open > .btn-warning.dropdown-toggle:focus .caret, .open > .btn-warning.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.disabled, .navbar .navbar-nav > li > a.btn.btn-warning.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-warning.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-warning.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-warning.disabled:active, .navbar .navbar-nav > li > a.btn.btn-warning.disabled.active, .navbar .navbar-nav > li > a.btn.btn-warning:disabled, .navbar .navbar-nav > li > a.btn.btn-warning:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-warning:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-warning:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-warning:disabled:active, .navbar .navbar-nav > li > a.btn.btn-warning:disabled.active, .navbar .navbar-nav > li > a.btn.btn-warning[disabled], .navbar .navbar-nav > li > a.btn.btn-warning[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-warning[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-warning[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-warning[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-warning[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning.active, .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-fill, .btn-warning.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #F3BB45;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill.dropdown-toggle, .btn-warning.btn-fill:hover, .btn-warning.btn-fill:focus, .btn-warning.btn-fill:active, .btn-warning.btn-fill.active, .open > .btn-warning.btn-fill.dropdown-toggle {*/\n        /*background-color: #f0a810;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #f0a810;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-fill .caret, .btn-warning.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple.dropdown-toggle, .btn-warning.btn-simple:hover, .btn-warning.btn-simple:focus, .btn-warning.btn-simple:active, .btn-warning.btn-simple.active, .open > .btn-warning.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #f0a810;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-simple .caret, .btn-warning.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning .caret, .btn-warning .caret {*/\n        /*border-top-color: #F3BB45;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-danger, .btn-danger {*/\n        /*border-color: #EB5E28;*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger:hover, .navbar .navbar-nav > li > a.btn.btn-danger:focus, .navbar .navbar-nav > li > a.btn.btn-danger:active, .navbar .navbar-nav > li > a.btn.btn-danger.active, .navbar .navbar-nav > li > a.btn.btn-danger:active:focus, .navbar .navbar-nav > li > a.btn.btn-danger:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover, .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger:active:focus, .btn-danger:active:hover, .open > .btn-danger.dropdown-toggle, .open > .btn-danger.dropdown-toggle:focus, .open > .btn-danger.dropdown-toggle:hover {*/\n        /*background-color: #EB5E28;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger:hover .caret, .navbar .navbar-nav > li > a.btn.btn-danger:focus .caret, .navbar .navbar-nav > li > a.btn.btn-danger:active .caret, .navbar .navbar-nav > li > a.btn.btn-danger.active .caret, .navbar .navbar-nav > li > a.btn.btn-danger:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-danger:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover .caret, .btn-danger:hover .caret, .btn-danger:focus .caret, .btn-danger:active .caret, .btn-danger.active .caret, .btn-danger:active:focus .caret, .btn-danger:active:hover .caret, .open > .btn-danger.dropdown-toggle .caret, .open > .btn-danger.dropdown-toggle:focus .caret, .open > .btn-danger.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.disabled, .navbar .navbar-nav > li > a.btn.btn-danger.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-danger.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-danger.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-danger.disabled:active, .navbar .navbar-nav > li > a.btn.btn-danger.disabled.active, .navbar .navbar-nav > li > a.btn.btn-danger:disabled, .navbar .navbar-nav > li > a.btn.btn-danger:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-danger:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-danger:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-danger:disabled:active, .navbar .navbar-nav > li > a.btn.btn-danger:disabled.active, .navbar .navbar-nav > li > a.btn.btn-danger[disabled], .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-danger[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-danger[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger.active, .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger:disabled, .btn-danger:disabled:hover, .btn-danger:disabled:focus, .btn-danger:disabled.focus, .btn-danger:disabled:active, .btn-danger:disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-fill, .btn-danger.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #EB5E28;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill.dropdown-toggle, .btn-danger.btn-fill:hover, .btn-danger.btn-fill:focus, .btn-danger.btn-fill:active, .btn-danger.btn-fill.active, .open > .btn-danger.btn-fill.dropdown-toggle {*/\n        /*background-color: #c84513;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #c84513;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-fill .caret, .btn-danger.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple.dropdown-toggle, .btn-danger.btn-simple:hover, .btn-danger.btn-simple:focus, .btn-danger.btn-simple:active, .btn-danger.btn-simple.active, .open > .btn-danger.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #c84513;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple .caret, .btn-danger.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger .caret, .btn-danger .caret {*/\n        /*border-top-color: #EB5E28;*/\n    /*}*/\n\n    /*.btn-neutral {*/\n        /*border-color: #FFFFFF;*/\n        /*color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral:hover, .btn-neutral:focus, .btn-neutral:active, .btn-neutral.active, .btn-neutral:active:focus, .btn-neutral:active:hover, .open > .btn-neutral.dropdown-toggle, .open > .btn-neutral.dropdown-toggle:focus, .open > .btn-neutral.dropdown-toggle:hover {*/\n        /*background-color: #FFFFFF;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral:hover .caret, .btn-neutral:focus .caret, .btn-neutral:active .caret, .btn-neutral.active .caret, .btn-neutral:active:focus .caret, .btn-neutral:active:hover .caret, .open > .btn-neutral.dropdown-toggle .caret, .open > .btn-neutral.dropdown-toggle:focus .caret, .open > .btn-neutral.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.btn-neutral.disabled, .btn-neutral.disabled:hover, .btn-neutral.disabled:focus, .btn-neutral.disabled.focus, .btn-neutral.disabled:active, .btn-neutral.disabled.active, .btn-neutral:disabled, .btn-neutral:disabled:hover, .btn-neutral:disabled:focus, .btn-neutral:disabled.focus, .btn-neutral:disabled:active, .btn-neutral:disabled.active, .btn-neutral[disabled], .btn-neutral[disabled]:hover, .btn-neutral[disabled]:focus, .btn-neutral[disabled].focus, .btn-neutral[disabled]:active, .btn-neutral[disabled].active, fieldset[disabled] .btn-neutral, fieldset[disabled] .btn-neutral:hover, fieldset[disabled] .btn-neutral:focus, fieldset[disabled] .btn-neutral.focus, fieldset[disabled] .btn-neutral:active, fieldset[disabled] .btn-neutral.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #FFFFFF;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus, .btn-neutral.btn-fill:active, .btn-neutral.btn-fill.active, .open > .btn-neutral.btn-fill.dropdown-toggle {*/\n        /*background-color: #FFFFFF;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-simple:hover, .btn-neutral.btn-simple:focus, .btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active, .open > .btn-neutral.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral:hover, .btn-neutral:focus {*/\n        /*color: #66615B;*/\n    /*}*/\n    /*.btn-neutral:hover i, .btn-neutral:focus i {*/\n        /*color: #66615B;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral:active, .btn-neutral.active, .open > .btn-neutral.dropdown-toggle {*/\n        /*background-color: #FFFFFF;*/\n        /*color: #66615B;*/\n    /*}*/\n    /*.btn-neutral:active i, .btn-neutral.active i, .open > .btn-neutral.dropdown-toggle i {*/\n        /*color: #66615B;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral.btn-fill {*/\n        /*color: #66615B;*/\n    /*}*/\n    /*.btn-neutral.btn-fill i {*/\n        /*color: #66615B;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus {*/\n        /*color: #484541;*/\n    /*}*/\n    /*.btn-neutral.btn-fill:hover i, .btn-neutral.btn-fill:focus i {*/\n        /*color: #484541;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active {*/\n        /*background-color: transparent;*/\n    /*}*/\n\n    /*.btn:disabled, .btn[disabled], .btn.disabled, .btn.btn-disabled {*/\n        /*opacity: 0.5;*/\n        /*filter: alpha(opacity=50);*/\n    /*}*/\n\n    /*.btn-disabled {*/\n        /*cursor: default;*/\n    /*}*/\n\n    /*.btn-simple {*/\n        /*border: 0;*/\n        /*padding: 7px 18px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-lg,*/\n    /*.btn-lg {*/\n        /*font-size: 18px;*/\n        /*border-radius: 50px;*/\n        /*padding: 11px 30px;*/\n        /*font-weight: 400;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-lg.btn-simple,*/\n    /*.btn-lg.btn-simple {*/\n        /*padding: 13px 30px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-lg.btn-icon,*/\n    /*.btn-lg.btn-icon {*/\n        /*border-radius: 30px;*/\n        /*padding: 9px 16px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-sm,*/\n    /*.btn-sm {*/\n        /*font-size: 12px;*/\n        /*border-radius: 26px;*/\n        /*padding: 4px 10px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-sm.btn-simple,*/\n    /*.btn-sm.btn-simple {*/\n        /*padding: 6px 10px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-sm.btn-icon,*/\n    /*.btn-sm.btn-icon {*/\n        /*padding: 3px 6px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-sm.btn-icon .fa,*/\n    /*.btn-sm.btn-icon .fa {*/\n        /*line-height: 1.6;*/\n        /*width: 15px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-xs,*/\n    /*.btn-xs {*/\n        /*font-size: 12px;*/\n        /*border-radius: 26px;*/\n        /*padding: 2px 5px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-xs.btn-simple,*/\n    /*.btn-xs.btn-simple {*/\n        /*padding: 4px 5px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-xs.btn-icon,*/\n    /*.btn-xs.btn-icon {*/\n        /*padding: 1px 5px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-xs.btn-icon .fa,*/\n    /*.btn-xs.btn-icon .fa {*/\n        /*width: 10px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-wd,*/\n    /*.btn-wd {*/\n        /*min-width: 140px;*/\n    /*}*/\n\n    /*.btn-group.select {*/\n        /*width: 100%;*/\n    /*}*/\n\n    /*.btn-group.select .btn {*/\n        /*text-align: left;*/\n    /*}*/\n\n    /*.btn-group.select .caret {*/\n        /*position: absolute;*/\n        /*top: 50%;*/\n        /*margin-top: -1px;*/\n        /*right: 8px;*/\n    /*}*/\n\n    /*.btn-tooltip {*/\n        /*white-space: nowrap;*/\n    /*}*/\n\n    /*.buttons-with-margin .btn {*/\n        /*margin-bottom: 5px;*/\n    /*}*/\n\n    /*.label {*/\n        /*padding: 3px 8px;*/\n        /*border-radius: 12px;*/\n        /*color: #FFFFFF;*/\n        /*font-weight: 500;*/\n        /*font-size: 0.75em;*/\n        /*text-transform: uppercase;*/\n        /*display: inline-block;*/\n        /*line-height: 1.5em;*/\n    /*}*/\n\n    /*.label-icon {*/\n        /*padding: 0.4em 0.55em;*/\n    /*}*/\n    /*.label-icon i {*/\n        /*font-size: 0.8em;*/\n        /*line-height: 1;*/\n    /*}*/\n\n    /*.label-default {*/\n        /*background-color: #66615b;*/\n    /*}*/\n\n    /*.label-primary {*/\n        /*background-color: #7A9E9F;*/\n    /*}*/\n\n    /*.label-info {*/\n        /*background-color: #68B3C8;*/\n    /*}*/\n\n    /*.label-success {*/\n        /*background-color: #7AC29A;*/\n    /*}*/\n\n    /*.label-warning {*/\n        /*background-color: #F3BB45;*/\n    /*}*/\n\n    /*.label-danger {*/\n        /*background-color: #EB5E28;*/\n    /*}*/\n\n    /*!*            Navigation menu                *!*/\n    /*.nav-pills {*/\n        /*background-color: #F3F2EE;*/\n        /*position: absolute;*/\n        /*width: 100%;*/\n        /*height: 4px;*/\n        /*top: 40px;*/\n        /*text-align: center;*/\n    /*}*/\n    /*.nav-pills > li + li {*/\n        /*margin-left: 0;*/\n    /*}*/\n    /*.nav-pills > li > a {*/\n        /*padding: 0;*/\n        /*max-width: 78px;*/\n        /*margin: 0 auto;*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n        /*border-radius: 50%;*/\n        /*position: relative;*/\n        /*top: -32px;*/\n        /*z-index: 100;*/\n    /*}*/\n    /*.nav-pills > li > a:after {*/\n        /*content: '';*/\n        /*width: 70px;*/\n        /*height: 70px;*/\n        /*border-radius: 50%;*/\n        /*display: inline-block;*/\n        /*position: absolute;*/\n        /*right: -1px;*/\n        /*top: -4px;*/\n        /*transform: scale(0);*/\n        /*transition: .2s all linear;*/\n    /*}*/\n    /*.nav-pills > li > a:hover, .nav-pills > li > a:focus {*/\n        /*background-color: transparent;*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n        /*outline: 0 !important;*/\n        /*cursor: pointer;*/\n    /*}*/\n    /*.nav-pills > li.active > a:after {*/\n        /*content: '';*/\n        /*width: 70px;*/\n        /*height: 70px;*/\n        /*border-radius: 50%;*/\n        /*display: inline-block;*/\n        /*position: absolute;*/\n        /*right: 5px;*/\n        /*top: -2px;*/\n        /*-webkit-transform: scale(1);*/\n        /*-moz-transform: scale(1);*/\n        /*-o-transition: scale(1);*/\n        /*-ms-transform: scale(1);*/\n        /*transform: scale(1);*/\n        /*-webkit-transition: all 0.2s linear;*/\n        /*-moz-transition: all 0.2s linear;*/\n        /*-o-transition: all 0.2s linear;*/\n        /*-ms-transition: all 0.2s linear;*/\n        /*transition: all 0.2s linear;*/\n    /*}*/\n    /*.nav-pills > li.active > a,*/\n    /*.nav-pills > li.active > a:hover,*/\n    /*.nav-pills > li.active > a:focus {*/\n        /*background-color: transparent;*/\n        /*font-size: 15px;*/\n        /*-webkit-transition: font-size 0.2s linear;*/\n        /*-moz-transition: font-size 0.2s linear;*/\n        /*-o-transition: font-size 0.2s linear;*/\n        /*-ms-transition: font-size 0.2s linear;*/\n        /*transition: font-size 0.2s linear;*/\n    /*}*/\n    /*.nav-pills > li.active > a [class*=\"ti-\"],*/\n    /*.nav-pills > li.active > a:hover [class*=\"ti-\"],*/\n    /*.nav-pills > li.active > a:focus [class*=\"ti-\"] {*/\n        /*color: #FFFFFF;*/\n        /*font-size: 24px;*/\n        /*top: 21px;*/\n        /*-webkit-transition: all 0.2s linear;*/\n        /*-moz-transition: all 0.2s linear;*/\n        /*-o-transition: all 0.2s linear;*/\n        /*-ms-transition: all 0.2s linear;*/\n        /*transition: all 0.2s linear;*/\n    /*}*/\n\n    /*.tooltip {*/\n        /*font-size: 14px;*/\n        /*font-weight: bold;*/\n    /*}*/\n\n    /*.tooltip-arrow {*/\n        /*display: none;*/\n        /*opacity: 0;*/\n    /*}*/\n\n    /*.tooltip-inner {*/\n        /*background-color: #FAE6A4;*/\n        /*border-radius: 4px;*/\n        /*box-shadow: 0 1px 13px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(115, 71, 38, 0.23);*/\n        /*color: #734726;*/\n        /*max-width: 200px;*/\n        /*padding: 6px 10px;*/\n        /*text-align: center;*/\n        /*text-decoration: none;*/\n    /*}*/\n    /*.tooltip-inner:after {*/\n        /*content: \"\";*/\n        /*display: inline-block;*/\n        /*left: 100%;*/\n        /*margin-left: -56%;*/\n        /*position: absolute;*/\n    /*}*/\n    /*.tooltip-inner:before {*/\n        /*content: \"\";*/\n        /*display: inline-block;*/\n        /*left: 100%;*/\n        /*margin-left: -56%;*/\n        /*position: absolute;*/\n    /*}*/\n\n    /*.tooltip.top {*/\n        /*margin-top: -11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.top .tooltip-inner:after {*/\n        /*border-top: 11px solid #FAE6A4;*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*bottom: -10px;*/\n    /*}*/\n    /*.tooltip.top .tooltip-inner:before {*/\n        /*border-top: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*bottom: -11px;*/\n    /*}*/\n\n    /*.tooltip.bottom {*/\n        /*margin-top: 11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.bottom .tooltip-inner:after {*/\n        /*border-bottom: 11px solid #FAE6A4;*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*top: -10px;*/\n    /*}*/\n    /*.tooltip.bottom .tooltip-inner:before {*/\n        /*border-bottom: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*top: -11px;*/\n    /*}*/\n\n    /*.tooltip.left {*/\n        /*margin-left: -11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.left .tooltip-inner:after {*/\n        /*border-left: 11px solid #FAE6A4;*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*right: -10px;*/\n        /*left: auto;*/\n        /*margin-left: 0;*/\n    /*}*/\n    /*.tooltip.left .tooltip-inner:before {*/\n        /*border-left: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*right: -11px;*/\n        /*left: auto;*/\n        /*margin-left: 0;*/\n    /*}*/\n\n    /*.tooltip.right {*/\n        /*margin-left: 11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.right .tooltip-inner:after {*/\n        /*border-right: 11px solid #FAE6A4;*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*left: -10px;*/\n        /*top: 0;*/\n        /*margin-left: 0;*/\n    /*}*/\n    /*.tooltip.right .tooltip-inner:before {*/\n        /*border-right: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*left: -11px;*/\n        /*top: 0;*/\n        /*margin-left: 0;*/\n    /*}*/\n\n    /*.card {*/\n        /*border-radius: 6px;*/\n        /*box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);*/\n        /*background-color: #FFFFFF;*/\n        /*color: #252422;*/\n        /*padding: 10px 0;*/\n        /*margin-bottom: 20px;*/\n        /*position: relative;*/\n        /*z-index: 1;*/\n    /*}*/\n    /*.card .card-checkboxes {*/\n        /*background-color: #F3F2EE;*/\n        /*box-shadow: none;*/\n        /*color: rgba(0, 0, 0, 0.3);*/\n    /*}*/\n    /*.card .card-hover-effect {*/\n        /*-webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*-moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*-o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*-ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n    /*}*/\n    /*.card .card-hover-effect:hover {*/\n        /*box-shadow: 0px 12px 17px -7px rgba(0, 0, 0, 0.3);*/\n        /*-webkit-transform: translateY(-10px);*/\n        /*-moz-transform: translateY(-10px);*/\n        /*-o-transition: translateY(-10px);*/\n        /*-ms-transform: translateY(-10px);*/\n        /*transform: translateY(-10px);*/\n    /*}*/\n\n    /*.wizard-card {*/\n        /*min-height: 410px;*/\n        /*box-shadow: 0 20px 16px -15px rgba(0, 0, 0, 0.57);*/\n    /*}*/\n    /*.wizard-card .picture-container {*/\n        /*position: relative;*/\n        /*cursor: pointer;*/\n        /*text-align: center;*/\n    /*}*/\n    /*.wizard-card .icon-circle {*/\n        /*font-size: 20px;*/\n        /*border: 3px solid #F3F2EE;*/\n        /*text-align: center;*/\n        /*border-radius: 50%;*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n        /*font-weight: 600;*/\n        /*width: 70px;*/\n        /*height: 70px;*/\n        /*background-color: #FFFFFF;*/\n        /*margin: 0 auto;*/\n        /*position: relative;*/\n        /*top: -2px;*/\n    /*}*/\n    /*.wizard-card .icon-circle [class*=\"ti-\"] {*/\n        /*position: absolute;*/\n        /*z-index: 1;*/\n        /*left: 1px;*/\n        /*right: 0px;*/\n        /*top: 23px;*/\n    /*}*/\n    /*.wizard-card .picture {*/\n        /*width: 106px;*/\n        /*height: 106px;*/\n        /*background-color: #d8d1c9;*/\n        /*border: 4px solid transparent;*/\n        /*color: #FFFFFF;*/\n        /*border-radius: 50%;*/\n        /*margin: 5px auto;*/\n        /*overflow: hidden;*/\n        /*transition: all 0.2s;*/\n        /*-webkit-transition: all 0.2s;*/\n    /*}*/\n    /*.wizard-card .picture:hover {*/\n        /*border-color: #2ca8ff;*/\n    /*}*/\n    /*.wizard-card .picture-src {*/\n        /*width: 100%;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .picture:hover {*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .nav-pills > li.active > a {*/\n        /*color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .choice.active .card-checkboxes {*/\n        /*color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .picture:hover {*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .nav-pills > li.active > a {*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .choice.active .card-checkboxes {*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .picture:hover {*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .nav-pills > li.active > a {*/\n        /*color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .choice.active .card-checkboxes {*/\n        /*color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .picture:hover {*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .nav-pills > li.active > a {*/\n        /*color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .choice.active .card-checkboxes {*/\n        /*color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .picture:hover {*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .nav-pills > li.active > a {*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .choice.active .card-checkboxes {*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card .picture input[type=\"file\"] {*/\n        /*!*cursor: pointer;*/\n        /*display: block;*/\n        /*height: 100%;*/\n        /*left: 0;*/\n        /*opacity: 0 !important;*/\n        /*position: absolute;*/\n        /*top: 0;*/\n        /*width: 100%;*!*/\n    /*}*/\n    /*.wizard-card .tab-content {*/\n        /*min-height: 435px;*/\n        /*padding: 105px 20px 10px;*/\n    /*}*/\n    /*.wizard-card .wizard-footer {*/\n        /*padding: 0 15px 5px;*/\n    /*}*/\n    /*.wizard-card .disabled {*/\n        /*display: none;*/\n    /*}*/\n    /*.wizard-card .wizard-header {*/\n        /*padding: 15px 15px 15px 15px;*/\n        /*position: relative;*/\n        /*border-radius: 3px 3px 0 0;*/\n        /*z-index: 3;*/\n    /*}*/\n    /*.wizard-card .wizard-header h3 {*/\n        /*text-align: center;*/\n    /*}*/\n    /*.wizard-card .wizard-title {*/\n        /*color: #252422;*/\n        /*font-weight: 300;*/\n        /*margin: 0;*/\n    /*}*/\n    /*.wizard-card .category {*/\n        /*font-size: 14px;*/\n        /*font-weight: 400;*/\n        /*color: #9A9A9A;*/\n        /*margin-bottom: 0px;*/\n        /*text-align: center;*/\n    /*}*/\n    /*.wizard-card .wizard-navigation {*/\n        /*position: relative;*/\n    /*}*/\n    /*.wizard-card .wizard-navigation .progress-with-circle {*/\n        /*position: relative;*/\n        /*top: 40px;*/\n        /*z-index: 50;*/\n        /*height: 4px;*/\n    /*}*/\n    /*.wizard-card .wizard-navigation .progress-with-circle .progress-bar {*/\n        /*box-shadow: none;*/\n        /*-webkit-transition: width .3s ease;*/\n        /*-o-transition: width .3s ease;*/\n        /*transition: width .3s ease;*/\n    /*}*/\n    /*.wizard-card .info-text {*/\n        /*text-align: center;*/\n        /*padding-bottom: 18px;*/\n        /*padding-top: 12px;*/\n    /*}*/\n    /*.wizard-card .choice {*/\n        /*text-align: center;*/\n        /*cursor: pointer;*/\n        /*margin-top: 38px;*/\n    /*}*/\n    /*.wizard-card .choice .icon {*/\n        /*text-align: center;*/\n        /*vertical-align: middle;*/\n        /*height: 116px;*/\n        /*width: 116px;*/\n        /*border-radius: 50%;*/\n        /*background-color: #999999;*/\n        /*color: #FFFFFF;*/\n        /*margin: 0 auto 20px;*/\n        /*border: 4px solid #CCCCCC;*/\n        /*transition: all 0.2s;*/\n        /*-webkit-transition: all 0.2s;*/\n    /*}*/\n    /*.wizard-card .choice i {*/\n        /*font-size: 32px;*/\n        /*line-height: 55px;*/\n    /*}*/\n    /*.wizard-card .choice:hover .icon, .wizard-card .choice.active .icon {*/\n        /*border-color: #2ca8ff;*/\n    /*}*/\n    /*.wizard-card .choice input[type=\"radio\"],*/\n    /*.wizard-card .choice input[type=\"checkbox\"] {*/\n        /*position: absolute;*/\n        /*left: -10000px;*/\n        /*z-index: -1;*/\n    /*}*/\n    /*.wizard-card .description {*/\n        /*color: #999999;*/\n        /*font-size: 14px;*/\n    /*}*/\n\n    /*.footer {*/\n        /*position: relative;*/\n        /*bottom: 20px;*/\n        /*right: 0px;*/\n        /*width: 100%;*/\n        /*color: #FFFFFF;*/\n        /*z-index: 4;*/\n        /*text-align: right;*/\n        /*margin-top: 60px;*/\n        /*text-shadow: 0 1px 3px black;*/\n    /*}*/\n    /*.footer a {*/\n        /*color: #FFFFFF;*/\n    /*}*/\n    /*.footer .heart {*/\n        /*color: #FF3B30;*/\n    /*}*/\n\n    /*@media (max-width: 768px) {*/\n        /*.main .container {*/\n            /*margin-bottom: 50px;*/\n        /*}*/\n    /*}*/\n    /*@media (min-width: 768px) {*/\n        /*.navbar-form {*/\n            /*margin-top: 21px;*/\n            /*margin-bottom: 21px;*/\n            /*padding-left: 5px;*/\n            /*padding-right: 5px;*/\n        /*}*/\n\n        /*.btn-wd {*/\n            /*min-width: 140px;*/\n        /*}*/\n    /*}*/\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*!**/\n     /*=========================================================*/\n     /** Paper Bootstrap Wizard - v1.0.2*/\n     /*=========================================================*/\n\n     /** Product Page: https://www.creative-tim.com/product/paper-bootstrap-wizard*/\n     /** Copyright 2017 Creative Tim (http://www.creative-tim.com)*/\n     /** Licensed under MIT (https://github.com/creativetimofficial/paper-bootstrap-wizard/blob/master/LICENSE.md)*/\n\n     /*=========================================================*/\n\n     /** The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*/\n     /**!*/\n\n\n    /*h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {*/\n        /*-moz-osx-font-smoothing: grayscale;*/\n        /*-webkit-font-smoothing: antialiased;*/\n        /*font-family: 'Muli', 'Helvetica', Arial, sans-serif;*/\n    /*}*/\n\n    /*h1, .h1, h2, .h2, h3, .h3, h4, .h4 {*/\n        /*font-weight: 400;*/\n        /*margin: 30px 0 15px;*/\n    /*}*/\n\n    /*h1, .h1 {*/\n        /*font-size: 3.2em;*/\n    /*}*/\n\n    /*h2, .h2 {*/\n        /*font-size: 2.6em;*/\n    /*}*/\n\n    /*h3, .h3 {*/\n        /*font-size: 1.825em;*/\n        /*line-height: 1.4;*/\n        /*margin: 20px 0 10px;*/\n    /*}*/\n\n    /*h4, .h4 {*/\n        /*font-size: 1.5em;*/\n        /*font-weight: 600;*/\n        /*line-height: 1.2em;*/\n    /*}*/\n\n    /*h5, .h5 {*/\n        /*font-size: 1.25em;*/\n        /*font-weight: 400;*/\n        /*line-height: 1.4em;*/\n        /*margin-bottom: 15px;*/\n    /*}*/\n\n    /*h6, .h6 {*/\n        /*font-size: 0.9em;*/\n        /*font-weight: 600;*/\n        /*text-transform: uppercase;*/\n    /*}*/\n\n    /*p {*/\n        /*font-size: 16px;*/\n        /*line-height: 1.4em;*/\n    /*}*/\n\n    /*h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {*/\n        /*color: #9A9A9A;*/\n        /*font-weight: 300;*/\n        /*line-height: 1.4em;*/\n    /*}*/\n\n    /*h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {*/\n        /*font-size: 60%;*/\n    /*}*/\n\n    /*.form-control::-moz-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control:-moz-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control::-webkit-input-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control:-ms-input-placeholder {*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n    /*}*/\n\n    /*.form-control {*/\n        /*background-color: #F3F2EE;*/\n        /*border: 1px solid #e8e7e3;*/\n        /*border-radius: 4px;*/\n        /*color: #66615b;*/\n        /*font-size: 14px;*/\n        /*padding: 7px 18px;*/\n        /*height: 40px;*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n    /*}*/\n    /*.form-control:focus {*/\n        /*border: 1px solid #e8e7e3;*/\n        /*background-color: #FFFFFF;*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n        /*outline: 0 !important;*/\n    /*}*/\n    /*.has-success .form-control, .has-error .form-control, .has-success .form-control:focus, .has-error .form-control:focus {*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n    /*}*/\n    /*.has-error .form-control, .form-control.error {*/\n        /*background-color: #FFC0A4;*/\n        /*color: #EB5E28;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.has-success .form-control, .form-control.valid {*/\n        /*color: #66615b;*/\n        /*border-color: #e8e7e3;*/\n    /*}*/\n    /*.has-error .form-control:focus, .form-control.error:focus {*/\n        /*background-color: #FFFFFF;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.has-success .form-control:focus, .form-control.valid:focus {*/\n        /*background-color: #FFFFFF;*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.form-control + .form-control-feedback {*/\n        /*border-radius: 6px;*/\n        /*font-size: 14px;*/\n        /*margin-top: -7px;*/\n        /*position: absolute;*/\n        /*right: 10px;*/\n        /*top: 50%;*/\n        /*vertical-align: middle;*/\n    /*}*/\n    /*.open .form-control {*/\n        /*border-bottom-color: transparent;*/\n    /*}*/\n    /*.form-control.input-no-border {*/\n        /*border: 0 none;*/\n    /*}*/\n    /*.input-group .form-control:not(:first-child):not(:last-child) {*/\n        /*border-left: 0;*/\n        /*border-right: 0;*/\n    /*}*/\n\n    /*label.error:not(.form-control) {*/\n        /*color: #EB5E28;*/\n        /*font-weight: 300;*/\n        /*font-size: 0.8em;*/\n    /*}*/\n\n    /*.input-lg {*/\n        /*height: 55px;*/\n        /*padding: 11px 30px;*/\n    /*}*/\n\n    /*.has-error .form-control-feedback, .has-error .control-label {*/\n        /*color: #EB5E28;*/\n    /*}*/\n\n    /*.has-success .form-control-feedback, .has-success .control-label {*/\n        /*color: #7AC29A;*/\n    /*}*/\n\n    /*.input-group-addon {*/\n        /*background-color: #F3F2EE;*/\n        /*border: 1px solid #e8e7e3;*/\n        /*border-radius: 4px;*/\n    /*}*/\n    /*.has-success .input-group-addon, .has-error .input-group-addon {*/\n        /*background-color: #FFFFFF;*/\n    /*}*/\n    /*.has-error .form-control:focus + .input-group-addon {*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.has-success .form-control:focus + .input-group-addon {*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.form-control:focus + .input-group-addon, .form-control:focus ~ .input-group-addon {*/\n        /*background-color: #FFFFFF;*/\n    /*}*/\n    /*.has-error .input-group-addon {*/\n        /*color: #EB5E28;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.has-error .input-group-addon {*/\n        /*color: #7AC29A;*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.input-group-addon + .form-control {*/\n        /*padding-left: 0;*/\n    /*}*/\n\n    /*.input-group {*/\n        /*margin-bottom: 15px;*/\n    /*}*/\n\n    /*.input-group[disabled] .input-group-addon {*/\n        /*background-color: #E3E3E3;*/\n    /*}*/\n\n    /*.input-group .form-control:first-child,*/\n    /*.input-group-addon:first-child,*/\n    /*.input-group-btn:first-child > .dropdown-toggle,*/\n    /*.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {*/\n        /*border-right: 0 none;*/\n    /*}*/\n\n    /*.input-group .form-control:last-child,*/\n    /*.input-group-addon:last-child,*/\n    /*.input-group-btn:last-child > .dropdown-toggle,*/\n    /*.input-group-btn:first-child > .btn:not(:first-child) {*/\n        /*border-left: 0 none;*/\n    /*}*/\n\n    /*.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {*/\n        /*background-color: #E3E3E3;*/\n        /*cursor: not-allowed;*/\n        /*color: #9A9A9A;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]::-moz-placeholder {*/\n        /*color: #9A9A9A;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]:-moz-placeholder {*/\n        /*color: #cfcfca;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]::-webkit-input-placeholder {*/\n        /*color: #cfcfca;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.form-control[disabled]:-ms-input-placeholder {*/\n        /*color: #cfcfca;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n\n    /*.input-group-btn .btn {*/\n        /*border-width: 1px;*/\n        /*padding: 9px 18px;*/\n    /*}*/\n\n    /*.input-group-btn .btn-default:not(.btn-fill) {*/\n        /*border-color: #cfcfca;*/\n    /*}*/\n\n    /*.input-group-btn:last-child > .btn {*/\n        /*margin-left: 0;*/\n    /*}*/\n\n    /*textarea.form-control {*/\n        /*max-width: 100%;*/\n        /*padding: 10px 18px;*/\n        /*resize: none;*/\n    /*}*/\n\n    /*.input-group-focus .input-group-addon {*/\n        /*background-color: #FFFFFF;*/\n    /*}*/\n\n    /*!*     General overwrite     *!*/\n    /*body {*/\n        /*color: #66615b;*/\n        /*font-size: 14px;*/\n        /*font-family: 'Muli', Arial, sans-serif;*/\n    /*}*/\n\n    /*a {*/\n        /*color: #2CA8FF;*/\n    /*}*/\n\n    /*a:hover, a:focus {*/\n        /*color: #109CFF;*/\n    /*}*/\n\n    /*a:focus, a:active,*/\n    /*button::-moz-focus-inner,*/\n    /*input[type=\"reset\"]::-moz-focus-inner,*/\n    /*input[type=\"button\"]::-moz-focus-inner,*/\n    /*input[type=\"submit\"]::-moz-focus-inner,*/\n    /*select::-moz-focus-inner,*/\n/*!**/\n    /*input[type=\"file\"] > input[type=\"button\"]::-moz-focus-inner,*/\n/**!*/\n    /*input[type=\"button\"]:focus {*/\n        /*outline: 0 !important;*/\n    /*}*/\n\n    /*.btn:focus,*/\n    /*.btn:hover,*/\n    /*.btn:active {*/\n        /*outline: 0;*/\n    /*}*/\n\n    /*!*           Animations              *!*/\n    /*.form-control, .input-group-addon {*/\n        /*-webkit-transition: all 300ms linear;*/\n        /*-moz-transition: all 300ms linear;*/\n        /*-o-transition: all 300ms linear;*/\n        /*-ms-transition: all 300ms linear;*/\n        /*transition: all 300ms linear;*/\n    /*}*/\n\n    /*.image-container {*/\n        /*min-height: 100vh;*/\n        /*background-position: center center;*/\n        /*background-size: cover;*/\n    /*}*/\n\n    /*.wizard-container {*/\n        /*padding-top: 100px;*/\n        /*z-index: 3;*/\n    /*}*/\n\n    /*.made-with-pk {*/\n        /*width: 50px;*/\n        /*height: 50px;*/\n        /*display: block;*/\n        /*position: fixed;*/\n        /*z-index: 555;*/\n        /*bottom: 40px;*/\n        /*right: 40px;*/\n        /*border-radius: 30px;*/\n        /*background-color: rgba(16, 16, 16, 0.35);*/\n        /*border: 1px solid rgba(255, 255, 255, 0.15);*/\n        /*color: #FFFFFF;*/\n        /*cursor: pointer;*/\n        /*padding: 10px 12px;*/\n        /*white-space: nowrap;*/\n        /*overflow: hidden;*/\n        /*-webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n    /*}*/\n    /*.made-with-pk:hover, .made-with-pk:active, .made-with-pk:focus {*/\n        /*width: 218px;*/\n        /*color: #FFFFFF;*/\n        /*transition-duration: .55s;*/\n        /*padding: 10px 19px;*/\n    /*}*/\n    /*.made-with-pk:hover .made-with, .made-with-pk:active .made-with, .made-with-pk:focus .made-with {*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.made-with-pk .brand,*/\n    /*.made-with-pk .made-with {*/\n        /*float: left;*/\n    /*}*/\n    /*.made-with-pk .brand {*/\n        /*position: relative;*/\n        /*top: 4px;*/\n        /*letter-spacing: 1px;*/\n        /*vertical-align: middle;*/\n        /*font-size: 16px;*/\n        /*font-weight: 600;*/\n    /*}*/\n    /*.made-with-pk .made-with {*/\n        /*color: rgba(255, 255, 255, 0.6);*/\n        /*position: absolute;*/\n        /*left: 58px;*/\n        /*top: 14px;*/\n        /*opacity: 0;*/\n        /*margin: 0;*/\n        /*-webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*-o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n        /*transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);*/\n    /*}*/\n    /*.made-with-pk .made-with strong {*/\n        /*font-weight: 400;*/\n        /*color: rgba(255, 255, 255, 0.9);*/\n    /*}*/\n\n    /*.col-sm-8 .col-sm-4 {*/\n        /*padding-right: 6px;*/\n        /*padding-left: 6px;*/\n    /*}*/\n\n    /*.btn,*/\n    /*.navbar .navbar-nav > li > a.btn {*/\n        /*border-radius: 20px;*/\n        /*box-sizing: border-box;*/\n        /*border-width: 2px;*/\n        /*background-color: transparent;*/\n        /*font-size: 14px;*/\n        /*font-weight: 600;*/\n        /*padding: 7px 18px;*/\n        /*border-color: #66615B;*/\n        /*color: #66615B;*/\n        /*-webkit-transition: all 150ms linear;*/\n        /*-moz-transition: all 150ms linear;*/\n        /*-o-transition: all 150ms linear;*/\n        /*-ms-transition: all 150ms linear;*/\n        /*transition: all 150ms linear;*/\n    /*}*/\n    /*.btn:hover, .btn:focus, .btn:active, .btn.active, .btn:active:focus, .btn:active:hover, .open > .btn.dropdown-toggle, .open > .btn.dropdown-toggle:focus, .open > .btn.dropdown-toggle:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:active,*/\n    /*.navbar .navbar-nav > li > a.btn.active,*/\n    /*.navbar .navbar-nav > li > a.btn:active:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:active:hover, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:focus, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:hover {*/\n        /*background-color: #66615B;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #66615B;*/\n    /*}*/\n    /*.btn:hover .caret, .btn:focus .caret, .btn:active .caret, .btn.active .caret, .btn:active:focus .caret, .btn:active:hover .caret, .open > .btn.dropdown-toggle .caret, .open > .btn.dropdown-toggle:focus .caret, .open > .btn.dropdown-toggle:hover .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:hover .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:focus .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:active .caret,*/\n    /*.navbar .navbar-nav > li > a.btn.active .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:active:focus .caret,*/\n    /*.navbar .navbar-nav > li > a.btn:active:hover .caret, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle .caret, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:focus .caret, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.btn.disabled, .btn.disabled:hover, .btn.disabled:focus, .btn.disabled.focus, .btn.disabled:active, .btn.disabled.active, .btn:disabled, .btn:disabled:hover, .btn:disabled:focus, .btn:disabled.focus, .btn:disabled:active, .btn:disabled.active, .btn[disabled], .btn[disabled]:hover, .btn[disabled]:focus, .btn[disabled].focus, .btn[disabled]:active, .btn[disabled].active, fieldset[disabled] .btn, fieldset[disabled] .btn:hover, fieldset[disabled] .btn:focus, fieldset[disabled] .btn.focus, fieldset[disabled] .btn:active, fieldset[disabled] .btn.active,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled:hover,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled:focus,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled.focus,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled:active,*/\n    /*.navbar .navbar-nav > li > a.btn.disabled.active,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled.focus,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled:active,*/\n    /*.navbar .navbar-nav > li > a.btn:disabled.active,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled],*/\n    /*.navbar .navbar-nav > li > a.btn[disabled]:hover,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled]:focus,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled].focus,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled]:active,*/\n    /*.navbar .navbar-nav > li > a.btn[disabled].active, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn:hover, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn:focus, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn.focus, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn:active, fieldset[disabled]*/\n    /*.navbar .navbar-nav > li > a.btn.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #66615B;*/\n    /*}*/\n    /*.btn.btn-fill,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #66615B;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.btn.btn-fill:hover, .btn.btn-fill:focus, .btn.btn-fill:active, .btn.btn-fill.active, .open > .btn.btn-fill.dropdown-toggle,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill:hover,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill:focus,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill:active,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill.active, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill.dropdown-toggle {*/\n        /*background-color: #484541;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #484541;*/\n    /*}*/\n    /*.btn.btn-fill .caret,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn.btn-simple:hover, .btn.btn-simple:focus, .btn.btn-simple:active, .btn.btn-simple.active, .open > .btn.btn-simple.dropdown-toggle,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple:hover,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple:focus,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple:active,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple.active, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #484541;*/\n    /*}*/\n    /*.btn.btn-simple .caret,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn .caret,*/\n    /*.navbar .navbar-nav > li > a.btn .caret {*/\n        /*border-top-color: #66615B;*/\n    /*}*/\n    /*.btn:hover, .btn:focus,*/\n    /*.navbar .navbar-nav > li > a.btn:hover,*/\n    /*.navbar .navbar-nav > li > a.btn:focus {*/\n        /*outline: 0 !important;*/\n    /*}*/\n    /*.btn:active, .btn.active, .open > .btn.dropdown-toggle,*/\n    /*.navbar .navbar-nav > li > a.btn:active,*/\n    /*.navbar .navbar-nav > li > a.btn.active, .open >*/\n    /*.navbar .navbar-nav > li > a.btn.dropdown-toggle {*/\n        /*-webkit-box-shadow: none;*/\n        /*box-shadow: none;*/\n        /*outline: 0 !important;*/\n    /*}*/\n    /*.btn.btn-icon,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-icon {*/\n        /*border-radius: 25px;*/\n        /*padding: 7px 10px;*/\n    /*}*/\n    /*.btn.btn-icon i,*/\n    /*.navbar .navbar-nav > li > a.btn.btn-icon i {*/\n        /*margin-right: 0px;*/\n    /*}*/\n    /*.btn [class*=\"ti-\"],*/\n    /*.navbar .navbar-nav > li > a.btn [class*=\"ti-\"] {*/\n        /*vertical-align: middle;*/\n    /*}*/\n\n    /*.btn-group .btn + .btn,*/\n    /*.btn-group .btn + .btn-group,*/\n    /*.btn-group .btn-group + .btn,*/\n    /*.btn-group .btn-group + .btn-group {*/\n        /*margin-left: -2px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-primary, .btn-primary {*/\n        /*border-color: #7A9E9F;*/\n        /*color: #7A9E9F;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary:hover, .navbar .navbar-nav > li > a.btn.btn-primary:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active, .navbar .navbar-nav > li > a.btn.btn-primary.active, .navbar .navbar-nav > li > a.btn.btn-primary:active:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus, .btn-primary:active:hover, .open > .btn-primary.dropdown-toggle, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover {*/\n        /*background-color: #7A9E9F;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary:hover .caret, .navbar .navbar-nav > li > a.btn.btn-primary:focus .caret, .navbar .navbar-nav > li > a.btn.btn-primary:active .caret, .navbar .navbar-nav > li > a.btn.btn-primary.active .caret, .navbar .navbar-nav > li > a.btn.btn-primary:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-primary:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover .caret, .btn-primary:hover .caret, .btn-primary:focus .caret, .btn-primary:active .caret, .btn-primary.active .caret, .btn-primary:active:focus .caret, .btn-primary:active:hover .caret, .open > .btn-primary.dropdown-toggle .caret, .open > .btn-primary.dropdown-toggle:focus .caret, .open > .btn-primary.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.disabled, .navbar .navbar-nav > li > a.btn.btn-primary.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-primary.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-primary.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-primary.disabled:active, .navbar .navbar-nav > li > a.btn.btn-primary.disabled.active, .navbar .navbar-nav > li > a.btn.btn-primary:disabled, .navbar .navbar-nav > li > a.btn.btn-primary:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-primary:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-primary:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-primary:disabled:active, .navbar .navbar-nav > li > a.btn.btn-primary:disabled.active, .navbar .navbar-nav > li > a.btn.btn-primary[disabled], .navbar .navbar-nav > li > a.btn.btn-primary[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-primary[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-primary[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-primary[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-primary[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-primary.active, .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary:disabled, .btn-primary:disabled:hover, .btn-primary:disabled:focus, .btn-primary:disabled.focus, .btn-primary:disabled:active, .btn-primary:disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-fill, .btn-primary.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #7A9E9F;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-primary.btn-fill.dropdown-toggle, .btn-primary.btn-fill:hover, .btn-primary.btn-fill:focus, .btn-primary.btn-fill:active, .btn-primary.btn-fill.active, .open > .btn-primary.btn-fill.dropdown-toggle {*/\n        /*background-color: #5e8283;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #5e8283;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-fill .caret, .btn-primary.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-primary.btn-simple.dropdown-toggle, .btn-primary.btn-simple:hover, .btn-primary.btn-simple:focus, .btn-primary.btn-simple:active, .btn-primary.btn-simple.active, .open > .btn-primary.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #5e8283;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary.btn-simple .caret, .btn-primary.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-primary .caret, .btn-primary .caret {*/\n        /*border-top-color: #7A9E9F;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-success, .btn-success {*/\n        /*border-color: #7AC29A;*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success:hover, .navbar .navbar-nav > li > a.btn.btn-success:focus, .navbar .navbar-nav > li > a.btn.btn-success:active, .navbar .navbar-nav > li > a.btn.btn-success.active, .navbar .navbar-nav > li > a.btn.btn-success:active:focus, .navbar .navbar-nav > li > a.btn.btn-success:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:hover, .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success:active:focus, .btn-success:active:hover, .open > .btn-success.dropdown-toggle, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle:hover {*/\n        /*background-color: #7AC29A;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success:hover .caret, .navbar .navbar-nav > li > a.btn.btn-success:focus .caret, .navbar .navbar-nav > li > a.btn.btn-success:active .caret, .navbar .navbar-nav > li > a.btn.btn-success.active .caret, .navbar .navbar-nav > li > a.btn.btn-success:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-success:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-success.dropdown-toggle:hover .caret, .btn-success:hover .caret, .btn-success:focus .caret, .btn-success:active .caret, .btn-success.active .caret, .btn-success:active:focus .caret, .btn-success:active:hover .caret, .open > .btn-success.dropdown-toggle .caret, .open > .btn-success.dropdown-toggle:focus .caret, .open > .btn-success.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.disabled, .navbar .navbar-nav > li > a.btn.btn-success.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-success.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-success.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-success.disabled:active, .navbar .navbar-nav > li > a.btn.btn-success.disabled.active, .navbar .navbar-nav > li > a.btn.btn-success:disabled, .navbar .navbar-nav > li > a.btn.btn-success:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-success:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-success:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-success:disabled:active, .navbar .navbar-nav > li > a.btn.btn-success:disabled.active, .navbar .navbar-nav > li > a.btn.btn-success[disabled], .navbar .navbar-nav > li > a.btn.btn-success[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-success[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-success[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-success[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-success[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-success.active, .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success:disabled, .btn-success:disabled:hover, .btn-success:disabled:focus, .btn-success:disabled.focus, .btn-success:disabled:active, .btn-success:disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-fill, .btn-success.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #7AC29A;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-success.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-success.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-success.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-success.btn-fill.dropdown-toggle, .btn-success.btn-fill:hover, .btn-success.btn-fill:focus, .btn-success.btn-fill:active, .btn-success.btn-fill.active, .open > .btn-success.btn-fill.dropdown-toggle {*/\n        /*background-color: #54b07d;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #54b07d;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-fill .caret, .btn-success.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-success.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-success.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-success.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-success.btn-simple.dropdown-toggle, .btn-success.btn-simple:hover, .btn-success.btn-simple:focus, .btn-success.btn-simple:active, .btn-success.btn-simple.active, .open > .btn-success.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #54b07d;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success.btn-simple .caret, .btn-success.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-success .caret, .btn-success .caret {*/\n        /*border-top-color: #7AC29A;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-info, .btn-info {*/\n        /*border-color: #68B3C8;*/\n        /*color: #68B3C8;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info:hover, .navbar .navbar-nav > li > a.btn.btn-info:focus, .navbar .navbar-nav > li > a.btn.btn-info:active, .navbar .navbar-nav > li > a.btn.btn-info.active, .navbar .navbar-nav > li > a.btn.btn-info:active:focus, .navbar .navbar-nav > li > a.btn.btn-info:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:hover, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info:active:focus, .btn-info:active:hover, .open > .btn-info.dropdown-toggle, .open > .btn-info.dropdown-toggle:focus, .open > .btn-info.dropdown-toggle:hover {*/\n        /*background-color: #68B3C8;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info:hover .caret, .navbar .navbar-nav > li > a.btn.btn-info:focus .caret, .navbar .navbar-nav > li > a.btn.btn-info:active .caret, .navbar .navbar-nav > li > a.btn.btn-info.active .caret, .navbar .navbar-nav > li > a.btn.btn-info:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-info:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-info.dropdown-toggle:hover .caret, .btn-info:hover .caret, .btn-info:focus .caret, .btn-info:active .caret, .btn-info.active .caret, .btn-info:active:focus .caret, .btn-info:active:hover .caret, .open > .btn-info.dropdown-toggle .caret, .open > .btn-info.dropdown-toggle:focus .caret, .open > .btn-info.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.disabled, .navbar .navbar-nav > li > a.btn.btn-info.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-info.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-info.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-info.disabled:active, .navbar .navbar-nav > li > a.btn.btn-info.disabled.active, .navbar .navbar-nav > li > a.btn.btn-info:disabled, .navbar .navbar-nav > li > a.btn.btn-info:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-info:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-info:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-info:disabled:active, .navbar .navbar-nav > li > a.btn.btn-info:disabled.active, .navbar .navbar-nav > li > a.btn.btn-info[disabled], .navbar .navbar-nav > li > a.btn.btn-info[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-info[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-info[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-info[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-info[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-info.active, .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info:disabled, .btn-info:disabled:hover, .btn-info:disabled:focus, .btn-info:disabled.focus, .btn-info:disabled:active, .btn-info:disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-fill, .btn-info.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #68B3C8;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-info.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-info.btn-fill.dropdown-toggle, .btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {*/\n        /*background-color: #429cb6;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #429cb6;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-fill .caret, .btn-info.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-info.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-info.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-info.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-info.btn-simple.dropdown-toggle, .btn-info.btn-simple:hover, .btn-info.btn-simple:focus, .btn-info.btn-simple:active, .btn-info.btn-simple.active, .open > .btn-info.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #429cb6;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info.btn-simple .caret, .btn-info.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-info .caret, .btn-info .caret {*/\n        /*border-top-color: #68B3C8;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-warning, .btn-warning {*/\n        /*border-color: #F3BB45;*/\n        /*color: #F3BB45;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning:hover, .navbar .navbar-nav > li > a.btn.btn-warning:focus, .navbar .navbar-nav > li > a.btn.btn-warning:active, .navbar .navbar-nav > li > a.btn.btn-warning.active, .navbar .navbar-nav > li > a.btn.btn-warning:active:focus, .navbar .navbar-nav > li > a.btn.btn-warning:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:hover, .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning:active:focus, .btn-warning:active:hover, .open > .btn-warning.dropdown-toggle, .open > .btn-warning.dropdown-toggle:focus, .open > .btn-warning.dropdown-toggle:hover {*/\n        /*background-color: #F3BB45;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning:hover .caret, .navbar .navbar-nav > li > a.btn.btn-warning:focus .caret, .navbar .navbar-nav > li > a.btn.btn-warning:active .caret, .navbar .navbar-nav > li > a.btn.btn-warning.active .caret, .navbar .navbar-nav > li > a.btn.btn-warning:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-warning:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-warning.dropdown-toggle:hover .caret, .btn-warning:hover .caret, .btn-warning:focus .caret, .btn-warning:active .caret, .btn-warning.active .caret, .btn-warning:active:focus .caret, .btn-warning:active:hover .caret, .open > .btn-warning.dropdown-toggle .caret, .open > .btn-warning.dropdown-toggle:focus .caret, .open > .btn-warning.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.disabled, .navbar .navbar-nav > li > a.btn.btn-warning.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-warning.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-warning.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-warning.disabled:active, .navbar .navbar-nav > li > a.btn.btn-warning.disabled.active, .navbar .navbar-nav > li > a.btn.btn-warning:disabled, .navbar .navbar-nav > li > a.btn.btn-warning:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-warning:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-warning:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-warning:disabled:active, .navbar .navbar-nav > li > a.btn.btn-warning:disabled.active, .navbar .navbar-nav > li > a.btn.btn-warning[disabled], .navbar .navbar-nav > li > a.btn.btn-warning[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-warning[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-warning[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-warning[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-warning[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-warning.active, .btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled.active, .btn-warning:disabled, .btn-warning:disabled:hover, .btn-warning:disabled:focus, .btn-warning:disabled.focus, .btn-warning:disabled:active, .btn-warning:disabled.active, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, .btn-warning[disabled]:active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-fill, .btn-warning.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #F3BB45;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-warning.btn-fill.dropdown-toggle, .btn-warning.btn-fill:hover, .btn-warning.btn-fill:focus, .btn-warning.btn-fill:active, .btn-warning.btn-fill.active, .open > .btn-warning.btn-fill.dropdown-toggle {*/\n        /*background-color: #f0a810;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #f0a810;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-fill .caret, .btn-warning.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-warning.btn-simple.dropdown-toggle, .btn-warning.btn-simple:hover, .btn-warning.btn-simple:focus, .btn-warning.btn-simple:active, .btn-warning.btn-simple.active, .open > .btn-warning.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #f0a810;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning.btn-simple .caret, .btn-warning.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-warning .caret, .btn-warning .caret {*/\n        /*border-top-color: #F3BB45;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-danger, .btn-danger {*/\n        /*border-color: #EB5E28;*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger:hover, .navbar .navbar-nav > li > a.btn.btn-danger:focus, .navbar .navbar-nav > li > a.btn.btn-danger:active, .navbar .navbar-nav > li > a.btn.btn-danger.active, .navbar .navbar-nav > li > a.btn.btn-danger:active:focus, .navbar .navbar-nav > li > a.btn.btn-danger:active:hover, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover, .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger:active:focus, .btn-danger:active:hover, .open > .btn-danger.dropdown-toggle, .open > .btn-danger.dropdown-toggle:focus, .open > .btn-danger.dropdown-toggle:hover {*/\n        /*background-color: #EB5E28;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger:hover .caret, .navbar .navbar-nav > li > a.btn.btn-danger:focus .caret, .navbar .navbar-nav > li > a.btn.btn-danger:active .caret, .navbar .navbar-nav > li > a.btn.btn-danger.active .caret, .navbar .navbar-nav > li > a.btn.btn-danger:active:focus .caret, .navbar .navbar-nav > li > a.btn.btn-danger:active:hover .caret, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle .caret, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:focus .caret, .open > .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover .caret, .btn-danger:hover .caret, .btn-danger:focus .caret, .btn-danger:active .caret, .btn-danger.active .caret, .btn-danger:active:focus .caret, .btn-danger:active:hover .caret, .open > .btn-danger.dropdown-toggle .caret, .open > .btn-danger.dropdown-toggle:focus .caret, .open > .btn-danger.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.disabled, .navbar .navbar-nav > li > a.btn.btn-danger.disabled:hover, .navbar .navbar-nav > li > a.btn.btn-danger.disabled:focus, .navbar .navbar-nav > li > a.btn.btn-danger.disabled.focus, .navbar .navbar-nav > li > a.btn.btn-danger.disabled:active, .navbar .navbar-nav > li > a.btn.btn-danger.disabled.active, .navbar .navbar-nav > li > a.btn.btn-danger:disabled, .navbar .navbar-nav > li > a.btn.btn-danger:disabled:hover, .navbar .navbar-nav > li > a.btn.btn-danger:disabled:focus, .navbar .navbar-nav > li > a.btn.btn-danger:disabled.focus, .navbar .navbar-nav > li > a.btn.btn-danger:disabled:active, .navbar .navbar-nav > li > a.btn.btn-danger:disabled.active, .navbar .navbar-nav > li > a.btn.btn-danger[disabled], .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:hover, .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:focus, .navbar .navbar-nav > li > a.btn.btn-danger[disabled].focus, .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:active, .navbar .navbar-nav > li > a.btn.btn-danger[disabled].active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger:hover, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger:focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger.focus, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger:active, fieldset[disabled] .navbar .navbar-nav > li > a.btn.btn-danger.active, .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger:disabled, .btn-danger:disabled:hover, .btn-danger:disabled:focus, .btn-danger:disabled.focus, .btn-danger:disabled:active, .btn-danger:disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-fill, .btn-danger.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #EB5E28;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-fill:hover, .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill:focus, .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill:active, .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn.btn-danger.btn-fill.dropdown-toggle, .btn-danger.btn-fill:hover, .btn-danger.btn-fill:focus, .btn-danger.btn-fill:active, .btn-danger.btn-fill.active, .open > .btn-danger.btn-fill.dropdown-toggle {*/\n        /*background-color: #c84513;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #c84513;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-fill .caret, .btn-danger.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:hover, .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:focus, .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:active, .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple.active, .open > .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple.dropdown-toggle, .btn-danger.btn-simple:hover, .btn-danger.btn-simple:focus, .btn-danger.btn-simple:active, .btn-danger.btn-simple.active, .open > .btn-danger.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #c84513;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple .caret, .btn-danger.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-danger .caret, .btn-danger .caret {*/\n        /*border-top-color: #EB5E28;*/\n    /*}*/\n\n    /*.btn-neutral {*/\n        /*border-color: #FFFFFF;*/\n        /*color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral:hover, .btn-neutral:focus, .btn-neutral:active, .btn-neutral.active, .btn-neutral:active:focus, .btn-neutral:active:hover, .open > .btn-neutral.dropdown-toggle, .open > .btn-neutral.dropdown-toggle:focus, .open > .btn-neutral.dropdown-toggle:hover {*/\n        /*background-color: #FFFFFF;*/\n        /*color: rgba(255, 255, 255, 0.85);*/\n        /*border-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral:hover .caret, .btn-neutral:focus .caret, .btn-neutral:active .caret, .btn-neutral.active .caret, .btn-neutral:active:focus .caret, .btn-neutral:active:hover .caret, .open > .btn-neutral.dropdown-toggle .caret, .open > .btn-neutral.dropdown-toggle:focus .caret, .open > .btn-neutral.dropdown-toggle:hover .caret {*/\n        /*border-top-color: rgba(255, 255, 255, 0.85);*/\n    /*}*/\n    /*.btn-neutral.disabled, .btn-neutral.disabled:hover, .btn-neutral.disabled:focus, .btn-neutral.disabled.focus, .btn-neutral.disabled:active, .btn-neutral.disabled.active, .btn-neutral:disabled, .btn-neutral:disabled:hover, .btn-neutral:disabled:focus, .btn-neutral:disabled.focus, .btn-neutral:disabled:active, .btn-neutral:disabled.active, .btn-neutral[disabled], .btn-neutral[disabled]:hover, .btn-neutral[disabled]:focus, .btn-neutral[disabled].focus, .btn-neutral[disabled]:active, .btn-neutral[disabled].active, fieldset[disabled] .btn-neutral, fieldset[disabled] .btn-neutral:hover, fieldset[disabled] .btn-neutral:focus, fieldset[disabled] .btn-neutral.focus, fieldset[disabled] .btn-neutral:active, fieldset[disabled] .btn-neutral.active {*/\n        /*background-color: transparent;*/\n        /*border-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-fill {*/\n        /*color: #FFFFFF;*/\n        /*background-color: #FFFFFF;*/\n        /*opacity: 1;*/\n        /*filter: alpha(opacity=100);*/\n    /*}*/\n    /*.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus, .btn-neutral.btn-fill:active, .btn-neutral.btn-fill.active, .open > .btn-neutral.btn-fill.dropdown-toggle {*/\n        /*background-color: #FFFFFF;*/\n        /*color: #FFFFFF;*/\n        /*border-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-fill .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-simple:hover, .btn-neutral.btn-simple:focus, .btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active, .open > .btn-neutral.btn-simple.dropdown-toggle {*/\n        /*background-color: transparent;*/\n        /*color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral.btn-simple .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral .caret {*/\n        /*border-top-color: #FFFFFF;*/\n    /*}*/\n    /*.btn-neutral:hover, .btn-neutral:focus {*/\n        /*color: #66615B;*/\n    /*}*/\n    /*.btn-neutral:hover i, .btn-neutral:focus i {*/\n        /*color: #66615B;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral:active, .btn-neutral.active, .open > .btn-neutral.dropdown-toggle {*/\n        /*background-color: #FFFFFF;*/\n        /*color: #66615B;*/\n    /*}*/\n    /*.btn-neutral:active i, .btn-neutral.active i, .open > .btn-neutral.dropdown-toggle i {*/\n        /*color: #66615B;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral.btn-fill {*/\n        /*color: #66615B;*/\n    /*}*/\n    /*.btn-neutral.btn-fill i {*/\n        /*color: #66615B;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral.btn-fill:hover, .btn-neutral.btn-fill:focus {*/\n        /*color: #484541;*/\n    /*}*/\n    /*.btn-neutral.btn-fill:hover i, .btn-neutral.btn-fill:focus i {*/\n        /*color: #484541;*/\n        /*opacity: 1;*/\n    /*}*/\n    /*.btn-neutral.btn-simple:active, .btn-neutral.btn-simple.active {*/\n        /*background-color: transparent;*/\n    /*}*/\n\n    /*.btn:disabled, .btn[disabled], .btn.disabled, .btn.btn-disabled {*/\n        /*opacity: 0.5;*/\n        /*filter: alpha(opacity=50);*/\n    /*}*/\n\n    /*.btn-disabled {*/\n        /*cursor: default;*/\n    /*}*/\n\n    /*.btn-simple {*/\n        /*border: 0;*/\n        /*padding: 7px 18px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-lg,*/\n    /*.btn-lg {*/\n        /*font-size: 18px;*/\n        /*border-radius: 50px;*/\n        /*padding: 11px 30px;*/\n        /*font-weight: 400;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-lg.btn-simple,*/\n    /*.btn-lg.btn-simple {*/\n        /*padding: 13px 30px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-lg.btn-icon,*/\n    /*.btn-lg.btn-icon {*/\n        /*border-radius: 30px;*/\n        /*padding: 9px 16px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-sm,*/\n    /*.btn-sm {*/\n        /*font-size: 12px;*/\n        /*border-radius: 26px;*/\n        /*padding: 4px 10px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-sm.btn-simple,*/\n    /*.btn-sm.btn-simple {*/\n        /*padding: 6px 10px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-sm.btn-icon,*/\n    /*.btn-sm.btn-icon {*/\n        /*padding: 3px 6px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-sm.btn-icon .fa,*/\n    /*.btn-sm.btn-icon .fa {*/\n        /*line-height: 1.6;*/\n        /*width: 15px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-xs,*/\n    /*.btn-xs {*/\n        /*font-size: 12px;*/\n        /*border-radius: 26px;*/\n        /*padding: 2px 5px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-xs.btn-simple,*/\n    /*.btn-xs.btn-simple {*/\n        /*padding: 4px 5px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-xs.btn-icon,*/\n    /*.btn-xs.btn-icon {*/\n        /*padding: 1px 5px;*/\n    /*}*/\n    /*.navbar .navbar-nav > li > a.btn.btn-xs.btn-icon .fa,*/\n    /*.btn-xs.btn-icon .fa {*/\n        /*width: 10px;*/\n    /*}*/\n\n    /*.navbar .navbar-nav > li > a.btn.btn-wd,*/\n    /*.btn-wd {*/\n        /*min-width: 140px;*/\n    /*}*/\n\n    /*.btn-group.select {*/\n        /*width: 100%;*/\n    /*}*/\n\n    /*.btn-group.select .btn {*/\n        /*text-align: left;*/\n    /*}*/\n\n    /*.btn-group.select .caret {*/\n        /*position: absolute;*/\n        /*top: 50%;*/\n        /*margin-top: -1px;*/\n        /*right: 8px;*/\n    /*}*/\n\n    /*.btn-tooltip {*/\n        /*white-space: nowrap;*/\n    /*}*/\n\n    /*.buttons-with-margin .btn {*/\n        /*margin-bottom: 5px;*/\n    /*}*/\n\n    /*.label {*/\n        /*padding: 3px 8px;*/\n        /*border-radius: 12px;*/\n        /*color: #FFFFFF;*/\n        /*font-weight: 500;*/\n        /*font-size: 0.75em;*/\n        /*text-transform: uppercase;*/\n        /*display: inline-block;*/\n        /*line-height: 1.5em;*/\n    /*}*/\n\n    /*.label-icon {*/\n        /*padding: 0.4em 0.55em;*/\n    /*}*/\n    /*.label-icon i {*/\n        /*font-size: 0.8em;*/\n        /*line-height: 1;*/\n    /*}*/\n\n    /*.label-default {*/\n        /*background-color: #66615b;*/\n    /*}*/\n\n    /*.label-primary {*/\n        /*background-color: #7A9E9F;*/\n    /*}*/\n\n    /*.label-info {*/\n        /*background-color: #68B3C8;*/\n    /*}*/\n\n    /*.label-success {*/\n        /*background-color: #7AC29A;*/\n    /*}*/\n\n    /*.label-warning {*/\n        /*background-color: #F3BB45;*/\n    /*}*/\n\n    /*.label-danger {*/\n        /*background-color: #EB5E28;*/\n    /*}*/\n\n    /*!*            Navigation menu                *!*/\n    /*.nav-pills {*/\n        /*background-color: #F3F2EE;*/\n        /*position: absolute;*/\n        /*width: 100%;*/\n        /*height: 4px;*/\n        /*top: 40px;*/\n        /*text-align: center;*/\n    /*}*/\n    /*.nav-pills > li + li {*/\n        /*margin-left: 0;*/\n    /*}*/\n    /*.nav-pills > li > a {*/\n        /*padding: 0;*/\n        /*max-width: 78px;*/\n        /*margin: 0 auto;*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n        /*border-radius: 50%;*/\n        /*position: relative;*/\n        /*top: -32px;*/\n        /*z-index: 100;*/\n    /*}*/\n    /*.nav-pills > li > a:after {*/\n        /*content: '';*/\n        /*width: 70px;*/\n        /*height: 70px;*/\n        /*border-radius: 50%;*/\n        /*display: inline-block;*/\n        /*position: absolute;*/\n        /*right: -1px;*/\n        /*top: -4px;*/\n        /*transform: scale(0);*/\n        /*transition: .2s all linear;*/\n    /*}*/\n    /*.nav-pills > li > a:hover, .nav-pills > li > a:focus {*/\n        /*background-color: transparent;*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n        /*outline: 0 !important;*/\n        /*cursor: pointer;*/\n    /*}*/\n    /*.nav-pills > li.active > a:after {*/\n        /*content: '';*/\n        /*width: 70px;*/\n        /*height: 70px;*/\n        /*border-radius: 50%;*/\n        /*display: inline-block;*/\n        /*position: absolute;*/\n        /*right: 5px;*/\n        /*top: -2px;*/\n        /*-webkit-transform: scale(1);*/\n        /*-moz-transform: scale(1);*/\n        /*-o-transition: scale(1);*/\n        /*-ms-transform: scale(1);*/\n        /*transform: scale(1);*/\n        /*-webkit-transition: all 0.2s linear;*/\n        /*-moz-transition: all 0.2s linear;*/\n        /*-o-transition: all 0.2s linear;*/\n        /*-ms-transition: all 0.2s linear;*/\n        /*transition: all 0.2s linear;*/\n    /*}*/\n    /*.nav-pills > li.active > a,*/\n    /*.nav-pills > li.active > a:hover,*/\n    /*.nav-pills > li.active > a:focus {*/\n        /*background-color: transparent;*/\n        /*font-size: 15px;*/\n        /*-webkit-transition: font-size 0.2s linear;*/\n        /*-moz-transition: font-size 0.2s linear;*/\n        /*-o-transition: font-size 0.2s linear;*/\n        /*-ms-transition: font-size 0.2s linear;*/\n        /*transition: font-size 0.2s linear;*/\n    /*}*/\n    /*.nav-pills > li.active > a [class*=\"ti-\"],*/\n    /*.nav-pills > li.active > a:hover [class*=\"ti-\"],*/\n    /*.nav-pills > li.active > a:focus [class*=\"ti-\"] {*/\n        /*color: #FFFFFF;*/\n        /*font-size: 24px;*/\n        /*top: 21px;*/\n        /*-webkit-transition: all 0.2s linear;*/\n        /*-moz-transition: all 0.2s linear;*/\n        /*-o-transition: all 0.2s linear;*/\n        /*-ms-transition: all 0.2s linear;*/\n        /*transition: all 0.2s linear;*/\n    /*}*/\n\n    /*.tooltip {*/\n        /*font-size: 14px;*/\n        /*font-weight: bold;*/\n    /*}*/\n\n    /*.tooltip-arrow {*/\n        /*display: none;*/\n        /*opacity: 0;*/\n    /*}*/\n\n    /*.tooltip-inner {*/\n        /*background-color: #FAE6A4;*/\n        /*border-radius: 4px;*/\n        /*box-shadow: 0 1px 13px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(115, 71, 38, 0.23);*/\n        /*color: #734726;*/\n        /*max-width: 200px;*/\n        /*padding: 6px 10px;*/\n        /*text-align: center;*/\n        /*text-decoration: none;*/\n    /*}*/\n    /*.tooltip-inner:after {*/\n        /*content: \"\";*/\n        /*display: inline-block;*/\n        /*left: 100%;*/\n        /*margin-left: -56%;*/\n        /*position: absolute;*/\n    /*}*/\n    /*.tooltip-inner:before {*/\n        /*content: \"\";*/\n        /*display: inline-block;*/\n        /*left: 100%;*/\n        /*margin-left: -56%;*/\n        /*position: absolute;*/\n    /*}*/\n\n    /*.tooltip.top {*/\n        /*margin-top: -11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.top .tooltip-inner:after {*/\n        /*border-top: 11px solid #FAE6A4;*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*bottom: -10px;*/\n    /*}*/\n    /*.tooltip.top .tooltip-inner:before {*/\n        /*border-top: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*bottom: -11px;*/\n    /*}*/\n\n    /*.tooltip.bottom {*/\n        /*margin-top: 11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.bottom .tooltip-inner:after {*/\n        /*border-bottom: 11px solid #FAE6A4;*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*top: -10px;*/\n    /*}*/\n    /*.tooltip.bottom .tooltip-inner:before {*/\n        /*border-bottom: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-left: 11px solid transparent;*/\n        /*border-right: 11px solid transparent;*/\n        /*top: -11px;*/\n    /*}*/\n\n    /*.tooltip.left {*/\n        /*margin-left: -11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.left .tooltip-inner:after {*/\n        /*border-left: 11px solid #FAE6A4;*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*right: -10px;*/\n        /*left: auto;*/\n        /*margin-left: 0;*/\n    /*}*/\n    /*.tooltip.left .tooltip-inner:before {*/\n        /*border-left: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*right: -11px;*/\n        /*left: auto;*/\n        /*margin-left: 0;*/\n    /*}*/\n\n    /*.tooltip.right {*/\n        /*margin-left: 11px;*/\n        /*padding: 0;*/\n    /*}*/\n    /*.tooltip.right .tooltip-inner:after {*/\n        /*border-right: 11px solid #FAE6A4;*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*left: -10px;*/\n        /*top: 0;*/\n        /*margin-left: 0;*/\n    /*}*/\n    /*.tooltip.right .tooltip-inner:before {*/\n        /*border-right: 11px solid rgba(0, 0, 0, 0.2);*/\n        /*border-top: 11px solid transparent;*/\n        /*border-bottom: 11px solid transparent;*/\n        /*left: -11px;*/\n        /*top: 0;*/\n        /*margin-left: 0;*/\n    /*}*/\n\n    /*.card {*/\n        /*border-radius: 6px;*/\n        /*box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);*/\n        /*background-color: #FFFFFF;*/\n        /*color: #252422;*/\n        /*padding: 10px 0;*/\n        /*margin-bottom: 20px;*/\n        /*position: relative;*/\n        /*z-index: 1;*/\n    /*}*/\n    /*.card .card-checkboxes {*/\n        /*background-color: #F3F2EE;*/\n        /*box-shadow: none;*/\n        /*color: rgba(0, 0, 0, 0.3);*/\n    /*}*/\n    /*.card .card-hover-effect {*/\n        /*-webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*-moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*-o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*-ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n        /*transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;*/\n    /*}*/\n    /*.card .card-hover-effect:hover {*/\n        /*box-shadow: 0px 12px 17px -7px rgba(0, 0, 0, 0.3);*/\n        /*-webkit-transform: translateY(-10px);*/\n        /*-moz-transform: translateY(-10px);*/\n        /*-o-transition: translateY(-10px);*/\n        /*-ms-transform: translateY(-10px);*/\n        /*transform: translateY(-10px);*/\n    /*}*/\n\n    /*.wizard-card {*/\n        /*min-height: 410px;*/\n        /*box-shadow: 0 20px 16px -15px rgba(0, 0, 0, 0.57);*/\n    /*}*/\n    /*.wizard-card .picture-container {*/\n        /*position: relative;*/\n        /*cursor: pointer;*/\n        /*text-align: center;*/\n    /*}*/\n    /*.wizard-card .icon-circle {*/\n        /*font-size: 20px;*/\n        /*border: 3px solid #F3F2EE;*/\n        /*text-align: center;*/\n        /*border-radius: 50%;*/\n        /*color: rgba(0, 0, 0, 0.2);*/\n        /*font-weight: 600;*/\n        /*width: 70px;*/\n        /*height: 70px;*/\n        /*background-color: #FFFFFF;*/\n        /*margin: 0 auto;*/\n        /*position: relative;*/\n        /*top: -2px;*/\n    /*}*/\n    /*.wizard-card .icon-circle [class*=\"ti-\"] {*/\n        /*position: absolute;*/\n        /*z-index: 1;*/\n        /*left: 1px;*/\n        /*right: 0px;*/\n        /*top: 23px;*/\n    /*}*/\n    /*.wizard-card .picture {*/\n        /*width: 106px;*/\n        /*height: 106px;*/\n        /*background-color: #d8d1c9;*/\n        /*border: 4px solid transparent;*/\n        /*color: #FFFFFF;*/\n        /*border-radius: 50%;*/\n        /*margin: 5px auto;*/\n        /*overflow: hidden;*/\n        /*transition: all 0.2s;*/\n        /*-webkit-transition: all 0.2s;*/\n    /*}*/\n    /*.wizard-card .picture:hover {*/\n        /*border-color: #2ca8ff;*/\n    /*}*/\n    /*.wizard-card .picture-src {*/\n        /*width: 100%;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .picture:hover {*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .nav-pills > li.active > a {*/\n        /*color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .choice.active .card-checkboxes {*/\n        /*color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"azure\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #7A9E9F;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .picture:hover {*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .nav-pills > li.active > a {*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .choice.active .card-checkboxes {*/\n        /*color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"green\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #7AC29A;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .picture:hover {*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .nav-pills > li.active > a {*/\n        /*color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .choice.active .card-checkboxes {*/\n        /*color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"blue\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #68B3C8;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .picture:hover {*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .nav-pills > li.active > a {*/\n        /*color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .choice.active .card-checkboxes {*/\n        /*color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"orange\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #F3BB45;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .picture:hover {*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .nav-pills > li.active > a:after {*/\n        /*background-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .nav-pills > li.active > a {*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .nav-pills .icon-circle.checked {*/\n        /*border-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .choice.active .card-checkboxes {*/\n        /*color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card[data-color=\"red\"] .wizard-navigation .progress-bar {*/\n        /*background-color: #EB5E28;*/\n    /*}*/\n    /*.wizard-card .picture input[type=\"file\"] {*/\n        /*!*cursor: pointer;*/\n        /*display: block;*/\n        /*height: 100%;*/\n        /*left: 0;*/\n        /*opacity: 0 !important;*/\n        /*position: absolute;*/\n        /*top: 0;*/\n        /*width: 100%;*!*/\n    /*}*/\n    /*.wizard-card .tab-content {*/\n        /*min-height: 435px;*/\n        /*padding: 105px 20px 10px;*/\n    /*}*/\n    /*.wizard-card .wizard-footer {*/\n        /*padding: 0 15px 5px;*/\n    /*}*/\n    /*.wizard-card .disabled {*/\n        /*display: none;*/\n    /*}*/\n    /*.wizard-card .wizard-header {*/\n        /*padding: 15px 15px 15px 15px;*/\n        /*position: relative;*/\n        /*border-radius: 3px 3px 0 0;*/\n        /*z-index: 3;*/\n    /*}*/\n    /*.wizard-card .wizard-header h3 {*/\n        /*text-align: center;*/\n    /*}*/\n    /*.wizard-card .wizard-title {*/\n        /*color: #252422;*/\n        /*font-weight: 300;*/\n        /*margin: 0;*/\n    /*}*/\n    /*.wizard-card .category {*/\n        /*font-size: 14px;*/\n        /*font-weight: 400;*/\n        /*color: #9A9A9A;*/\n        /*margin-bottom: 0px;*/\n        /*text-align: center;*/\n    /*}*/\n    /*.wizard-card .wizard-navigation {*/\n        /*position: relative;*/\n    /*}*/\n    /*.wizard-card .wizard-navigation .progress-with-circle {*/\n        /*position: relative;*/\n        /*top: 40px;*/\n        /*z-index: 50;*/\n        /*height: 4px;*/\n    /*}*/\n    /*.wizard-card .wizard-navigation .progress-with-circle .progress-bar {*/\n        /*box-shadow: none;*/\n        /*-webkit-transition: width .3s ease;*/\n        /*-o-transition: width .3s ease;*/\n        /*transition: width .3s ease;*/\n    /*}*/\n    /*.wizard-card .info-text {*/\n        /*text-align: center;*/\n        /*padding-bottom: 18px;*/\n        /*padding-top: 12px;*/\n    /*}*/\n    /*.wizard-card .choice {*/\n        /*text-align: center;*/\n        /*cursor: pointer;*/\n        /*margin-top: 38px;*/\n    /*}*/\n    /*.wizard-card .choice .icon {*/\n        /*text-align: center;*/\n        /*vertical-align: middle;*/\n        /*height: 116px;*/\n        /*width: 116px;*/\n        /*border-radius: 50%;*/\n        /*background-color: #999999;*/\n        /*color: #FFFFFF;*/\n        /*margin: 0 auto 20px;*/\n        /*border: 4px solid #CCCCCC;*/\n        /*transition: all 0.2s;*/\n        /*-webkit-transition: all 0.2s;*/\n    /*}*/\n    /*.wizard-card .choice i {*/\n        /*font-size: 32px;*/\n        /*line-height: 55px;*/\n    /*}*/\n    /*.wizard-card .choice:hover .icon, .wizard-card .choice.active .icon {*/\n        /*border-color: #2ca8ff;*/\n    /*}*/\n    /*.wizard-card .choice input[type=\"radio\"],*/\n    /*.wizard-card .choice input[type=\"checkbox\"] {*/\n        /*position: absolute;*/\n        /*left: -10000px;*/\n        /*z-index: -1;*/\n    /*}*/\n    /*.wizard-card .description {*/\n        /*color: #999999;*/\n        /*font-size: 14px;*/\n    /*}*/\n\n    /*.footer {*/\n        /*position: relative;*/\n        /*bottom: 20px;*/\n        /*right: 0px;*/\n        /*width: 100%;*/\n        /*color: #FFFFFF;*/\n        /*z-index: 4;*/\n        /*text-align: right;*/\n        /*margin-top: 60px;*/\n        /*text-shadow: 0 1px 3px black;*/\n    /*}*/\n    /*.footer a {*/\n        /*color: #FFFFFF;*/\n    /*}*/\n    /*.footer .heart {*/\n        /*color: #FF3B30;*/\n    /*}*/\n\n    /*@media (max-width: 768px) {*/\n        /*.main .container {*/\n            /*margin-bottom: 50px;*/\n        /*}*/\n    /*}*/\n    /*@media (min-width: 768px) {*/\n        /*.navbar-form {*/\n            /*margin-top: 21px;*/\n            /*margin-bottom: 21px;*/\n            /*padding-left: 5px;*/\n            /*padding-right: 5px;*/\n        /*}*/\n\n        /*.btn-wd {*/\n            /*min-width: 140px;*/\n        /*}*/\n    /*}*/\n\n\n", ""]);
 
 // exports
 
@@ -65482,6 +65555,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         fetchMediaTypes: function fetchMediaTypes(index) {
             var self = this;
             axios.get('fetch-media-types-api').then(function (res) {
+                // axios.get('testme').then(function (res) {
+                console.log(res.data);
                 self.mediaTypes = res.data;
             });
         },
@@ -72027,6 +72102,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -72045,7 +72125,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             selectMedia: 'fullcalender'
         };
     },
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        console.log(this.file);
+    },
 
     methods: {
         amount: function amount(item) {
@@ -72098,11 +72180,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 formData.append('uploadedFile', self.file);
                 formData.append('rate_card_title', self.rateCard);
                 formData.append('media_house_id', self.mediaHouseIds);
+                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
 
                 axios.post('ads-store', formData).then(function (response) {
                     if (response.data.success === 'success') {
                         __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubId', response.data.sub_id);
                         __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getInvoiceId', response.data.invoice_id);
+                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
 
                         //self.$refs.calendar.$emit('refetch-events');
                         self.$router.push('payment');
@@ -72169,6 +72253,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         file: function file() {
             return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.file;
+        },
+        getProcessStatus: function getProcessStatus() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
         }
     }
 
@@ -72919,7 +73006,34 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", [
           _c("div", { staticClass: "card" }, [
-            _vm._m(0),
+            _c("div", { staticClass: "row invoice-contact" }, [
+              _c("div", { staticClass: "col-md-8" }, [
+                _c("div", { staticClass: "invoice-box row" }, [
+                  _c("div", { staticClass: "col-sm-12" }, [
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.getProcessStatus,
+                            expression: "getProcessStatus"
+                          }
+                        ],
+                        staticClass: "default-grid row"
+                      },
+                      [_c("show-processing")],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" })
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-block" }, [
               _c("div", { staticClass: "row invoive-info" }, [
@@ -73268,63 +73382,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row invoice-contact" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "invoice-box row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c(
-              "table",
-              {
-                staticClass:
-                  "table table-responsive invoice-table table-borderless"
-              },
-              [
-                _c("tbody", [
-                  _c("tr", [
-                    _c("td", [
-                      _c("img", {
-                        staticClass: "m-b-10",
-                        attrs: {
-                          src: "/images/kokro-yellow.png",
-                          alt: "Kokrokoo"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [_c("td", [_vm._v("Kokrokoo")])]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [
-                      _vm._v("123 6th St. Dansoman SNIIT Flat,Accra Ghana.")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [
-                      _c("a", { attrs: { href: "", target: "_top" } }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "__cf_email__",
-                            attrs: {
-                              "data-cfemail": "3256575f5d72555f535b5e1c515d5f"
-                            }
-                          },
-                          [_vm._v("suport@kokrokoo.com")]
-                        )
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            )
+    return _c(
+      "table",
+      { staticClass: "table table-responsive invoice-table table-borderless" },
+      [
+        _c("tbody", [
+          _c("tr", [
+            _c("td", [
+              _c("img", {
+                staticClass: "m-b-10",
+                attrs: { src: "/images/kokro-yellow.png", alt: "Kokrokoo" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [_c("td", [_vm._v("Kokrokoo")])]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("123 6th St. Dansoman SNIIT Flat,Accra Ghana.")])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [
+              _c("a", { attrs: { href: "", target: "_top" } }, [
+                _c(
+                  "span",
+                  {
+                    staticClass: "__cf_email__",
+                    attrs: { "data-cfemail": "3256575f5d72555f535b5e1c515d5f" }
+                  },
+                  [_vm._v("suport@kokrokoo.com")]
+                )
+              ])
+            ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" })
-    ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -73457,7 +73551,7 @@ var staticRenderFns = [
         _c("span", { staticStyle: { "font-size": "16px" } }, [
           _c("img", {
             staticStyle: { height: "20px", width: "20px" },
-            attrs: { src: "/images/loading.gif" }
+            attrs: { src: "/kokrokoo.com/images/loading.gif" }
           }),
           _vm._v(" Processing please wait.....")
         ])
@@ -73736,8 +73830,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     name: "fileUpload",
     data: function data() {
         return {
-            select_media_house: '/user-account/create-sub-media-house',
-            select_rate_card: '/user-account/create-sub-rate-card',
+            select_media_house: 'selectMediaHouse',
+            select_rate_card: 'selectRateCard',
             calender_url: '/user-account/select-calender',
             files: '',
             radio_ext: ["xlsx", "xls", "pdf", "odt", "docx", "mp3", "wav", "jpeg", "jpg", "png"],
@@ -73755,6 +73849,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         onFileChange: function onFileChange(e) {
 
             var files = e.target.files || e.dataTransfer.files;
+            console.log(files);
             this.ext = files[0].name.split('.').pop();
             this.file_size = files[0].size;
 
@@ -73921,7 +74016,7 @@ var render = function() {
                     {
                       staticClass: "btn btn-mat btn-inverse ",
                       attrs: {
-                        to: _vm.select_media_house,
+                        to: { name: _vm.select_media_house },
                         role: "button",
                         type: "button"
                       }
@@ -73942,7 +74037,7 @@ var render = function() {
                       ],
                       staticClass: "btn btn-mat btn-info animated fadeIn",
                       attrs: {
-                        to: _vm.select_rate_card,
+                        to: { name: _vm.select_rate_card },
                         role: "button",
                         type: "button"
                       }
@@ -74130,7 +74225,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             selMediaH: '',
             selMediaHouse: '',
             showBtn: true,
-            file_upload: '/user-account/create-sub-file',
+            file_upload: 'fileupload',
             selectMedia: 'selectMedia',
             media: this.$route.params.media,
             mediaHouseId: null,
@@ -74378,7 +74473,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: ["/thumbnails/" + logos.logo],
+                                  src: [
+                                    "/kokrokoo.com/thumbnails/" + logos.logo
+                                  ],
                                   width: "600",
                                   height: "515"
                                 },
@@ -74494,7 +74591,7 @@ var render = function() {
                 }
               ],
               staticClass: "btn btn-mat btn-inverse animated fadeIn",
-              attrs: { to: _vm.file_upload },
+              attrs: { to: { name: _vm.file_upload } },
               nativeOn: {
                 click: function($event) {
                   _vm.fetchSegmentTitles()
@@ -74639,9 +74736,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             success: 'Successfully created',
             title: '',
             file: '',
-            file_upload: '/user-account/create-sub-file',
+            file_upload: 'fileupload',
             rate_card_segments: '/user-account/create-sub-date',
-            calender_url: '/user-account/select-calender'
+            calender_url: 'fullcalender'
 
         };
     },
@@ -74787,7 +74884,7 @@ var render = function() {
                       {
                         staticClass: "btn btn-mat btn-inverse ",
                         attrs: {
-                          to: _vm.file_upload,
+                          to: { name: _vm.file_upload },
                           role: "button",
                           type: "button"
                         }
@@ -74808,7 +74905,7 @@ var render = function() {
                         ],
                         staticClass: "btn btn-mat btn-info animated fadeIn",
                         attrs: {
-                          to: _vm.calender_url,
+                          to: { name: _vm.calender_url },
                           role: "button",
                           type: "button"
                         }
@@ -75382,6 +75479,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         eventDrop: function eventDrop(event, delta, revertFunc) {
+            console.log(event.id);
 
             sweetAlert({
                 title: 'Warning',
@@ -75396,28 +75494,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, function (isConfirm) {
 
                 var s = event.start.format("YYYY-MM-DD ") + event.start.format('h:mm');
+                var id = event.id;
 
                 if (isConfirm) {
 
                     var formData = new FormData();
                     formData.append('startDate', event.start.format("YYYY-MM-DD ") + event.start.format('h:mm'));
+                    formData.append('endDate', event.start.format("YYYY-MM-DD ") + event.end.format('h:mm'));
+                    formData.append('event_id', event.id);
 
                     axios.post('sub-update-api', formData).then(function (response) {
-                        console.log(response.data);
-                        if (response.data === 'available') {
-
-                            formData.append('endDate', event.end.format("YYYY-MM-DD " + event.end.format('h:mm')));
-                            formData.append('id', event.id);
-
-                            axios.post('sub-update-api', formData).then(function (response) {
-                                //self.$refs.calendar.$emit('refetch-events');
-                                if (response) {
-                                    // PNotify.desktop.permission();
-                                    new PNotify({
-                                        title: 'Update Desktop Notice', type: 'info', text: 'Subscription date updated successfully.', desktop: {
-                                            desktop: true, icon: 'assets/images/pnotify/success.png'
-                                        }
-                                    });
+                        //self.$refs.calendar.$emit('refetch-events');
+                        if (response === 'success') {
+                            // PNotify.desktop.permission();
+                            new PNotify({
+                                title: 'Update Desktop Notice', type: 'info', text: 'Subscription date updated successfully.', desktop: {
+                                    desktop: true, icon: 'assets/images/pnotify/success.png'
+                                }
+                            });
+                        } else if (response.data === 'booked') {
+                            revertFunc();
+                            new PNotify({
+                                title: 'Info Desktop Notice', type: 'info', text: 'Please this segment is fully booked', desktop: {
+                                    desktop: true, icon: 'assets/images/pnotify/info.png'
                                 }
                             });
                         } else {
@@ -75438,7 +75537,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             element.find('.fc-time').after('<span class="glyphicon glyphicon-time"></span><br> ');
             if (event.status === 'pending') {
                 element.find('.fc-title').after("<br><span class='text-info fa fa-comment' style='font-weight: bolder'> " + event.status + "</span>");
-            } else if (event.status === 'review') {
+            } else if (event.status === 'accepted') {
                 element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #ffffff '> " + event.status + "</span>");
             } else if (event.status === 'inactive') {
                 element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #7b0c32;'> " + event.status + "</span>");
@@ -75446,7 +75545,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder'> " + event.status + "</span>");
             } else if (event.status === 'completed') {
                 element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder'> " + event.status + "</span>");
-            } else if (event.status === 'cancelled') {
+            } else if (event.status === 'rejected') {
                 element.find('.fc-title').after("<br><span class='text-danger fa fa-comment' style='font-weight: bolder'> " + event.status + "</span>");
             } else if (event.status === 'approved') {
                 element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #0f3e68'> " + event.status + "</span>");
@@ -76100,124 +76199,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -76410,6 +76391,11 @@ var render = function() {
             [
               _c("div", { staticClass: "modal-content" }, [
                 _c("div", { staticClass: "modal-header" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.seg_data) +
+                      "\n\n                "
+                  ),
                   _c("h4", { staticClass: "modal-title" }, [
                     _c("b", { staticClass: "text-danger" }, [
                       _vm._v(_vm._s(_vm.getMediaHouse))
@@ -76626,6 +76612,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec1,
                                         rate: segment.sec1_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       },
                                       checked: _vm._q(_vm.seg_data[index], {
@@ -76635,6 +76622,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec1,
                                         rate: segment.sec1_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       })
                                     },
@@ -76647,6 +76635,7 @@ var render = function() {
                                           endTime: segment.mon_seg_end,
                                           durations: _vm.segments_headings.sec1,
                                           rate: segment.sec1_rate,
+                                          rate_card: _vm.getTitle,
                                           spot: _vm.spots[index]
                                         })
                                       }
@@ -76679,6 +76668,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec2,
                                         rate: segment.sec2_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       },
                                       checked: _vm._q(_vm.seg_data[index], {
@@ -76688,6 +76678,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec2,
                                         rate: segment.sec2_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       })
                                     },
@@ -76700,6 +76691,7 @@ var render = function() {
                                           endTime: segment.mon_seg_end,
                                           durations: _vm.segments_headings.sec2,
                                           rate: segment.sec2_rate,
+                                          rate_card: _vm.getTitle,
                                           spot: _vm.spots[index]
                                         })
                                       }
@@ -76732,6 +76724,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec3,
                                         rate: segment.sec3_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       },
                                       checked: _vm._q(_vm.seg_data[index], {
@@ -76741,6 +76734,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec3,
                                         rate: segment.sec3_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       })
                                     },
@@ -76753,6 +76747,7 @@ var render = function() {
                                           endTime: segment.mon_seg_end,
                                           durations: _vm.segments_headings.sec3,
                                           rate: segment.sec3_rate,
+                                          rate_card: _vm.getTitle,
                                           spot: _vm.spots[index]
                                         })
                                       }
@@ -76785,6 +76780,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec4,
                                         rate: segment.sec4_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       },
                                       checked: _vm._q(_vm.seg_data[index], {
@@ -76794,6 +76790,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec4,
                                         rate: segment.sec4_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       })
                                     },
@@ -76806,6 +76803,7 @@ var render = function() {
                                           endTime: segment.mon_seg_end,
                                           durations: _vm.segments_headings.sec4,
                                           rate: segment.sec4_rate,
+                                          rate_card: _vm.getTitle,
                                           spot: _vm.spots[index]
                                         })
                                       }
@@ -76838,6 +76836,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec5,
                                         rate: segment.sec5_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       },
                                       checked: _vm._q(_vm.seg_data[index], {
@@ -76847,6 +76846,7 @@ var render = function() {
                                         endTime: segment.mon_seg_end,
                                         durations: _vm.segments_headings.sec5,
                                         rate: segment.sec5_rate,
+                                        rate_card: _vm.getTitle,
                                         spot: _vm.spots[index]
                                       })
                                     },
@@ -76859,6 +76859,7 @@ var render = function() {
                                           endTime: segment.mon_seg_end,
                                           durations: _vm.segments_headings.sec5,
                                           rate: segment.sec5_rate,
+                                          rate_card: _vm.getTitle,
                                           spot: _vm.spots[index]
                                         })
                                       }
@@ -77184,7 +77185,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         eventDrop: function eventDrop(event, delta, revertFunc) {
-
             sweetAlert({
                 title: 'Warning',
                 text: 'Are you sure about this change?',
@@ -77198,7 +77198,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, function (isConfirm) {
 
                 var s = event.start.format("YYYY-MM-DD ") + event.start.format('h:mm');
-
                 if (isConfirm) {
 
                     var formData = new FormData();
@@ -78318,7 +78317,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(trans.amount))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(trans.total_charge))])
+                    _c("td", [_vm._v(_vm._s(trans.transact_charge))])
                   ])
                 })
               )
@@ -78368,7 +78367,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Delivered Amount(GHC)")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Total charge(GHC)")])
+        _c("th", [_vm._v("Transaction charge(GHC)")])
       ])
     ])
   }
@@ -78749,10 +78748,211 @@ if (false) {
 
 /***/ }),
 /* 276 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(277)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(279)
+/* template */
+var __vue_template__ = __webpack_require__(280)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-22061032"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/success-pages/success.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-22061032", Component.options)
+  } else {
+    hotAPI.reload("data-v-22061032", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(278);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("67bb1a40", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22061032\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./success.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22061032\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./success.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 279 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue__ = __webpack_require__(277);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "success"
+});
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "jumbotron text-center" }, [
+    _c(
+      "h6",
+      {
+        staticClass: "display-3",
+        staticStyle: { "font-size": "38px", "font-weight": "bolder" }
+      },
+      [_vm._v("Thank You for using our advertising platform!")]
+    ),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c(
+      "p",
+      { staticClass: "lead" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-primary btn-sm",
+            attrs: { to: { name: "selectMedia" }, role: "button" }
+          },
+          [_vm._v("Create another advert")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-primary btn-sm",
+            attrs: { to: { name: "subs" }, role: "button" }
+          },
+          [_vm._v("View subscriptions")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "lead" }, [
+      _c("strong", [
+        _vm._v("Your subscription is successfully created.A receipt ")
+      ]),
+      _vm._v("  of your purchase has been sent to your email.")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("\n        Have any questions? "),
+      _c("a", { attrs: { href: "" } }, [
+        _vm._v("Contact us :  suport@kokrokoo.com")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-22061032", module.exports)
+  }
+}
+
+/***/ }),
+/* 281 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue__);
 /* unused harmony reexport FullCalendar */
 
@@ -78766,15 +78966,15 @@ if (false) {
 
 
 /***/ }),
-/* 277 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(278)
+var __vue_script__ = __webpack_require__(283)
 /* template */
-var __vue_template__ = __webpack_require__(308)
+var __vue_template__ = __webpack_require__(313)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -78813,16 +79013,16 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 278 */
+/* 283 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullcalendar__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullcalendar__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullcalendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_fullcalendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
@@ -79061,7 +79261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 279 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -79069,7 +79269,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 exports.__esModule = true;
 
-var _from = __webpack_require__(280);
+var _from = __webpack_require__(285);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -79088,30 +79288,30 @@ exports.default = function (arr) {
 };
 
 /***/ }),
-/* 280 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(281), __esModule: true };
+module.exports = { "default": __webpack_require__(286), __esModule: true };
 
 /***/ }),
-/* 281 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(282);
-__webpack_require__(299);
+__webpack_require__(287);
+__webpack_require__(304);
 module.exports = __webpack_require__(11).Array.from;
 
 
 /***/ }),
-/* 282 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(283)(true);
+var $at = __webpack_require__(288)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(284)(String, 'String', function (iterated) {
+__webpack_require__(289)(String, 'String', function (iterated) {
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -79127,7 +79327,7 @@ __webpack_require__(284)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 283 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(22);
@@ -79150,19 +79350,19 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 284 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var LIBRARY = __webpack_require__(172);
 var $export = __webpack_require__(173);
-var redefine = __webpack_require__(288);
+var redefine = __webpack_require__(293);
 var hide = __webpack_require__(12);
 var Iterators = __webpack_require__(26);
-var $iterCreate = __webpack_require__(289);
+var $iterCreate = __webpack_require__(294);
 var setToStringTag = __webpack_require__(183);
-var getPrototypeOf = __webpack_require__(298);
+var getPrototypeOf = __webpack_require__(303);
 var ITERATOR = __webpack_require__(6)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
@@ -79226,7 +79426,7 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 
 /***/ }),
-/* 285 */
+/* 290 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -79236,7 +79436,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 286 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = !__webpack_require__(15) && !__webpack_require__(175)(function () {
@@ -79245,7 +79445,7 @@ module.exports = !__webpack_require__(15) && !__webpack_require__(175)(function 
 
 
 /***/ }),
-/* 287 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
@@ -79263,19 +79463,19 @@ module.exports = function (it, S) {
 
 
 /***/ }),
-/* 288 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(12);
 
 
 /***/ }),
-/* 289 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create = __webpack_require__(290);
+var create = __webpack_require__(295);
 var descriptor = __webpack_require__(25);
 var setToStringTag = __webpack_require__(183);
 var IteratorPrototype = {};
@@ -79290,12 +79490,12 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 290 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(14);
-var dPs = __webpack_require__(291);
+var dPs = __webpack_require__(296);
 var enumBugKeys = __webpack_require__(182);
 var IE_PROTO = __webpack_require__(27)('IE_PROTO');
 var Empty = function () { /* empty */ };
@@ -79310,7 +79510,7 @@ var createDict = function () {
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(297).appendChild(iframe);
+  __webpack_require__(302).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -79337,12 +79537,12 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 291 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(13);
 var anObject = __webpack_require__(14);
-var getKeys = __webpack_require__(292);
+var getKeys = __webpack_require__(297);
 
 module.exports = __webpack_require__(15) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
@@ -79356,11 +79556,11 @@ module.exports = __webpack_require__(15) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 292 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(293);
+var $keys = __webpack_require__(298);
 var enumBugKeys = __webpack_require__(182);
 
 module.exports = Object.keys || function keys(O) {
@@ -79369,12 +79569,12 @@ module.exports = Object.keys || function keys(O) {
 
 
 /***/ }),
-/* 293 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__(16);
 var toIObject = __webpack_require__(177);
-var arrayIndexOf = __webpack_require__(295)(false);
+var arrayIndexOf = __webpack_require__(300)(false);
 var IE_PROTO = __webpack_require__(27)('IE_PROTO');
 
 module.exports = function (object, names) {
@@ -79392,7 +79592,7 @@ module.exports = function (object, names) {
 
 
 /***/ }),
-/* 294 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -79404,14 +79604,14 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 295 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(177);
 var toLength = __webpack_require__(179);
-var toAbsoluteIndex = __webpack_require__(296);
+var toAbsoluteIndex = __webpack_require__(301);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -79433,7 +79633,7 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 296 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(22);
@@ -79446,7 +79646,7 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 297 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(8).document;
@@ -79454,7 +79654,7 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 298 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
@@ -79473,7 +79673,7 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 299 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -79481,13 +79681,13 @@ module.exports = Object.getPrototypeOf || function (O) {
 var ctx = __webpack_require__(174);
 var $export = __webpack_require__(173);
 var toObject = __webpack_require__(184);
-var call = __webpack_require__(300);
-var isArrayIter = __webpack_require__(301);
+var call = __webpack_require__(305);
+var isArrayIter = __webpack_require__(306);
 var toLength = __webpack_require__(179);
-var createProperty = __webpack_require__(302);
-var getIterFn = __webpack_require__(303);
+var createProperty = __webpack_require__(307);
+var getIterFn = __webpack_require__(308);
 
-$export($export.S + $export.F * !__webpack_require__(305)(function (iter) { Array.from(iter); }), 'Array', {
+$export($export.S + $export.F * !__webpack_require__(310)(function (iter) { Array.from(iter); }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
   from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
     var O = toObject(arrayLike);
@@ -79517,7 +79717,7 @@ $export($export.S + $export.F * !__webpack_require__(305)(function (iter) { Arra
 
 
 /***/ }),
-/* 300 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
@@ -79535,7 +79735,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 /***/ }),
-/* 301 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
@@ -79549,7 +79749,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 302 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -79564,10 +79764,10 @@ module.exports = function (object, index, value) {
 
 
 /***/ }),
-/* 303 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof = __webpack_require__(304);
+var classof = __webpack_require__(309);
 var ITERATOR = __webpack_require__(6)('iterator');
 var Iterators = __webpack_require__(26);
 module.exports = __webpack_require__(11).getIteratorMethod = function (it) {
@@ -79578,7 +79778,7 @@ module.exports = __webpack_require__(11).getIteratorMethod = function (it) {
 
 
 /***/ }),
-/* 304 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
@@ -79607,7 +79807,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 305 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ITERATOR = __webpack_require__(6)('iterator');
@@ -79635,7 +79835,7 @@ module.exports = function (exec, skipClosing) {
 
 
 /***/ }),
-/* 306 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -81896,7 +82096,7 @@ module.exports = defaultsDeep;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(17)(module)))
 
 /***/ }),
-/* 307 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -97049,7 +97249,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 308 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97069,15 +97269,15 @@ if (false) {
 }
 
 /***/ }),
-/* 309 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(310)
+var __vue_script__ = __webpack_require__(315)
 /* template */
-var __vue_template__ = __webpack_require__(311)
+var __vue_template__ = __webpack_require__(316)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97116,7 +97316,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 310 */
+/* 315 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97145,7 +97345,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 311 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97188,19 +97388,19 @@ if (false) {
 }
 
 /***/ }),
-/* 312 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(313)
+  __webpack_require__(318)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(315)
+var __vue_script__ = __webpack_require__(320)
 /* template */
-var __vue_template__ = __webpack_require__(316)
+var __vue_template__ = __webpack_require__(321)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97239,13 +97439,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 313 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(314);
+var content = __webpack_require__(319);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97265,7 +97465,7 @@ if(false) {
 }
 
 /***/ }),
-/* 314 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97279,7 +97479,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 315 */
+/* 320 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97334,7 +97534,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 316 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97421,19 +97621,19 @@ if (false) {
 }
 
 /***/ }),
-/* 317 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(318)
+  __webpack_require__(323)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(320)
+var __vue_script__ = __webpack_require__(325)
 /* template */
-var __vue_template__ = __webpack_require__(321)
+var __vue_template__ = __webpack_require__(326)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97472,13 +97672,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 318 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(319);
+var content = __webpack_require__(324);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97498,7 +97698,7 @@ if(false) {
 }
 
 /***/ }),
-/* 319 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97512,7 +97712,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 320 */
+/* 325 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97567,7 +97767,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 321 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97654,19 +97854,19 @@ if (false) {
 }
 
 /***/ }),
-/* 322 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(323)
+  __webpack_require__(328)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(325)
+var __vue_script__ = __webpack_require__(330)
 /* template */
-var __vue_template__ = __webpack_require__(326)
+var __vue_template__ = __webpack_require__(331)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97705,13 +97905,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 323 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(324);
+var content = __webpack_require__(329);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97731,7 +97931,7 @@ if(false) {
 }
 
 /***/ }),
-/* 324 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97745,7 +97945,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 325 */
+/* 330 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97800,7 +98000,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 326 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97887,19 +98087,19 @@ if (false) {
 }
 
 /***/ }),
-/* 327 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(328)
+  __webpack_require__(333)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(330)
+var __vue_script__ = __webpack_require__(335)
 /* template */
-var __vue_template__ = __webpack_require__(335)
+var __vue_template__ = __webpack_require__(340)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97938,13 +98138,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 328 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(329);
+var content = __webpack_require__(334);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97964,7 +98164,7 @@ if(false) {
 }
 
 /***/ }),
-/* 329 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97978,7 +98178,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 330 */
+/* 335 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98149,13 +98349,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 331 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(332);
+var content = __webpack_require__(337);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -98175,7 +98375,7 @@ if(false) {
 }
 
 /***/ }),
-/* 332 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -98189,7 +98389,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 333 */
+/* 338 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98329,7 +98529,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 334 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -98706,7 +98906,7 @@ if (false) {
 }
 
 /***/ }),
-/* 335 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99074,15 +99274,15 @@ if (false) {
 }
 
 /***/ }),
-/* 336 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(337)
+var __vue_script__ = __webpack_require__(342)
 /* template */
-var __vue_template__ = __webpack_require__(338)
+var __vue_template__ = __webpack_require__(343)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -99121,7 +99321,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 337 */
+/* 342 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99200,7 +99400,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 338 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99271,15 +99471,15 @@ if (false) {
 }
 
 /***/ }),
-/* 339 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(340)
+var __vue_script__ = __webpack_require__(345)
 /* template */
-var __vue_template__ = __webpack_require__(341)
+var __vue_template__ = __webpack_require__(346)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -99318,7 +99518,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 340 */
+/* 345 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99433,7 +99633,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 341 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99586,15 +99786,15 @@ if (false) {
 }
 
 /***/ }),
-/* 342 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(343)
+var __vue_script__ = __webpack_require__(348)
 /* template */
-var __vue_template__ = __webpack_require__(344)
+var __vue_template__ = __webpack_require__(349)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -99633,7 +99833,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 343 */
+/* 348 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99662,7 +99862,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 344 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99682,15 +99882,15 @@ if (false) {
 }
 
 /***/ }),
-/* 345 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(346)
+var __vue_script__ = __webpack_require__(351)
 /* template */
-var __vue_template__ = __webpack_require__(347)
+var __vue_template__ = __webpack_require__(352)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -99729,7 +99929,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 346 */
+/* 351 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100431,7 +100631,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 347 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -103042,19 +103242,19 @@ if (false) {
 }
 
 /***/ }),
-/* 348 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(349)
+  __webpack_require__(354)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(351)
+var __vue_script__ = __webpack_require__(356)
 /* template */
-var __vue_template__ = __webpack_require__(352)
+var __vue_template__ = __webpack_require__(357)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -103093,13 +103293,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 349 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(350);
+var content = __webpack_require__(355);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -103119,7 +103319,7 @@ if(false) {
 }
 
 /***/ }),
-/* 350 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -103133,7 +103333,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 351 */
+/* 356 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -103226,7 +103426,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 352 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -103553,238 +103753,16 @@ if (false) {
 }
 
 /***/ }),
-/* 353 */
+/* 358 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 354 */
+/* 359 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(377)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(379)
-/* template */
-var __vue_template__ = __webpack_require__(380)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-22061032"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/success-pages/success.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-22061032", Component.options)
-  } else {
-    hotAPI.reload("data-v-22061032", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(378);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(5)("67bb1a40", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22061032\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./success.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22061032\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./success.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 378 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 379 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: "success"
-});
-
-/***/ }),
-/* 380 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "jumbotron text-center" }, [
-    _c(
-      "h6",
-      {
-        staticClass: "display-3",
-        staticStyle: { "font-size": "38px", "font-weight": "bolder" }
-      },
-      [_vm._v("Thank You for using our advertising platform!")]
-    ),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c(
-      "p",
-      { staticClass: "lead" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-primary btn-sm",
-            attrs: { to: { name: "selectMedia" }, role: "button" }
-          },
-          [_vm._v("Create another advert")]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-primary btn-sm",
-            attrs: { to: { name: "subs" }, role: "button" }
-          },
-          [_vm._v("View subscriptions")]
-        )
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "lead" }, [
-      _c("strong", [
-        _vm._v("Your subscription is successfully created.A receipt ")
-      ]),
-      _vm._v("  of your purchase has been sent to your email.")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v("\n        Have any questions? "),
-      _c("a", { attrs: { href: "" } }, [
-        _vm._v("Contact us :  suport@kokrokoo.com")
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-22061032", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

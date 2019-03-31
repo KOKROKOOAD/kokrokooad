@@ -47,8 +47,8 @@
                                     </select>
                                 </div>
                                 <div style="padding-left: 16px;">
-                                    <router-link :to="file_upload" role="button" type="button" class="btn btn-mat btn-inverse ">Back</router-link>
-                                    <router-link v-show="title" :to="calender_url" role="button" type="button" class="btn btn-mat btn-info animated fadeIn">Next</router-link>
+                                    <router-link :to="{name:file_upload}" role="button" type="button" class="btn btn-mat btn-inverse ">Back</router-link>
+                                    <router-link v-show="title" :to="{name:calender_url}" role="button" type="button" class="btn btn-mat btn-info animated fadeIn">Next</router-link>
 
                                 </div>
                             </div>
@@ -73,9 +73,9 @@
                 success : 'Successfully created',
                 title : '',
                 file : '',
-                file_upload : '/user-account/create-sub-file',
+                file_upload : 'fileupload',
                 rate_card_segments : '/user-account/create-sub-date',
-                calender_url : '/user-account/select-calender'
+                calender_url : 'fullcalender'
 
 
             }

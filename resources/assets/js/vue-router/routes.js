@@ -1,53 +1,53 @@
 
   export const routes = [
         {
-            path: '/user-account/create-subscription-media',
+            path: '/kokrokoo.com/user-account/create-subscription-media',
             name : 'selectMedia',
             component : require('../components/subscriptions/createAd'),
         },
         {   name : 'fileupload',
-            path : '/user-account/create-sub-file',
+            path : '/kokrokoo.com/user-account/create-sub-file',
             component : require('../components/subscriptions/fileUpload')
         },
       {   name : 'selectMediaHouse',
-          path : '/user-account/create-sub-media-house',
+          path : '/kokrokoo.com/user-account/create-sub-media-house',
           component : require('../components/subscriptions/displayMediaHouseImags')
       },
       {   name : 'selectRateCard',
-          path : '/user-account/create-sub-rate-card',
+          path : '/kokrokoo.com/user-account/create-sub-rate-card',
           component : require('../components/subscriptions/selectRateCard')
       },
       {
           name : 'segments',
-      path : '/user-account/create-sub-date',
+      path : '/kokrokoo.com/user-account/create-sub-date',
       component : require('../components/subscriptions/rateCardSegments')
   },
       {   name : 'invoice',
-          path : '/user-account/create-sub-invoice',
+          path : '/kokrokoo.com/user-account/create-sub-invoice',
           component : require('../components/subscriptions/adSummary')
       },
       {   name : 'subs',
-          path : '/user-account/subscriptions',
+          path : '/kokrokoo.com/user-account/subscriptions',
           component : require('../components/subscriptions/subscriptions')
       },
       {   name : 'selectSegments',
-          path : '/user-account/select-segment',
+          path : '/kokrokoo.com/user-account/select-segment',
           component : require('../components/subscriptions/selectSegments.vue')
       },
       {   name : 'selectRateAndTime',
-          path : '/user-account/select-rate',
+          path : '/kokrokoo.com/user-account/select-rate',
           component : require('../components/subscriptions/selectRateAndTime')
       },
       {   name : 'fullcalender',
-          path : '/user-account/select-calender',
+          path : '/kokrokoo.com/user-account/select-calender',
           component : require('../components/subscriptions/fullcalender')
       },
       {   name : 'payment',
-          path : '/user-account/payment',
+          path : '/kokrokoo.com/user-account/payment',
           component : require('../components/payment/paymentType')
       },
       {   name : 'transactions',
-          path : '/user-account/transactions',
+          path : '/kokrokoo.com/user-account/transactions',
           component : require('../components/subscriptions/transactions')
       },
       {   name : 'profile',
@@ -55,11 +55,11 @@
           component : require('../components/userProfile/userProfile')
       },
       {   name : 'home',
-          path : '/user-account/dashboard',
+          path : '/kokrokoo.com/user-account/dashboard',
           component : require('../components/subscriptions/home')
       },
       {   name : 'payment-success',
-          path : '/user-account/payment-success',
+          path : '/kokrokoo.com/user-account/payment-success',
           component : require('../components/success-pages/success')
       },
 
