@@ -46,6 +46,7 @@ const debug = process.env.NODE_ENV !== 'production';
        file_size : '',
        sub_id : '',
        invoice_id : '',
+       total_bill : '',
 
     },
 
@@ -144,7 +145,11 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setInvoiceId(state, payload){
              state.invoice_id = payload;
+         },
+         setTotalBill(state, payload){
+             state.total_bill = payload;
          }
+
 
 
      },
@@ -251,6 +256,9 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          getInvoiceId(context, payload){
             context.commit('setInvoiceId',payload);
+         },
+         getTotalBill(context, payload){
+             context.commit('SetTotalBill',payload);
          }
      },
      getters:{
@@ -314,6 +322,9 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          invoiceId(state){
               return state.invoice_id;
+         },
+         totalBill(state){
+              return state.total_bill;
          }
 
 

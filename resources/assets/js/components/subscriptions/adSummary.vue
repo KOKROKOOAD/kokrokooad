@@ -226,8 +226,9 @@
 
 
                 }
+                store.dispatch('getTotalBill', t);
                 //  console.log(t);
-                return t;
+                return   this.totalBill;
             },
             storeSub(title){
                 let self = this;
@@ -348,6 +349,9 @@
             getProcessStatus(){
                 return  store.state.processing;
             },
+            totalBill(){
+                return store.getters.totalBill;
+            }
 
 
         },

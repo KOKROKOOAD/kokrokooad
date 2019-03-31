@@ -4743,7 +4743,8 @@ var debug = "development" !== 'production';
         created_sub_data: [],
         file_size: '',
         sub_id: '',
-        invoice_id: ''
+        invoice_id: '',
+        total_bill: ''
 
     },
 
@@ -4841,6 +4842,9 @@ var debug = "development" !== 'production';
         },
         setInvoiceId: function setInvoiceId(state, payload) {
             state.invoice_id = payload;
+        },
+        setTotalBill: function setTotalBill(state, payload) {
+            state.total_bill = payload;
         }
     },
     actions: {
@@ -4946,6 +4950,9 @@ var debug = "development" !== 'production';
         },
         getInvoiceId: function getInvoiceId(context, payload) {
             context.commit('setInvoiceId', payload);
+        },
+        getTotalBill: function getTotalBill(context, payload) {
+            context.commit('SetTotalBill', payload);
         }
     },
     getters: {
@@ -5009,6 +5016,9 @@ var debug = "development" !== 'production';
         },
         invoiceId: function invoiceId(state) {
             return state.invoice_id;
+        },
+        totalBill: function totalBill(state) {
+            return state.total_bill;
         }
     },
     plugins: [Object(__WEBPACK_IMPORTED_MODULE_3_vuex_persistedstate__["a" /* default */])()]
@@ -72207,8 +72217,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var j = 0; j < total.length; j++) {
                 t = parseInt(total[j]) + t;
             }
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getTotalBill', t);
             //  console.log(t);
-            return t;
+            return this.totalBill;
         },
         storeSub: function storeSub(title) {
             var self = this;
@@ -72316,6 +72327,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getProcessStatus: function getProcessStatus() {
             return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+        },
+        totalBill: function totalBill() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.totalBill;
         }
     }
 
