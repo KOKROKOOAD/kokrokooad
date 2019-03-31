@@ -74523,7 +74523,9 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: ["/kokrokoo/thumbnails/" + logos.logo],
+                                  src: [
+                                    "/kokrokoo.com/thumbnails/" + logos.logo
+                                  ],
                                   width: "600",
                                   height: "515"
                                 },
