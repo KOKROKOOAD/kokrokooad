@@ -95,9 +95,15 @@
             onFileChange(e) {
 
                 let files = e.target.files || e.dataTransfer.files;
+<<<<<<< HEAD
                 console.log(files);
                 this.ext  =  files[0].name.split('.').pop();
                 this.file_size = files[0].size;
+=======
+                    console.log(files);
+                 this.ext  =  files[0].name.split('.').pop();
+                 this.file_size = files[0].size;
+>>>>>>> 2670a1019f6c1570c8849971322f309581228993
 
                 if (this.getSelectMedia === 'RADIO'){
                     if(this.radio_ext.includes(this.ext)){

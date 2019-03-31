@@ -33,6 +33,7 @@
         "qtip2": "^3.0.3",
         "vue-full-calendar": "^2.7.0",
         "vue-router": "^3.0.2",
-        "vuex": "^3.0.1"
+        "vuex": "^3.0.1",
+        "vuex-persistedstate": "^2.5.4"
     }
 }
