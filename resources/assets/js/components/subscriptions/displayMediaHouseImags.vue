@@ -69,7 +69,7 @@
         </div>
         <div v-show="loading"  class="animated fadeIn">
             <router-link :to="{name : selectMedia}"  class="btn btn-mat btn-info" >Back</router-link>
-            <router-link :to="file_upload" class="btn btn-mat btn-inverse animated fadeIn" v-show="selMediaH" @click.native="fetchSegmentTitles()">Next</router-link>
+            <router-link :to="{name:file_upload}" class="btn btn-mat btn-inverse animated fadeIn" v-show="selMediaH" @click.native="fetchSegmentTitles()">Next</router-link>
         </div>
 
     </div>
@@ -104,7 +104,7 @@
                 selMediaH: '',
                 selMediaHouse : '',
                  showBtn : true,
-                file_upload : '/user-account/create-sub-file',
+                file_upload : 'fileupload',
                 selectMedia : 'selectMedia',
                 media : this.$route.params.media,
                 mediaHouseId : null,

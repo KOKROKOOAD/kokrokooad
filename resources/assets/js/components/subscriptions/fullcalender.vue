@@ -191,7 +191,6 @@
 
             },
             eventDrop: function(event, delta, revertFunc) {
-
                 sweetAlert({
                     title: 'Warning',
                     text: 'Are you sure about this change?',
@@ -205,7 +204,6 @@
                 },function(isConfirm){
 
                   let  s = event.start.format("YYYY-MM-DD ") + event.start.format('h:mm');
-
                     if(isConfirm){
 
                         let formData = new FormData();

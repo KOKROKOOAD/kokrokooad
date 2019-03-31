@@ -128,6 +128,7 @@
         },
         methods: {
             eventDrop: function(event, delta, revertFunc) {
+                console.log(event.id);
 
                 sweetAlert({
                     title: 'Warning',
@@ -142,23 +143,20 @@
                 },function(isConfirm){
 
                     let  s = event.start.format("YYYY-MM-DD ") + event.start.format('h:mm');
+                    let  id = event.id;
+
 
                     if(isConfirm){
 
                         let formData = new FormData();
                         formData.append('startDate', event.start.format("YYYY-MM-DD ") + event.start.format('h:mm'));
+                        formData.append('endDate', event.start.format("YYYY-MM-DD ") + event.end.format('h:mm'));
+                        formData.append('event_id', event.id);
 
 
-                        axios.post('sub-update-api', formData).then(function(response) {
-                            console.log(response.data);
-                            if(response.data === 'available'){
-
-                                formData.append('endDate', event.end.format("YYYY-MM-DD " + event.end.format('h:mm')));
-                                formData.append('id',event.id);
-
-                                axios.post('sub-update-api', formData).then(function (response) {
+                        axios.post('sub-update-api', formData).then(function (response) {
                                     //self.$refs.calendar.$emit('refetch-events');
-                                    if(response){
+                                    if(response === 'success'){
                                         // PNotify.desktop.permission();
                                         (new PNotify( {
                                                 title:'Update Desktop Notice', type:'info', text:'Subscription date updated successfully.', desktop: {
@@ -167,20 +165,30 @@
                                             }
                                         ));
                                     }
+                                    else if(response.data === 'booked'){
+                                        revertFunc();
+                                        (new PNotify( {
+                                                title:'Info Desktop Notice', type:'info', text:'Please this segment is fully booked', desktop: {
+                                                    desktop: true, icon: 'assets/images/pnotify/info.png'
+                                                }
+                                            }
+                                        ));
+                                    }
+                                    else{
+                                        revertFunc();
+                                        (new PNotify( {
+                                                title:'Failure Desktop Notice', type:'error', text:'Please this segment is already booked.Try another segment', desktop: {
+                                                    desktop: true, icon: 'assets/images/pnotify/success.png'
+                                                }
+                                            }
+                                        ));
+                                    }
 
                                 });
-                            }
-                            else{
-                                revertFunc();
-                                (new PNotify( {
-                                        title:'Failure Desktop Notice', type:'error', text:'Please this segment is already booked.Try another segment', desktop: {
-                                            desktop: true, icon: 'assets/images/pnotify/success.png'
-                                        }
-                                    }
-                                ));
-                            }
 
-                        });
+
+
+
                     }
                     else{
                         revertFunc();
@@ -194,7 +202,7 @@
                     element.find('.fc-title').after("<br><span class='text-info fa fa-comment' style='font-weight: bolder'> " +event.status+"</span>");
 
                 }
-                else if(event.status === 'review'){
+                else if(event.status === 'accepted'){
                     element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #ffffff '> "+event.status+"</span>");
 
                 }
@@ -210,7 +218,7 @@
                     element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder'> "+event.status+"</span>");
 
                 }
-                else if(event.status === 'cancelled'){
+                else if(event.status === 'rejected'){
                     element.find('.fc-title').after("<br><span class='text-danger fa fa-comment' style='font-weight: bolder'> "+event.status+"</span>");
 
                 }

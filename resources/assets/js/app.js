@@ -43,6 +43,7 @@ require('../js/calender/notify');
 window.Vue = require('vue');
 import  VueRouter from 'vue-router';
 import {routes} from './vue-router/routes';
+
 Vue.use(VueRouter);
 
 import FullCalendar from 'vue-full-calendar'; //Import Full-calendar

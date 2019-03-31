@@ -56,11 +56,23 @@ class SubController extends Controller
 //        if ($sub){
 //
 //            return response()->json($request->input('booked'));
+
 //        }
 
+        //dd($request->file('uploadedFile'));
 
 
-            if (auth()->check() && $request->hasFile('uploadedFile') && $request->file('uploadedFile')->isValid()) {
+//        if($request->file('uploadedFile')->isValid()){
+//               dd($request->file('uploadedFile'));
+//
+//           }
+//           else{
+//               dd('file could not pass');
+//           }
+
+
+            if (auth()->check()) {
+
 
                $d = json_decode($request->input('created_ad_data'));
                $startDate = array();
@@ -174,16 +186,20 @@ class SubController extends Controller
 
         $sub = auth()->user()->scheduledAds->where('start','=',$request->input('startDate'))->first();
 
+
         if ($sub){
+
 
             return response()->json($request->input('booked'));
         }else{
+            $ad=   ScheduledAds::where('id','=',(int)$request->input('event_id'));
+            
 
-            $subscriptions = auth()->user()->scheduledAds()->save(['start'=>$request->input('startDate'),'end'=>$request->input('endDate')]);
+         //$s =    $subs->save(['start'=>$request->input('startDate'),'end'=>$request->input('endDate')]);
 //            $subscriptions->start = $request->input('startDate');
 //            $subscriptions->end =  $request->input('endDate');
 //            $subscriptions->save();
-            if ($subscriptions){
+            if ($sub){
                 return response()->json('success');
             }
             else{
