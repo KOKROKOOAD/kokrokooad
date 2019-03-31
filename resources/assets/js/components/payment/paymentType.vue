@@ -17,20 +17,20 @@
 
                            <label @click="showPayForm(network.airtel)">
                                <input type="radio" name="payment" :value="network.airtel" v-model="selNetworks"/>
-                               <img src="/images/airt-money.png"  style="width:100px;height: 60px;">
+                               <img src="/kokrokoo.com/images/airt-money.png"  style="width:100px;height: 60px;">
                            </label>
                                <label @click="showPayForm(network.mtn)">
                                <input type="radio" name="payment" :value="network.mtn" v-model="selNetworks"/>
-                                   <img src="/images/mtn-mo.jpeg"  style="width:100px;height: 60px;">
+                                   <img src="/kokrokoo.com/images/mtn-mo.jpeg"  style="width:100px;height: 60px;">
                                </label>
 
                            <label @click="showPayForm(network.vodafone)">
                                <input type="radio" name="payment" :value="network.vodafone" v-model="selNetworks"/>
-                               <img src="/images/vod-mo.png"  style="width:100px;height: 60px;">
+                               <img src="/kokrokoo.com/images/vod-mo.png"  style="width:100px;height: 60px;">
                            </label>
                            <label @click="showPayForm(network.visa)">
                                <input type="radio" name="payment" :value="network.visa" v-model="selNetworks"/>
-                               <img src="/images/visa.png"  style="width:100px;height: 60px;">
+                               <img src="/kokrokoo.com/images/visa.png"  style="width:100px;height: 60px;">
                            </label>
                        </fieldset>
                     </div>

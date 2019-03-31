@@ -195,11 +195,11 @@
 
         },
         mounted(){
-<<<<<<< HEAD
+
             console.log(this.file);
-=======
+
            console.log(this.file);
->>>>>>> 2670a1019f6c1570c8849971322f309581228993
+
         },
         methods: {
             amount(item) {

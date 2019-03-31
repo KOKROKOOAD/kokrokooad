@@ -72681,7 +72681,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("img", {
                         staticStyle: { width: "100px", height: "60px" },
-                        attrs: { src: "/images/airt-money.png" }
+                        attrs: { src: "/kokrokoo.com/images/airt-money.png" }
                       })
                     ]
                   ),
@@ -72719,7 +72719,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("img", {
                         staticStyle: { width: "100px", height: "60px" },
-                        attrs: { src: "/images/mtn-mo.jpeg" }
+                        attrs: { src: "/kokrokoo.com/images/mtn-mo.jpeg" }
                       })
                     ]
                   ),
@@ -72757,7 +72757,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("img", {
                         staticStyle: { width: "100px", height: "60px" },
-                        attrs: { src: "/images/vod-mo.png" }
+                        attrs: { src: "/kokrokoo.com/images/vod-mo.png" }
                       })
                     ]
                   ),
@@ -72795,7 +72795,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("img", {
                         staticStyle: { width: "100px", height: "60px" },
-                        attrs: { src: "/images/visa.png" }
+                        attrs: { src: "/kokrokoo.com/images/visa.png" }
                       })
                     ]
                   )
