@@ -50,8 +50,8 @@
                             <!--<input v-show="getSelectMedia === 'PRINT'" type="file" name="files" id="filer_input3" ref="file" accept=".xlsx,.xls,.pdf,.odt,.docx,.jpeg,.png,.jpg" v-on:change="onFileChange($event)">-->
 
                             <div style="padding-top: 16px;">
-                                <router-link :to="select_media_house" role="button" type="button" class="btn btn-mat btn-inverse " >Back</router-link>
-                                <router-link :to="select_rate_card" v-show="file" role="button" type="button" class="btn btn-mat btn-info animated fadeIn" >Next</router-link>
+                                <router-link :to="{name:select_media_house}" role="button" type="button" class="btn btn-mat btn-inverse " >Back</router-link>
+                                <router-link :to="{name:select_rate_card}" v-show="file" role="button" type="button" class="btn btn-mat btn-info animated fadeIn" >Next</router-link>
 
                             </div>
                         </div>
@@ -74,8 +74,8 @@
         name: "fileUpload",
         data(){
             return{
-                select_media_house : '/user-account/create-sub-media-house',
-                select_rate_card : '/user-account/create-sub-rate-card',
+                select_media_house : 'selectMediaHouse',
+                select_rate_card : 'selectRateCard',
                 calender_url : '/user-account/select-calender',
                 files : '',
                 radio_ext : ["xlsx","xls","pdf","odt","docx","mp3","wav","jpeg","jpg","png"],
@@ -95,6 +95,7 @@
             onFileChange(e) {
 
                 let files = e.target.files || e.dataTransfer.files;
+                    console.log(files);
                  this.ext  =  files[0].name.split('.').pop();
                  this.file_size = files[0].size;
 

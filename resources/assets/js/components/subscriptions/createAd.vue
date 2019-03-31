@@ -181,7 +181,9 @@
             fetchMediaTypes(index){
                 let self = this;
                 axios.get('fetch-media-types-api').then(function (res) {
-                    self.mediaTypes = res.data;
+                        // axios.get('testme').then(function (res) {
+                        console.log(res.data);
+                           self.mediaTypes = res.data;
 
                 });
             },

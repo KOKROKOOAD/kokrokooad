@@ -37,7 +37,7 @@ Route::get('/test',function (){
 })->name('test');
 
 
-Route::middleware(['auth'])->prefix('user-account')->group(function (){
+Route::middleware(['auth'])->prefix('/user-account/')->group(function (){
     Route::get('dashboard',function (){
         return view('userDashboard.dashboard');
     })->name('dashboard');

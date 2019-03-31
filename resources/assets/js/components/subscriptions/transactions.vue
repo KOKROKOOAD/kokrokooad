@@ -48,7 +48,7 @@
                                 <th>Service</th>
                                 <th>Payment source</th>
                                 <th>Delivered Amount(GHC)</th>
-                                <th>Total charge(GHC)</th>
+                                <th>Transaction charge(GHC)</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -59,7 +59,7 @@
                                 <td>{{trans.service}}</td>
                                 <td>{{trans.payment_source}}</td>
                                 <td>{{trans.amount}}</td>
-                                <td>{{trans.total_charge}}</td>
+                                <td>{{trans.transact_charge}}</td>
                             </tr>
                             </tbody>
                         </table>

@@ -14,6 +14,11 @@
                             <div class="col-md-8">
                                 <div class="invoice-box row">
                                     <div class="col-sm-12">
+
+                                        <div v-show="getProcessStatus" class="default-grid row">
+                                            <show-processing></show-processing>
+                                        </div>
+
                                         <table class="table table-responsive invoice-table table-borderless">
                                             <tbody>
                                             <tr>
@@ -190,7 +195,7 @@
 
         },
         mounted(){
-
+           console.log(this.file);
         },
         methods: {
             amount(item) {
@@ -254,11 +259,13 @@
                     formData.append('uploadedFile', self.file);
                     formData.append('rate_card_title', self.rateCard);
                     formData.append('media_house_id', self.mediaHouseIds);
+                    store.dispatch('getProcessing', true);
 
                     axios.post('ads-store', formData).then(function (response) {
                         if (response.data.success === 'success'){
                             store.dispatch('getSubId', response.data.sub_id);
                             store.dispatch('getInvoiceId', response.data.invoice_id);
+                            store.dispatch('getProcessing', false);
 
                             //self.$refs.calendar.$emit('refetch-events');
                             self.$router.push('payment');
@@ -333,6 +340,9 @@
             },
             file(){
                 return  store.getters.file;
+            },
+            getProcessStatus(){
+                return  store.state.processing;
             },
 
 

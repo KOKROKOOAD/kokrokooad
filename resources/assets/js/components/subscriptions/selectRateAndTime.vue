@@ -1,129 +1,12 @@
 <template>
-    <!--<div class="page-wrapper">-->
-        <!-- Page-header start -->
-        <!--<div class="page-header">-->
-            <!--<div class="row align-items-end">-->
-                <!--<div class="col-lg-8">-->
-                    <!--<div class="page-header-title">-->
-                        <!--<div class="d-inline">-->
-                            <!--<h4>Rate selection form</h4>-->
-                            <!--<span>Which segments do you want to <code>Publish  </code>, Select rate  to get continue.</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-lg-4">-->
-                    <!--<div class="page-header-breadcrumb">-->
-                        <!--<ul class="breadcrumb-title">-->
-                            <!--<li class="breadcrumb-item">-->
-                                <!--{{getSelectMedia}}-->
-                            <!--</li>-->
-                            <!--<li class="breadcrumb-item" style="color: #9e1317">-->
-                                <!--{{getRateCardTitle}}-->
-                            <!--</li>-->
-                            <!--<li class="breadcrumb-item">-->
-                                <!--{{segmentDay}} - {{segDate}}-->
-                            <!--</li>-->
-                            <!--<li class="breadcrumb-item" style="color: #9e1317">-->
-                                <!--{{selSegments}}-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!-- Page-header end -->
 
-        <!--<button class="btn btn-inverse waves-effect" data-type="inverse" data-from="top" data-align="right" data-icon="fa fa-check">Inverse</button>-->
-        <!--<div v-show="getProcessStatus" class="default-grid row">-->
-            <!--<show-processing></show-processing>-->
-        <!--</div>-->
-
-        <!-- Page body start -->
-        <!--<div class="page-body">-->
-            <!--<div class="row">-->
-
-                <!--<div class=" col-md-12 col-sm-12">-->
-                    <!--&lt;!&ndash; Default select start &ndash;&gt;-->
-                    <!--<div class="card">-->
-                        <!--<div class="card-header">-->
-                            <!--&lt;!&ndash;<h5>Default Select</h5>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>&ndash;&gt;-->
-
-                        <!--</div>-->
-                        <!--<div class="card-block">-->
-                            <!--<div class="row">-->
-                                <!--&lt;!&ndash;segments goes here&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="col-md-2"></div>&ndash;&gt;-->
-
-                                <!--<div class=" col-md-12 col-sm-12">-->
-                                    <!--<h4 class="sub-title">Select Rate</h4>-->
-                                    <!--<div class="card-block table-border-style">-->
-                                        <!--<div class="table-responsive">-->
-                                            <!--<table class="table table-bordered">-->
-                                                <!--<thead>-->
-                                                <!--<tr style="background: #36475F;color: #ffffff;">-->
-                                                    <!--<th>#</th>-->
-                                                    <!--<th>Day</th>-->
-                                                    <!--<th>Segment</th>-->
-                                                    <!--<th>Spots</th>-->
-                                                    <!--<th>15sec</th>-->
-                                                    <!--<th>25sec</th>-->
-                                                    <!--<th>30sec</th>-->
-                                                    <!--<th>35sec</th>-->
-                                                    <!--<th>40sec</th>-->
-                                                <!--</tr>-->
-                                                <!--</thead>-->
-                                                <!--<tbody>-->
-                                                <!--<tr>-->
-                                                    <!--<th scope="row">1</th>-->
-                                                    <!--<td>{{segmentDay}}</td>-->
-                                                    <!--<td>{{selSegments}}</td>-->
-                                                   <!--<td> <select name="select" class="form-control form-control-primary" v-model="selSegment">-->
-                                                        <!--<option disabled value="" selected>1</option>-->
-                                                        <!--<option>2</option>-->
-                                                   <!--</select></td>-->
-                                                    <!--<td><input type="radio" name="rate"> GHC 400 </td>-->
-                                                    <!--<td><input type="radio" name="rate"> GHC 700 </td>-->
-                                                    <!--<td><input type="radio" name="rate"> GHC 1200 </td>-->
-                                                    <!--<td><input type="radio" name="rate"> GHC 1400 </td>-->
-                                                    <!--<td><input type="radio" name="rate"> GHC 1700 </td>-->
-
-
-
-                                                <!--</tr>-->
-                                                <!--</tbody>-->
-                                            <!--</table>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div style="padding-top: 20px;">-->
-                                        <!--&lt;!&ndash;<router-link :to="selSegment_url"  class="btn btn-mat btn-info" >Back</router-link>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<router-link :to="invoice" class="btn btn-mat btn-inverse ">Next</router-link>&ndash;&gt;-->
-                                        <!--<button class="btn btn-primary">Create subscription</button>-->
-                                        <!--&lt;!&ndash;<button @click="fetchSegments()">click me</button>&ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-                            <!--</div>-->
-
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash; Default select end &ndash;&gt;-->
-                <!--</div>-->
-                <!--&lt;!&ndash;<div class="col-md-2"></div>&ndash;&gt;-->
-
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div v-show="selMedia.toLowerCase() !== 'print' " class="modal fade"  id="mol" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
-        <!-- Modal large-->
-        <!--<button type="button" class="btn btn-danger waves-effect" data-toggle="modal" data-target="#Modal-overflow">Overflow</button>-->
-        <!-- Modal -->
-        <!--<div v-show="selMedia.toLowerCase() !== 'print' " class="modal fade modal-flex" id="mol" tabindex="-1" role="dialog" style="margin-left: 220px;">-->
             <div  class="modal fade" id="mol" tabindex="-1" role="dialog" style="margin-left: 220px;">
                 <div class="modal-dialog modal-lg" role="document">
                     <form  @submit.prevent="" id="segment-form">
                     <div class="modal-content">
                         <div class="modal-header">
+                            {{seg_data}}
+
                             <h4 class="modal-title"><b class="text-danger">{{getMediaHouse}}</b>- {{getTitle}} rate card</h4>
                             <span>Your file : <b class="text-info">{{fileName}}</b><i style="margin-left: 20px;">File size :</i> <b>{{fileSize}}bytes</b></span>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -135,7 +18,6 @@
                             <!--<li>{{end = sig.endTime}}</li>-->
                         <!--</ul>-->
 
-                                 <!--{{seg_data}}-->
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -166,11 +48,11 @@
 
                                 </select></td>
 
-                                <td v-if="segment.sec1_rate  !== null "><input type="radio"   :name="'seA' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start,'endTime' :segment.mon_seg_end,durations : segments_headings.sec1,'rate':segment.sec1_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec1_rate}} GHC</td>
-                                <td v-if="segment.sec2_rate  !== null "><input type="radio"   :name="'seB' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start,'endTime' :segment.mon_seg_end,durations : segments_headings.sec2,'rate':segment.sec2_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec2_rate}} GHC</td>
-                                <td v-if="segment.sec3_rate  !== null "><input type="radio"   :name="'seC' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec3,'rate':segment.sec3_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec3_rate}} GHC</td>
-                                <td v-if="segment.sec4_rate  !== null "><input type="radio"   :name="'seD' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec4,'rate':segment.sec4_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec4_rate}} GHC</td>
-                                <td v-if="segment.sec5_rate  !== null "><input type="radio"   :name="'seE' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec5,'rate':segment.sec5_rate,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec5_rate}} GHC</td>
+                                <td v-if="segment.sec1_rate  !== null "><input type="radio"   :name="'seA' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start,'endTime' :segment.mon_seg_end,durations : segments_headings.sec1,'rate':segment.sec1_rate,'rate_card':getTitle,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec1_rate}} GHC</td>
+                                <td v-if="segment.sec2_rate  !== null "><input type="radio"   :name="'seB' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start,'endTime' :segment.mon_seg_end,durations : segments_headings.sec2,'rate':segment.sec2_rate,'rate_card':getTitle,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec2_rate}} GHC</td>
+                                <td v-if="segment.sec3_rate  !== null "><input type="radio"   :name="'seC' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec3,'rate':segment.sec3_rate,'rate_card':getTitle,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec3_rate}} GHC</td>
+                                <td v-if="segment.sec4_rate  !== null "><input type="radio"   :name="'seD' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec4,'rate':segment.sec4_rate,'rate_card':getTitle,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec4_rate}} GHC</td>
+                                <td v-if="segment.sec5_rate  !== null "><input type="radio"   :name="'seE' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime':segment.mon_seg_start, 'endTime' :segment.mon_seg_end,durations : segments_headings.sec5,'rate':segment.sec5_rate,'rate_card':getTitle,'spot':spots[index]}" v-model="seg_data[index]"/>{{segment.sec5_rate}} GHC</td>
 
                             </tr>
                             </tbody>
@@ -338,6 +220,7 @@
             getTitle(){
                 return store.state.rate_card_title;
             },
+
             fileName(){
                 return store.getters.fileName;
             },
