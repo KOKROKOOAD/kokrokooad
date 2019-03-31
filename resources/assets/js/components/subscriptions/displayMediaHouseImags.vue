@@ -42,7 +42,7 @@
                             <a class="media-middle" href="#!">
                                 <!--<img class="img-fluid" src="https://colorlib.com//polygon/adminty/files/assets/images/gallery-grid/masonry-1.jpg" alt="masonary">-->
                                 <label class="image-checkbox" :id="index" >
-                                <img  class="img-fluid" v-bind:src="['/thumbnails/' + logos.logo]" @click="getSelMediaHouseId(logos.client_id)" width="600" height="515">
+                                <img  class="img-fluid" v-bind:src="['/kokrokoo/thumbnails/' + logos.logo]" @click="getSelMediaHouseId(logos.client_id)" width="600" height="515">
                                 <input type="radio"  :value="logos.media_house"  v-model="selMediaH" />
                                 <i class="fa fa-check hidden"></i>
                                 </label>
