@@ -65219,72 +65219,124 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-//
+
+var routes = [{
+    path: '/kokrokoo.com/create-subscription-media',
+    name: 'selectMedia',
+    component: __webpack_require__(36)
+}, { name: 'fileupload',
+    path: '/kokrokoo.com/user-account/create-sub-file',
+    component: __webpack_require__(163)
+}, { name: 'selectMediaHouse',
+    path: '/kokrokoo.com/user-account/create-sub-media-house',
+    component: __webpack_require__(164)
+}, { name: 'selectRateCard',
+    path: '/kokrokoo.com/user-account/create-sub-rate-card',
+    component: __webpack_require__(166)
+}, {
+    name: 'segments',
+    path: '/kokrokoo.com/user-account/create-sub-date',
+    component: __webpack_require__(250)
+}, { name: 'invoice',
+    path: '/kokrokoo.com/user-account/create-sub-invoice',
+    component: __webpack_require__(20)
+}, { name: 'subs',
+    path: '/kokrokoo.com/user-account/subscriptions',
+    component: __webpack_require__(253)
+}, { name: 'selectSegments',
+    path: '/kokrokoo.com/user-account/select-segment',
+    component: __webpack_require__(256)
+}, { name: 'selectRateAndTime',
+    path: '/kokrokoo.com/user-account/select-rate',
+    component: __webpack_require__(167)
+}, { name: 'fullcalender',
+    path: '/kokrokoo.com/user-account/select-calender',
+    component: __webpack_require__(261)
+}, { name: 'payment',
+    path: '/kokrokoo.com/user-account/payment',
+    component: __webpack_require__(21)
+}, { name: 'transactions',
+    path: '/kokrokoo.com/user-account/transactions',
+    component: __webpack_require__(170)
+}, { name: 'profile',
+    path: '/kokrokoo.com/user-account/user-profile',
+    component: __webpack_require__(274)
+}, { name: 'home',
+    path: '/kokrokoo.com/user-account/dashboard',
+    component: __webpack_require__(171)
+}, { name: 'payment-success',
+    path: '/kokrokoo.com/user-account/payment-success',
+    component: __webpack_require__(279)
+}];
+
 // export const routes = [
-//       {
-//           path: '/kokrokoo.com/create-subscription-media',
-//           name : 'selectMedia',
-//           component : require('../components/subscriptions/createAd'),
-//       },
-//       {   name : 'fileupload',
-//           path : '/kokrokoo.com/user-account/create-sub-file',
-//           component : require('../components/subscriptions/fileUpload')
-//       },
+//     {
+//         path: '/user-account/create-subscription-media',
+//         name : 'selectMedia',
+//         component : require('../components/subscriptions/createAd'),
+//     },
+//     {   name : 'fileupload',
+//         path : '/user-account/create-sub-file',
+//         component : require('../components/subscriptions/fileUpload')
+//     },
 //     {   name : 'selectMediaHouse',
-//         path : '/kokrokoo.com/user-account/create-sub-media-house',
+//         path : '/user-account/create-sub-media-house',
 //         component : require('../components/subscriptions/displayMediaHouseImags')
 //     },
 //     {   name : 'selectRateCard',
-//         path : '/kokrokoo.com/user-account/create-sub-rate-card',
+//         path : '/user-account/create-sub-rate-card',
 //         component : require('../components/subscriptions/selectRateCard')
 //     },
 //     {
 //         name : 'segments',
-//     path : '/kokrokoo.com/user-account/create-sub-date',
-//     component : require('../components/subscriptions/rateCardSegments')
-// },
+//         path : '/user-account/create-sub-date',
+//         component : require('../components/subscriptions/rateCardSegments')
+//     },
 //     {   name : 'invoice',
-//         path : '/kokrokoo.com/user-account/create-sub-invoice',
+//         path : '/user-account/create-sub-invoice',
 //         component : require('../components/subscriptions/adSummary')
 //     },
 //     {   name : 'subs',
-//         path : '/kokrokoo.com/user-account/subscriptions',
+//         path : '/user-account/subscriptions',
 //         component : require('../components/subscriptions/subscriptions')
 //     },
 //     {   name : 'selectSegments',
-//         path : '/kokrokoo.com/user-account/select-segment',
+//         path : '/user-account/select-segment',
 //         component : require('../components/subscriptions/selectSegments.vue')
 //     },
 //     {   name : 'selectRateAndTime',
-//         path : '/kokrokoo.com/user-account/select-rate',
+//         path : '/user-account/select-rate',
 //         component : require('../components/subscriptions/selectRateAndTime')
 //     },
 //     {   name : 'fullcalender',
-//         path : '/kokrokoo.com/user-account/select-calender',
+//         path : '/user-account/select-calender',
 //         component : require('../components/subscriptions/fullcalender')
 //     },
 //     {   name : 'payment',
-//         path : '/kokrokoo.com/user-account/payment',
+//         path : '/user-account/payment',
 //         component : require('../components/payment/paymentType')
 //     },
 //     {   name : 'transactions',
-//         path : '/kokrokoo.com/user-account/transactions',
+//         path : '/user-account/transactions',
 //         component : require('../components/subscriptions/transactions')
 //     },
 //     {   name : 'profile',
-//         path : '/kokrokoo.com/user-account/user-profile',
+//         path : '/user-account/user-profile',
 //         component : require('../components/userProfile/userProfile')
 //     },
 //     {   name : 'home',
-//         path : '/kokrokoo.com/user-account/dashboard',
+//         path : '/user-account/dashboard',
 //         component : require('../components/subscriptions/home')
 //     },
 //     {   name : 'payment-success',
-//         path : '/kokrokoo.com/user-account/payment-success',
+//         path : '/user-account/payment-success',
 //         component : require('../components/success-pages/success')
 //     },
+// ];
 //
 //
+//
+<<<<<<< HEAD
 // ];
 
 
@@ -65364,6 +65416,8 @@ var routes = [{
     component: __webpack_require__(279)
 >>>>>>> 2670a1019f6c1570c8849971322f309581228993
 }];
+=======
+>>>>>>> f3d474cb722eba3467f2fb8e58f37c32ed53d510
 
 //
 // export const routes = [
