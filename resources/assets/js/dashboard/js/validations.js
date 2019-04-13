@@ -12,7 +12,7 @@ $(document).ready(function () {
    // validate personal account form
 
     $('#company-form').validate({
-        errorElement : 'span',
+        errorElement : 'div',
         rules:{
             company_name: {
                 'required' : true,

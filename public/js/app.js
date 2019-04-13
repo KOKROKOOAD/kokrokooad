@@ -60853,7 +60853,7 @@ $(document).ready(function () {
     // validate personal account form
 
     $('#company-form').validate({
-        errorElement: 'span',
+        errorElement: 'div',
         rules: {
             company_name: {
                 'required': true,
@@ -78092,8 +78092,6 @@ var render = function() {
         ],
         1
       ),
-      _vm._v(" "),
-      _c("segment-title"),
       _vm._v(" "),
       _c("segments", {
         attrs: {

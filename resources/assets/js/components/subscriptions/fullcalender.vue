@@ -67,7 +67,7 @@
             <!--<button @click="fetchSegments()">click me</button>-->
         </div>
 
-        <segment-title></segment-title>
+<!--        <segment-title></segment-title>-->
         <segments :saveSegment="saveSegmentData" :startDate="selectedStartTime" :endDate="selectedEndDate"></segments>
         <print-rate-card  :saveSegment="saveSegmentData" :startDate="selectedStartTime" :endDate="selectedEndDate" :submit="submit"></print-rate-card>
         <update-segment></update-segment>
