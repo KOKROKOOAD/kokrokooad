@@ -131,7 +131,7 @@
 </template>
 
 <script>
-    import payment from '../subscriptions/payment'
+    import payment from '../payment/payment'
     export default {
         name: "mySub",
         mounted(){

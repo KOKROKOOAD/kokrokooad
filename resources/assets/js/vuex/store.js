@@ -166,11 +166,10 @@ const debug = process.env.NODE_ENV !== 'production';
 
          //fetch segment titles eg:LPMs for selected media house
          fetchSegmentTitles(context, mediaHouseId){
-
-           return axios.get('fetch-segments-titles/' + mediaHouseId).then(function(res){
+               alert(mediaHouseId);
+            axios.get('fetch-segments-titles/' + mediaHouseId).then(function(res){
                  context.commit('setSegment_titles',res.data);
                //  context.commit('getSelMediaId',res.data[1].client_id);
-               console.log(res.data);
 
                //self.showSelMediaHouseTable = true;
              });
@@ -258,7 +257,7 @@ const debug = process.env.NODE_ENV !== 'production';
             context.commit('setInvoiceId',payload);
          },
          getTotalBill(context, payload){
-             context.commit('SetTotalBill',payload);
+             context.commit('setTotalBill',payload);
          }
      },
      getters:{

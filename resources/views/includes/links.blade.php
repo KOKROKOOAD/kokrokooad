@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/guest/settings.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/guest/layers.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/guest/navigation.css')}}">
-<link href="{{asset('css/guest/stylesheet.css')}}" rel="stylesheet">
+{{--<link href="{{asset('css/guest/stylesheet.css')}}" rel="stylesheet">--}}
 <link href="{{asset('css/guest/responsive-tabs.css')}}" rel="stylesheet">
 <link href="{{asset('css/guest/owl.carousel.css')}}" rel="stylesheet">
 <link href="{{asset('css/guest/jquery.fancybox.css')}}" rel="stylesheet">

@@ -47,7 +47,7 @@ class User extends Authenticatable
 
 
     public  function segmentTitle(){
-        return $this->hasMany('App\Models\ProgramTitle','client_id', 'client_id');
+        return $this->hasMany('App\Models\RateCardTitles','client_id', 'client_id');
     }
 
 

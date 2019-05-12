@@ -28,10 +28,10 @@
                                <input type="radio" name="payment" :value="network.vodafone" v-model="selNetworks"/>
                                <img src="/kokrokoo.com/images/vod-mo.png"  style="width:100px;height: 60px;">
                            </label>
-                           <label @click="showPayForm(network.visa)">
-                               <input type="radio" name="payment" :value="network.visa" v-model="selNetworks"/>
-                               <img src="/kokrokoo.com/images/visa.png"  style="width:100px;height: 60px;">
-                           </label>
+<!--                           <label @click="showPayForm(network.visa)">-->
+<!--                               <input type="radio" name="payment" :value="network.visa" v-model="selNetworks"/>-->
+<!--                               <img src="/kokrokoo.com/images/visa.png"  style="width:100px;height: 60px;">-->
+<!--                           </label>-->
                        </fieldset>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                 amount : '4000',
                 formData : new FormData(),
                 loading : true,
-                amounts: '400',
+                amounts:  '',
                 sub_id : '',
                 selNetworks : '',
 
@@ -121,6 +121,7 @@
         },
         mounted(){
             //this.checkSel(this.selPaymentType)
+            this.totals();
         },
         methods: {
             showPayForm(value){
@@ -162,6 +163,10 @@
                 else {
                     this.fColor = '';
                 }
+            },
+            totals(){
+                this.amounts = this.totalBill;
+                return this.amounts;
             },
             makePayment(){
                  let self  = this;
@@ -280,6 +285,9 @@
             },
             segTitle(){
                 return store.getters.segTitle;
+            },
+            totalBill(){
+                return store.getters.totalBill;
             },
 
         },

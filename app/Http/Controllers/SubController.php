@@ -8,10 +8,9 @@ use App\Http\Requests\StoreAds;
 use App\Invoice;
 use App\Invoices;
 use App\Jobs\SendAdCreatedMessagedJob;
-use App\Models\ProgramTitle;
+use App\Models\RateCardTitles;
 use App\ScheduledAds;
 use App\Transactions;
-use App\TvRadioCardRates;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -85,7 +84,7 @@ class SubController extends Controller
 
 
                 $unique_id = uniqid('K', true);
-                if (Ads::where('subscription_id', '=', $unique_id)) {
+                if (ScheduledAds::where('subscription_id', '=', $unique_id)) {
                     $unique_id = uniqid('K', true);
                 }
 
@@ -103,7 +102,7 @@ class SubController extends Controller
                     Storage::disk('uploads')->put($path . '.' . $ext, $name);
 
                 }
-                $segment_title_id = ProgramTitle::select('id')->where('adTitle', '=', $request->input('rate_card_title'), 'and', 'client_id', '=', $request->input('client_id'))->get();
+             //   $segment_title_id = RateCardTitles::select('id')->where('adTitle', '=', $request->input('rate_card_title'), 'and', 'client_id', '=', $request->input('client_id'))->get();
 
                 $sub_data = array();
                 $subscription_id = uniqid('k',true);
@@ -114,7 +113,7 @@ class SubController extends Controller
                     $sub_data[] = [
                         'client_id' => auth()->user()->client_id,
                         'media_house_id' => $request->input('media_house_id'),
-                        'rate_card_id' => $segment_title_id[0]->id,
+                        'rate_card_id' => $request->input('card_id'),
                         'subscription_id' => $subscription_id,
                         'start' => $values,
                         'end' => $endDate[$key],

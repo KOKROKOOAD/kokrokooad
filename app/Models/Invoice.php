@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Thu, 08 Nov 2018 15:37:53 +0000.
+ * Date: Sat, 11 May 2019 22:29:59 +0000.
  */
 
 namespace App\Models;
@@ -13,10 +13,10 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Class Invoice
  * 
  * @property int $id
- * @property int $user_id
- * @property int $ads_id
- * @property string $amount
- * @property string $payment_method
+ * @property string $client_id
+ * @property string $subscription_id
+ * @property string $media_house_id
+ * @property string $invoice_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
@@ -24,15 +24,10 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Invoice extends Eloquent
 {
-	protected $casts = [
-		'user_id' => 'int',
-		'ads_id' => 'int'
-	];
-
 	protected $fillable = [
-		'user_id',
-		'ads_id',
-		'amount',
-		'payment_method'
+		'client_id',
+		'subscription_id',
+		'media_house_id',
+		'invoice_id'
 	];
 }

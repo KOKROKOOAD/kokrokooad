@@ -1,7 +1,7 @@
 
 window._ = require('lodash');
-//window.Popper = require('popper.js').default;
-
+window.Popper = require('popper.js').default;
+window.moment = require('moment').default;
 
 
 

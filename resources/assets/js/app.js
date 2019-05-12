@@ -6,39 +6,12 @@
  */
 
  require('./bootstrap');
-// require('./dashboard/js/moment');
-// require('./dashboard/js/plugins/perfect-scrollbar.jquery.min');
-// require('./dashboard/js/plugins/bootstrap-notify');
-// require('./dashboard/js/paper-dashboard');
-// require('./dashboard/js/paper-bootstrap2');
-// require('./dashboard/js/paper-bootstrap-wizard');
-// require('./dashboard/js/jquery.bootstrap.wizard');
-// require('./dashboard/js/lib/sweetalert/sweetalert.min');
-// require('./dashboard/js/core/jquery-ui');
  require("./dashboard/js/jquery.validate.min");
 // require("./dashboard/js/notify.min");
- require('jquery-validation');
-//require('./dashboard/js/multi-step-modal');
+//  require('jquery-validation');
 require('./dashboard/js/validations');
-require('./calender/segment-validation');
-
-//require('./calender/calendar');
-
-// require('../dash/jquery-ui/jquery-ui.min');
-// //require('../dash/jquery-slimscrolljs/jquery-ui.min');
-// require('../dash/jquery-ui/jquery-ui.min');
-// require('../dash/bower_components/modernizrjs/modernizr');
-// require('../dash/bower_components/modernizrjs/css-scrollbars');
-// require('../dash/jquery-ui/jquery-ui.min');
-// require('../dash/bower_components/jquery-slimscrolljs/jquery.slimscroll');
-// require('../dash/js/pcoded.min');
-// require('../dash/js/vartical-layout.min');
-// require('../dash/js/pcoded.min');
 require('../js/calender/notify');
- require('../js/calender/script');
-// //require('../dash/js/jquery.mCustomScrollbar.concat.min');
-
-
+require('../js/calender/script');
 
 window.Vue = require('vue');
 import  VueRouter from 'vue-router';
@@ -63,34 +36,30 @@ const router  = new VueRouter({
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('create-ad', require('./components/subscriptions/createAd.vue'));
-Vue.component('user-transact', require('./components/subscriptions/transactions'));
-Vue.component('pending-sub', require('./components/subscriptions/pendingSub'));
-Vue.component('inactive-sub', require('./components/subscriptions/inactive-sub'));
-Vue.component('active-sub', require('./components/subscriptions/active-sub'));
+Vue.component('create-ad', require('./components/create-subscriptions/createAd.vue'));
+Vue.component('user-transact', require('./components/transactions/transactions'));
+Vue.component('pending-sub', require('./components/success-pages/pendingSub'));
+Vue.component('inactive-sub', require('./components/test-components/inactive-sub'));
+// Vue.component('active-sub', require('./components/subscriptions/active-sub'));
 Vue.component('my-sub', require('./components/subscriptions/mySub'));
-Vue.component('payment', require('./components/subscriptions/payment'));
-Vue.component('create-print-rate-cards', require('./components/subscriptions/createPrintAd'));
-Vue.component('create-ad-weekdays', require('./components/subscriptions/createAdWeekdays'));
-Vue.component('file-size-warning-modal', require('./components/subscriptions/fileSizeWarningModal'));
-Vue.component('display-media-houses', require('./components/subscriptions/displayMediaHouseImags'));
-Vue.component('invoice', require('./components/subscriptions/invoice'));
-Vue.component('del-selected-media-house', require('./components/subscriptions/selectedMediaHouse'));
-Vue.component('ad-summary', require('./components/subscriptions/adSummary'));
+Vue.component('payment', require('./components/payment/payment'));
+Vue.component('create-print-rate-cards', require('./components/create-subscriptions/createPrintAd'));
+Vue.component('create-ad-weekdays', require('./components/create-subscriptions/createAdWeekdays'));
+Vue.component('file-size-warning-modal', require('./components/file-uploads/fileSizeWarningModal'));
+Vue.component('display-media-houses', require('./components/diplay-media-house/displayMediaHouseImags'));
+Vue.component('invoice', require('./components/invoice/invoice'));
+Vue.component('del-selected-media-house', require('./components/success-pages/selectedMediaHouse'));
+Vue.component('ad-summary', require('./components/creation_of_sub_summary/adSummary'));
 Vue.component('payment-type', require('./components/payment/paymentType'));
 Vue.component('show-processing', require('./components/payment/showProcess'));
 Vue.component('show-processing', require('./components/payment/showProcess'));
-Vue.component('file-upload', require('./components/subscriptions/fileUpload'));
-Vue.component('select-rate-card', require('./components/subscriptions/selectRateCard'));
+Vue.component('file-upload', require('./components/file-uploads/fileUpload'));
+Vue.component('select-rate-card', require('./components/fetch-ratecards/selectRateCard'));
 Vue.component('side-bar', require('./components/navigation/sidebar.vue'));
 Vue.component('pre-loader', require('./components/preloader/preLoader'));
-Vue.component('sub', require('./components/subscriptions/subs'));
-Vue.component('segments', require('./components/subscriptions/selectRateAndTime'));
-Vue.component('modals', require('./components/tests/modals'));
-Vue.component('segment-title', require('./components/subscriptions/segmentTitle'));
-Vue.component('update-segment', require('./components/subscriptions/updateSegment'));
-Vue.component('home', require('./components/subscriptions/home'));
-Vue.component('print-rate-card', require('./components/subscriptions/printRateCare'));
+Vue.component('sub', require('./components/success-pages/subs'));
+Vue.component('display-select-ratecard', require('./components/display-selected-rate/selectRateAndTime'));
+
 
 
 

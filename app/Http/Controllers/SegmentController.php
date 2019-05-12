@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\MediaTypes;
-use App\Models\ProgramTitle;
-use App\MyEvents;
+use App\Models\RateCardTitles;
+use App\RateCards;
 use App\ScheduledAds;
 use App\User;
 use Illuminate\Http\Request;
-
+use Auth;
+use Illuminate\Support\Facades\Input;
 
 class SegmentController extends Controller
 {
@@ -20,17 +21,32 @@ class SegmentController extends Controller
 
    public function  fetchSegmentTitles($id){
 
-       $selected_media_house  = User::findOrFail($id);
-       return response()->json($selected_media_house->segmentTitle);
+       //$rate_cards  = RateCardTitles::all();
+       $rate_cards =   RateCards::whereRate_card_title_id($id)->get();
+      // $rate_cards = 'processing';
+      // $rate_cards = User::whereClient_id($id);
+       return response()->json($rate_cards);
 }
 
-    public function  fetchSegments($mediaHouse,$segment, $date){
+    public function  fetchSegments(Request  $request){
 
-        $user_info  = User::select('id','client_id','media')->where('media_house','=',$mediaHouse)->get();
-        $segment_title_id = ProgramTitle::select('id')->where( 'adTitle', '=', $segment)->get();
-        $user = User::find($user_info[0]->id);
-        $segments =    $user->segment->where('ad_types_id', '=', $segment_title_id[0]->id);
-        return response()->json($segments);
+//        $user_info  = User::select('id','client_id','media')->where('media_house','=',$mediaHouse)->get();
+//        $segment_title_id = RateCardTitles::select('id')->where( 'adTitle', '=', $segment)->get();
+//        $user = User::find($user_info[0]->id);
+//        $segments =    $user->segment->where('ad_types_id', '=', $segment_title_id[0]->id);
+//        return response()->json($segments);
+
+        $rate_cards =   RateCards::whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $card_title = null;
+         $title   = RateCardTitles::select('rate_card_title')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+
+         foreach ($title as $value){
+           $card_title =   $value->rate_card_title;
+         }
+
+
+        return response()->json(['ratecards'=>$rate_cards,'card_title'=>$card_title]);
+
 
     }
 
@@ -70,34 +86,29 @@ class SegmentController extends Controller
 
     }
 
-    public function eventUpdate(Request $request){
+//    public function eventUpdate(Request $request){
+//
+//        $event =  MyEvents::find($request->input('id'));
+//        $event->start =  $request->input('startDate');
+//        $event->end   = $request->input('endDate');
+//        $event->save();
+//        if ($event){
+//            return response()->json('Even successfully updated');
+//        }
+//    }
 
-        $event =  MyEvents::find($request->input('id'));
-        $event->start =  $request->input('startDate');
-        $event->end   = $request->input('endDate');
-        $event->save();
-        if ($event){
-            return response()->json('Even successfully updated');
-        }
-    }
+//    public function eventCheck(Request $request){
+//        $event = MyEvents::select()->where('start','=',$request->input('startDate'))->get();
+//        if (sizeof($event) > 0){
+//
+//            return response()->json($request->input('booked'));
+//        }
+//        else{
+//            return response()->json('available');
+//
+//        }
+//    }
 
-    public function eventCheck(Request $request){
-        $event = MyEvents::select()->where('start','=',$request->input('startDate'))->get();
-        if (sizeof($event) > 0){
-
-            return response()->json($request->input('booked'));
-        }
-        else{
-            return response()->json('available');
-
-        }
-    }
-
-   public  function test(){
-
-        $user = User::all();
-        return response()->json('testing urls');
-   }
 
 
 }

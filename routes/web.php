@@ -11,6 +11,8 @@
 |
 */
 
+
+//==============guest routes=================
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -31,10 +33,10 @@ Route::get('/register-success',function (){
     return view('notifications.register_success');
 })->name('register.success');
 
-Route::get('/test',function (){
-    return view('test');
-})->name('test');
+//==================guest routes ends here==========================
 
+
+//=====================authenticated routes======================
 
 Route::middleware(['auth'])->prefix('/user-account/')->group(function (){
     Route::get('dashboard',function (){
@@ -72,15 +74,9 @@ Route::middleware(['auth'])->prefix('/user-account/')->group(function (){
         return view('userDashboard.dashboard', ['media' => $media]);
     })->name('dashboard');
 
-    Route::get('create-subscription',function (){
-        return view('userDashboard.createSub');
-    })->name('create.sub');
-
-    Route::get('testing',function (){
-        return view('test');
-    });
 
 
+// ================subscription  routes============================
     Route::post('ads-store', 'SubController@createSub');
     Route::get('ads/media-api', 'SubController@loadMedia');
     Route::get('fetch-ads/api', 'SubController@fetchAds');
@@ -88,47 +84,50 @@ Route::middleware(['auth'])->prefix('/user-account/')->group(function (){
     Route::get('media-program-api/{mediaHouse}', 'SubController@fetchMediaProgram');
     Route::get('program-date-api/{mediaProgram}', 'SubController@fetchProgramDates');
     Route::get('fetch-segments-titles/{id}', 'SegmentController@fetchSegmentTitles');
-    Route::get('fetch-segments/{mediaHouse}/{segmentTitle}/{date}', 'SegmentController@fetchSegments');
+    Route::get('fetch-segments', 'SegmentController@fetchSegments');
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
     Route::post('sub-update-api', 'SubController@updateAds');
-
-    Route::get('test-api', 'SegmentController@api');
-    Route::post('test-post', 'SegmentController@apiPost');
-    Route::post('test-update-event', 'SegmentController@eventUpdate');
-    Route::post('test-check-segment', 'SegmentController@eventCheck');
     Route::post('check-sub/api','SubController@checkIfSubExist');
     Route::get('fetch-transac/api','SubController@fetchUserTransac');
-
-//    Route::get('testme', 'SegmentController@test');
-
-
-
-//    Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
-
-    Route::post('api-payment','PaymentController@payment');
     Route::get('check-segment-api/{sub_date}','CheckSubController@checkSubAvailable');
+//=======================subscriptions routes ends here=============================
 
+
+    //===========================segment routs =====================================
+    Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
+    Route::get('testme', 'SegmentController@test');
+    //==========================segment routes ends here=============================
+
+//==========================payment  routes======================================
+    Route::post('api-payment','PaymentController@payment');
+    //======================== payment routes ends here
+
+
+    // =================vue router routes =====================================
     Route::get('{any}', function () {
         return view('userDashboard.dashboard');
     })->where('any','.*');
+    //======================vue router routes ends here=============================
 
 });
-Route::get('testme', 'SegmentController@test');
-
-//Route::get('test-api', 'SegmentController@api');
-Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
-
-
-
-Route::resource('user-register', 'UserController');
-Route::resource('user-account/ad', 'AdsController');
 
 Auth::routes();
 
 
+//============================authenticated routes ends here===========================
 
 
 
+
+
+
+
+//test routes
+//=============================================
+//Route::get('test-api', 'SegmentController@api');
+//Route::post('test-post', 'SegmentController@apiPost');
+//Route::post('test-update-event', 'SegmentController@eventUpdate');
+//Route::post('test-check-segment', 'SegmentController@eventCheck');
 
 
 
