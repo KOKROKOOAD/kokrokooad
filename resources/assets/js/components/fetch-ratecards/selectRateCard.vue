@@ -101,7 +101,7 @@
             fetchRateCards(){
                 let self = this;
                 axios.get('fetch-segments-titles/' + self.mediaId).then(function(res){
-                     alert(res.data);
+                     // alert(res.data);
                     self.seg_titles = res.data;
                    // context.commit('setSegment_titles',res.data);
                     //  context.commit('getSelMediaId',res.data[1].client_id);

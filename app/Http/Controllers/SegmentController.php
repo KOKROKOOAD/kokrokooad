@@ -21,8 +21,8 @@ class SegmentController extends Controller
 
    public function  fetchSegmentTitles($id){
 
-       //$rate_cards  = RateCardTitles::all();
-       $rate_cards =   RateCards::whereRate_card_title_id($id)->get();
+       $rate_cards  = RateCardTitles::all();
+//       $rate_cards =   RateCards::whereRate_card_title_id($id)->get();
       // $rate_cards = 'processing';
       // $rate_cards = User::whereClient_id($id);
        return response()->json($rate_cards);
