@@ -33,6 +33,6 @@ class RegistrationSuccessfullJob implements ShouldQueue
      */
     public function handle()
     {
-       Notification::send($this->user, new RegsisterSuccess());
+      // Notification::send($this->user, new RegsisterSuccess());
     }
 }
