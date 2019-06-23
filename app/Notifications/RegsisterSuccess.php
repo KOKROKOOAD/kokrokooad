@@ -10,7 +10,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 class RegsisterSuccess extends Notification
 {
     use Queueable;
-
+   
     /**
      * Create a new notification instance.
      *

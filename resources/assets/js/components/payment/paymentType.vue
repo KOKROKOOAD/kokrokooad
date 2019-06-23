@@ -73,7 +73,7 @@
                          <div class="form-group">
                              <!--<input type="button" role="button" :disabled="dis" class="btn btn-default" value="Cancel" @click="cancel()" />-->
 
-                             <input type="button" role="button" :disabled="dis" class="btn btn-primary" value="Submit" @click="makePayment()" />
+                             <input type="button" role="button" :disabled="dis" class="btn btn-primary" value="Submit" @click="payments(network.mobileNumber)" />
                          </div>
 
 
@@ -81,6 +81,8 @@
                 </div>
             </div>
             <div class="col-md-2"></div>
+            <confirm-payment></confirm-payment>
+
         </div>
 
 </template>
@@ -88,9 +90,11 @@
 
 <script>
     import  store from  '../../vuex/store';
+    import  confirmPayment from "../payment/confirmPayment";
+
     export default {
         name: "paymentType",
-
+        components: {confirmPayment},
         data(){
             return {
           payType : false,
@@ -171,28 +175,26 @@
             makePayment(){
                  let self  = this;
                  let formData = new FormData();
-                 formData.append('phone', this.network.mobileNumber);
-                 formData.append('amount', this.amount);
-                 formData.append('network', self.selNetworks);
-                 formData.append('service', self.segTitle);
-                 formData.append('media_house_id', this.mediaHouseId);
+                 formData.append('phone', self.network.mobileNumber);
+                 formData.append('amount', self.totalBill);
+                 formData.append('payby', self.selNetworks);
+                // formData.append('item_desc', self.segTitle);
+                 formData.append('media_house_id', self.mediaHouseId);
                  formData.append('subscription_id', self.subId);
                  formData.append('invoice_id', self.invoiceId);
-
-                this.loading = false;
-                store.dispatch('getProcessing', true);
-                 this.dis = true;
-                 setTimeout(function () {
-                     axios.post('api-payment',formData).then(function (res) {
+                 
+               // store.dispatch('getProcessing', true);
+                // this.dis = true;
+                     axios.post('api-payment/',formData).then(function (res) {
                          if(res.data === 'success'){
-                             self.loading = true;
-                             store.dispatch('getProcessing', false);
+                            // self.loading = true;
+                           //  store.dispatch('getProcessing', false);
                              self.$router.push('payment-success');
 
                          }
                          else{
-                             self.loading = true;
-                             store.dispatch('getProcessing', false);
+                             //self.loading = true;
+                            // store.dispatch('getProcessing', false);
                              (new PNotify( {
                                      title:'Error Desktop Notice', type:'error', text:'Transaction failed please try again later.', desktop: {
                                          desktop: true, icon: 'assets/images/pnotify/error.png'
@@ -206,11 +208,28 @@
                      }).catch(function (error) {
                          if (error){
                              console.log(error);
-                             store.dispatch('getProcessing', false);
+                            // store.dispatch('getProcessing', false);
                          }
                      });
-                 },3000);
+                 
 
+            },
+            payments(number){
+                let self = this;
+                 self.validateNumber(number)
+                    sweetAlert({
+                    title: 'Confirm Payment',
+                   // text: 'Do you want to cancel this transaction?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    confirmButtonColor: '#E44032',
+                    closeOnConfirm: true,
+                    showLoaderOnConfirm: true,
+                },function(){
+                  self.makePayment();
+                   // window.location.replace("http://localhost:8000/user-account/create-subscription");
+                });
             },
             cancel(){
                 sweetAlert({
@@ -223,7 +242,9 @@
                     closeOnConfirm: true,
                     showLoaderOnConfirm: true,
                 },function(){
-                    window.location.replace("http://localhost:8000/user-account/create-subscription");
+
+                  //  self.makePayment();
+                  //  window.location.replace("http://localhost:8000/user-account/create-subscription");
                 });
             },
             upload(){
@@ -246,7 +267,33 @@
 
 
                 });
-            }
+            },
+            validateNumber(number){
+                if(number.length == '0'){
+                 this.invalidNumberMessage();
+                }
+               else if(number.substr(0,1) == '0' && number.length == '10'){
+                   return true;
+              return true;
+              }else if(number.substr(0,3) == '233' && number.length == '12'){
+                  return true;
+
+               return true;
+                }else{
+                  this.invalidNumberMessage();
+                }
+                  },
+             invalidNumberMessage(){
+                     swal({
+                     title: 'Invalid phone number',
+                            text: 'Kindly enter a valid phone number?.',
+                            type: 'warning',
+                            showCancelButton: false,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: 'OK!',
+                            closeOnConfirm: true,
+                 });
+             }     
 
         },
         computed:{

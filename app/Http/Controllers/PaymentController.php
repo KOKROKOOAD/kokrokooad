@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Transactions;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Auth;
+use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
@@ -13,43 +16,49 @@ class PaymentController extends Controller
 
       $client = new Client();
 
-      $network = $request->input('network');
-      $phoneNumber = $request->input('phone');
+      $payby = $request->input('payby');
+      $msisdn = $request->input('phone');
       $transaction_id =  uniqid('k', true);
+      $order_id = auth()->user()->name."_". Carbon::now();
       $amount = $request->input('amount');
-      $invoice_id = $request->input('invoice_id');
+      $order_id = $request->input('invoice_id');
       $subscription_id = $request->input('subscription_id');
       $client_id = auth()->user()->client_id;
       $media_house_id = $request->input('media_house_id');
-      $service = $request->input('service');
-      $amount_charge =  '10';
+      $item_desc = "subscription purchase";
+      //$account_type = $request->input('acc_type');
+      $callback =  env("PAY_CALLBACK");
 
 
 
       $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
       $secrete = md5(env('MERCHANT_USERNAME'). $key . md5(env('MERCHANT_PASSWORD')));
-      $formData = array(
+      $src = $_SERVER['REMOTE_ADDR'];
+
+      $data = array(
           'merchant_id' => env('MERCHANT_ID'),
           'secret' => $secrete,
           'key'    => $key,
-          'callback' =>  env('PAYCALL_BACK'),
-          'order_id' => $transaction_id,
+          'order_id' => $order_id,
+          'customerName' => auth()->user()->name,
           'amount' => $amount,
-          'item_desc' => env('ITEM_DESC').auth()->user()->client_id.''.date('Y-m-d H:i:s'),
-          'customerNumber' => $phoneNumber,
-          'payby' => $network,
-          'customerName' => auth()->user()->client_id
+          'item_desc' => $item_desc,
+          'customerNumber' => $msisdn,
+          'payby' => $payby,
+          'callback' =>  $callback,
       );
+      Log::channel('paylog')->info(Carbon::now()->format('Y-m-d H:i:s')." $src || ",$data);
+      
+      $res = $client->request('POST', 'https://159.69.65.95/payplus/api/index.php', 
+      [
+        'data' => $data
 
-//      $res = $client->request('POST', 'http://213.133.97.233/payplus/api/index.php', [
-//          'form_params' => $formData
-//
-//      ]);
-              //$res->getStatusCode();
+      ]);
+          Log::channel('paylog')->info($res->getStatusCode());
       // 200
-             // $res->getHeader('content-type');
+            //  $res->getHeader('content-type');
       // 'application/json; charset=utf8'
-             // $res->getBody();
+             //$res->getBody();
       $success = 'failed';
                if($phoneNumber){
                    $success = 'success';

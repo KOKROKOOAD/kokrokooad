@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits_w3layouts_main_gridl">
 									<input  id="email" name="email" type="email" placeholder="email" value="{{ old('email') }}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required="">
                                     @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                     @endif
@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits_w3layouts_main_gridl">
 									<input type="text" name="title" placeholder="title " value="{{ old('title') }}" required="">
                                     @if ($errors->has('title'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                     @endif
@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<textarea type="text" name="address" placeholder="Address"  required="">{{ old('address') }}</textarea>
 								</span>
                     @if ($errors->has('address'))
-                        <span class="invalid-feedback" role="alert">
+                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                     @endif
@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<textarea type="text" name="industry_type" placeholder="Industry type"  required="">{{ old('industry_type') }}</textarea>
 								</span>
                     @if ($errors->has('industry_type'))
-                        <span class="invalid-feedback" role="alert">
+                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('industry_type') }}</strong>
                                     </span>
                     @endif
@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<textarea type="text" name="company_profile" placeholder="A brief Profile"  required="">{{ old('company_profile') }}</textarea>
 								</span>
                     @if ($errors->has('profile'))
-                        <span class="invalid-feedback" role="alert">
+                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('company_profile') }}</strong>
                                     </span>
                     @endif
@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits_w3layouts_main_gridl">
 									<input  name="phone1" type="text" placeholder="phone1" value="{{ old('phone1') }}"  required="">
                                     @if ($errors->has('phone1'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('phone1') }}</strong>
                                     </span>
                                     @endif
@@ -139,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits_w3layouts_main_gridl">
 									<input   name="website" type="text" placeholder="website" value="{{ old('website') }}"  required="">
                                     @if ($errors->has('website'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('website') }}</strong>
                                     </span>
                                     @endif
@@ -147,7 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits_w3layouts_main_gridl">
 									<input type="text" name="company_name" placeholder="company name " value="{{ old('company_name') }}" required="">
                                     @if ($errors->has('company_name'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('company_name') }}</strong>
                                     </span>
                                     @endif
@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits_w3layouts_main_gridl">
 									<input type="text" name="logo" placeholder="Upload logo " value="{{ old('logo') }}" >
                                     @if ($errors->has('logo'))
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="error" role="alert">
                                         <strong>{{ $errors->first('logo') }}</strong>
                                     </span>
                                     @endif

@@ -1,3 +1,7 @@
+
+@component('mail::message')
+  <h2>Hello</h2>
+
 {{-- @component('mail::message')
  --}}  <h2>Registration Successful</h2>
 
@@ -8,7 +12,7 @@
         Congratulations and welcome to Kokrokoo!
       </p>
     </article>
-    <article>
+    <article style="font-size:8xp !important;">
       <p>
         Your registration details have been received and will be reviewed for  approved!
       </p>
