@@ -12,6 +12,7 @@
         "laravel/framework": "5.6.*",
         "laravel/socialite": "^3.2.0",
         "laravel/tinker": "^1.0",
+        "phpmailer/phpmailer": "^6.0",
         "pusher/pusher-php-server": "^3.3",
         "reliese/laravel": "^0.0.13",
         "spatie/pdf-to-image": "^1.8"

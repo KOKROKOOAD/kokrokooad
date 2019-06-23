@@ -33,6 +33,12 @@ Route::get('/register-success',function (){
     return view('notifications.register_success');
 })->name('register.success');
 
+Route::get('/test-mail',function(){
+    return view('testsviews.sendmail');
+});
+
+Route::get('/sendmail','SendMailsController@sendMail')->name('sendmail');
+
 //==================guest routes ends here==========================
 
 

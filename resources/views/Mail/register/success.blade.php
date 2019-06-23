@@ -1,8 +1,13 @@
+
 @component('mail::message')
   <h2>Hello</h2>
 
+{{-- @component('mail::message')
+ --}}  <h2>Registration Successful</h2>
+
   <section>
     <article>
+      <h3>Hello {{ $user[1] }},</h3>
       <p>
         Congratulations and welcome to Kokrokoo!
       </p>
@@ -31,4 +36,5 @@
 
 Thanks,<br>
 {{ config('app.name') }}
-@endcomponent
+{{-- @endcomponent
+ --}}
