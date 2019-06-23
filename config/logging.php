@@ -76,6 +76,10 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+        'paylog' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/payment.log'),
+        ],
     ],
 
 ];

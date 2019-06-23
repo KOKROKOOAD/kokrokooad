@@ -25,7 +25,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{route('register.personal')}}" style="color: #0c0c0c">Personal</a></li>
+                                    <li><a href="{{ route('register.personal') }}" style="color: #0c0c0c">Personal</a></li>
                                     <li><a href="{{route('register.org')}}" style="color: #0c0c0c">Organisation</a></li>
                                     <li><a href="{{route('register.media')}}" style="color: #0c0c0c">Media house</a></li>
                                 </ul>

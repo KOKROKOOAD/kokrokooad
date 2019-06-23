@@ -1,12 +1,11 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
- require('./bootstrap');
- require("./dashboard/js/jquery.validate.min");
+require('./bootstrap');
+require("./dashboard/js/jquery.validate.min");
 // require("./dashboard/js/notify.min");
 //  require('jquery-validation');
 require('./dashboard/js/validations');
@@ -14,8 +13,8 @@ require('../js/calender/notify');
 require('../js/calender/script');
 
 window.Vue = require('vue');
-import  VueRouter from 'vue-router';
-import {routes} from './vue-router/routes';
+import VueRouter from 'vue-router';
+import { routes } from './vue-router/routes';
 
 Vue.use(VueRouter);
 
@@ -24,8 +23,8 @@ Vue.use(FullCalendar);
 
 
 
-const router  = new VueRouter({
-    mode : 'history',
+const router = new VueRouter({
+    mode: 'history',
     routes
 });
 
@@ -59,6 +58,8 @@ Vue.component('side-bar', require('./components/navigation/sidebar.vue'));
 Vue.component('pre-loader', require('./components/preloader/preLoader'));
 Vue.component('sub', require('./components/success-pages/subs'));
 Vue.component('display-select-ratecard', require('./components/display-selected-rate/selectRateAndTime'));
+Vue.component('confirm-payment', require('./components/payment/confirmPayment'));
+
 
 
 
@@ -67,4 +68,4 @@ Vue.component('display-select-ratecard', require('./components/display-selected-
 const app = new Vue({
     el: '#app',
     router
-});
+})
