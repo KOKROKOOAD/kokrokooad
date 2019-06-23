@@ -44,7 +44,7 @@ Route::get('/sendmail','SendMailsController@sendMail')->name('sendmail');
 
 //=====================authenticated routes======================
 
-Route::middleware(['auth'])->prefix('/user-account/')->group(function (){
+Route::middleware(['auth'])->prefix('/kokrokoo.com/user-account/')->group(function (){
     Route::get('dashboard',function (){
         return view('userDashboard.dashboard');
     })->name('dashboard');
