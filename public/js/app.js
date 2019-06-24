@@ -75795,7 +75795,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: [_vm.local_assets_path + logos.logo],
+                                  src: [_vm.live_assets_path + logos.logo],
                                   width: "600",
                                   height: "515"
                                 },
