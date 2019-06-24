@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 183);
+/******/ 	return __webpack_require__(__webpack_require__.s = 184);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1902,7 +1902,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(188)("./" + name);
+                __webpack_require__(189)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4690,12 +4690,12 @@ module.exports = function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuex_persistedstate__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuex_persistedstate__ = __webpack_require__(221);
 
 
 
@@ -5031,8 +5031,8 @@ var debug = "development" !== 'production';
 "use strict";
 
 
-var bind = __webpack_require__(151);
-var isBuffer = __webpack_require__(190);
+var bind = __webpack_require__(152);
+var isBuffer = __webpack_require__(191);
 
 /*global toString:true*/
 
@@ -5436,7 +5436,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(217)
+var listToStyles = __webpack_require__(218)
 
 /*
 type StyleObject = {
@@ -5648,8 +5648,8 @@ function applyToTag (styleElement, obj) {
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store = __webpack_require__(177)('wks');
-var uid = __webpack_require__(178);
+var store = __webpack_require__(178)('wks');
+var uid = __webpack_require__(179);
 var Symbol = __webpack_require__(8).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
@@ -5707,9 +5707,9 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(237)
+var __vue_script__ = __webpack_require__(238)
 /* template */
-var __vue_template__ = __webpack_require__(238)
+var __vue_template__ = __webpack_require__(239)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -5760,7 +5760,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(12);
-var createDesc = __webpack_require__(24);
+var createDesc = __webpack_require__(25);
 module.exports = __webpack_require__(14) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
@@ -5774,8 +5774,8 @@ module.exports = __webpack_require__(14) ? function (object, key, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(13);
-var IE8_DOM_DEFINE = __webpack_require__(285);
-var toPrimitive = __webpack_require__(286);
+var IE8_DOM_DEFINE = __webpack_require__(288);
+var toPrimitive = __webpack_require__(289);
 var dP = Object.defineProperty;
 
 exports.f = __webpack_require__(14) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
@@ -5795,7 +5795,7 @@ exports.f = __webpack_require__(14) ? Object.defineProperty : function definePro
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(23);
+var isObject = __webpack_require__(24);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -5807,7 +5807,7 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(172)(function () {
+module.exports = !__webpack_require__(173)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
@@ -5858,7 +5858,7 @@ module.exports = function(module) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(3);
-var normalizeHeaderName = __webpack_require__(192);
+var normalizeHeaderName = __webpack_require__(193);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -5874,10 +5874,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(153);
+    adapter = __webpack_require__(154);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(153);
+    adapter = __webpack_require__(154);
   }
   return adapter;
 }
@@ -5952,7 +5952,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(152)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(153)))
 
 /***/ }),
 /* 18 */
@@ -16332,9 +16332,9 @@ return jQuery;
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(223)
+var __vue_script__ = __webpack_require__(224)
 /* template */
-var __vue_template__ = __webpack_require__(224)
+var __vue_template__ = __webpack_require__(225)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16381,7 +16381,54 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(232)
 /* template */
-var __vue_template__ = __webpack_require__(235)
+var __vue_template__ = __webpack_require__(237)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/creation_of_sub_summary/adSummary.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-012f4f0c", Component.options)
+  } else {
+    hotAPI.reload("data-v-012f4f0c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(233)
+/* template */
+var __vue_template__ = __webpack_require__(236)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -16420,7 +16467,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -16432,7 +16479,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -16443,7 +16490,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -16452,7 +16499,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -16466,25 +16513,25 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = {};
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(177)('keys');
-var uid = __webpack_require__(178);
+var shared = __webpack_require__(178)('keys');
+var uid = __webpack_require__(179);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16561,7 +16608,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16700,7 +16747,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16763,7 +16810,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16826,7 +16873,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16952,7 +16999,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17015,7 +17062,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17123,7 +17170,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17186,7 +17233,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17295,7 +17342,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17431,7 +17478,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17525,7 +17572,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17587,7 +17634,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17710,7 +17757,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17833,7 +17880,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -17945,7 +17992,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18100,7 +18147,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18192,7 +18239,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18375,7 +18422,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18442,7 +18489,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18526,7 +18573,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18590,7 +18637,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18670,7 +18717,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18750,7 +18797,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18830,7 +18877,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -18933,7 +18980,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19037,7 +19084,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19108,7 +19155,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19175,7 +19222,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19246,7 +19293,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19317,7 +19364,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19383,7 +19430,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19454,7 +19501,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19529,7 +19576,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19625,7 +19672,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19721,7 +19768,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19808,7 +19855,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19892,7 +19939,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -19962,7 +20009,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20072,7 +20119,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20185,7 +20232,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20249,7 +20296,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20336,7 +20383,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20414,7 +20461,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20496,7 +20543,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20575,7 +20622,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20655,7 +20702,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20736,7 +20783,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20863,7 +20910,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -20991,7 +21038,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21092,7 +21139,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21220,7 +21267,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21378,7 +21425,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21492,7 +21539,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21591,7 +21638,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21677,7 +21724,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21813,7 +21860,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21886,7 +21933,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21982,7 +22029,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22068,7 +22115,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22161,7 +22208,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22252,7 +22299,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22366,7 +22413,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22496,7 +22543,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22581,7 +22628,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22672,7 +22719,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22812,7 +22859,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22886,7 +22933,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23008,7 +23055,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23109,7 +23156,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23225,7 +23272,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23293,7 +23340,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23387,7 +23434,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23472,7 +23519,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23580,7 +23627,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23744,7 +23791,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23830,7 +23877,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23916,7 +23963,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23980,7 +24027,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24077,7 +24124,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24143,7 +24190,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24270,7 +24317,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24361,7 +24408,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24452,7 +24499,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24516,7 +24563,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24644,7 +24691,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24774,7 +24821,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24843,7 +24890,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24908,7 +24955,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24987,7 +25034,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25173,7 +25220,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25275,7 +25322,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25339,7 +25386,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25414,7 +25461,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25574,7 +25621,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25751,7 +25798,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25823,7 +25870,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25938,7 +25985,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26053,7 +26100,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26145,7 +26192,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26218,7 +26265,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26281,7 +26328,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26414,7 +26461,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26507,7 +26554,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26578,7 +26625,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26698,7 +26745,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26769,7 +26816,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26835,7 +26882,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26961,7 +27008,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -27059,7 +27106,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27154,7 +27201,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27216,7 +27263,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27278,7 +27325,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -27401,7 +27448,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27556,7 +27603,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27658,7 +27705,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27720,7 +27767,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27782,7 +27829,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27865,7 +27912,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27937,7 +27984,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28001,7 +28048,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28115,7 +28162,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28222,7 +28269,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28329,13 +28376,13 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(189);
+module.exports = __webpack_require__(190);
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28353,7 +28400,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -28543,19 +28590,19 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(3);
-var settle = __webpack_require__(193);
-var buildURL = __webpack_require__(195);
-var parseHeaders = __webpack_require__(196);
-var isURLSameOrigin = __webpack_require__(197);
-var createError = __webpack_require__(154);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(198);
+var settle = __webpack_require__(194);
+var buildURL = __webpack_require__(196);
+var parseHeaders = __webpack_require__(197);
+var isURLSameOrigin = __webpack_require__(198);
+var createError = __webpack_require__(155);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(199);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -28652,7 +28699,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(199);
+      var cookies = __webpack_require__(200);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -28730,13 +28777,13 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var enhanceError = __webpack_require__(194);
+var enhanceError = __webpack_require__(195);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -28755,7 +28802,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28767,7 +28814,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28793,7 +28840,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39756,22 +39803,22 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(211).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(212).setImmediate))
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(215)
+  __webpack_require__(216)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(218)
+var __vue_script__ = __webpack_require__(219)
 /* template */
-var __vue_template__ = __webpack_require__(239)
+var __vue_template__ = __webpack_require__(240)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -39810,15 +39857,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(225)
+var __vue_script__ = __webpack_require__(226)
 /* template */
-var __vue_template__ = __webpack_require__(226)
+var __vue_template__ = __webpack_require__(227)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -39857,15 +39904,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(227)
+var __vue_script__ = __webpack_require__(228)
 /* template */
-var __vue_template__ = __webpack_require__(228)
+var __vue_template__ = __webpack_require__(229)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -39904,15 +39951,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(229)
+var __vue_script__ = __webpack_require__(230)
 /* template */
-var __vue_template__ = __webpack_require__(230)
+var __vue_template__ = __webpack_require__(231)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -39951,62 +39998,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(231)
-/* template */
-var __vue_template__ = __webpack_require__(236)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/creation_of_sub_summary/adSummary.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-012f4f0c", Component.options)
-  } else {
-    hotAPI.reload("data-v-012f4f0c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(233)
+var __vue_script__ = __webpack_require__(234)
 /* template */
-var __vue_template__ = __webpack_require__(234)
+var __vue_template__ = __webpack_require__(235)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40051,9 +40051,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(240)
+var __vue_script__ = __webpack_require__(241)
 /* template */
-var __vue_template__ = __webpack_require__(241)
+var __vue_template__ = __webpack_require__(242)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40098,9 +40098,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(242)
+var __vue_script__ = __webpack_require__(243)
 /* template */
-var __vue_template__ = __webpack_require__(245)
+var __vue_template__ = __webpack_require__(246)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40145,9 +40145,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(243)
+var __vue_script__ = __webpack_require__(244)
 /* template */
-var __vue_template__ = __webpack_require__(244)
+var __vue_template__ = __webpack_require__(245)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40192,9 +40192,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(246)
+var __vue_script__ = __webpack_require__(247)
 /* template */
-var __vue_template__ = __webpack_require__(247)
+var __vue_template__ = __webpack_require__(248)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40237,15 +40237,62 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(255)
+/* template */
+var __vue_template__ = __webpack_require__(256)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/display-selected-rate/selectRateAndTime.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7a070cd9", Component.options)
+  } else {
+    hotAPI.reload("data-v-7a070cd9", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(265)
+  __webpack_require__(268)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(267)
+var __vue_script__ = __webpack_require__(270)
 /* template */
-var __vue_template__ = __webpack_require__(268)
+var __vue_template__ = __webpack_require__(271)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40284,19 +40331,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(8);
 var core = __webpack_require__(10);
-var ctx = __webpack_require__(171);
+var ctx = __webpack_require__(172);
 var hide = __webpack_require__(11);
 var has = __webpack_require__(15);
 var PROTOTYPE = 'prototype';
@@ -40359,11 +40406,11 @@ module.exports = $export;
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(284);
+var aFunction = __webpack_require__(287);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -40385,7 +40432,7 @@ module.exports = function (fn, that, length) {
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports) {
 
 module.exports = function (exec) {
@@ -40398,10 +40445,10 @@ module.exports = function (exec) {
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(23);
+var isObject = __webpack_require__(24);
 var document = __webpack_require__(8).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
@@ -40411,19 +40458,19 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(293);
-var defined = __webpack_require__(22);
+var IObject = __webpack_require__(296);
+var defined = __webpack_require__(23);
 module.exports = function (it) {
   return IObject(defined(it));
 };
 
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -40434,11 +40481,11 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(21);
+var toInteger = __webpack_require__(22);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -40446,7 +40493,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var core = __webpack_require__(10);
@@ -40458,13 +40505,13 @@ var store = global[SHARED] || (global[SHARED] = {});
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
   version: core.version,
-  mode: __webpack_require__(169) ? 'pure' : 'global',
+  mode: __webpack_require__(170) ? 'pure' : 'global',
   copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
 });
 
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports) {
 
 var id = 0;
@@ -40475,7 +40522,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -40485,7 +40532,7 @@ module.exports = (
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var def = __webpack_require__(12).f;
@@ -40498,30 +40545,30 @@ module.exports = function (it, tag, stat) {
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(22);
+var defined = __webpack_require__(23);
 module.exports = function (it) {
   return Object(defined(it));
 };
 
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(325)
+  __webpack_require__(328)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(327)
+var __vue_script__ = __webpack_require__(330)
 /* template */
-var __vue_template__ = __webpack_require__(328)
+var __vue_template__ = __webpack_require__(331)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -40560,37 +40607,37 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(184);
+__webpack_require__(185);
 module.exports = __webpack_require__(342);
 
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vue_router_routes__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_full_calendar__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__vue_router_routes__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_full_calendar__ = __webpack_require__(278);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(185);
-__webpack_require__(207);
+__webpack_require__(186);
+__webpack_require__(208);
 // require("./dashboard/js/notify.min");
 //  require('jquery-validation');
-__webpack_require__(208);
 __webpack_require__(209);
 __webpack_require__(210);
+__webpack_require__(211);
 
-window.Vue = __webpack_require__(157);
+window.Vue = __webpack_require__(158);
 
 
 
@@ -40610,30 +40657,30 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(308));
-Vue.component('create-ad', __webpack_require__(158));
-Vue.component('user-transact', __webpack_require__(168));
-Vue.component('pending-sub', __webpack_require__(311));
-Vue.component('inactive-sub', __webpack_require__(316));
+Vue.component('example-component', __webpack_require__(311));
+Vue.component('create-ad', __webpack_require__(159));
+Vue.component('user-transact', __webpack_require__(169));
+Vue.component('pending-sub', __webpack_require__(314));
+Vue.component('inactive-sub', __webpack_require__(319));
 // Vue.component('active-sub', require('./components/subscriptions/active-sub'));
-Vue.component('my-sub', __webpack_require__(321));
-Vue.component('payment', __webpack_require__(182));
+Vue.component('my-sub', __webpack_require__(324));
+Vue.component('payment', __webpack_require__(183));
 Vue.component('create-print-rate-cards', __webpack_require__(19));
-Vue.component('create-ad-weekdays', __webpack_require__(159));
-Vue.component('file-size-warning-modal', __webpack_require__(160));
+Vue.component('create-ad-weekdays', __webpack_require__(160));
+Vue.component('file-size-warning-modal', __webpack_require__(161));
 Vue.component('display-media-houses', __webpack_require__(165));
-Vue.component('invoice', __webpack_require__(161));
-Vue.component('del-selected-media-house', __webpack_require__(330));
-Vue.component('ad-summary', __webpack_require__(162));
-Vue.component('payment-type', __webpack_require__(20));
+Vue.component('invoice', __webpack_require__(162));
+Vue.component('del-selected-media-house', __webpack_require__(333));
+Vue.component('ad-summary', __webpack_require__(20));
+Vue.component('payment-type', __webpack_require__(21));
 Vue.component('show-processing', __webpack_require__(9));
 Vue.component('show-processing', __webpack_require__(9));
 Vue.component('file-upload', __webpack_require__(164));
 Vue.component('select-rate-card', __webpack_require__(167));
-Vue.component('side-bar', __webpack_require__(333));
+Vue.component('side-bar', __webpack_require__(336));
 Vue.component('pre-loader', __webpack_require__(166));
-Vue.component('sub', __webpack_require__(336));
-Vue.component('display-select-ratecard', __webpack_require__(339));
+Vue.component('sub', __webpack_require__(339));
+Vue.component('display-select-ratecard', __webpack_require__(168));
 Vue.component('confirm-payment', __webpack_require__(163));
 
 var app = new Vue({
@@ -40642,12 +40689,12 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(186);
-window.Popper = __webpack_require__(187).default;
+window._ = __webpack_require__(187);
+window.Popper = __webpack_require__(188).default;
 window.moment = __webpack_require__(0).default;
 
 /**
@@ -40668,7 +40715,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(150);
+window.axios = __webpack_require__(151);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -40704,7 +40751,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -57817,7 +57864,7 @@ if (token) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(16)(module)))
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60358,256 +60405,256 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(7)))
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 27,
-	"./af.js": 27,
-	"./ar": 28,
-	"./ar-dz": 29,
-	"./ar-dz.js": 29,
-	"./ar-kw": 30,
-	"./ar-kw.js": 30,
-	"./ar-ly": 31,
-	"./ar-ly.js": 31,
-	"./ar-ma": 32,
-	"./ar-ma.js": 32,
-	"./ar-sa": 33,
-	"./ar-sa.js": 33,
-	"./ar-tn": 34,
-	"./ar-tn.js": 34,
-	"./ar.js": 28,
-	"./az": 35,
-	"./az.js": 35,
-	"./be": 36,
-	"./be.js": 36,
-	"./bg": 37,
-	"./bg.js": 37,
-	"./bm": 38,
-	"./bm.js": 38,
-	"./bn": 39,
-	"./bn.js": 39,
-	"./bo": 40,
-	"./bo.js": 40,
-	"./br": 41,
-	"./br.js": 41,
-	"./bs": 42,
-	"./bs.js": 42,
-	"./ca": 43,
-	"./ca.js": 43,
-	"./cs": 44,
-	"./cs.js": 44,
-	"./cv": 45,
-	"./cv.js": 45,
-	"./cy": 46,
-	"./cy.js": 46,
-	"./da": 47,
-	"./da.js": 47,
-	"./de": 48,
-	"./de-at": 49,
-	"./de-at.js": 49,
-	"./de-ch": 50,
-	"./de-ch.js": 50,
-	"./de.js": 48,
-	"./dv": 51,
-	"./dv.js": 51,
-	"./el": 52,
-	"./el.js": 52,
-	"./en-au": 53,
-	"./en-au.js": 53,
-	"./en-ca": 54,
-	"./en-ca.js": 54,
-	"./en-gb": 55,
-	"./en-gb.js": 55,
-	"./en-ie": 56,
-	"./en-ie.js": 56,
-	"./en-il": 57,
-	"./en-il.js": 57,
-	"./en-nz": 58,
-	"./en-nz.js": 58,
-	"./eo": 59,
-	"./eo.js": 59,
-	"./es": 60,
-	"./es-do": 61,
-	"./es-do.js": 61,
-	"./es-us": 62,
-	"./es-us.js": 62,
-	"./es.js": 60,
-	"./et": 63,
-	"./et.js": 63,
-	"./eu": 64,
-	"./eu.js": 64,
-	"./fa": 65,
-	"./fa.js": 65,
-	"./fi": 66,
-	"./fi.js": 66,
-	"./fo": 67,
-	"./fo.js": 67,
-	"./fr": 68,
-	"./fr-ca": 69,
-	"./fr-ca.js": 69,
-	"./fr-ch": 70,
-	"./fr-ch.js": 70,
-	"./fr.js": 68,
-	"./fy": 71,
-	"./fy.js": 71,
-	"./gd": 72,
-	"./gd.js": 72,
-	"./gl": 73,
-	"./gl.js": 73,
-	"./gom-latn": 74,
-	"./gom-latn.js": 74,
-	"./gu": 75,
-	"./gu.js": 75,
-	"./he": 76,
-	"./he.js": 76,
-	"./hi": 77,
-	"./hi.js": 77,
-	"./hr": 78,
-	"./hr.js": 78,
-	"./hu": 79,
-	"./hu.js": 79,
-	"./hy-am": 80,
-	"./hy-am.js": 80,
-	"./id": 81,
-	"./id.js": 81,
-	"./is": 82,
-	"./is.js": 82,
-	"./it": 83,
-	"./it.js": 83,
-	"./ja": 84,
-	"./ja.js": 84,
-	"./jv": 85,
-	"./jv.js": 85,
-	"./ka": 86,
-	"./ka.js": 86,
-	"./kk": 87,
-	"./kk.js": 87,
-	"./km": 88,
-	"./km.js": 88,
-	"./kn": 89,
-	"./kn.js": 89,
-	"./ko": 90,
-	"./ko.js": 90,
-	"./ky": 91,
-	"./ky.js": 91,
-	"./lb": 92,
-	"./lb.js": 92,
-	"./lo": 93,
-	"./lo.js": 93,
-	"./lt": 94,
-	"./lt.js": 94,
-	"./lv": 95,
-	"./lv.js": 95,
-	"./me": 96,
-	"./me.js": 96,
-	"./mi": 97,
-	"./mi.js": 97,
-	"./mk": 98,
-	"./mk.js": 98,
-	"./ml": 99,
-	"./ml.js": 99,
-	"./mn": 100,
-	"./mn.js": 100,
-	"./mr": 101,
-	"./mr.js": 101,
-	"./ms": 102,
-	"./ms-my": 103,
-	"./ms-my.js": 103,
-	"./ms.js": 102,
-	"./mt": 104,
-	"./mt.js": 104,
-	"./my": 105,
-	"./my.js": 105,
-	"./nb": 106,
-	"./nb.js": 106,
-	"./ne": 107,
-	"./ne.js": 107,
-	"./nl": 108,
-	"./nl-be": 109,
-	"./nl-be.js": 109,
-	"./nl.js": 108,
-	"./nn": 110,
-	"./nn.js": 110,
-	"./pa-in": 111,
-	"./pa-in.js": 111,
-	"./pl": 112,
-	"./pl.js": 112,
-	"./pt": 113,
-	"./pt-br": 114,
-	"./pt-br.js": 114,
-	"./pt.js": 113,
-	"./ro": 115,
-	"./ro.js": 115,
-	"./ru": 116,
-	"./ru.js": 116,
-	"./sd": 117,
-	"./sd.js": 117,
-	"./se": 118,
-	"./se.js": 118,
-	"./si": 119,
-	"./si.js": 119,
-	"./sk": 120,
-	"./sk.js": 120,
-	"./sl": 121,
-	"./sl.js": 121,
-	"./sq": 122,
-	"./sq.js": 122,
-	"./sr": 123,
-	"./sr-cyrl": 124,
-	"./sr-cyrl.js": 124,
-	"./sr.js": 123,
-	"./ss": 125,
-	"./ss.js": 125,
-	"./sv": 126,
-	"./sv.js": 126,
-	"./sw": 127,
-	"./sw.js": 127,
-	"./ta": 128,
-	"./ta.js": 128,
-	"./te": 129,
-	"./te.js": 129,
-	"./tet": 130,
-	"./tet.js": 130,
-	"./tg": 131,
-	"./tg.js": 131,
-	"./th": 132,
-	"./th.js": 132,
-	"./tl-ph": 133,
-	"./tl-ph.js": 133,
-	"./tlh": 134,
-	"./tlh.js": 134,
-	"./tr": 135,
-	"./tr.js": 135,
-	"./tzl": 136,
-	"./tzl.js": 136,
-	"./tzm": 137,
-	"./tzm-latn": 138,
-	"./tzm-latn.js": 138,
-	"./tzm.js": 137,
-	"./ug-cn": 139,
-	"./ug-cn.js": 139,
-	"./uk": 140,
-	"./uk.js": 140,
-	"./ur": 141,
-	"./ur.js": 141,
-	"./uz": 142,
-	"./uz-latn": 143,
-	"./uz-latn.js": 143,
-	"./uz.js": 142,
-	"./vi": 144,
-	"./vi.js": 144,
-	"./x-pseudo": 145,
-	"./x-pseudo.js": 145,
-	"./yo": 146,
-	"./yo.js": 146,
-	"./zh-cn": 147,
-	"./zh-cn.js": 147,
-	"./zh-hk": 148,
-	"./zh-hk.js": 148,
-	"./zh-tw": 149,
-	"./zh-tw.js": 149
+	"./af": 28,
+	"./af.js": 28,
+	"./ar": 29,
+	"./ar-dz": 30,
+	"./ar-dz.js": 30,
+	"./ar-kw": 31,
+	"./ar-kw.js": 31,
+	"./ar-ly": 32,
+	"./ar-ly.js": 32,
+	"./ar-ma": 33,
+	"./ar-ma.js": 33,
+	"./ar-sa": 34,
+	"./ar-sa.js": 34,
+	"./ar-tn": 35,
+	"./ar-tn.js": 35,
+	"./ar.js": 29,
+	"./az": 36,
+	"./az.js": 36,
+	"./be": 37,
+	"./be.js": 37,
+	"./bg": 38,
+	"./bg.js": 38,
+	"./bm": 39,
+	"./bm.js": 39,
+	"./bn": 40,
+	"./bn.js": 40,
+	"./bo": 41,
+	"./bo.js": 41,
+	"./br": 42,
+	"./br.js": 42,
+	"./bs": 43,
+	"./bs.js": 43,
+	"./ca": 44,
+	"./ca.js": 44,
+	"./cs": 45,
+	"./cs.js": 45,
+	"./cv": 46,
+	"./cv.js": 46,
+	"./cy": 47,
+	"./cy.js": 47,
+	"./da": 48,
+	"./da.js": 48,
+	"./de": 49,
+	"./de-at": 50,
+	"./de-at.js": 50,
+	"./de-ch": 51,
+	"./de-ch.js": 51,
+	"./de.js": 49,
+	"./dv": 52,
+	"./dv.js": 52,
+	"./el": 53,
+	"./el.js": 53,
+	"./en-au": 54,
+	"./en-au.js": 54,
+	"./en-ca": 55,
+	"./en-ca.js": 55,
+	"./en-gb": 56,
+	"./en-gb.js": 56,
+	"./en-ie": 57,
+	"./en-ie.js": 57,
+	"./en-il": 58,
+	"./en-il.js": 58,
+	"./en-nz": 59,
+	"./en-nz.js": 59,
+	"./eo": 60,
+	"./eo.js": 60,
+	"./es": 61,
+	"./es-do": 62,
+	"./es-do.js": 62,
+	"./es-us": 63,
+	"./es-us.js": 63,
+	"./es.js": 61,
+	"./et": 64,
+	"./et.js": 64,
+	"./eu": 65,
+	"./eu.js": 65,
+	"./fa": 66,
+	"./fa.js": 66,
+	"./fi": 67,
+	"./fi.js": 67,
+	"./fo": 68,
+	"./fo.js": 68,
+	"./fr": 69,
+	"./fr-ca": 70,
+	"./fr-ca.js": 70,
+	"./fr-ch": 71,
+	"./fr-ch.js": 71,
+	"./fr.js": 69,
+	"./fy": 72,
+	"./fy.js": 72,
+	"./gd": 73,
+	"./gd.js": 73,
+	"./gl": 74,
+	"./gl.js": 74,
+	"./gom-latn": 75,
+	"./gom-latn.js": 75,
+	"./gu": 76,
+	"./gu.js": 76,
+	"./he": 77,
+	"./he.js": 77,
+	"./hi": 78,
+	"./hi.js": 78,
+	"./hr": 79,
+	"./hr.js": 79,
+	"./hu": 80,
+	"./hu.js": 80,
+	"./hy-am": 81,
+	"./hy-am.js": 81,
+	"./id": 82,
+	"./id.js": 82,
+	"./is": 83,
+	"./is.js": 83,
+	"./it": 84,
+	"./it.js": 84,
+	"./ja": 85,
+	"./ja.js": 85,
+	"./jv": 86,
+	"./jv.js": 86,
+	"./ka": 87,
+	"./ka.js": 87,
+	"./kk": 88,
+	"./kk.js": 88,
+	"./km": 89,
+	"./km.js": 89,
+	"./kn": 90,
+	"./kn.js": 90,
+	"./ko": 91,
+	"./ko.js": 91,
+	"./ky": 92,
+	"./ky.js": 92,
+	"./lb": 93,
+	"./lb.js": 93,
+	"./lo": 94,
+	"./lo.js": 94,
+	"./lt": 95,
+	"./lt.js": 95,
+	"./lv": 96,
+	"./lv.js": 96,
+	"./me": 97,
+	"./me.js": 97,
+	"./mi": 98,
+	"./mi.js": 98,
+	"./mk": 99,
+	"./mk.js": 99,
+	"./ml": 100,
+	"./ml.js": 100,
+	"./mn": 101,
+	"./mn.js": 101,
+	"./mr": 102,
+	"./mr.js": 102,
+	"./ms": 103,
+	"./ms-my": 104,
+	"./ms-my.js": 104,
+	"./ms.js": 103,
+	"./mt": 105,
+	"./mt.js": 105,
+	"./my": 106,
+	"./my.js": 106,
+	"./nb": 107,
+	"./nb.js": 107,
+	"./ne": 108,
+	"./ne.js": 108,
+	"./nl": 109,
+	"./nl-be": 110,
+	"./nl-be.js": 110,
+	"./nl.js": 109,
+	"./nn": 111,
+	"./nn.js": 111,
+	"./pa-in": 112,
+	"./pa-in.js": 112,
+	"./pl": 113,
+	"./pl.js": 113,
+	"./pt": 114,
+	"./pt-br": 115,
+	"./pt-br.js": 115,
+	"./pt.js": 114,
+	"./ro": 116,
+	"./ro.js": 116,
+	"./ru": 117,
+	"./ru.js": 117,
+	"./sd": 118,
+	"./sd.js": 118,
+	"./se": 119,
+	"./se.js": 119,
+	"./si": 120,
+	"./si.js": 120,
+	"./sk": 121,
+	"./sk.js": 121,
+	"./sl": 122,
+	"./sl.js": 122,
+	"./sq": 123,
+	"./sq.js": 123,
+	"./sr": 124,
+	"./sr-cyrl": 125,
+	"./sr-cyrl.js": 125,
+	"./sr.js": 124,
+	"./ss": 126,
+	"./ss.js": 126,
+	"./sv": 127,
+	"./sv.js": 127,
+	"./sw": 128,
+	"./sw.js": 128,
+	"./ta": 129,
+	"./ta.js": 129,
+	"./te": 130,
+	"./te.js": 130,
+	"./tet": 131,
+	"./tet.js": 131,
+	"./tg": 132,
+	"./tg.js": 132,
+	"./th": 133,
+	"./th.js": 133,
+	"./tl-ph": 134,
+	"./tl-ph.js": 134,
+	"./tlh": 135,
+	"./tlh.js": 135,
+	"./tr": 136,
+	"./tr.js": 136,
+	"./tzl": 137,
+	"./tzl.js": 137,
+	"./tzm": 138,
+	"./tzm-latn": 139,
+	"./tzm-latn.js": 139,
+	"./tzm.js": 138,
+	"./ug-cn": 140,
+	"./ug-cn.js": 140,
+	"./uk": 141,
+	"./uk.js": 141,
+	"./ur": 142,
+	"./ur.js": 142,
+	"./uz": 143,
+	"./uz-latn": 144,
+	"./uz-latn.js": 144,
+	"./uz.js": 143,
+	"./vi": 145,
+	"./vi.js": 145,
+	"./x-pseudo": 146,
+	"./x-pseudo.js": 146,
+	"./yo": 147,
+	"./yo.js": 147,
+	"./zh-cn": 148,
+	"./zh-cn.js": 148,
+	"./zh-hk": 149,
+	"./zh-hk.js": 149,
+	"./zh-tw": 150,
+	"./zh-tw.js": 150
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -60623,18 +60670,18 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 188;
+webpackContext.id = 189;
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(3);
-var bind = __webpack_require__(151);
-var Axios = __webpack_require__(191);
+var bind = __webpack_require__(152);
+var Axios = __webpack_require__(192);
 var defaults = __webpack_require__(17);
 
 /**
@@ -60668,15 +60715,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(156);
-axios.CancelToken = __webpack_require__(205);
-axios.isCancel = __webpack_require__(155);
+axios.Cancel = __webpack_require__(157);
+axios.CancelToken = __webpack_require__(206);
+axios.isCancel = __webpack_require__(156);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(206);
+axios.spread = __webpack_require__(207);
 
 module.exports = axios;
 
@@ -60685,7 +60732,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports) {
 
 /*!
@@ -60712,7 +60759,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60720,8 +60767,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(17);
 var utils = __webpack_require__(3);
-var InterceptorManager = __webpack_require__(200);
-var dispatchRequest = __webpack_require__(201);
+var InterceptorManager = __webpack_require__(201);
+var dispatchRequest = __webpack_require__(202);
 
 /**
  * Create a new instance of Axios
@@ -60798,7 +60845,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60817,13 +60864,13 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var createError = __webpack_require__(154);
+var createError = __webpack_require__(155);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -60850,7 +60897,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60878,7 +60925,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60951,7 +60998,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61011,7 +61058,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61086,7 +61133,7 @@ module.exports = (
 
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61129,7 +61176,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61189,7 +61236,7 @@ module.exports = (
 
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61248,18 +61295,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(3);
-var transformData = __webpack_require__(202);
-var isCancel = __webpack_require__(155);
+var transformData = __webpack_require__(203);
+var isCancel = __webpack_require__(156);
 var defaults = __webpack_require__(17);
-var isAbsoluteURL = __webpack_require__(203);
-var combineURLs = __webpack_require__(204);
+var isAbsoluteURL = __webpack_require__(204);
+var combineURLs = __webpack_require__(205);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -61341,7 +61388,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61368,7 +61415,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61389,7 +61436,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61410,13 +61457,13 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var Cancel = __webpack_require__(156);
+var Cancel = __webpack_require__(157);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -61474,7 +61521,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61508,7 +61555,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -61854,7 +61901,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports) {
 
 // $(document).ready(function () {
@@ -62374,7 +62421,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 // });
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports) {
 
 $(function () {
@@ -63077,7 +63124,7 @@ $(function () {
 });
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63262,7 +63309,7 @@ function toggleFullScreen() {
 $('#styleSelector').append('' + '<div class="selector-toggle">' + '<a href="javascript:void(0)"></a>' + '</div>' + '<ul>' + '<li>' + '<p class="selector-title main-title st-main-title"><b>Adminty </b>Customizer</p>' + '<span class="text-muted">Live customizer with tons of options</span>' + '</li>' + '<li>' + '<p class="selector-title">Main layouts</p>' + '</li>' + '<li>' + '<div class="theme-color">' + '<a href="#" class="navbar-theme" navbar-theme="themelight1"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="navbar-theme" navbar-theme="theme1"><span class="head"></span><span class="cont"></span></a>' + '</div>' + '</li>' + '</ul>' + '<div class="style-cont m-t-10">' + '<ul class="nav nav-tabs  tabs" role="tablist">' + '<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#sel-layout" role="tab">Layouts</a></li>' + '<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#sel-sidebar-setting" role="tab">Sidebar Settings</a></li>' + '</ul>' + '<div class="tab-content tabs">' + '<div class="tab-pane active" id="sel-layout" role="tabpanel">' + '<ul>' + '<li class="theme-option">' + '<div class="checkbox-fade fade-in-primary">' + '<label>' + '<input type="checkbox" value="false" id="sidebar-position" name="sidebar-position" checked>' + '<span class="cr"><i class="cr-icon feather icon-check txt-success f-w-600"></i></span>' + '<span>Fixed Sidebar Position</span>' + '</label>' + '</div>' + '</li>' + '<li class="theme-option">' + '<div class="checkbox-fade fade-in-primary">' + '<label>' + '<input type="checkbox" value="false" id="header-position" name="header-position" checked>' + '<span class="cr"><i class="cr-icon feather icon-check txt-success f-w-600"></i></span>' + '<span>Fixed Header Position</span>' + '</label>' + '</div>' + '</li>' + '</ul>' + '</div>' + '<div class="tab-pane" id="sel-sidebar-setting" role="tabpanel">' + '<ul>' + '<li class="theme-option">' + '<p class="sub-title drp-title">Menu Type</p>' + '<div class="form-radio" id="menu-effect">' + '<div class="radio radio-inverse radio-inline" data-toggle="tooltip" title="simple icon">' + '<label>' + '<input type="radio" name="radio" value="st6" onclick="handlemenutype(this.value)" checked="true">' + '<i class="helper"></i><span class="micon st6"><i class="feather icon-command"></i></span>' + '</label>' + '</div>' + '<div class="radio  radio-primary radio-inline" data-toggle="tooltip" title="color icon">' + '<label>' + '<input type="radio" name="radio" value="st5" onclick="handlemenutype(this.value)">' + '<i class="helper"></i><span class="micon st5"><i class="feather icon-command"></i></span>' + '</label>' + '</div>' + '</div>' + '</li>' + '<li class="theme-option">' + '<p class="sub-title drp-title">SideBar Effect</p>' + '<select id="vertical-menu-effect" class="form-control minimal">' + '<option name="vertical-menu-effect" value="shrink">shrink</option>' + '<option name="vertical-menu-effect" value="overlay">overlay</option>' + '<option name="vertical-menu-effect" value="push">Push</option>' + '</select>' + '</li>' + '<li class="theme-option">' + '<p class="sub-title drp-title">Hide/Show Border</p>' + '<select id="vertical-border-style" class="form-control minimal">' + '<option name="vertical-border-style" value="solid">Style 1</option>' + '<option name="vertical-border-style" value="dotted">Style 2</option>' + '<option name="vertical-border-style" value="dashed">Style 3</option>' + '<option name="vertical-border-style" value="none">No Border</option>' + '</select>' + '</li>' + '<li class="theme-option">' + '<p class="sub-title drp-title">Drop-Down Icon</p>' + '<select id="vertical-dropdown-icon" class="form-control minimal">' + '<option name="vertical-dropdown-icon" value="style1">Style 1</option>' + '<option name="vertical-dropdown-icon" value="style2">style 2</option>' + '<option name="vertical-dropdown-icon" value="style3">style 3</option>' + '</select>' + '</li>' + '<li class="theme-option">' + '<p class="sub-title drp-title">Sub Menu Drop-down Icon</p>' + '<select id="vertical-subitem-icon" class="form-control minimal">' + '<option name="vertical-subitem-icon" value="style1">Style 1</option>' + '<option name="vertical-subitem-icon" value="style2">style 2</option>' + '<option name="vertical-subitem-icon" value="style3">style 3</option>' + '<option name="vertical-subitem-icon" value="style4">style 4</option>' + '<option name="vertical-subitem-icon" value="style5">style 5</option>' + '<option name="vertical-subitem-icon" value="style6">style 6</option>' + '</select>' + '</li>' + '</ul>' + '</div>' + '<ul>' + '<li>' + '<p class="selector-title">Header Brand color</p>' + '</li>' + '<li class="theme-option">' + '<div class="theme-color">' + '<a href="#" class="logo-theme" logo-theme="theme1"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="logo-theme" logo-theme="theme2"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="logo-theme" logo-theme="theme3"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="logo-theme" logo-theme="theme4"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="logo-theme" logo-theme="theme5"><span class="head"></span><span class="cont"></span></a>' + '</div>' + '</li>' + '<li>' + '<p class="selector-title">Header color</p>' + '</li>' + '<li class="theme-option">' + '<div class="theme-color">' + '<a href="#" class="header-theme" header-theme="theme1"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="header-theme" header-theme="theme2"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="header-theme" header-theme="theme3"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="header-theme" header-theme="theme4"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="header-theme" header-theme="theme5"><span class="head"></span><span class="cont"></span></a>' + '<a href="#" class="header-theme" header-theme="theme6"><span class="head"></span><span class="cont"></span></a>' + '</div>' + '</li>' + '<li>' + '<p class="selector-title">Active link color</p>' + '</li>' + '<li class="theme-option">' + '<div class="theme-color">' + '<a href="#" class="active-item-theme small" active-item-theme="theme1">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme2">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme3">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme4">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme5">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme6">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme7">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme8">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme9">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme10">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme11">&nbsp;</a>' + '<a href="#" class="active-item-theme small" active-item-theme="theme12">&nbsp;</a>' + '</div>' + '</li>' + '<li>' + '<p class="selector-title">Menu Caption Color</p>' + '</li>' + '<li class="theme-option">' + '<div class="theme-color">' + '<a href="#" class="leftheader-theme small" lheader-theme="theme1">&nbsp;</a>' + '<a href="#" class="leftheader-theme small" lheader-theme="theme2">&nbsp;</a>' + '<a href="#" class="leftheader-theme small" lheader-theme="theme3">&nbsp;</a>' + '<a href="#" class="leftheader-theme small" lheader-theme="theme4">&nbsp;</a>' + '<a href="#" class="leftheader-theme small" lheader-theme="theme5">&nbsp;</a>' + '<a href="#" class="leftheader-theme small" lheader-theme="theme6">&nbsp;</a>' + '</div>' + '</li>' + '</ul>' + '</div>' + '</div>' + '<ul>' + '<li>' + '<a href="http://html.codedthemes.com/Adminty/doc" target="_blank" class="btn btn-primary btn-block m-r-15 m-t-5 m-b-10">Online Documentation</a>' + '</li>' + '<li class="text-center">' + '<span class="text-center f-18 m-t-15 m-b-15 d-block">Thank you for sharing !</span>' + '<a href="#!" target="_blank" class="btn btn-facebook soc-icon m-b-20"><i class="feather icon-facebook"></i></a>' + '<a href="#!" target="_blank" class="btn btn-twitter soc-icon m-l-20 m-b-20"><i class="feather icon-twitter"></i></a>' + '</li>' + '</ul>' + '');
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -63318,7 +63365,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(212);
+__webpack_require__(213);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -63332,7 +63379,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -63522,10 +63569,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(152)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(153)))
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66150,7 +66197,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66234,9 +66281,9 @@ if (inBrowser && window.Vue) {
 
 ]; */
 var routes = [{
-    path: '/kokrokoo.com/create-subscription-media',
+    path: '/kokrokoo.com/user-account/create-subscription-media',
     name: 'selectMedia',
-    component: __webpack_require__(158)
+    component: __webpack_require__(159)
 }, {
     name: 'fileupload',
     path: '/kokrokoo.com/user-account/create-sub-file',
@@ -66252,15 +66299,15 @@ var routes = [{
 }, {
     name: 'segments',
     path: '/kokrokoo.com/user-account/create-sub-date',
-    component: __webpack_require__(248)
+    component: __webpack_require__(249)
 }, {
     name: 'invoice',
     path: '/kokrokoo.com/user-account/create-sub-invoice',
-    component: __webpack_require__(162)
+    component: __webpack_require__(20)
 }, {
     name: 'subs',
     path: '/kokrokoo.com/user-account/subscriptions',
-    component: __webpack_require__(251)
+    component: __webpack_require__(252)
 },
 // {   name : 'selectSegments',
 //     path : '/kokrokoo.com/user-account/select-segment',
@@ -66269,23 +66316,23 @@ var routes = [{
 {
     name: 'selectRateAndTime',
     path: '/kokrokoo.com/user-account/select-rate',
-    component: __webpack_require__(339)
+    component: __webpack_require__(168)
 }, {
     name: 'fullcalender',
     path: '/kokrokoo.com/user-account/select-calender',
-    component: __webpack_require__(254)
+    component: __webpack_require__(257)
 }, {
     name: 'payment',
     path: '/kokrokoo.com/user-account/payment',
-    component: __webpack_require__(20)
+    component: __webpack_require__(21)
 }, {
     name: 'transactions',
     path: '/kokrokoo.com/user-account/transactions',
-    component: __webpack_require__(168)
+    component: __webpack_require__(169)
 }, {
     name: 'profile',
     path: '/kokrokoo.com/user-account/user-profile',
-    component: __webpack_require__(269)
+    component: __webpack_require__(272)
 },
 // {   name : 'home',
 //     path : '/kokrokoo.com/user-account/dashboard',
@@ -66294,17 +66341,17 @@ var routes = [{
 {
     name: 'payment-success',
     path: '/kokrokoo.com/user-account/payment-success',
-    component: __webpack_require__(270)
+    component: __webpack_require__(273)
 }];
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(216);
+var content = __webpack_require__(217);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -66324,7 +66371,7 @@ if(false) {
 }
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -66338,7 +66385,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports) {
 
 /**
@@ -66371,7 +66418,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66381,13 +66428,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createPrintAd_vue__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createPrintAd_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__createPrintAd_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createAdWeekdays_vue__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createAdWeekdays_vue__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createAdWeekdays_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__createAdWeekdays_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__file_uploads_fileSizeWarningModal_vue__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__file_uploads_fileSizeWarningModal_vue__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__file_uploads_fileSizeWarningModal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__file_uploads_fileSizeWarningModal_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__invoice_invoice_vue__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__invoice_invoice_vue__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__invoice_invoice_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__invoice_invoice_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__creation_of_sub_summary_adSummary_vue__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__creation_of_sub_summary_adSummary_vue__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__creation_of_sub_summary_adSummary_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__creation_of_sub_summary_adSummary_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__payment_showProcess_vue__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__payment_showProcess_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__payment_showProcess_vue__);
@@ -66792,7 +66839,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67737,18 +67784,18 @@ var index_esm = {
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_deepmerge__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_shvl__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_deepmerge__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_shvl__ = __webpack_require__(223);
 /* harmony default export */ __webpack_exports__["a"] = (function(n,o,u){function i(t,e,r){try{return(r=e.getItem(t))&&void 0!==r?JSON.parse(r):void 0}catch(t){}}if(o=(n=n||{}).storage||window&&window.localStorage,u=n.key||"vuex",!function(t){try{return t.setItem("@@",1),t.removeItem("@@"),!0}catch(t){}return!1}(o))throw new Error("Invalid storage instance given");return function(c){var a=Object(__WEBPACK_IMPORTED_MODULE_1_shvl__["a" /* get */])(n,"getState",i)(u,o);"object"==typeof a&&null!==a&&c.replaceState(Object(__WEBPACK_IMPORTED_MODULE_0_deepmerge__["a" /* default */])(c.state,a,{arrayMerge:n.arrayMerger||function(t,e){return e},clone:!1})),(n.subscriber||function(t){return function(e){return t.subscribe(e)}})(c)(function(t,i){(n.filter||function(){return!0})(t)&&(n.setState||function(t,e,r){return r.setItem(t,JSON.stringify(e))})(u,(n.reducer||function(t,n){return 0===n.length?t:n.reduce(function(n,o){return Object(__WEBPACK_IMPORTED_MODULE_1_shvl__["b" /* set */])(n,o,Object(__WEBPACK_IMPORTED_MODULE_1_shvl__["a" /* get */])(t,o))},{})})(i,n.paths||[]),o)})}});;
 //# sourceMappingURL=vuex-persistedstate.es.js.map
 
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67844,7 +67891,7 @@ var deepmerge_1 = deepmerge;
 
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67855,7 +67902,7 @@ function t(t,n,r){return void 0===(t=(n.split?n.split("."):n).reduce(function(t,
 
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67971,7 +68018,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -68307,7 +68354,7 @@ if (false) {
 }
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68976,7 +69023,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72202,7 +72249,7 @@ if (false) {
 }
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72255,7 +72302,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72383,7 +72430,7 @@ if (false) {
 }
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72545,7 +72592,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72795,13 +72842,13 @@ if (false) {
 }
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__payment_paymentType_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__payment_paymentType_vue__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__payment_paymentType_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__payment_paymentType_vue__);
 //
 //
@@ -73159,7 +73206,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73491,7 +73538,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73551,7 +73598,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -73671,7 +73718,7 @@ if (false) {
 }
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74102,7 +74149,7 @@ if (false) {
 }
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74749,7 +74796,7 @@ if (false) {
 }
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -74783,7 +74830,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74833,7 +74880,7 @@ if (false) {
 }
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75012,7 +75059,7 @@ if (false) {
 }
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75243,7 +75290,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75381,7 +75428,7 @@ if (false) {
 }
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75578,7 +75625,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75618,7 +75665,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75668,7 +75715,7 @@ if (false) {
 }
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -75928,7 +75975,7 @@ if (false) {
 }
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76088,7 +76135,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -76272,15 +76319,15 @@ if (false) {
 }
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(249)
+var __vue_script__ = __webpack_require__(250)
 /* template */
-var __vue_template__ = __webpack_require__(250)
+var __vue_template__ = __webpack_require__(251)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -76319,7 +76366,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 249 */
+/* 250 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76464,7 +76511,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 250 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -76588,15 +76635,15 @@ if (false) {
 }
 
 /***/ }),
-/* 251 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(252)
+var __vue_script__ = __webpack_require__(253)
 /* template */
-var __vue_template__ = __webpack_require__(253)
+var __vue_template__ = __webpack_require__(254)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -76635,7 +76682,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 252 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76865,7 +76912,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 253 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -77003,15 +77050,1362 @@ if (false) {
 }
 
 /***/ }),
-/* 254 */
+/* 255 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['saveSegment', 'startDate', 'endDate', 'media_id', 'segments_data', 'card_title'],
+    name: 'selectSegments',
+
+    mounted: function mounted() {
+        // this.eventTime();
+        // this.validateRateCardSelection(this.seg_data);
+
+    },
+    created: function created() {},
+    data: function data() {
+        return {
+            //invoice: '/user-account/create-sub-invoice',
+            segment_date: '/user-account/create-sub-date',
+            selSegment_url: '/user-account/select-segment',
+            // segments_data:
+            //     [{"mon_seg_start": "07:00","mon_seg_end": "08:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "08:00","mon_seg_end": "09:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "09:00","mon_seg_end": "10:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "10:00","mon_seg_end": "11:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "11:00","mon_seg_end": "12:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "13:00","mon_seg_end": "14:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "14:00","mon_seg_end": "15:00","mon_spots": "3",
+            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null}]
+            // ,
+            // segments_data : [],
+            segments_headings: { "sec1": 15, "sec2": 20, "sec3": 25, "sec4": 30, "sec5": null },
+            spots_available: 10,
+            selSegment: '',
+            selMedia: '',
+            seg_data: [],
+            spots: [],
+            print_segments: [{}],
+            title: '',
+            rate: '',
+            day: 'Monday',
+            invoice: 'invoice',
+            start: '',
+            end: '',
+            event_time: false,
+            startDates: [],
+            endDates: [],
+            days_of_week: true,
+            schedule: false
+
+        };
+    },
+
+    methods: {
+        submit: function submit(title) {
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', title);
+            this.eventTime();
+
+            $('#mol').modal('hide');
+            $('#print').modal('hide');
+        },
+        eventTime: function eventTime() {
+
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubData', this.seg_data);
+        },
+        spot_avail: function spot_avail(spot) {
+            var s = parseInt(spot);
+            var results = [];
+            for (var i = 1; i < s + 1; i++) {
+                results.push(i);
+            }
+            return results;
+        },
+        checkSpots: function checkSpots(segment) {
+            var self = this;
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
+            setTimeout(function () {
+                axios.get('check-spots-api/' + segment).then(function (res) {
+                    console.log(res.data);
+                    __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }, 3000);
+        },
+        save: function save() {
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', this.title);
+            $('#mol').modal('hide');
+        },
+        validateRateCardSelection: function validateRateCardSelection(segment) {
+            // alert(segment.length > 0);
+            return segment.length > 0;
+        }
+    },
+
+    computed: {
+        notification: function notification() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkAvailableDate;
+        },
+        segmentDay: function segmentDay() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
+        },
+        getMediaHouse: function getMediaHouse() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedMediaHouse;
+        },
+        getRateCardTitle: function getRateCardTitle() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
+        },
+        segData: function segData() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentsData;
+        },
+        getProcessStatus: function getProcessStatus() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+        },
+        segDate: function segDate() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDate;
+        },
+        selSegments: function selSegments() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedSegment;
+        },
+        segTitle: function segTitle() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+        },
+        startTimes: function startTimes() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.startTime;
+        },
+        endTimes: function endTimes() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.endTime;
+        },
+        getTitle: function getTitle() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
+        },
+        fileName: function fileName() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileName;
+        },
+        fileSize: function fileSize() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileSize;
+        },
+        startDat: function startDat() {
+            return this.startDate;
+        },
+        schedAdsData: function schedAdsData() {
+            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
+        },
+        mediaId: function mediaId() {
+            return this.media_id;
+        },
+        segmentData: function segmentData() {
+            return this.segments_data;
+        }
+    }
+
+});
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "modal fade",
+      staticStyle: { "margin-left": "220px" },
+      attrs: { id: "mol", tabindex: "-1", role: "dialog" }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
+        [
+          _c(
+            "form",
+            {
+              attrs: { id: "segment-form" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c("h4", { staticClass: "modal-title" }, [
+                    _c("b", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.getMediaHouse))
+                    ]),
+                    _vm._v("- " + _vm._s(_vm.card_title) + " rate card")
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.title,
+                          expression: "title"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        required: "required",
+                        name: "title",
+                        type: "text",
+                        placeholder:
+                          "Enter segment title  eg:short video  on  history of gold coast"
+                      },
+                      domProps: { value: _vm.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.title = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-bordered" }, [
+                      _c(
+                        "thead",
+                        _vm._l(_vm.segmentData, function(segment) {
+                          return _c(
+                            "tr",
+                            {
+                              staticStyle: {
+                                background: "#36475F",
+                                color: "#ffffff"
+                              }
+                            },
+                            [
+                              _c("th", [_vm._v("#")]),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        _vm.segmentDay
+                                          .substring(0, 3)
+                                          .toUpperCase() ===
+                                        JSON.parse(segment.segments).dura.mon,
+                                      expression:
+                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.mon"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.mon
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        _vm.segmentDay
+                                          .substring(0, 3)
+                                          .toUpperCase() ===
+                                        JSON.parse(segment.segments).dura.tue,
+                                      expression:
+                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.tue"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.tue
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        _vm.segmentDay
+                                          .substring(0, 3)
+                                          .toUpperCase() ===
+                                        JSON.parse(segment.segments).dura.wed,
+                                      expression:
+                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.wed"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.wed
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        _vm.segmentDay
+                                          .substring(0, 3)
+                                          .toUpperCase() ===
+                                        JSON.parse(segment.segments).dura.thu,
+                                      expression:
+                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.thu"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.thu
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        _vm.segmentDay
+                                          .substring(0, 3)
+                                          .toUpperCase() ===
+                                        JSON.parse(segment.segments).dura.fri,
+                                      expression:
+                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.fri"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.fri
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("th", [_vm._v("Spots")]),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        JSON.parse(segment.segments).dura.sec1 >
+                                        0,
+                                      expression:
+                                        "JSON.parse(segment.segments).dura.sec1 > 0"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.sec1 +
+                                        JSON.parse(segment.segments).dura.time1
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        JSON.parse(segment.segments).dura.sec2 >
+                                        0,
+                                      expression:
+                                        "JSON.parse(segment.segments).dura.sec2 > 0"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.sec2 +
+                                        JSON.parse(segment.segments).dura.time2
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        JSON.parse(segment.segments).dura.sec3 >
+                                        0,
+                                      expression:
+                                        "JSON.parse(segment.segments).dura.sec3 > 0"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.sec3 +
+                                        JSON.parse(segment.segments).dura.time3
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        JSON.parse(segment.segments).dura.sec4 >
+                                        0,
+                                      expression:
+                                        "JSON.parse(segment.segments).dura.sec4 > 0"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.sec4 +
+                                        JSON.parse(segment.segments).dura.time4
+                                    )
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "th",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value:
+                                        JSON.parse(segment.segments).dura.sec5 >
+                                        0,
+                                      expression:
+                                        "JSON.parse(segment.segments).dura.sec5 > 0"
+                                    }
+                                  ]
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      JSON.parse(segment.segments).dura.sec5 +
+                                        JSON.parse(segment.segments).dura.time5
+                                    )
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        })
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.segmentData, function(segment, index) {
+                          return _c("tr", [
+                            _c("th", { attrs: { scope: "row" } }, [
+                              _vm._v(_vm._s(index + 1))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      _vm.segmentDay
+                                        .substring(0, 3)
+                                        .toUpperCase() ===
+                                      JSON.parse(segment.segments).dura.mon,
+                                    expression:
+                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.mon"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    JSON.parse(segment.segments).mon_duration
+                                  ) +
+                                    "-" +
+                                    _vm._s(
+                                      JSON.parse(segment.segments)
+                                        .mon_b_duration
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      _vm.segmentDay
+                                        .substring(0, 3)
+                                        .toUpperCase() ===
+                                      JSON.parse(segment.segments).dura.tue,
+                                    expression:
+                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.tue"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    JSON.parse(segment.segments).tue_duration
+                                  ) +
+                                    "-" +
+                                    _vm._s(
+                                      JSON.parse(segment.segments)
+                                        .tue_b_duration
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      _vm.segmentDay
+                                        .substring(0, 3)
+                                        .toUpperCase() ===
+                                      JSON.parse(segment.segments).dura.wed,
+                                    expression:
+                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.wed"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    JSON.parse(segment.segments).wed_duration
+                                  ) +
+                                    "-" +
+                                    _vm._s(
+                                      JSON.parse(segment.segments)
+                                        .wed_b_duration
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      _vm.segmentDay
+                                        .substring(0, 3)
+                                        .toUpperCase() ===
+                                      JSON.parse(segment.segments).dura.thu,
+                                    expression:
+                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.thu"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    JSON.parse(segment.segments).thu_duration
+                                  ) +
+                                    "-" +
+                                    _vm._s(
+                                      JSON.parse(segment.segments)
+                                        .thu_b_duration
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      _vm.segmentDay
+                                        .substring(0, 3)
+                                        .toUpperCase() ===
+                                      JSON.parse(segment.segments).dura.fri,
+                                    expression:
+                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.fri"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    JSON.parse(segment.segments).fri_duration
+                                  ) +
+                                    "-" +
+                                    _vm._s(
+                                      JSON.parse(segment.segments)
+                                        .fri_b_duration
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.spots[index],
+                                      expression: "spots[index]"
+                                    }
+                                  ],
+                                  attrs: { name: "select" },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.spots,
+                                        index,
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", {
+                                    attrs: {
+                                      disabled: "",
+                                      value: "",
+                                      selected: ""
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._l(
+                                    _vm.spot_avail(_vm.spots_available),
+                                    function(s) {
+                                      return _c(
+                                        "option",
+                                        {
+                                          attrs: { name: "seA" + index },
+                                          domProps: { value: s }
+                                        },
+                                        [_vm._v(_vm._s(s))]
+                                      )
+                                    }
+                                  )
+                                ],
+                                2
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      JSON.parse(segment.segments).dura.sec1 >
+                                      0,
+                                    expression:
+                                      "JSON.parse(segment.segments).dura.sec1 > 0"
+                                  }
+                                ]
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.seg_data[index],
+                                      expression: "seg_data[index]"
+                                    }
+                                  ],
+                                  attrs: { type: "radio", name: "seA" + index },
+                                  domProps: {
+                                    value: {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .mon_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .mon_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec1 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec1_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    },
+                                    checked: _vm._q(_vm.seg_data[index], {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .mon_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .mon_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec1 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec1_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    })
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      _vm.$set(_vm.seg_data, index, {
+                                        startDate: _vm.startDate,
+                                        endDate: _vm.endDate,
+                                        startTime: JSON.parse(segment.segments)
+                                          .mon_duration,
+                                        endTime: JSON.parse(segment.segments)
+                                          .mon_b_duration,
+                                        durations:
+                                          JSON.parse(segment.segments).dura
+                                            .sec1 +
+                                          JSON.parse(segment.segments).dura
+                                            .time1,
+                                        rate: JSON.parse(segment.segments)
+                                          .sec1_rate,
+                                        rate_card: _vm.getTitle,
+                                        spot: _vm.spots[index]
+                                      })
+                                    }
+                                  }
+                                }),
+                                _vm._v(
+                                  _vm._s(
+                                    "GHC" +
+                                      JSON.parse(segment.segments).sec1_rate
+                                  )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      JSON.parse(segment.segments).dura.sec2 >
+                                      0,
+                                    expression:
+                                      "JSON.parse(segment.segments).dura.sec2 > 0"
+                                  }
+                                ]
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.seg_data[index],
+                                      expression: "seg_data[index]"
+                                    }
+                                  ],
+                                  attrs: { type: "radio", name: "seB" + index },
+                                  domProps: {
+                                    value: {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .tue_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .tue_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec2 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec2_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    },
+                                    checked: _vm._q(_vm.seg_data[index], {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .tue_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .tue_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec2 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec2_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    })
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      _vm.$set(_vm.seg_data, index, {
+                                        startDate: _vm.startDate,
+                                        endDate: _vm.endDate,
+                                        startTime: JSON.parse(segment.segments)
+                                          .tue_duration,
+                                        endTime: JSON.parse(segment.segments)
+                                          .tue_b_duration,
+                                        durations:
+                                          JSON.parse(segment.segments).dura
+                                            .sec2 +
+                                          JSON.parse(segment.segments).dura
+                                            .time1,
+                                        rate: JSON.parse(segment.segments)
+                                          .sec2_rate,
+                                        rate_card: _vm.getTitle,
+                                        spot: _vm.spots[index]
+                                      })
+                                    }
+                                  }
+                                }),
+                                _vm._v(
+                                  _vm._s(
+                                    "GHC" +
+                                      JSON.parse(segment.segments).sec2_rate
+                                  )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      JSON.parse(segment.segments).dura.sec3 >
+                                      0,
+                                    expression:
+                                      "JSON.parse(segment.segments).dura.sec3 > 0"
+                                  }
+                                ]
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.seg_data[index],
+                                      expression: "seg_data[index]"
+                                    }
+                                  ],
+                                  attrs: { type: "radio", name: "seC" + index },
+                                  domProps: {
+                                    value: {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .wed_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .wed_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec3 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec3_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    },
+                                    checked: _vm._q(_vm.seg_data[index], {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .wed_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .wed_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec3 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec3_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    })
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      _vm.$set(_vm.seg_data, index, {
+                                        startDate: _vm.startDate,
+                                        endDate: _vm.endDate,
+                                        startTime: JSON.parse(segment.segments)
+                                          .wed_duration,
+                                        endTime: JSON.parse(segment.segments)
+                                          .wed_b_duration,
+                                        durations:
+                                          JSON.parse(segment.segments).dura
+                                            .sec3 +
+                                          JSON.parse(segment.segments).dura
+                                            .time1,
+                                        rate: JSON.parse(segment.segments)
+                                          .sec3_rate,
+                                        rate_card: _vm.getTitle,
+                                        spot: _vm.spots[index]
+                                      })
+                                    }
+                                  }
+                                }),
+                                _vm._v(
+                                  _vm._s(
+                                    "GHC" +
+                                      JSON.parse(segment.segments).sec3_rate
+                                  )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      JSON.parse(segment.segments).dura.sec4 >
+                                      0,
+                                    expression:
+                                      "JSON.parse(segment.segments).dura.sec4 > 0"
+                                  }
+                                ]
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.seg_data[index],
+                                      expression: "seg_data[index]"
+                                    }
+                                  ],
+                                  attrs: { type: "radio", name: "seD" + index },
+                                  domProps: {
+                                    value: {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .thu_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .thu_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec4 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec4_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    },
+                                    checked: _vm._q(_vm.seg_data[index], {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .thu_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .thu_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec4 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec4_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    })
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      _vm.$set(_vm.seg_data, index, {
+                                        startDate: _vm.startDate,
+                                        endDate: _vm.endDate,
+                                        startTime: JSON.parse(segment.segments)
+                                          .thu_duration,
+                                        endTime: JSON.parse(segment.segments)
+                                          .thu_b_duration,
+                                        durations:
+                                          JSON.parse(segment.segments).dura
+                                            .sec4 +
+                                          JSON.parse(segment.segments).dura
+                                            .time1,
+                                        rate: JSON.parse(segment.segments)
+                                          .sec4_rate,
+                                        rate_card: _vm.getTitle,
+                                        spot: _vm.spots[index]
+                                      })
+                                    }
+                                  }
+                                }),
+                                _vm._v(
+                                  _vm._s(
+                                    "GHC" +
+                                      JSON.parse(segment.segments).sec4_rate
+                                  )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value:
+                                      JSON.parse(segment.segments).dura.sec5 >
+                                      0,
+                                    expression:
+                                      "JSON.parse(segment.segments).dura.sec5 > 0"
+                                  }
+                                ]
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.seg_data[index],
+                                      expression: "seg_data[index]"
+                                    }
+                                  ],
+                                  attrs: { type: "radio", name: "seE" + index },
+                                  domProps: {
+                                    value: {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .fri_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .fri_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec5 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec5_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    },
+                                    checked: _vm._q(_vm.seg_data[index], {
+                                      startDate: _vm.startDate,
+                                      endDate: _vm.endDate,
+                                      startTime: JSON.parse(segment.segments)
+                                        .fri_duration,
+                                      endTime: JSON.parse(segment.segments)
+                                        .fri_b_duration,
+                                      durations:
+                                        JSON.parse(segment.segments).dura.sec5 +
+                                        JSON.parse(segment.segments).dura.time1,
+                                      rate: JSON.parse(segment.segments)
+                                        .sec5_rate,
+                                      rate_card: _vm.getTitle,
+                                      spot: _vm.spots[index]
+                                    })
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      _vm.$set(_vm.seg_data, index, {
+                                        startDate: _vm.startDate,
+                                        endDate: _vm.endDate,
+                                        startTime: JSON.parse(segment.segments)
+                                          .fri_duration,
+                                        endTime: JSON.parse(segment.segments)
+                                          .fri_b_duration,
+                                        durations:
+                                          JSON.parse(segment.segments).dura
+                                            .sec5 +
+                                          JSON.parse(segment.segments).dura
+                                            .time1,
+                                        rate: JSON.parse(segment.segments)
+                                          .sec5_rate,
+                                        rate_card: _vm.getTitle,
+                                        spot: _vm.spots[index]
+                                      })
+                                    }
+                                  }
+                                }),
+                                _vm._v(
+                                  _vm._s(
+                                    "GHC" +
+                                      JSON.parse(segment.segments).sec5_rate
+                                  )
+                                )
+                              ]
+                            )
+                          ])
+                        })
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "modal-footer" },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default waves-effect ",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Close")]
+                    ),
+                    _vm._v(" "),
+                    _vm.title
+                      ? _c(
+                          "router-link",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.validateRateCardSelection(
+                                  this.seg_data
+                                ),
+                                expression:
+                                  "validateRateCardSelection(this.seg_data)"
+                              }
+                            ],
+                            staticClass:
+                              "btn btn-primary waves-effect waves-light ",
+                            attrs: { to: { name: "invoice" } },
+                            nativeOn: {
+                              click: function($event) {
+                                _vm.submit(_vm.title)
+                              }
+                            }
+                          },
+                          [_vm._v("Schedule")]
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ])
+            ]
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7a070cd9", module.exports)
+  }
+}
+
+/***/ }),
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(255)
+var __vue_script__ = __webpack_require__(258)
 /* template */
-var __vue_template__ = __webpack_require__(264)
+var __vue_template__ = __webpack_require__(267)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -77050,15 +78444,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 255 */
+/* 258 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__success_pages_segmentTitle__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__success_pages_segmentTitle__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__success_pages_segmentTitle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__success_pages_segmentTitle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fetch_ratecards_printRateCare__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fetch_ratecards_printRateCare__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fetch_ratecards_printRateCare___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__fetch_ratecards_printRateCare__);
 //
 //
@@ -77399,19 +78793,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 256 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(257)
+  __webpack_require__(260)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(259)
+var __vue_script__ = __webpack_require__(262)
 /* template */
-var __vue_template__ = __webpack_require__(260)
+var __vue_template__ = __webpack_require__(263)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -77450,13 +78844,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 257 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(258);
+var content = __webpack_require__(261);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -77476,7 +78870,7 @@ if(false) {
 }
 
 /***/ }),
-/* 258 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -77490,7 +78884,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 259 */
+/* 262 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77554,7 +78948,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 260 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -77662,15 +79056,15 @@ if (false) {
 }
 
 /***/ }),
-/* 261 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(262)
+var __vue_script__ = __webpack_require__(265)
 /* template */
-var __vue_template__ = __webpack_require__(263)
+var __vue_template__ = __webpack_require__(266)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -77709,7 +79103,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 262 */
+/* 265 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77914,7 +79308,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 263 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -78142,7 +79536,7 @@ if (false) {
 }
 
 /***/ }),
-/* 264 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -78318,13 +79712,13 @@ if (false) {
 }
 
 /***/ }),
-/* 265 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(266);
+var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -78344,7 +79738,7 @@ if(false) {
 }
 
 /***/ }),
-/* 266 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -78358,7 +79752,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 267 */
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78464,7 +79858,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 268 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -78566,7 +79960,7 @@ if (false) {
 }
 
 /***/ }),
-/* 269 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var normalizeComponent = __webpack_require__(1)
@@ -78596,19 +79990,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 270 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(271)
+  __webpack_require__(274)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(273)
+var __vue_script__ = __webpack_require__(276)
 /* template */
-var __vue_template__ = __webpack_require__(274)
+var __vue_template__ = __webpack_require__(277)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -78647,13 +80041,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 271 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(272);
+var content = __webpack_require__(275);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -78673,7 +80067,7 @@ if(false) {
 }
 
 /***/ }),
-/* 272 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -78687,7 +80081,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""])
 
 
 /***/ }),
-/* 273 */
+/* 276 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -78714,7 +80108,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 274 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -78797,11 +80191,11 @@ if (false) {
 }
 
 /***/ }),
-/* 275 */
+/* 278 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_FullCalendar_vue__);
 /* unused harmony reexport FullCalendar */
 
@@ -78815,15 +80209,15 @@ if (false) {
 
 
 /***/ }),
-/* 276 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(277)
+var __vue_script__ = __webpack_require__(280)
 /* template */
-var __vue_template__ = __webpack_require__(307)
+var __vue_template__ = __webpack_require__(310)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -78862,16 +80256,16 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 277 */
+/* 280 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash_defaultsdeep__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullcalendar__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullcalendar__ = __webpack_require__(309);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_fullcalendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_fullcalendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
@@ -79110,7 +80504,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 278 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -79118,7 +80512,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 exports.__esModule = true;
 
-var _from = __webpack_require__(279);
+var _from = __webpack_require__(282);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -79137,30 +80531,30 @@ exports.default = function (arr) {
 };
 
 /***/ }),
-/* 279 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(280), __esModule: true };
+module.exports = { "default": __webpack_require__(283), __esModule: true };
 
 /***/ }),
-/* 280 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(281);
-__webpack_require__(298);
+__webpack_require__(284);
+__webpack_require__(301);
 module.exports = __webpack_require__(10).Array.from;
 
 
 /***/ }),
-/* 281 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(282)(true);
+var $at = __webpack_require__(285)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(283)(String, 'String', function (iterated) {
+__webpack_require__(286)(String, 'String', function (iterated) {
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -79176,11 +80570,11 @@ __webpack_require__(283)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 282 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(21);
-var defined = __webpack_require__(22);
+var toInteger = __webpack_require__(22);
+var defined = __webpack_require__(23);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function (TO_STRING) {
@@ -79199,19 +80593,19 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 283 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var LIBRARY = __webpack_require__(169);
-var $export = __webpack_require__(170);
-var redefine = __webpack_require__(287);
+var LIBRARY = __webpack_require__(170);
+var $export = __webpack_require__(171);
+var redefine = __webpack_require__(290);
 var hide = __webpack_require__(11);
-var Iterators = __webpack_require__(25);
-var $iterCreate = __webpack_require__(288);
-var setToStringTag = __webpack_require__(180);
-var getPrototypeOf = __webpack_require__(297);
+var Iterators = __webpack_require__(26);
+var $iterCreate = __webpack_require__(291);
+var setToStringTag = __webpack_require__(181);
+var getPrototypeOf = __webpack_require__(300);
 var ITERATOR = __webpack_require__(6)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
@@ -79275,7 +80669,7 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 
 /***/ }),
-/* 284 */
+/* 287 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -79285,20 +80679,20 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 285 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(14) && !__webpack_require__(172)(function () {
-  return Object.defineProperty(__webpack_require__(173)('div'), 'a', { get: function () { return 7; } }).a != 7;
+module.exports = !__webpack_require__(14) && !__webpack_require__(173)(function () {
+  return Object.defineProperty(__webpack_require__(174)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 286 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(23);
+var isObject = __webpack_require__(24);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -79312,21 +80706,21 @@ module.exports = function (it, S) {
 
 
 /***/ }),
-/* 287 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(11);
 
 
 /***/ }),
-/* 288 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create = __webpack_require__(289);
-var descriptor = __webpack_require__(24);
-var setToStringTag = __webpack_require__(180);
+var create = __webpack_require__(292);
+var descriptor = __webpack_require__(25);
+var setToStringTag = __webpack_require__(181);
 var IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
@@ -79339,27 +80733,27 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 289 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(13);
-var dPs = __webpack_require__(290);
-var enumBugKeys = __webpack_require__(179);
-var IE_PROTO = __webpack_require__(26)('IE_PROTO');
+var dPs = __webpack_require__(293);
+var enumBugKeys = __webpack_require__(180);
+var IE_PROTO = __webpack_require__(27)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function () {
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(173)('iframe');
+  var iframe = __webpack_require__(174)('iframe');
   var i = enumBugKeys.length;
   var lt = '<';
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(296).appendChild(iframe);
+  __webpack_require__(299).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -79386,12 +80780,12 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 290 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(12);
 var anObject = __webpack_require__(13);
-var getKeys = __webpack_require__(291);
+var getKeys = __webpack_require__(294);
 
 module.exports = __webpack_require__(14) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
@@ -79405,12 +80799,12 @@ module.exports = __webpack_require__(14) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 291 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(292);
-var enumBugKeys = __webpack_require__(179);
+var $keys = __webpack_require__(295);
+var enumBugKeys = __webpack_require__(180);
 
 module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
@@ -79418,13 +80812,13 @@ module.exports = Object.keys || function keys(O) {
 
 
 /***/ }),
-/* 292 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__(15);
-var toIObject = __webpack_require__(174);
-var arrayIndexOf = __webpack_require__(294)(false);
-var IE_PROTO = __webpack_require__(26)('IE_PROTO');
+var toIObject = __webpack_require__(175);
+var arrayIndexOf = __webpack_require__(297)(false);
+var IE_PROTO = __webpack_require__(27)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -79441,11 +80835,11 @@ module.exports = function (object, names) {
 
 
 /***/ }),
-/* 293 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(175);
+var cof = __webpack_require__(176);
 // eslint-disable-next-line no-prototype-builtins
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
   return cof(it) == 'String' ? it.split('') : Object(it);
@@ -79453,14 +80847,14 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 294 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
-var toIObject = __webpack_require__(174);
-var toLength = __webpack_require__(176);
-var toAbsoluteIndex = __webpack_require__(295);
+var toIObject = __webpack_require__(175);
+var toLength = __webpack_require__(177);
+var toAbsoluteIndex = __webpack_require__(298);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -79482,10 +80876,10 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 295 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(21);
+var toInteger = __webpack_require__(22);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -79495,7 +80889,7 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 296 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(8).document;
@@ -79503,13 +80897,13 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 297 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(15);
-var toObject = __webpack_require__(181);
-var IE_PROTO = __webpack_require__(26)('IE_PROTO');
+var toObject = __webpack_require__(182);
+var IE_PROTO = __webpack_require__(27)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -79522,21 +80916,21 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 298 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ctx = __webpack_require__(171);
-var $export = __webpack_require__(170);
-var toObject = __webpack_require__(181);
-var call = __webpack_require__(299);
-var isArrayIter = __webpack_require__(300);
-var toLength = __webpack_require__(176);
-var createProperty = __webpack_require__(301);
-var getIterFn = __webpack_require__(302);
+var ctx = __webpack_require__(172);
+var $export = __webpack_require__(171);
+var toObject = __webpack_require__(182);
+var call = __webpack_require__(302);
+var isArrayIter = __webpack_require__(303);
+var toLength = __webpack_require__(177);
+var createProperty = __webpack_require__(304);
+var getIterFn = __webpack_require__(305);
 
-$export($export.S + $export.F * !__webpack_require__(304)(function (iter) { Array.from(iter); }), 'Array', {
+$export($export.S + $export.F * !__webpack_require__(307)(function (iter) { Array.from(iter); }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
   from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
     var O = toObject(arrayLike);
@@ -79566,7 +80960,7 @@ $export($export.S + $export.F * !__webpack_require__(304)(function (iter) { Arra
 
 
 /***/ }),
-/* 299 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
@@ -79584,11 +80978,11 @@ module.exports = function (iterator, fn, value, entries) {
 
 
 /***/ }),
-/* 300 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
-var Iterators = __webpack_require__(25);
+var Iterators = __webpack_require__(26);
 var ITERATOR = __webpack_require__(6)('iterator');
 var ArrayProto = Array.prototype;
 
@@ -79598,13 +80992,13 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 301 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $defineProperty = __webpack_require__(12);
-var createDesc = __webpack_require__(24);
+var createDesc = __webpack_require__(25);
 
 module.exports = function (object, index, value) {
   if (index in object) $defineProperty.f(object, index, createDesc(0, value));
@@ -79613,12 +81007,12 @@ module.exports = function (object, index, value) {
 
 
 /***/ }),
-/* 302 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof = __webpack_require__(303);
+var classof = __webpack_require__(306);
 var ITERATOR = __webpack_require__(6)('iterator');
-var Iterators = __webpack_require__(25);
+var Iterators = __webpack_require__(26);
 module.exports = __webpack_require__(10).getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
@@ -79627,11 +81021,11 @@ module.exports = __webpack_require__(10).getIteratorMethod = function (it) {
 
 
 /***/ }),
-/* 303 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = __webpack_require__(175);
+var cof = __webpack_require__(176);
 var TAG = __webpack_require__(6)('toStringTag');
 // ES3 wrong here
 var ARG = cof(function () { return arguments; }()) == 'Arguments';
@@ -79656,7 +81050,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 304 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ITERATOR = __webpack_require__(6)('iterator');
@@ -79684,7 +81078,7 @@ module.exports = function (exec, skipClosing) {
 
 
 /***/ }),
-/* 305 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -81945,7 +83339,7 @@ module.exports = defaultsDeep;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(16)(module)))
 
 /***/ }),
-/* 306 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -97098,7 +98492,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 307 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97118,15 +98512,15 @@ if (false) {
 }
 
 /***/ }),
-/* 308 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(309)
+var __vue_script__ = __webpack_require__(312)
 /* template */
-var __vue_template__ = __webpack_require__(310)
+var __vue_template__ = __webpack_require__(313)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97165,7 +98559,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 309 */
+/* 312 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97194,7 +98588,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 310 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97237,19 +98631,19 @@ if (false) {
 }
 
 /***/ }),
-/* 311 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(312)
+  __webpack_require__(315)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(314)
+var __vue_script__ = __webpack_require__(317)
 /* template */
-var __vue_template__ = __webpack_require__(315)
+var __vue_template__ = __webpack_require__(318)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97288,13 +98682,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 312 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(313);
+var content = __webpack_require__(316);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97314,7 +98708,7 @@ if(false) {
 }
 
 /***/ }),
-/* 313 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97328,7 +98722,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 314 */
+/* 317 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97383,7 +98777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 315 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97470,19 +98864,19 @@ if (false) {
 }
 
 /***/ }),
-/* 316 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(317)
+  __webpack_require__(320)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(319)
+var __vue_script__ = __webpack_require__(322)
 /* template */
-var __vue_template__ = __webpack_require__(320)
+var __vue_template__ = __webpack_require__(323)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97521,13 +98915,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 317 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(318);
+var content = __webpack_require__(321);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97547,7 +98941,7 @@ if(false) {
 }
 
 /***/ }),
-/* 318 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97561,7 +98955,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 319 */
+/* 322 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97616,7 +99010,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 320 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -97703,19 +99097,19 @@ if (false) {
 }
 
 /***/ }),
-/* 321 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(322)
+  __webpack_require__(325)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(324)
+var __vue_script__ = __webpack_require__(327)
 /* template */
-var __vue_template__ = __webpack_require__(329)
+var __vue_template__ = __webpack_require__(332)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -97754,13 +99148,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 322 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(323);
+var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97780,7 +99174,7 @@ if(false) {
 }
 
 /***/ }),
-/* 323 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -97794,12 +99188,12 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 324 */
+/* 327 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__payment_payment__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__payment_payment__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__payment_payment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__payment_payment__);
 //
 //
@@ -97965,13 +99359,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 325 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(326);
+var content = __webpack_require__(329);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -97991,7 +99385,7 @@ if(false) {
 }
 
 /***/ }),
-/* 326 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -98005,7 +99399,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 
 /***/ }),
-/* 327 */
+/* 330 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98145,7 +99539,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 328 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -98522,7 +99916,7 @@ if (false) {
 }
 
 /***/ }),
-/* 329 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -98890,15 +100284,15 @@ if (false) {
 }
 
 /***/ }),
-/* 330 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(331)
+var __vue_script__ = __webpack_require__(334)
 /* template */
-var __vue_template__ = __webpack_require__(332)
+var __vue_template__ = __webpack_require__(335)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -98937,7 +100331,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 331 */
+/* 334 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99016,7 +100410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 332 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99087,15 +100481,15 @@ if (false) {
 }
 
 /***/ }),
-/* 333 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(334)
+var __vue_script__ = __webpack_require__(337)
 /* template */
-var __vue_template__ = __webpack_require__(335)
+var __vue_template__ = __webpack_require__(338)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -99134,7 +100528,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 334 */
+/* 337 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99249,7 +100643,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 335 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99402,15 +100796,15 @@ if (false) {
 }
 
 /***/ }),
-/* 336 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(337)
+var __vue_script__ = __webpack_require__(340)
 /* template */
-var __vue_template__ = __webpack_require__(338)
+var __vue_template__ = __webpack_require__(341)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -99449,7 +100843,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 337 */
+/* 340 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99478,7 +100872,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 338 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -99494,1400 +100888,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-ce8e0002", module.exports)
-  }
-}
-
-/***/ }),
-/* 339 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(340)
-/* template */
-var __vue_template__ = __webpack_require__(341)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/display-selected-rate/selectRateAndTime.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7a070cd9", Component.options)
-  } else {
-    hotAPI.reload("data-v-7a070cd9", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 340 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['saveSegment', 'startDate', 'endDate', 'media_id', 'segments_data', 'card_title'],
-    name: 'selectSegments',
-
-    mounted: function mounted() {
-        // this.eventTime();
-        // this.validateRateCardSelection(this.seg_data);
-
-    },
-    created: function created() {},
-    data: function data() {
-        return {
-            //invoice: '/user-account/create-sub-invoice',
-            segment_date: '/user-account/create-sub-date',
-            selSegment_url: '/user-account/select-segment',
-            // segments_data:
-            //     [{"mon_seg_start": "07:00","mon_seg_end": "08:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "08:00","mon_seg_end": "09:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "09:00","mon_seg_end": "10:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "10:00","mon_seg_end": "11:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "11:00","mon_seg_end": "12:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "13:00","mon_seg_end": "14:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null},{"mon_seg_start": "14:00","mon_seg_end": "15:00","mon_spots": "3",
-            //         "sec1_rate": "500", "sec2_rate": "800", "sec3_rate": "1200", "sec4_rate": "1800", "sec5_rate": null}]
-            // ,
-            // segments_data : [],
-            segments_headings: { "sec1": 15, "sec2": 20, "sec3": 25, "sec4": 30, "sec5": null },
-            spots_available: 10,
-            selSegment: '',
-            selMedia: '',
-            seg_data: [],
-            spots: [],
-            print_segments: [{}],
-            title: '',
-            rate: '',
-            day: 'Monday',
-            invoice: 'invoice',
-            start: '',
-            end: '',
-            event_time: false,
-            startDates: [],
-            endDates: [],
-            days_of_week: true,
-            schedule: false
-
-        };
-    },
-
-    methods: {
-        submit: function submit(title) {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', title);
-            this.eventTime();
-
-            $('#mol').modal('hide');
-            $('#print').modal('hide');
-        },
-        eventTime: function eventTime() {
-
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubData', this.seg_data);
-        },
-        spot_avail: function spot_avail(spot) {
-            var s = parseInt(spot);
-            var results = [];
-            for (var i = 1; i < s + 1; i++) {
-                results.push(i);
-            }
-            return results;
-        },
-        checkSpots: function checkSpots(segment) {
-            var self = this;
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
-            setTimeout(function () {
-                axios.get('check-spots-api/' + segment).then(function (res) {
-                    console.log(res.data);
-                    __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
-                }).catch(function (error) {
-                    console.log(error);
-                });
-            }, 3000);
-        },
-        save: function save() {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', this.title);
-            $('#mol').modal('hide');
-        },
-        validateRateCardSelection: function validateRateCardSelection(segment) {
-            // alert(segment.length > 0);
-            return segment.length > 0;
-        }
-    },
-
-    computed: {
-        notification: function notification() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkAvailableDate;
-        },
-        segmentDay: function segmentDay() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
-        },
-        getMediaHouse: function getMediaHouse() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedMediaHouse;
-        },
-        getRateCardTitle: function getRateCardTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
-        },
-        segData: function segData() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentsData;
-        },
-        getProcessStatus: function getProcessStatus() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
-        },
-        segDate: function segDate() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDate;
-        },
-        selSegments: function selSegments() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedSegment;
-        },
-        segTitle: function segTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
-        },
-        startTimes: function startTimes() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.startTime;
-        },
-        endTimes: function endTimes() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.endTime;
-        },
-        getTitle: function getTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
-        },
-        fileName: function fileName() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileName;
-        },
-        fileSize: function fileSize() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileSize;
-        },
-        startDat: function startDat() {
-            return this.startDate;
-        },
-        schedAdsData: function schedAdsData() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
-        },
-        mediaId: function mediaId() {
-            return this.media_id;
-        },
-        segmentData: function segmentData() {
-            return this.segments_data;
-        }
-    }
-
-});
-
-/***/ }),
-/* 341 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "modal fade",
-      staticStyle: { "margin-left": "220px" },
-      attrs: { id: "mol", tabindex: "-1", role: "dialog" }
-    },
-    [
-      _c(
-        "div",
-        { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
-        [
-          _c(
-            "form",
-            {
-              attrs: { id: "segment-form" },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c("h4", { staticClass: "modal-title" }, [
-                    _c("b", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.getMediaHouse))
-                    ]),
-                    _vm._v("- " + _vm._s(_vm.card_title) + " rate card")
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(0)
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.title,
-                          expression: "title"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        required: "required",
-                        name: "title",
-                        type: "text",
-                        placeholder:
-                          "Enter segment title  eg:short video  on  history of gold coast"
-                      },
-                      domProps: { value: _vm.title },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.title = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "table-responsive" }, [
-                    _c("table", { staticClass: "table table-bordered" }, [
-                      _c(
-                        "thead",
-                        _vm._l(_vm.segmentData, function(segment) {
-                          return _c(
-                            "tr",
-                            {
-                              staticStyle: {
-                                background: "#36475F",
-                                color: "#ffffff"
-                              }
-                            },
-                            [
-                              _c("th", [_vm._v("#")]),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        _vm.segmentDay
-                                          .substring(0, 3)
-                                          .toUpperCase() ===
-                                        JSON.parse(segment.segments).dura.mon,
-                                      expression:
-                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.mon"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.mon
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        _vm.segmentDay
-                                          .substring(0, 3)
-                                          .toUpperCase() ===
-                                        JSON.parse(segment.segments).dura.tue,
-                                      expression:
-                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.tue"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.tue
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        _vm.segmentDay
-                                          .substring(0, 3)
-                                          .toUpperCase() ===
-                                        JSON.parse(segment.segments).dura.wed,
-                                      expression:
-                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.wed"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.wed
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        _vm.segmentDay
-                                          .substring(0, 3)
-                                          .toUpperCase() ===
-                                        JSON.parse(segment.segments).dura.thu,
-                                      expression:
-                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.thu"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.thu
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        _vm.segmentDay
-                                          .substring(0, 3)
-                                          .toUpperCase() ===
-                                        JSON.parse(segment.segments).dura.fri,
-                                      expression:
-                                        "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.fri"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.fri
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Spots")]),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        JSON.parse(segment.segments).dura.sec1 >
-                                        0,
-                                      expression:
-                                        "JSON.parse(segment.segments).dura.sec1 > 0"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.sec1 +
-                                        JSON.parse(segment.segments).dura.time1
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        JSON.parse(segment.segments).dura.sec2 >
-                                        0,
-                                      expression:
-                                        "JSON.parse(segment.segments).dura.sec2 > 0"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.sec2 +
-                                        JSON.parse(segment.segments).dura.time2
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        JSON.parse(segment.segments).dura.sec3 >
-                                        0,
-                                      expression:
-                                        "JSON.parse(segment.segments).dura.sec3 > 0"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.sec3 +
-                                        JSON.parse(segment.segments).dura.time3
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        JSON.parse(segment.segments).dura.sec4 >
-                                        0,
-                                      expression:
-                                        "JSON.parse(segment.segments).dura.sec4 > 0"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.sec4 +
-                                        JSON.parse(segment.segments).dura.time4
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        JSON.parse(segment.segments).dura.sec5 >
-                                        0,
-                                      expression:
-                                        "JSON.parse(segment.segments).dura.sec5 > 0"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      JSON.parse(segment.segments).dura.sec5 +
-                                        JSON.parse(segment.segments).dura.time5
-                                    )
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        })
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        _vm._l(_vm.segmentData, function(segment, index) {
-                          return _c("tr", [
-                            _c("th", { attrs: { scope: "row" } }, [
-                              _vm._v(_vm._s(index + 1))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      _vm.segmentDay
-                                        .substring(0, 3)
-                                        .toUpperCase() ===
-                                      JSON.parse(segment.segments).dura.mon,
-                                    expression:
-                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.mon"
-                                  }
-                                ]
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    JSON.parse(segment.segments).mon_duration
-                                  ) +
-                                    "-" +
-                                    _vm._s(
-                                      JSON.parse(segment.segments)
-                                        .mon_b_duration
-                                    )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      _vm.segmentDay
-                                        .substring(0, 3)
-                                        .toUpperCase() ===
-                                      JSON.parse(segment.segments).dura.tue,
-                                    expression:
-                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.tue"
-                                  }
-                                ]
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    JSON.parse(segment.segments).tue_duration
-                                  ) +
-                                    "-" +
-                                    _vm._s(
-                                      JSON.parse(segment.segments)
-                                        .tue_b_duration
-                                    )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      _vm.segmentDay
-                                        .substring(0, 3)
-                                        .toUpperCase() ===
-                                      JSON.parse(segment.segments).dura.wed,
-                                    expression:
-                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.wed"
-                                  }
-                                ]
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    JSON.parse(segment.segments).wed_duration
-                                  ) +
-                                    "-" +
-                                    _vm._s(
-                                      JSON.parse(segment.segments)
-                                        .wed_b_duration
-                                    )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      _vm.segmentDay
-                                        .substring(0, 3)
-                                        .toUpperCase() ===
-                                      JSON.parse(segment.segments).dura.thu,
-                                    expression:
-                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.thu"
-                                  }
-                                ]
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    JSON.parse(segment.segments).thu_duration
-                                  ) +
-                                    "-" +
-                                    _vm._s(
-                                      JSON.parse(segment.segments)
-                                        .thu_b_duration
-                                    )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      _vm.segmentDay
-                                        .substring(0, 3)
-                                        .toUpperCase() ===
-                                      JSON.parse(segment.segments).dura.fri,
-                                    expression:
-                                      "segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.fri"
-                                  }
-                                ]
-                              },
-                              [
-                                _vm._v(
-                                  _vm._s(
-                                    JSON.parse(segment.segments).fri_duration
-                                  ) +
-                                    "-" +
-                                    _vm._s(
-                                      JSON.parse(segment.segments)
-                                        .fri_b_duration
-                                    )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c(
-                                "select",
-                                {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.spots[index],
-                                      expression: "spots[index]"
-                                    }
-                                  ],
-                                  attrs: { name: "select" },
-                                  on: {
-                                    change: function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.$set(
-                                        _vm.spots,
-                                        index,
-                                        $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      )
-                                    }
-                                  }
-                                },
-                                [
-                                  _c("option", {
-                                    attrs: {
-                                      disabled: "",
-                                      value: "",
-                                      selected: ""
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _vm._l(
-                                    _vm.spot_avail(_vm.spots_available),
-                                    function(s) {
-                                      return _c(
-                                        "option",
-                                        {
-                                          attrs: { name: "seA" + index },
-                                          domProps: { value: s }
-                                        },
-                                        [_vm._v(_vm._s(s))]
-                                      )
-                                    }
-                                  )
-                                ],
-                                2
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      JSON.parse(segment.segments).dura.sec1 >
-                                      0,
-                                    expression:
-                                      "JSON.parse(segment.segments).dura.sec1 > 0"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.seg_data[index],
-                                      expression: "seg_data[index]"
-                                    }
-                                  ],
-                                  attrs: { type: "radio", name: "seA" + index },
-                                  domProps: {
-                                    value: {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .mon_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .mon_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec1 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec1_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    },
-                                    checked: _vm._q(_vm.seg_data[index], {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .mon_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .mon_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec1 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec1_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    })
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      _vm.$set(_vm.seg_data, index, {
-                                        startDate: _vm.startDate,
-                                        endDate: _vm.endDate,
-                                        startTime: JSON.parse(segment.segments)
-                                          .mon_duration,
-                                        endTime: JSON.parse(segment.segments)
-                                          .mon_b_duration,
-                                        durations:
-                                          JSON.parse(segment.segments).dura
-                                            .sec1 +
-                                          JSON.parse(segment.segments).dura
-                                            .time1,
-                                        rate: JSON.parse(segment.segments)
-                                          .sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  _vm._s(
-                                    "GHC" +
-                                      JSON.parse(segment.segments).sec1_rate
-                                  )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      JSON.parse(segment.segments).dura.sec2 >
-                                      0,
-                                    expression:
-                                      "JSON.parse(segment.segments).dura.sec2 > 0"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.seg_data[index],
-                                      expression: "seg_data[index]"
-                                    }
-                                  ],
-                                  attrs: { type: "radio", name: "seB" + index },
-                                  domProps: {
-                                    value: {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .tue_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .tue_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec2 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec2_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    },
-                                    checked: _vm._q(_vm.seg_data[index], {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .tue_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .tue_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec2 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec2_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    })
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      _vm.$set(_vm.seg_data, index, {
-                                        startDate: _vm.startDate,
-                                        endDate: _vm.endDate,
-                                        startTime: JSON.parse(segment.segments)
-                                          .tue_duration,
-                                        endTime: JSON.parse(segment.segments)
-                                          .tue_b_duration,
-                                        durations:
-                                          JSON.parse(segment.segments).dura
-                                            .sec2 +
-                                          JSON.parse(segment.segments).dura
-                                            .time1,
-                                        rate: JSON.parse(segment.segments)
-                                          .sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  _vm._s(
-                                    "GHC" +
-                                      JSON.parse(segment.segments).sec2_rate
-                                  )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      JSON.parse(segment.segments).dura.sec3 >
-                                      0,
-                                    expression:
-                                      "JSON.parse(segment.segments).dura.sec3 > 0"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.seg_data[index],
-                                      expression: "seg_data[index]"
-                                    }
-                                  ],
-                                  attrs: { type: "radio", name: "seC" + index },
-                                  domProps: {
-                                    value: {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .wed_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .wed_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec3 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec3_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    },
-                                    checked: _vm._q(_vm.seg_data[index], {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .wed_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .wed_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec3 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec3_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    })
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      _vm.$set(_vm.seg_data, index, {
-                                        startDate: _vm.startDate,
-                                        endDate: _vm.endDate,
-                                        startTime: JSON.parse(segment.segments)
-                                          .wed_duration,
-                                        endTime: JSON.parse(segment.segments)
-                                          .wed_b_duration,
-                                        durations:
-                                          JSON.parse(segment.segments).dura
-                                            .sec3 +
-                                          JSON.parse(segment.segments).dura
-                                            .time1,
-                                        rate: JSON.parse(segment.segments)
-                                          .sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  _vm._s(
-                                    "GHC" +
-                                      JSON.parse(segment.segments).sec3_rate
-                                  )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      JSON.parse(segment.segments).dura.sec4 >
-                                      0,
-                                    expression:
-                                      "JSON.parse(segment.segments).dura.sec4 > 0"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.seg_data[index],
-                                      expression: "seg_data[index]"
-                                    }
-                                  ],
-                                  attrs: { type: "radio", name: "seD" + index },
-                                  domProps: {
-                                    value: {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .thu_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .thu_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec4 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec4_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    },
-                                    checked: _vm._q(_vm.seg_data[index], {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .thu_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .thu_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec4 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec4_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    })
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      _vm.$set(_vm.seg_data, index, {
-                                        startDate: _vm.startDate,
-                                        endDate: _vm.endDate,
-                                        startTime: JSON.parse(segment.segments)
-                                          .thu_duration,
-                                        endTime: JSON.parse(segment.segments)
-                                          .thu_b_duration,
-                                        durations:
-                                          JSON.parse(segment.segments).dura
-                                            .sec4 +
-                                          JSON.parse(segment.segments).dura
-                                            .time1,
-                                        rate: JSON.parse(segment.segments)
-                                          .sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  _vm._s(
-                                    "GHC" +
-                                      JSON.parse(segment.segments).sec4_rate
-                                  )
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value:
-                                      JSON.parse(segment.segments).dura.sec5 >
-                                      0,
-                                    expression:
-                                      "JSON.parse(segment.segments).dura.sec5 > 0"
-                                  }
-                                ]
-                              },
-                              [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.seg_data[index],
-                                      expression: "seg_data[index]"
-                                    }
-                                  ],
-                                  attrs: { type: "radio", name: "seE" + index },
-                                  domProps: {
-                                    value: {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .fri_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .fri_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec5 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec5_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    },
-                                    checked: _vm._q(_vm.seg_data[index], {
-                                      startDate: _vm.startDate,
-                                      endDate: _vm.endDate,
-                                      startTime: JSON.parse(segment.segments)
-                                        .fri_duration,
-                                      endTime: JSON.parse(segment.segments)
-                                        .fri_b_duration,
-                                      durations:
-                                        JSON.parse(segment.segments).dura.sec5 +
-                                        JSON.parse(segment.segments).dura.time1,
-                                      rate: JSON.parse(segment.segments)
-                                        .sec5_rate,
-                                      rate_card: _vm.getTitle,
-                                      spot: _vm.spots[index]
-                                    })
-                                  },
-                                  on: {
-                                    change: function($event) {
-                                      _vm.$set(_vm.seg_data, index, {
-                                        startDate: _vm.startDate,
-                                        endDate: _vm.endDate,
-                                        startTime: JSON.parse(segment.segments)
-                                          .fri_duration,
-                                        endTime: JSON.parse(segment.segments)
-                                          .fri_b_duration,
-                                        durations:
-                                          JSON.parse(segment.segments).dura
-                                            .sec5 +
-                                          JSON.parse(segment.segments).dura
-                                            .time1,
-                                        rate: JSON.parse(segment.segments)
-                                          .sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    }
-                                  }
-                                }),
-                                _vm._v(
-                                  _vm._s(
-                                    "GHC" +
-                                      JSON.parse(segment.segments).sec5_rate
-                                  )
-                                )
-                              ]
-                            )
-                          ])
-                        })
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "modal-footer" },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-default waves-effect ",
-                        attrs: { type: "button", "data-dismiss": "modal" }
-                      },
-                      [_vm._v("Close")]
-                    ),
-                    _vm._v(" "),
-                    _vm.title
-                      ? _c(
-                          "router-link",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.validateRateCardSelection(
-                                  this.seg_data
-                                ),
-                                expression:
-                                  "validateRateCardSelection(this.seg_data)"
-                              }
-                            ],
-                            staticClass:
-                              "btn btn-primary waves-effect waves-light ",
-                            attrs: { to: { name: "invoice" } },
-                            nativeOn: {
-                              click: function($event) {
-                                _vm.submit(_vm.title)
-                              }
-                            }
-                          },
-                          [_vm._v("Schedule")]
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "close",
-        attrs: {
-          type: "button",
-          "data-dismiss": "modal",
-          "aria-label": "Close"
-        }
-      },
-      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7a070cd9", module.exports)
   }
 }
 

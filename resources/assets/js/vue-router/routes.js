@@ -77,7 +77,7 @@
 
 ]; */
 export const routes = [{
-        path: '/kokrokoo.com/create-subscription-media',
+        path: '/kokrokoo.com/user-account/create-subscription-media',
         name: 'selectMedia',
         component: require('../components/create-subscriptions/createAd'),
     },
