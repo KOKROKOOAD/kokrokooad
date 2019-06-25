@@ -23,14 +23,14 @@
                             <div class="table-responsive">
                             <table class="table table-bordered">
                             <thead>
-                            <tr v-for="segment in segmentData" style="background: #36475F;color: #ffffff;">
+                            <tr v-for="(segment,index) in segmentData" :key="index" style="background: #36475F;color: #ffffff;">
                             <th>#</th>
                                 <th v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.mon">{{JSON.parse(segment.segments).dura.mon}}</th>
                                 <th v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.tue">{{JSON.parse(segment.segments).dura.tue}}</th>
                                 <th v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.wed">{{JSON.parse(segment.segments).dura.wed}}</th>
                                 <th v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.thu">{{JSON.parse(segment.segments).dura.thu}}</th>
                                 <th v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.fri">{{JSON.parse(segment.segments).dura.fri}}</th>
-                            <th >Spots</th>
+                                 <th >Spots</th>
                                 <th v-show="JSON.parse(segment.segments).dura.sec1 > 0">{{JSON.parse(segment.segments).dura.sec1 + JSON.parse(segment.segments).dura.time1}}</th>
                                 <th v-show="JSON.parse(segment.segments).dura.sec2 > 0">{{JSON.parse(segment.segments).dura.sec2 + JSON.parse(segment.segments).dura.time2}}</th>
                                 <th v-show="JSON.parse(segment.segments).dura.sec3 > 0">{{JSON.parse(segment.segments).dura.sec3 + JSON.parse(segment.segments).dura.time3}}</th>
@@ -39,7 +39,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(segment,index) in segmentData">
+                            <tr v-for="(segment,index) in segmentData" :key="index">
                             <th scope="row">{{index + 1}}</th>
                                 <td v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.mon">{{JSON.parse(segment.segments).mon_duration}}-{{JSON.parse(segment.segments).mon_b_duration}}</td>
                                 <td v-show="segmentDay.substring(0,3).toUpperCase() === JSON.parse(segment.segments).dura.tue">{{JSON.parse(segment.segments).tue_duration}}-{{JSON.parse(segment.segments).tue_b_duration}}</td>
@@ -49,7 +49,7 @@
 
                                 <td> <select name="select" v-model="spots[index]">
                                     <option disabled value="" selected></option>
-                                    <option v-for=" s in spot_avail(spots_available)" :name="'seA' + (index)"   :value="s" >{{s}}</option>
+                                    <option v-for=" (s,index) in spot_avail(spots_available)" :key="index" :name="'seA' + (index)"   :value="s" >{{s}}</option>
 
                                 </select></td>
 

@@ -77367,10 +77367,11 @@ var render = function() {
                     _c("table", { staticClass: "table table-bordered" }, [
                       _c(
                         "thead",
-                        _vm._l(_vm.segmentData, function(segment) {
+                        _vm._l(_vm.segmentData, function(segment, index) {
                           return _c(
                             "tr",
                             {
+                              key: index,
                               staticStyle: {
                                 background: "#36475F",
                                 color: "#ffffff"
@@ -77643,7 +77644,7 @@ var render = function() {
                       _c(
                         "tbody",
                         _vm._l(_vm.segmentData, function(segment, index) {
-                          return _c("tr", [
+                          return _c("tr", { key: index }, [
                             _c("th", { attrs: { scope: "row" } }, [
                               _vm._v(_vm._s(index + 1))
                             ]),
@@ -77850,10 +77851,11 @@ var render = function() {
                                   _vm._v(" "),
                                   _vm._l(
                                     _vm.spot_avail(_vm.spots_available),
-                                    function(s) {
+                                    function(s, index) {
                                       return _c(
                                         "option",
                                         {
+                                          key: index,
                                           attrs: { name: "seA" + index },
                                           domProps: { value: s }
                                         },
