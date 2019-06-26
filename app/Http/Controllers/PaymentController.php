@@ -14,6 +14,7 @@ class PaymentController extends Controller
 
   public function  payment(Request $request){
 
+
       $client = new Client();
 
       $payby = $request->input('payby');
@@ -54,7 +55,7 @@ class PaymentController extends Controller
         'data' => $data
 
       ]);
-          Log::channel('paylog')->info($res->getStatusCode());
+          Log::channel('paylog')->info('Loging response to API call '.$res->getStatusCode());
       // 200
             //  $res->getHeader('content-type');
       // 'application/json; charset=utf8'

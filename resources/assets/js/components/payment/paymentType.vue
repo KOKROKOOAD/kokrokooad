@@ -227,6 +227,7 @@
                     closeOnConfirm: true,
                     showLoaderOnConfirm: true,
                 },function(){
+                    console.log('requesting for payments');
                   self.makePayment();
                    // window.location.replace("http://localhost:8000/user-account/create-subscription");
                 });
