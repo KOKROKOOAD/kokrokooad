@@ -98,8 +98,8 @@ class SubController extends Controller
             $thumbnailPath = public_path() . '/thumbnails/';
             $fileName = hash('sha256', time());
 
-            if (Storage::disk('docs')) {
-                Storage::disk('docs')->put($path . '.' . $ext, $name);
+            if (Storage::disk('uploads')) {
+                Storage::disk('uploads')->put($fileName . '.' . $ext, $name);
             }
             //   $segment_title_id = RateCardTitles::select('id')->where('adTitle', '=', $request->input('rate_card_title'), 'and', 'client_id', '=', $request->input('client_id'))->get();
 
@@ -119,7 +119,7 @@ class SubController extends Controller
                     'title' => $request->input('title'),
                     'created_ad_data' => $request->input('created_ad_data'),
                     'status' => 'pending',
-                    'file_path' => 'http://144.76.44.117:1990/opt/lampp/htdocs/kokrokoo-app/docs/' . $fileName . '.' . $ext,
+                    'file_path' => storage_path() . '/files/uploads/' . $fileName . '.' . $ext,
                     'file_name' => $name,
                     'file_size' => $file_size,
                     'file_type' => $mime_type

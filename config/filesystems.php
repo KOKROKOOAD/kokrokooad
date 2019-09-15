@@ -50,7 +50,7 @@ return [
 
         'docs' => [
               'driver' => 'local',
-             'root' =>  'http://144.76.44.117:1990/opt/lampp/htdocs/kokrokoo-app/docs/',
+             'root' =>  'http://144.76.44.117:1990/opt/lampp/htdocs/kokrokoo-app/docs',
         ],
 
         'public' => [
