@@ -17,72 +17,72 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/personal-account',function (){
-        return view('Registration.personalAccount');
-    })->name('register.personal');
+Route::get('/personal-account', function () {
+    return view('Registration.personalAccount');
+})->name('register.personal');
 
-Route::get('/organization-account',function (){
+Route::get('/organization-account', function () {
     return view('Registration.companyAccount');
 })->name('register.org');
 
-Route::get('/media-account',function (){
+Route::get('/media-account', function () {
     return view('Registration.mediaAccount');
 })->name('register.media');
 
-Route::get('/register-success',function (){
+Route::get('/register-success', function () {
     return view('notifications.register_success');
 })->name('register.success');
 
-Route::get('/test-mail',function(){
+Route::get('/test-mail', function () {
     return view('testsviews.sendmail');
 });
 
-Route::get('/sendmail','SendMailsController@sendMail')->name('sendmail');
+Route::get('/sendmail', 'SendMailsController@sendMail')->name('sendmail');
 
 //==================guest routes ends here==========================
 
 
 //=====================authenticated routes======================
 
-Route::middleware(['auth'])->prefix('/user-account')->group(function (){
-    Route::get('dashboard',function (){
+Route::middleware(['auth'])->prefix('/kokrokoo.com/user-account')->group(function () {
+    Route::get('dashboard', function () {
         return view('userDashboard.dashboard');
     })->name('dashboard');
 
-    Route::get('active-subscription',function (){
+    Route::get('active-subscription', function () {
         return view('userDashboard.activeSubscription');
     })->name('active.sub');
 
 
-    Route::get('inactive-subscription',function (){
+    Route::get('inactive-subscription', function () {
         return view('userDashboard.inactiveSubscription');
     })->name('inactive.sub');
 
 
-    Route::get('pending-subscription',function (){
+    Route::get('pending-subscription', function () {
         return view('userDashboard.pendingSubscription');
     })->name('pend.sub');
 
-    Route::get('transactions',function (){
+    Route::get('transactions', function () {
         return view('userDashboard.transactions');
     })->name('transact');
 
-    Route::get('user-profile',function (){
+    Route::get('user-profile', function () {
         return view('userDashboard.profile');
     })->name('profile');
 
-    Route::get('subscriptions',function (){
+    Route::get('subscriptions', function () {
         return view('userDashboard.myPublication');
     })->name('publication');
 
-    Route::get('dashboard',function (){
-         $media = \App\User::all('logo');
+    Route::get('dashboard', function () {
+        $media = \App\User::all('logo');
         return view('userDashboard.dashboard', ['media' => $media]);
     })->name('dashboard');
 
 
 
-// ================subscription  routes============================
+    // ================subscription  routes============================
     Route::post('ads-store', 'SubController@createSub');
     Route::get('ads/media-api', 'SubController@loadMedia');
     Route::get('fetch-ads/api', 'SubController@fetchAds');
@@ -93,10 +93,10 @@ Route::middleware(['auth'])->prefix('/user-account')->group(function (){
     Route::get('fetch-segments', 'SegmentController@fetchSegments');
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
     Route::post('sub-update-api', 'SubController@updateAds');
-    Route::post('check-sub/api','SubController@checkIfSubExist');
-    Route::get('fetch-transac/api','SubController@fetchUserTransac');
-    Route::get('check-segment-api/{sub_date}','CheckSubController@checkSubAvailable');
-//=======================subscriptions routes ends here=============================
+    Route::post('check-sub/api', 'SubController@checkIfSubExist');
+    Route::get('fetch-transac/api', 'SubController@fetchUserTransac');
+    Route::get('check-segment-api/{sub_date}', 'CheckSubController@checkSubAvailable');
+    //=======================subscriptions routes ends here=============================
 
 
     //===========================segment routs =====================================
@@ -104,15 +104,15 @@ Route::middleware(['auth'])->prefix('/user-account')->group(function (){
     Route::get('testme', 'SegmentController@test');
     //==========================segment routes ends here=============================
 
-//==========================payment  routes======================================
-    Route::post('api-payment','PaymentController@payment');
+    //==========================payment  routes======================================
+    Route::post('api-payment', 'PaymentController@payment');
     //======================== payment routes ends here
 
 
     // =================vue router routes =====================================
     Route::get('{any}', function () {
         return view('userDashboard.dashboard');
-    })->where('any','.*');
+    })->where('any', '.*');
     //======================vue router routes ends here=============================
 
 });
