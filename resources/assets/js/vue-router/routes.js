@@ -1,4 +1,4 @@
-/* export const routes = [{
+ export const routes = [{
         path: '/user-account/create-subscription-media',
         name: 'selectMedia',
         component: require('../components/create-subscriptions/createAd'),
@@ -75,7 +75,7 @@
     },
 
 
-]; */
+]; /*
 export const routes = [{
         path: '/kokrokoo.com/user-account/create-subscription-media',
         name: 'selectMedia',
@@ -151,4 +151,4 @@ export const routes = [{
     },
 
 
-];
+];*/

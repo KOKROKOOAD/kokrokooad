@@ -14,7 +14,7 @@ class PaymentController extends Controller
 
   public function  payment(Request $request){
 
-
+          exit('processing payments');
       $client = new Client();
 
       $payby = $request->input('payby');

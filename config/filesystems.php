@@ -48,6 +48,11 @@ return [
             'root' => storage_path('dash'),
         ],
 
+        'docs' => [
+              'driver' => 'local',
+             'root' =>  env('STORAGE_PATH'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('dash/public'),

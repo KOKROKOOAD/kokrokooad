@@ -33,7 +33,15 @@ return [
     |
     */
 
+
+
     'env' => env('APP_ENV', 'production'),
+
+     /*
+    Store files in below path
+     */
+
+     'storage_path' =>env('STORAGE_PATH', 'http://144.76.44.117/opt/lampp/htdocs/kokrokoo-app/docs'),
 
     /*
     |--------------------------------------------------------------------------
