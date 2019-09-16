@@ -100,7 +100,7 @@
             },
             fetchRateCards(){
                 let self = this;
-                axios.get('fetch-segments-titles/' + self.mediaId).then(function(res){
+                axios.get('kokrokoo.com/fetch-segments-titles/' + self.mediaId).then(function(res){
                      // alert(res.data);
                     self.seg_titles = res.data;
                    // context.commit('setSegment_titles',res.data);

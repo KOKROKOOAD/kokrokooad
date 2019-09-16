@@ -123,49 +123,12 @@ Auth::routes();
 //============================authenticated routes ends here===========================
 
 
-
-
-
-
-
 //test routes
 //=============================================
 //Route::get('test-api', 'SegmentController@api');
 //Route::post('test-post', 'SegmentController@apiPost');
 //Route::post('test-update-event', 'SegmentController@eventUpdate');
 //Route::post('test-check-segment', 'SegmentController@eventCheck');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
