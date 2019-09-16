@@ -76075,7 +76075,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         fetchRateCards: function fetchRateCards() {
             var self = this;
-            axios.get('kokrokoo.com/fetch-segments-titles/' + self.mediaId).then(function (res) {
+            axios.get('/kokrokoo.com/fetch-segments-titles/' + self.mediaId).then(function (res) {
                 // alert(res.data);
                 self.seg_titles = res.data;
                 // context.commit('setSegment_titles',res.data);
