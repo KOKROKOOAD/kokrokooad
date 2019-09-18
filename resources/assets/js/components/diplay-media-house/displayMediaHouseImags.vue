@@ -121,7 +121,7 @@ export default {
       media: this.$route.params.media,
       mediaHouseId: null,
       loading: false,
-      local_assets_path: "/thumbnails/",
+      logo_path: "/thumbnails/",
       live_assets_path: "/kokrokoo.com/thumbnails/"
     };
   },
@@ -190,6 +190,15 @@ export default {
     },
     mediaHousesss() {
       return store.state.selMediaHouse;
+    },
+    mediaLogsPath(){
+        if(location.hostname = 'localhost'){
+            this.logo_path = '/thumbnails/';
+            return logo_path;
+        }
+        else{
+          return  this.logo_path = '/kokrokoo.com/thumbnails/';
+        }
     }
   }
 };

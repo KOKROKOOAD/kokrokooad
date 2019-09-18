@@ -98,8 +98,8 @@ class SubController extends Controller
             $thumbnailPath = public_path() . '/thumbnails/';
             $fileName = hash('sha256', time());
 
-            if (Storage::disk('uploads')) {
-                Storage::disk('uploads')->put($fileName . '.' . $ext, $name);
+            if (Storage::disk('docs')) {
+                Storage::disk('docs')->put($fileName . '.' . $ext, $name);
             }
             //   $segment_title_id = RateCardTitles::select('id')->where('adTitle', '=', $request->input('rate_card_title'), 'and', 'client_id', '=', $request->input('client_id'))->get();
 

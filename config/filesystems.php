@@ -49,7 +49,7 @@ return [
         ],
 
         'docs' => [
-              'driver' => 'local',
+              'driver' => 'custom',
              'root' =>  'http://144.76.44.117:1990/opt/lampp/htdocs/kokrokoo-app/docs',
         ],
 
