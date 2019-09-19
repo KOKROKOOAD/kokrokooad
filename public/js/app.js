@@ -73458,28 +73458,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validateNumber: function validateNumber(number) {
             if (number == '') {
                 this.invalidNumberMessage();
-            } else if (number.substr(0, 1) != '0' || number.length != '10') {
-                this.invalidNumberMessage();
-                ;
-            } else if (number.substr(0, 3) != '233' && number.length != '12') {
-                this.invalidNumberMessage();
-            } else {
-
-                sweetAlert({
-                    title: 'Confirm Payment',
-                    // text: 'Do you want to cancel this transaction?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes',
-                    confirmButtonColor: '#E44032',
-                    closeOnConfirm: true,
-                    showLoaderOnConfirm: true
-                }, function () {
-                    console.log('requesting for payments');
-                    self.makePayment();
-                    // window.location.replace("http://localhost:8000/user-account/create-subscription");
-                });
             }
+            /*  else if(number.substr(0,1) != '0' || number.length != '10'){
+                this.invalidNumberMessage();
+            ;
+            }else if(number.substr(0,3) != '233' && number.length != '12'){
+               this.invalidNumberMessage();
+               } */else {
+
+                    sweetAlert({
+                        title: 'Confirm Payment',
+                        // text: 'Do you want to cancel this transaction?',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes',
+                        confirmButtonColor: '#E44032',
+                        closeOnConfirm: true,
+                        showLoaderOnConfirm: true
+                    }, function () {
+                        console.log('requesting for payments');
+                        self.makePayment();
+                        // window.location.replace("http://localhost:8000/user-account/create-subscription");
+                    });
+                }
         },
         invalidNumberMessage: function invalidNumberMessage() {
             new PNotify({
