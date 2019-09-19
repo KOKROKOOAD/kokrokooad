@@ -73483,15 +73483,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         invalidNumberMessage: function invalidNumberMessage() {
-            alert('am called');
-            sweetAlert({
-                title: 'Invalid phone number',
-                text: 'Kindly enter a valid phone number?.',
-                type: 'warning',
-                showCancelButton: false,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'OK!',
-                closeOnConfirm: true
+            new PNotify({
+                title: 'Error', type: 'error', text: 'Please enter a valid phone number.', desktop: {
+                    desktop: true, icon: 'assets/images/pnotify/error.png'
+                }
             });
         }
     },
