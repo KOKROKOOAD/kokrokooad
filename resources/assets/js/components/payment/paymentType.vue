@@ -267,7 +267,7 @@
                  this.invalidNumberMessage();
 
                 } */else{
-
+                     let self  = this;
                     sweetAlert({
                     title: 'Confirm Payment',
                    // text: 'Do you want to cancel this transaction?',
@@ -279,7 +279,7 @@
                     showLoaderOnConfirm: true,
                 },function(){
                     console.log('requesting for payments');
-                  this.makePayment();
+                  self.makePayment();
                    // window.location.replace("http://localhost:8000/user-account/create-subscription");
                 });
                 }

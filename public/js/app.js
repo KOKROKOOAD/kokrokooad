@@ -73465,7 +73465,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }else if(number.substr(0,3) != '233' && number.length != '12'){
                this.invalidNumberMessage();
                } */else {
-
+                    var self = this;
                     sweetAlert({
                         title: 'Confirm Payment',
                         // text: 'Do you want to cancel this transaction?',
@@ -73477,7 +73477,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         showLoaderOnConfirm: true
                     }, function () {
                         console.log('requesting for payments');
-                        this.makePayment();
+                        self.makePayment();
                         // window.location.replace("http://localhost:8000/user-account/create-subscription");
                     });
                 }
