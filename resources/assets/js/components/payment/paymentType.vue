@@ -216,7 +216,8 @@
             },
             payments(number){
                 let self = this;
-                 self.validateNumber(number)
+                 self.validateNumber(number);
+
                     sweetAlert({
                     title: 'Confirm Payment',
                    // text: 'Do you want to cancel this transaction?',
@@ -271,20 +272,20 @@
             },
             validateNumber(number){
                 if(number == ''){
-                    alert('Enter a valid phone number');
                  this.invalidNumberMessage();
                 }
-               else if(number.substr(0,1) == '0' && number.length == '10'){
-                   return true;
-              }else if(number.substr(0,3) == '233' && number.length == '12'){
-                  return true;
+               else if(number.substr(0,1) != '0' || number.length != '10'){
+                  this.invalidNumberMessage();
+;
+              }else if(number.substr(0,3) != '233' && number.length != '12'){
+                 this.invalidNumberMessage();
 
                 }else{
-                  this.invalidNumberMessage();
+                    return true;
                 }
                   },
              invalidNumberMessage(){
-                     swal({
+                     sweetAlert({
                      title: 'Invalid phone number',
                             text: 'Kindly enter a valid phone number?.',
                             type: 'warning',
