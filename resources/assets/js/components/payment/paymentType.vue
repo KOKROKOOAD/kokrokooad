@@ -270,7 +270,7 @@
                 });
             },
             validateNumber(number){
-                if(number.length == '0'){
+                if(number.length == 0){
                  this.invalidNumberMessage();
                 }
                else if(number.substr(0,1) == '0' && number.length == '10'){
@@ -279,7 +279,6 @@
               }else if(number.substr(0,3) == '233' && number.length == '12'){
                   return true;
 
-               return true;
                 }else{
                   this.invalidNumberMessage();
                 }
