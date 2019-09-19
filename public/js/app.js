@@ -66202,14 +66202,6 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-/* let base_url  = '';
-if(location.hostname === "localhost"){
-    base_url = '/user-account';
-}
-else{ */
-base_url = '/kokrokoo.com/user-account';
-//}
-
 /*  export const routes = [{
          path: '/user-account/create-subscription-media',
          name: 'selectMedia',
@@ -66290,32 +66282,32 @@ base_url = '/kokrokoo.com/user-account';
  ]; */
 
 var routes = [{
-    path: base_url + '/create-subscription-media',
+    path: '/kokrokoo.com/user-account/create-subscription-media',
     name: 'selectMedia',
     component: __webpack_require__(159)
 }, {
     name: 'fileupload',
-    path: base_url + '/create-sub-file',
+    path: '/kokrokoo.com/user-account/create-sub-file',
     component: __webpack_require__(164)
 }, {
     name: 'selectMediaHouse',
-    path: base_url + '/create-sub-media-house',
+    path: '/kokrokoo.com/user-account/create-sub-media-house',
     component: __webpack_require__(165)
 }, {
     name: 'selectRateCard',
-    path: base_url + '/create-sub-rate-card',
+    path: '/kokrokoo.com/user-account/create-sub-rate-card',
     component: __webpack_require__(167)
 }, {
     name: 'segments',
-    path: base_url + '/create-sub-date',
+    path: '/kokrokoo.com/user-account/create-sub-date',
     component: __webpack_require__(249)
 }, {
     name: 'invoice',
-    path: base_url + '/user-account/create-sub-invoice',
+    path: '/kokrokoo.com/user-account/create-sub-invoice',
     component: __webpack_require__(20)
 }, {
     name: 'subs',
-    path: base_url + '/subscriptions',
+    path: '/kokrokoo.com/user-account/subscriptions',
     component: __webpack_require__(252)
 },
 // {   name : 'selectSegments',
@@ -66324,23 +66316,23 @@ var routes = [{
 // },
 {
     name: 'selectRateAndTime',
-    path: base_url + '/select-rate',
+    path: '/kokrokoo.com/user-account/select-rate',
     component: __webpack_require__(168)
 }, {
     name: 'fullcalender',
-    path: base_url + '/select-calender',
+    path: '/kokrokoo.com/user-account/select-calender',
     component: __webpack_require__(260)
 }, {
     name: 'payment',
-    path: base_url + '/payment',
+    path: '/kokrokoo.com/user-account/payment',
     component: __webpack_require__(21)
 }, {
     name: 'transactions',
-    path: base_url + '/transactions',
+    path: '/kokrokoo.com/user-account/transactions',
     component: __webpack_require__(169)
 }, {
     name: 'profile',
-    path: base_url + '/user-profile',
+    path: '/kokrokoo.com/user-account/user-profile',
     component: __webpack_require__(275)
 },
 // {   name : 'home',
@@ -66349,7 +66341,7 @@ var routes = [{
 // },
 {
     name: 'payment-success',
-    path: base_url + '/payment-success',
+    path: '/kokrokoo.com/user-account/payment-success',
     component: __webpack_require__(281)
 }];
 

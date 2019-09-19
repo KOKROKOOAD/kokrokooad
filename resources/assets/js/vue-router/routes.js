@@ -1,11 +1,3 @@
-/* let base_url  = '';
-if(location.hostname === "localhost"){
-    base_url = '/user-account';
-}
-else{ */
-    base_url = '/kokrokoo.com/user-account';
-//}
-
 /*  export const routes = [{
          path: '/user-account/create-subscription-media',
          name: 'selectMedia',
@@ -84,40 +76,40 @@ else{ */
 
 
  ]; */
-
+ 
 export const routes = [{
-        path: base_url +'/create-subscription-media',
+        path: '/kokrokoo.com/user-account/create-subscription-media',
         name: 'selectMedia',
         component: require('../components/create-subscriptions/createAd'),
     },
     {
         name: 'fileupload',
-        path: base_url+'/create-sub-file',
+        path: '/kokrokoo.com/user-account/create-sub-file',
         component: require('../components/file-uploads/fileUpload')
     },
     {
         name: 'selectMediaHouse',
-        path: base_url +'/create-sub-media-house',
+        path: '/kokrokoo.com/user-account/create-sub-media-house',
         component: require('../components/diplay-media-house/displayMediaHouseImags')
     },
     {
         name: 'selectRateCard',
-        path: base_url + '/create-sub-rate-card',
+        path: '/kokrokoo.com/user-account/create-sub-rate-card',
         component: require('../components/fetch-ratecards/selectRateCard')
     },
     {
         name: 'segments',
-        path: base_url + '/create-sub-date',
+        path: '/kokrokoo.com/user-account/create-sub-date',
         component: require('../components/fetch-ratecards/rateCardSegments')
     },
     {
         name: 'invoice',
-        path: base_url + '/user-account/create-sub-invoice',
+        path: '/kokrokoo.com/user-account/create-sub-invoice',
         component: require('../components/creation_of_sub_summary/adSummary')
     },
     {
         name: 'subs',
-        path: base_url + '/subscriptions',
+        path: '/kokrokoo.com/user-account/subscriptions',
         component: require('../components/subscriptions/subscriptions')
     },
     // {   name : 'selectSegments',
@@ -126,27 +118,27 @@ export const routes = [{
     // },
     {
         name: 'selectRateAndTime',
-        path: base_url + '/select-rate',
+        path: '/kokrokoo.com/user-account/select-rate',
         component: require('../components/display-selected-rate/selectRateAndTime')
     },
     {
         name: 'fullcalender',
-        path: base_url + '/select-calender',
+        path: '/kokrokoo.com/user-account/select-calender',
         component: require('../components/fullcalender/fullcalender')
     },
     {
         name: 'payment',
-        path: base_url + '/payment',
+        path: '/kokrokoo.com/user-account/payment',
         component: require('../components/payment/paymentType')
     },
     {
         name: 'transactions',
-        path: base_url + '/transactions',
+        path: '/kokrokoo.com/user-account/transactions',
         component: require('../components/transactions/transactions')
     },
     {
         name: 'profile',
-        path: base_url + '/user-profile',
+        path: '/kokrokoo.com/user-account/user-profile',
         component: require('../components/userProfile/userProfile')
     },
     // {   name : 'home',
@@ -155,7 +147,7 @@ export const routes = [{
     // },
     {
         name: 'payment-success',
-        path: base_url + '/payment-success',
+        path: '/kokrokoo.com/user-account/payment-success',
         component: require('../components/success-pages/success')
     },
 
