@@ -73420,21 +73420,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         payments: function payments(number) {
             var self = this;
             self.validateNumber(number);
-
-            sweetAlert({
-                title: 'Confirm Payment',
-                // text: 'Do you want to cancel this transaction?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes',
-                confirmButtonColor: '#E44032',
-                closeOnConfirm: true,
-                showLoaderOnConfirm: true
-            }, function () {
-                console.log('requesting for payments');
-                self.makePayment();
-                // window.location.replace("http://localhost:8000/user-account/create-subscription");
-            });
         },
         cancel: function cancel() {
             sweetAlert({
@@ -73479,7 +73464,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else if (number.substr(0, 3) != '233' && number.length != '12') {
                 this.invalidNumberMessage();
             } else {
-                return true;
+
+                sweetAlert({
+                    title: 'Confirm Payment',
+                    // text: 'Do you want to cancel this transaction?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    confirmButtonColor: '#E44032',
+                    closeOnConfirm: true,
+                    showLoaderOnConfirm: true
+                }, function () {
+                    console.log('requesting for payments');
+                    self.makePayment();
+                    // window.location.replace("http://localhost:8000/user-account/create-subscription");
+                });
             }
         },
         invalidNumberMessage: function invalidNumberMessage() {

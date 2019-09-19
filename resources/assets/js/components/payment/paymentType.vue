@@ -218,20 +218,6 @@
                 let self = this;
                  self.validateNumber(number);
 
-                    sweetAlert({
-                    title: 'Confirm Payment',
-                   // text: 'Do you want to cancel this transaction?',
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes',
-                    confirmButtonColor: '#E44032',
-                    closeOnConfirm: true,
-                    showLoaderOnConfirm: true,
-                },function(){
-                    console.log('requesting for payments');
-                  self.makePayment();
-                   // window.location.replace("http://localhost:8000/user-account/create-subscription");
-                });
             },
             cancel(){
                 sweetAlert({
@@ -281,7 +267,21 @@
                  this.invalidNumberMessage();
 
                 }else{
-                    return true;
+
+                    sweetAlert({
+                    title: 'Confirm Payment',
+                   // text: 'Do you want to cancel this transaction?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    confirmButtonColor: '#E44032',
+                    closeOnConfirm: true,
+                    showLoaderOnConfirm: true,
+                },function(){
+                    console.log('requesting for payments');
+                  self.makePayment();
+                   // window.location.replace("http://localhost:8000/user-account/create-subscription");
+                });
                 }
                   },
              invalidNumberMessage(){
