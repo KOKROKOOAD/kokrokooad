@@ -14,7 +14,9 @@ class PaymentController extends Controller
 
   public function  payment(Request $request){
 
-          exit('processing payments');
+              return response()->json('success');
+
+/* 
       $client = new Client();
 
       $payby = $request->input('payby');
@@ -48,19 +50,24 @@ class PaymentController extends Controller
           'payby' => $payby,
           'callback' =>  $callback,
       );
-      Log::channel('paylog')->info(Carbon::now()->format('Y-m-d H:i:s')." $src || ",$data);
+      Log::info(Carbon::now()->format('Y-m-d H:i:s')." $src || ",$data);
       
-      $res = $client->request('POST', 'https://159.69.65.95/payplus/api/index.php', 
+      $res = $client->request('POST', 'https://api.nalosolutions.com/payplus/api/index.php', 
       [
         'data' => $data
 
       ]);
+
+          Log::info($res->getStatusCode());
+
           Log::channel('paylog')->info('Loging response to API call '.$res->getStatusCode());
+ */
+
       // 200
             //  $res->getHeader('content-type');
       // 'application/json; charset=utf8'
              //$res->getBody();
-      $success = 'failed';
+     /*  $success = 'failed';
                if($phoneNumber){
                    $success = 'success';
                    $transac = Transactions::create([
@@ -89,7 +96,7 @@ class PaymentController extends Controller
                }
                else{
                    return response()->json('failed');
-               }
+               } */
 }
 
 
