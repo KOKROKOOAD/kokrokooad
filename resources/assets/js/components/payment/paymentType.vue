@@ -187,6 +187,7 @@
                 // this.dis = true;
                      axios.post('api-payment/',formData).then(function (res) {
                          if(res.data === 'success'){
+                             alert(res.data);
                             // self.loading = true;
                            //  store.dispatch('getProcessing', false);
                              self.$router.push('payment-success');
@@ -278,7 +279,6 @@
                     closeOnConfirm: true,
                     showLoaderOnConfirm: true,
                 },function(){
-                    console.log('requesting for payments');
                   self.makePayment();
                    // window.location.replace("http://localhost:8000/user-account/create-subscription");
                 });
