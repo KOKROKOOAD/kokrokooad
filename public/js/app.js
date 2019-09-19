@@ -73420,7 +73420,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         payments: function payments(number) {
             var self = this;
             self.validateNumber(number);
-            alert('Failed to validate phone number ' + number + ' and this will cause transaction errors');
             sweetAlert({
                 title: 'Confirm Payment',
                 // text: 'Do you want to cancel this transaction?',
@@ -73471,6 +73470,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         validateNumber: function validateNumber(number) {
+            alert(this.network.phoneNumber);
             if (this.network.phoneNumber == '') {
                 this.invalidNumberMessage();
             } else if (number.substr(0, 1) == '0' && number.length == '10') {
