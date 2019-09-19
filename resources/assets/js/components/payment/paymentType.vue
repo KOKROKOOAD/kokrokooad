@@ -270,8 +270,8 @@
                 });
             },
             validateNumber(number){
-                alert(this.network.phoneNumber);
-                if(this.network.phoneNumber == ''){
+                alert(number)
+                if(number == ''){
                  this.invalidNumberMessage();
                 }
                else if(number.substr(0,1) == '0' && number.length == '10'){

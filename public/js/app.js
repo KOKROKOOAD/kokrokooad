@@ -73470,8 +73470,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         validateNumber: function validateNumber(number) {
-            alert(this.network.phoneNumber);
-            if (this.network.phoneNumber == '') {
+            alert(number);
+            if (number == '') {
                 this.invalidNumberMessage();
             } else if (number.substr(0, 1) == '0' && number.length == '10') {
                 return true;
