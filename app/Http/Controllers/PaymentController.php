@@ -13,8 +13,8 @@ class PaymentController extends Controller
 {
 
   public function  payment(Request $request){
-
-              return response()->json('success');
+      $test = 'Joojo Arthur';
+              return response()->json($tetst);
 
 /* 
       $client = new Client();
