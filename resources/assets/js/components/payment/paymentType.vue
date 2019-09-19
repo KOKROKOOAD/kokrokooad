@@ -217,7 +217,7 @@
             payments(number){
                 let self = this;
                  self.validateNumber(number)
-                 alert('Failed to validate phone number');
+                 alert('Failed to validate phone number ' + number);
                     sweetAlert({
                     title: 'Confirm Payment',
                    // text: 'Do you want to cancel this transaction?',
