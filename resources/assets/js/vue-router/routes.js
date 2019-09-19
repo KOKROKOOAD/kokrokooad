@@ -1,10 +1,10 @@
-let base_url  = '';
+/* let base_url  = '';
 if(location.hostname === "localhost"){
     base_url = '/user-account';
 }
-else{
+else{ */
     base_url = '/kokrokoo.com/user-account';
-}
+//}
 
 /*  export const routes = [{
          path: '/user-account/create-subscription-media',

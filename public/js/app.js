@@ -66202,12 +66202,13 @@ if (inBrowser && window.Vue) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routes; });
-var base_url = '';
-if (location.hostname === "localhost") {
+/* let base_url  = '';
+if(location.hostname === "localhost"){
     base_url = '/user-account';
-} else {
-    base_url = '/kokrokoo.com/user-account';
 }
+else{ */
+base_url = '/kokrokoo.com/user-account';
+//}
 
 /*  export const routes = [{
          path: '/user-account/create-subscription-media',
