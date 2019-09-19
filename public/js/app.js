@@ -73420,6 +73420,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         payments: function payments(number) {
             var self = this;
             self.validateNumber(number);
+            alert('Failed to validate phone number');
             sweetAlert({
                 title: 'Confirm Payment',
                 // text: 'Do you want to cancel this transaction?',
