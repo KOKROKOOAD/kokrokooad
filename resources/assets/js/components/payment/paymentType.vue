@@ -285,8 +285,9 @@
                 }
                   },
              invalidNumberMessage(){
+                 alert('am called');
                      sweetAlert({
-                     title: 'Invalid phone number',
+                            title: 'Invalid phone number',
                             text: 'Kindly enter a valid phone number?.',
                             type: 'warning',
                             showCancelButton: false,

@@ -73483,6 +73483,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         invalidNumberMessage: function invalidNumberMessage() {
+            alert('am called');
             sweetAlert({
                 title: 'Invalid phone number',
                 text: 'Kindly enter a valid phone number?.',
