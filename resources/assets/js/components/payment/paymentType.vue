@@ -186,7 +186,7 @@
                // store.dispatch('getProcessing', true);
                 // this.dis = true;
                      axios.post('api-payment/',formData).then(function (res) {
-                             alert(res);
+                             alert(res.data);
 
                          if(res.data === 'success'){
                             // self.loading = true;
