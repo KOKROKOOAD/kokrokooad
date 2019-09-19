@@ -14,7 +14,7 @@ class PaymentController extends Controller
 
   public function  payment(Request $request){
       $test = 'Joojo Arthur';
-              return response()->json($test);
+         return response()->json($request>all());
 
 /* 
       $client = new Client();
