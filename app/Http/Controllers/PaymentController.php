@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Log;
 class PaymentController extends Controller
 {
 
-  public function  payment(Request $request){
-      $test = 'Joojo Arthur';
-         return response()->json($request>all());
+    public function  payment(Request $request)
+    {
+        $test = 'Joojo Arthur';
+        return response()->json($test);
 
-/* 
+        /* 
       $client = new Client();
 
       $payby = $request->input('payby');
@@ -63,11 +64,11 @@ class PaymentController extends Controller
           Log::channel('paylog')->info('Loging response to API call '.$res->getStatusCode());
  */
 
-      // 200
-            //  $res->getHeader('content-type');
-      // 'application/json; charset=utf8'
-             //$res->getBody();
-     /*  $success = 'failed';
+        // 200
+        //  $res->getHeader('content-type');
+        // 'application/json; charset=utf8'
+        //$res->getBody();
+        /*  $success = 'failed';
                if($phoneNumber){
                    $success = 'success';
                    $transac = Transactions::create([
@@ -97,7 +98,5 @@ class PaymentController extends Controller
                else{
                    return response()->json('failed');
                } */
-}
-
-
+    }
 }
