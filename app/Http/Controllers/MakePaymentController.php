@@ -70,7 +70,7 @@ class MakePaymentController extends Controller
                 'data' => $data
             ]
         );
-        return response()->json($res->getBody()->getContents());
+        return response()->json($dataArray);
 
 
         //  Log::info($res->getStatusCode());
