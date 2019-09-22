@@ -10,7 +10,6 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-        return response()->json($request->phone);
 
 
         $client = new Client();
@@ -46,6 +45,9 @@ class MakePaymentController extends Controller
             'payby' => $payby,
             'callback' =>  $callback,
         );
+        return response()->json($data);
+
+
         Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
         $res = $client->request(
