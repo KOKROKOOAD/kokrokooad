@@ -79944,7 +79944,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
-                        _vm._s("success") + "\n                                "
+                        _vm._s(trans.transaction_status) +
+                          "\n                                "
                       ),
                       _vm._m(2, true)
                     ])

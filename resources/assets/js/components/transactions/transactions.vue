@@ -62,7 +62,7 @@
                                 <td>{{trans.payment_source}}</td>
                                 <td>{{trans.amount}}</td>
                                 <td>{{trans.transact_charge} </td>
-                                <td>{{ 'success' }}
+                                <td>{{ trans.transaction_status }}
                                     <button class="btn btn-danger btn-sm"><i class="fa fa-edit"></i></button>
                                 </td>
                             </tr>
