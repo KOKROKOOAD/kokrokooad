@@ -59,6 +59,7 @@ class MakePaymentController extends Controller
             'POST',
             'https://api.nalosolutions.com/payplus/api/index.php',
             [
+                'Content' => 'application/json',
                 'data' => $data
 
             ]
@@ -68,7 +69,7 @@ class MakePaymentController extends Controller
 
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 
-        return response()->json($res);
+        return response()->json($res->getBody()->getContents());
 
 
 
