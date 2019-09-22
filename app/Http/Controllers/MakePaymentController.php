@@ -39,7 +39,7 @@ class MakePaymentController extends Controller
         $secrete = md5(env('MERCHANT_USERNAME') . $key . md5(env('MERCHANT_PASSWORD')));
         $src = $_SERVER['REMOTE_ADDR'];
 
-        $data = array(
+        $dataArray = array(
             'merchant_id' => env('MERCHANT_ID'),
             'secret' => $secrete,
             'key'    => $key,
@@ -52,7 +52,7 @@ class MakePaymentController extends Controller
             'callback' =>  'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
-
+        $data  = json_encode($dataArray, true);
         Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
         $res = $client->request(
