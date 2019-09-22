@@ -107,6 +107,8 @@ Route::prefix('/user-account')->group(function () {
 
     //==========================payment  routes======================================
     Route::post('api-payment', 'PaymentController@payment');
+    Route::post('pay', 'MakePaymentController@MakePayment');
+
     //======================== payment routes ends here
 
 
