@@ -73397,7 +73397,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             // store.dispatch('getProcessing', true);
             // this.dis = true;
             //   axios.post('api-payment/',formData).then(function (res) {
-            axios.post('/pay', formData).then(function (res) {
+            axios.post('pay/', formData).then(function (res) {
 
                 alert(res.data);
 
