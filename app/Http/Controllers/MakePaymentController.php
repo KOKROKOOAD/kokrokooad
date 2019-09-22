@@ -62,15 +62,18 @@ class MakePaymentController extends Controller
         $data  = json_encode($dataArray, true);
         //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-        $res = $client->request(
+        /*  $res = $client->request(
             'POST',
             'https://api.nalosolutions.com/payplus/api/index.php',
             [
                 'data' => $data
             ]
-        );
+        ); */
 
-        return response()->json($res->getBody()->getContents());
+        $res = shell_exec("curl -X POST 'http://localhost/payplus/api/index.php' -d '$data'");
+
+
+        return response($res);
 
 
         //  Log::info($res->getStatusCode());
