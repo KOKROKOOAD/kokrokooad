@@ -180,7 +180,7 @@ export default {
       formData.append("media_house_id", self.mediaHouseId);
       formData.append("subscription_id", self.subId);
       formData.append("invoice_id", self.invoiceId);
-
+       
       // store.dispatch('getProcessing', true);
       // this.dis = true;
       //   axios.post('api-payment/',formData).then(function (res) {
