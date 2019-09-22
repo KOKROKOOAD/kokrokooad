@@ -28,7 +28,7 @@ class MakePaymentController extends Controller
         $subscription_id = $request->input('subscription_id');
         $client_id = auth()->user()->client_id;
         $media_house_id = $request->input('media_house_id');
-        $item_desc = "subscription purchase";
+        $item_desc = "subscription";
         //$account_type = $request->input('acc_type');
         $callback =  env("PAY_CALLBACK");
 
@@ -62,18 +62,15 @@ class MakePaymentController extends Controller
         $data  = json_encode($dataArray, true);
         //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-        /* $res = $client->request(
+        $res = $client->request(
             'POST',
             'https://api.nalosolutions.com/payplus/api/index.php',
             [
                 'data' => $data
             ]
-        ); */
-        $sent  = shell_exec("curl -X POST 'http://localhost/payplus/api/index.php' -d '$data'");
+        );
 
-        $responseArray = json_decode($sent, true);
-        $status = $responseArray['Status'];
-        return response()->json($status);
+        return response()->json($res->getBody()->getContents());
 
 
         //  Log::info($res->getStatusCode());
