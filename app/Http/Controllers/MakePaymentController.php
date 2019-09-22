@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 class MakePaymentController extends Controller
 {
     //
-    public function makePayment(Request $request){
+    public function makePayment(Request $request)
+    {
 
-        return response()->json($request->all);
+        return response()->json($request->phone);
 
 
         $client = new Client();
@@ -59,7 +60,7 @@ class MakePaymentController extends Controller
         Log::info($res->getStatusCode());
 
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
- 
+
 
         // 200
         //  $res->getHeader('content-type');
@@ -94,5 +95,6 @@ class MakePaymentController extends Controller
                }
                else{
                    return response()->json('failed');
-               } */    }
+               } */
+    }
 }
