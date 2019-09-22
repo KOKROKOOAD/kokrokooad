@@ -79786,7 +79786,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -79797,6 +79797,9 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -79920,7 +79923,7 @@ var render = function() {
               _c(
                 "tbody",
                 _vm._l(_vm.transactions, function(trans, index) {
-                  return _c("tr", [
+                  return _c("tr", { key: index }, [
                     _c("th", { attrs: { scope: "row" } }, [
                       _vm._v(_vm._s(index + 1) + ".")
                     ]),
@@ -79935,7 +79938,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(trans.amount))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(trans.transact_charge))])
+                    _c("td", [_vm._v("{{trans.transact_charge} ")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s("success"))])
                   ])
                 })
               )
@@ -79985,7 +79990,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Delivered Amount(GHC)")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Transaction charge(GHC)")])
+        _c("th", [_vm._v("Transaction charge(GHC)")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")])
       ])
     ])
   }
