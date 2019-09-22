@@ -73305,236 +73305,246 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "paymentType",
-    components: { confirmPayment: __WEBPACK_IMPORTED_MODULE_1__payment_confirmPayment___default.a },
-    data: function data() {
-        return {
-            payType: false,
-            momo: false,
-            visa: false,
-            anim_d: 'animated slideInDown',
-            momo_anim_faIn: 'animated fadeIn',
-            visa_anim_faIn: 'animated fadeIn',
+  name: "paymentType",
+  components: { confirmPayment: __WEBPACK_IMPORTED_MODULE_1__payment_confirmPayment___default.a },
+  data: function data() {
+    return {
+      payType: false,
+      momo: false,
+      visa: false,
+      anim_d: "animated slideInDown",
+      momo_anim_faIn: "animated fadeIn",
+      visa_anim_faIn: "animated fadeIn",
 
-            network: {
-                mtn: 'MTN',
-                vodafone: 'VODAFONE',
-                airtel: 'AIRTEL',
-                visa: 'Credit Card',
-                mobileNumber: ''
-            },
-            selPaymentType: '',
-            fColor: '',
-            dis: false,
-            amount: '4000',
-            formData: new FormData(),
-            loading: true,
-            amounts: '',
-            sub_id: '',
-            selNetworks: ''
+      network: {
+        mtn: "MTN",
+        vodafone: "VODAFONE",
+        airtel: "AIRTEL",
+        visa: "Credit Card",
+        mobileNumber: ""
+      },
+      selPaymentType: "",
+      fColor: "",
+      dis: false,
+      amount: "4000",
+      formData: new FormData(),
+      loading: true,
+      amounts: "",
+      sub_id: "",
+      selNetworks: ""
+    };
+  },
+  mounted: function mounted() {
+    //this.checkSel(this.selPaymentType)
+    this.totals();
+  },
 
-        };
+  methods: {
+    showPayForm: function showPayForm(value) {
+      //  this.anim = 'animated fadeIn';
+      console.log(this.anim);
+      this.payType = true;
+      if (value === "AIRTEL" || value === "VODAFONE" || value === "MTN") {
+        this.selPaymentType = value;
+        this.momo = true;
+        // this.visa_anim_faIn = 'animated fadeOut';
+        this.visa = false;
+        this.checkSel();
+      } else {
+        this.selPaymentType = value;
+
+        this.visa = true;
+        //  this.momo_anim_faIn = 'animated fadeOut';
+        this.momo = false;
+      }
     },
-    mounted: function mounted() {
-        //this.checkSel(this.selPaymentType)
-        this.totals();
-    },
-
-    methods: {
-        showPayForm: function showPayForm(value) {
-            //  this.anim = 'animated fadeIn';
-            console.log(this.anim);
-            this.payType = true;
-            if (value === 'AIRTEL' || value === 'VODAFONE' || value === 'MTN') {
-                this.selPaymentType = value;
-                this.momo = true;
-                // this.visa_anim_faIn = 'animated fadeOut';
-                this.visa = false;
-                this.checkSel();
-            } else {
-                this.selPaymentType = value;
-
-                this.visa = true;
-                //  this.momo_anim_faIn = 'animated fadeOut';
-                this.momo = false;
-            }
-        },
-        checkSel: function checkSel() {
-            if (this.selPaymentType === 'MTN') {
-                this.fColor = 'mtn';
-            } else if (this.selPaymentType === 'AIRTEL') {
-                this.fColor = 'airtel';
-            } else if (this.selPaymentType === 'VODAFONE') {
-                this.fColor = 'voda';
-            }
-            //                if(this.selPaymentType === 'Credit Card'){
-            //                    this.fColor = 'dash-credit';
-            //                }
-            else {
-                    this.fColor = '';
-                }
-        },
-        totals: function totals() {
-            this.amounts = this.totalBill;
-            return this.amounts;
-        },
-        makePayment: function makePayment() {
-            var self = this;
-            var formData = new FormData();
-            formData.append('phone', self.network.mobileNumber);
-            formData.append('amount', self.totalBill);
-            formData.append('payby', self.selNetworks);
-            // formData.append('item_desc', self.segTitle);
-            formData.append('media_house_id', self.mediaHouseId);
-            formData.append('subscription_id', self.subId);
-            formData.append('invoice_id', self.invoiceId);
-
-            // store.dispatch('getProcessing', true);
-            // this.dis = true;
-            //   axios.post('api-payment/',formData).then(function (res) {
-            axios.post('purchase', formData).then(function (res) {
-
-                alert(res.data);
-
-                if (res.data === 'success') {
-                    // self.loading = true;
-                    //  store.dispatch('getProcessing', false);
-                    self.$router.push('payment-success');
-                } else {
-                    //self.loading = true;
-                    // store.dispatch('getProcessing', false);
-                    new PNotify({
-                        title: 'Error Desktop Notice', type: 'error', text: 'Transaction failed please try again later.', desktop: {
-                            desktop: true, icon: 'assets/images/pnotify/error.png'
-                        }
-                    });
-                }
-            }).catch(function (error) {
-                if (error) {
-                    console.log(error);
-                    // store.dispatch('getProcessing', false);
-                }
-            });
-        },
-        payments: function payments(number) {
-            var self = this;
-            self.validateNumber(number);
-        },
-        cancel: function cancel() {
-            sweetAlert({
-                title: 'Warning',
-                text: 'Do you want to cancel this transaction?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Remove',
-                confirmButtonColor: '#E44032',
-                closeOnConfirm: true,
-                showLoaderOnConfirm: true
-            }, function () {
-
-                //  self.makePayment();
-                //  window.location.replace("http://localhost:8000/user-account/create-subscription");
-            });
-        },
-        upload: function upload() {
-            var self = this;
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getShowSched', false);
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getShowPayment', true);
-            self.formData.append('uploadedFile', self.getFile);
-            self.formData.append('created_ad_data', JSON.stringify(self.getCreatedAd));
-            self.formData.append('media_house_id', self.getSelMediaId);
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', true);
-            axios.post('ads-api/store', self.formData).then(function (response) {
-                // console.log(response.data);
-                setTimeout(function () {
-                    if (response) {
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getProcessing', false);
-                        window.location.replace("http://localhost:8000/user-account/subscriptions");
-                    }
-                }, 3000);
-            });
-        },
-        validateNumber: function validateNumber(number) {
-            if (number == '') {
-                this.invalidNumberMessage();
-            }
-            /*  else if(number.substr(0,1) != '0' || number.length != '10'){
-                this.invalidNumberMessage();
-            ;
-            }else if(number.substr(0,3) != '233' && number.length != '12'){
-               this.invalidNumberMessage();
-               } */else {
-                    var self = this;
-                    sweetAlert({
-                        title: 'Confirm Payment',
-                        // text: 'Do you want to cancel this transaction?',
-                        type: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes',
-                        confirmButtonColor: '#E44032',
-                        closeOnConfirm: true,
-                        showLoaderOnConfirm: true
-                    }, function () {
-                        self.makePayment();
-                        // window.location.replace("http://localhost:8000/user-account/create-subscription");
-                    });
-                }
-        },
-        invalidNumberMessage: function invalidNumberMessage() {
-            new PNotify({
-                title: 'Error', type: 'error', text: 'Please enter a valid phone number.', desktop: {
-                    desktop: true, icon: 'assets/images/pnotify/error.png'
-                }
-            });
+    checkSel: function checkSel() {
+      if (this.selPaymentType === "MTN") {
+        this.fColor = "mtn";
+      } else if (this.selPaymentType === "AIRTEL") {
+        this.fColor = "airtel";
+      } else if (this.selPaymentType === "VODAFONE") {
+        this.fColor = "voda";
+      }
+      //                if(this.selPaymentType === 'Credit Card'){
+      //                    this.fColor = 'dash-credit';
+      //                }
+      else {
+          this.fColor = "";
         }
     },
-    computed: {
-        getCreatedAd: function getCreatedAd() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.schedule_ad_data;
-        },
-        getSelMedia: function getSelMedia() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.media;
-        },
-        show_scheds: function show_scheds() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.show_sched;
-        },
-        getSelMediaId: function getSelMediaId() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMediaId;
-        },
-        getFile: function getFile() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.file;
-        },
-        getShowPayment: function getShowPayment() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.showPayment;
-        },
-        shows_sched: function shows_sched() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.show_sched;
-        },
-        getProcessStatus: function getProcessStatus() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
-        },
-        mediaHouseId: function mediaHouseId() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.mediaHouseId;
-        },
-        subId: function subId() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subId;
-        },
-        invoiceId: function invoiceId() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.invoiceId;
-        },
-        segTitle: function segTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
-        },
-        totalBill: function totalBill() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.totalBill;
+    totals: function totals() {
+      this.amounts = this.totalBill;
+      return this.amounts;
+    },
+    makePayment: function makePayment() {
+      var self = this;
+      var formData = new FormData();
+      formData.append("phone", self.network.mobileNumber);
+      formData.append("amount", self.totalBill);
+      formData.append("payby", self.selNetworks);
+      // formData.append('item_desc', self.segTitle);
+      formData.append("media_house_id", self.mediaHouseId);
+      formData.append("subscription_id", self.subId);
+      formData.append("invoice_id", self.invoiceId);
+
+      // store.dispatch('getProcessing', true);
+      // this.dis = true;
+      //   axios.post('api-payment/',formData).then(function (res) {
+      axios.post("api-purchasesubs", formData).then(function (res) {
+        alert(res.data);
+
+        if (res.data === "success") {
+          // self.loading = true;
+          //  store.dispatch('getProcessing', false);
+          self.$router.push("payment-success");
+        } else {
+          //self.loading = true;
+          // store.dispatch('getProcessing', false);
+          new PNotify({
+            title: "Error Desktop Notice",
+            type: "error",
+            text: "Transaction failed please try again later.",
+            desktop: {
+              desktop: true,
+              icon: "assets/images/pnotify/error.png"
+            }
+          });
         }
+      }).catch(function (error) {
+        if (error) {
+          console.log(error);
+          // store.dispatch('getProcessing', false);
+        }
+      });
+    },
+    payments: function payments(number) {
+      var self = this;
+      self.validateNumber(number);
+    },
+    cancel: function cancel() {
+      sweetAlert({
+        title: "Warning",
+        text: "Do you want to cancel this transaction?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Remove",
+        confirmButtonColor: "#E44032",
+        closeOnConfirm: true,
+        showLoaderOnConfirm: true
+      }, function () {
+        //  self.makePayment();
+        //  window.location.replace("http://localhost:8000/user-account/create-subscription");
+      });
+    },
+    upload: function upload() {
+      var self = this;
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getShowSched", false);
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getShowPayment", true);
+      self.formData.append("uploadedFile", self.getFile);
+      self.formData.append("created_ad_data", JSON.stringify(self.getCreatedAd));
+      self.formData.append("media_house_id", self.getSelMediaId);
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getProcessing", true);
+      axios.post("ads-api/store", self.formData).then(function (response) {
+        // console.log(response.data);
+        setTimeout(function () {
+          if (response) {
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getProcessing", false);
+            window.location.replace("http://localhost:8000/user-account/subscriptions");
+          }
+        }, 3000);
+      });
+    },
+    validateNumber: function validateNumber(number) {
+      if (number == "") {
+        this.invalidNumberMessage();
+      } else {
+        /*  else if(number.substr(0,1) != '0' || number.length != '10'){
+                    this.invalidNumberMessage();
+        ;
+                }else if(number.substr(0,3) != '233' && number.length != '12'){
+                   this.invalidNumberMessage();
+                   } */
+        var self = this;
+        sweetAlert({
+          title: "Confirm Payment",
+          // text: 'Do you want to cancel this transaction?',
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          confirmButtonColor: "#E44032",
+          closeOnConfirm: true,
+          showLoaderOnConfirm: true
+        }, function () {
+          self.makePayment();
+          // window.location.replace("http://localhost:8000/user-account/create-subscription");
+        });
+      }
+    },
+    invalidNumberMessage: function invalidNumberMessage() {
+      new PNotify({
+        title: "Error",
+        type: "error",
+        text: "Please enter a valid phone number.",
+        desktop: {
+          desktop: true,
+          icon: "assets/images/pnotify/error.png"
+        }
+      });
     }
-
+  },
+  computed: {
+    getCreatedAd: function getCreatedAd() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.schedule_ad_data;
+    },
+    getSelMedia: function getSelMedia() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.media;
+    },
+    show_scheds: function show_scheds() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.show_sched;
+    },
+    getSelMediaId: function getSelMediaId() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMediaId;
+    },
+    getFile: function getFile() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.file;
+    },
+    getShowPayment: function getShowPayment() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.showPayment;
+    },
+    shows_sched: function shows_sched() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.show_sched;
+    },
+    getProcessStatus: function getProcessStatus() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+    },
+    mediaHouseId: function mediaHouseId() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.mediaHouseId;
+    },
+    subId: function subId() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subId;
+    },
+    invoiceId: function invoiceId() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.invoiceId;
+    },
+    segTitle: function segTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+    },
+    totalBill: function totalBill() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.totalBill;
+    }
+  }
 });
 
 /***/ }),
@@ -73918,7 +73928,7 @@ var render = function() {
                           staticClass: "card-title text-muted text-small",
                           class: _vm.fColor
                         },
-                        [_vm._v(" " + _vm._s(_vm.selPaymentType))]
+                        [_vm._v(_vm._s(_vm.selPaymentType))]
                       ),
                       _vm._v(" "),
                       _c("hr")
@@ -74089,7 +74099,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v(" Select payment type")]),
+      _c("h4", { staticClass: "card-title" }, [_vm._v("Select payment type")]),
       _vm._v(" "),
       _c("hr")
     ])

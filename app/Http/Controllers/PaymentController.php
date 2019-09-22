@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
@@ -14,9 +15,9 @@ class PaymentController extends Controller
 
     public function  payment(Request $request)
     {
-        return response()->json('success');
+        return response()->json($request->all);
 
-        /* 
+        
       $client = new Client();
 
       $payby = $request->input('payby');
@@ -61,7 +62,7 @@ class PaymentController extends Controller
           Log::info($res->getStatusCode());
 
           Log::channel('paylog')->info('Loging response to API call '.$res->getStatusCode());
- */
+ 
 
         // 200
         //  $res->getHeader('content-type');
