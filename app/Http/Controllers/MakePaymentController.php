@@ -17,7 +17,6 @@ class MakePaymentController extends Controller
     {
 
 
-
         $client = new Client();
 
         $payby = $request->input('payby');
@@ -55,7 +54,7 @@ class MakePaymentController extends Controller
         $data  = json_encode($dataArray, true);
         //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-        $res = $client->request(
+        /*  $res = $client->request(
             'POST',
             'https://api.nalosolutions.com/payplus/api/index.php',
             [
@@ -63,49 +62,36 @@ class MakePaymentController extends Controller
                 'data' => $data
 
             ]
-        );
+        ); */
 
         //  Log::info($res->getStatusCode());
 
         //  Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 
+        if ($res->getBody()->getContents() == 200) {
+            $transac = Transactions::create([
+                'phone' => $phoneNumber,
+                'payment_source' => $network,
+                'transaction_id' => $transaction_id,
+                'media_house_id' => $media_house_id,
+                'amount' => $amount,
+                'invoice_id' => $invoice_id,
+                'client_id' => $client_id,
+                'subscription_id' => $subscription_id,
+                'service' => $service,
+                'transaction_status' => $success,
+                'transact_charge' => $amount_charge,
+                'response'   => '{response: success}',
+            ]);
+            if ($transac) {
+                return response()->json('success');
+            } else {
+                return response()->json('error');
+            }
+        } else {
+            return response()->json('failed');
+        }
+
         return response()->json($res->getBody()->getContents());
-
-
-
-        // 200
-        //  $res->getHeader('content-type');
-        // 'application/json; charset=utf8'
-        //$res->getBody();
-        /*  $success = 'failed';
-               if($phoneNumber){
-                   $success = 'success';
-                   $transac = Transactions::create([
-                       'phone' => $phoneNumber,
-                       'payment_source' => $network,
-                       'transaction_id' => $transaction_id,
-                       'media_house_id' => $media_house_id,
-                       'amount' => $amount,
-                       'invoice_id' => $invoice_id,
-                       'client_id' => $client_id,
-                       'subscription_id' => $subscription_id,
-                       'service' => $service,
-                       'transaction_status' => $success,
-                       'transact_charge' => $amount_charge,
-                       'response'   => '{response: success}',
-                   ]);
-                   if ($transac){
-                       return response()->json('success');
-
-                   }
-                   else{
-                       return response()->json('error');
-                   }
-
-
-               }
-               else{
-                   return response()->json('failed');
-               } */
     }
 }

@@ -79786,7 +79786,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -79892,7 +79892,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fetchTransactions: function fetchTransactions() {
             var self = this;
-
             axios.get('fetch-transac/api').then(function (res) {
                 console.log(res.data);
                 self.transactions = res.data;
@@ -79940,7 +79939,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(trans.amount))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v("{{trans.transact_charge} ")]),
+                    _c("td", [_vm._v(_vm._s(trans.transact_charge) + " ")]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
