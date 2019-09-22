@@ -54,7 +54,7 @@ class MakePaymentController extends Controller
         $data  = json_encode($dataArray, true);
         //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-          $res = $client->request(
+        $res = $client->request(
             'POST',
             'https://api.nalosolutions.com/payplus/api/index.php',
             [
@@ -62,13 +62,15 @@ class MakePaymentController extends Controller
                 'data' => $data
 
             ]
-        ); 
+        );
+        return response()->json($res->getBody()->getContents());
+
 
         //  Log::info($res->getStatusCode());
 
         //  Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 
-        if ($res->getBody()->getContents() == 200) {
+        /*  if ($res->getBody()->getContents() == 200) {
             $transac = Transactions::create([
                 'phone' => $phoneNumber,
                 'payment_source' => $network,
@@ -91,7 +93,6 @@ class MakePaymentController extends Controller
         } else {
             return response()->json('failed');
         }
-
-        return response()->json($res->getBody()->getContents());
+ */
     }
 }
