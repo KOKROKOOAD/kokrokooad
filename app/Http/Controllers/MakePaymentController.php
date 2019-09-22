@@ -54,7 +54,7 @@ class MakePaymentController extends Controller
         $data  = json_encode($dataArray, true);
         //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-        /*  $res = $client->request(
+          $res = $client->request(
             'POST',
             'https://api.nalosolutions.com/payplus/api/index.php',
             [
@@ -62,7 +62,7 @@ class MakePaymentController extends Controller
                 'data' => $data
 
             ]
-        ); */
+        ); 
 
         //  Log::info($res->getStatusCode());
 
