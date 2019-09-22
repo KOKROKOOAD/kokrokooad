@@ -50,9 +50,7 @@ class MakePaymentController extends Controller
             'customerNumber' => $msisdn,
             'payby' => $payby,
             'callback' =>  'https://api.nalosolutions.com/nalosms/smspay/callback.php',
-            'merchant_name' => env('MERCHANT_USERNAME')
         );
-        return response()->json($data);
 
 
         Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
@@ -69,6 +67,9 @@ class MakePaymentController extends Controller
         Log::info($res->getStatusCode());
 
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
+
+        return response()->json($res->getStatusCode());
+
 
 
         // 200
