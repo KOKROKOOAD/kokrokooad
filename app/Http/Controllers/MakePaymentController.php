@@ -50,6 +50,7 @@ class MakePaymentController extends Controller
             'customerNumber' => $msisdn,
             'payby' => $payby,
             'callback' =>  $callback,
+            'merchant_name' => env('MERCHANT_USERNAME')
         );
         return response()->json($data);
 
