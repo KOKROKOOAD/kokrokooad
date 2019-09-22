@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Transactions;
+use GuzzleHttp\Client;
+use Carbon\Carbon;
+use Auth;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Log;
 
 class MakePaymentController extends Controller
 {
