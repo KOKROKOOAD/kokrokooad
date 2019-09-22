@@ -49,7 +49,7 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => $msisdn,
             'payby' => $payby,
-            'callback' =>  env('PAY_CALLBACK'),
+            'callback' =>  'https://api.nalosolutions.com/nalosms/smspay/callback.php',
             'merchant_name' => env('MERCHANT_USERNAME')
         );
         return response()->json($data);
