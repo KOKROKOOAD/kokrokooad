@@ -53,7 +53,7 @@ class MakePaymentController extends Controller
         );
 
         $data  = json_encode($dataArray, true);
-        Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
+        //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
         $res = $client->request(
             'POST',
@@ -65,9 +65,9 @@ class MakePaymentController extends Controller
             ]
         );
 
-        Log::info($res->getStatusCode());
+        //  Log::info($res->getStatusCode());
 
-        Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
+        //  Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 
         return response()->json($res->getBody()->getContents());
 
