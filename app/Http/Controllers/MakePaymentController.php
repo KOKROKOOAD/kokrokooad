@@ -35,7 +35,7 @@ class MakePaymentController extends Controller
 
 
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5('kokrokoo') . $key . md5('kokrokoo@gh');
+        $secret = md5('kokrokoo' . $key . md5('kokrokoo@gh'));
         $src = $_SERVER['REMOTE_ADDR'];
         /*
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
@@ -47,8 +47,8 @@ class MakePaymentController extends Controller
         // echo $data;
 
         $dataArray = array(
-            'merchant_id' => env('MERCHANT_ID'),
-            'secret' => $secret,
+            'merchant_id' => 'NPS_000015',
+            'secrete' => $secret,
             'key'    => $key,
             'order_id' => $order_id,
             'customerName' => auth()->user()->name,
