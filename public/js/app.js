@@ -73403,7 +73403,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       // this.dis = true;
       //   axios.post('api-payment/',formData).then(function (res) {
       axios.post("api-purchasesubs", formData).then(function (res) {
-        alert(res.data);
+        console.log(res.data);
 
         if (res.data === "success") {
           // self.loading = true;
@@ -73471,11 +73471,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.invalidNumberMessage();
       } else {
         /*  else if(number.substr(0,1) != '0' || number.length != '10'){
-                    this.invalidNumberMessage();
+                  this.invalidNumberMessage();
         ;
-                }else if(number.substr(0,3) != '233' && number.length != '12'){
-                   this.invalidNumberMessage();
-                   } */
+              }else if(number.substr(0,3) != '233' && number.length != '12'){
+                 this.invalidNumberMessage();
+                 } */
         var self = this;
         sweetAlert({
           title: "Confirm Payment",

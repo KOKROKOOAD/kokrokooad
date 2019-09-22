@@ -187,7 +187,7 @@ export default {
       axios
         .post("api-purchasesubs", formData)
         .then(function(res) {
-          alert(res.data);
+          console.log(res.data);
 
           if (res.data === "success") {
             // self.loading = true;
@@ -263,7 +263,7 @@ export default {
       if (number == "") {
         this.invalidNumberMessage();
       } else {
-      /*  else if(number.substr(0,1) != '0' || number.length != '10'){
+        /*  else if(number.substr(0,1) != '0' || number.length != '10'){
                   this.invalidNumberMessage();
 ;
               }else if(number.substr(0,3) != '233' && number.length != '12'){
