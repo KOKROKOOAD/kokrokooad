@@ -68,7 +68,7 @@ class MakePaymentController extends Controller
 
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 
-        return response()->json($res->getStatusCode());
+        return response()->json($res);
 
 
 
