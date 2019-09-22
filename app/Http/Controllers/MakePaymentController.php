@@ -35,8 +35,16 @@ class MakePaymentController extends Controller
 
 
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5(env('MERCHANT_USERNAME') . $key . md5(env('MERCHANT_PASSWORD')));
+        $secret = md5('kokrokoo') . $key . md5('kokrokoo@gh');
         $src = $_SERVER['REMOTE_ADDR'];
+        /*
+        $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
+        $secrete = md5("kokrokoo" . $key . md5('3bksh!9$'));
+        $dataArray = array("merchant_id" => "NPS_000002", "secrete" => "$secrete", "key" => "$key", "order_id" => "$order_id", "customerName" => "$username", "amount" => "$amount", "item_desc" => "$item_desc", "customerNumber" => "$msisdn", "payby" => "$payby", "callback" => "$callback");
+        $data = json_encode($dataArray, true);
+        $src = $_SERVER['REMOTE_ADDR'];
+        file_put_contents("syslog.log", date('Y-m-d H:i:s') . " $src || $data" . PHP_EOL, FILE_APPEND); */
+        // echo $data;
 
         $dataArray = array(
             'merchant_id' => env('MERCHANT_ID'),
@@ -60,7 +68,6 @@ class MakePaymentController extends Controller
             [
                 'Content' => 'application/json',
                 'data' => $data
-
             ]
         );
         return response()->json($res->getBody()->getContents());
