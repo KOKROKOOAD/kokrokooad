@@ -186,7 +186,7 @@
                // store.dispatch('getProcessing', true);
                 // this.dis = true;
                   //   axios.post('api-payment/',formData).then(function (res) {
-                     axios.post('pay/',formData).then(function (res) {
+                     axios.post('purchase',formData).then(function (res) {
 
                              alert(res.data);
 
