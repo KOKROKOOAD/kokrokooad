@@ -33,11 +33,10 @@ class MakePaymentController extends Controller
         $callback =  env("PAY_CALLBACK");
 
 
-
-        $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5('kokrokoo' . $key . md5('kokrokoo@gh'));
-        $src = $_SERVER['REMOTE_ADDR'];
         $api_key = 'e0%øgu';
+        $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
+        $secret = md5('kokrokoo' . $api_key . md5('kokrokoo@gh'));
+        $src = $_SERVER['REMOTE_ADDR'];
         /*
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secrete = md5("kokrokoo" . $key . md5('3bksh!9$'));
@@ -50,7 +49,7 @@ class MakePaymentController extends Controller
         $dataArray = array(
             'merchant_id' => 'NPS_000015',
             'secrete' => $secret,
-            'key'    => $api_key,
+            'key'    => $key,
             'order_id' => $order_id,
             'customerName' => auth()->user()->name,
             'amount' => $amount,
