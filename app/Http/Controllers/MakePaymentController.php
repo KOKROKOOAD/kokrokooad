@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Auth;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 
 class MakePaymentController extends Controller
 {
@@ -56,7 +57,7 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => '233244560186',
             'payby' => $payby,
-            'callback' =>   redirect()->route('makepayment-callback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
+            'callback' =>  Route::get('makepayment-callback,MakePaymentController@MakePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
         $data  = json_encode($dataArray, true);
