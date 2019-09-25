@@ -100,7 +100,7 @@ Route::prefix('/user-account')->group(function () {
     //=======================subscriptions routes ends here=============================
 
     //========================make payment callback route==========================
-    Route::get('makepayment-callback', 'MakePaymentController@MakePaymentCallback');
+    Route::get('makepayment/callback', 'MakePaymentController@MakePaymentCallback')->name('payment.callback');
 
 
     //===========================segment routs =====================================

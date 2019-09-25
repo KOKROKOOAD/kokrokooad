@@ -57,7 +57,7 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => '233249756900',
             'payby' => $payby,
-            'callback' =>  Route::get('makepayment-callback,MakePaymentController@MakePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
+            'callback' =>  action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
         $data  = json_encode($dataArray, true);
