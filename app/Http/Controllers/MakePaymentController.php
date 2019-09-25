@@ -33,7 +33,7 @@ class MakePaymentController extends Controller
         $callback =  env("PAY_CALLBACK");
 
 
-        $api_key = 'e0%øgu';
+        $api_key = 'e0%ogu';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secret = md5('kokrokoo' . $key . md5($api_key));
         $src = $_SERVER['REMOTE_ADDR'];
