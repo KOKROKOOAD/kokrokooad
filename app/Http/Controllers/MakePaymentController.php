@@ -55,7 +55,7 @@ class MakePaymentController extends Controller
             'customerName' => auth()->user()->name,
             'amount' => $amount,
             'item_desc' => $item_desc,
-            'customerNumber' => '233244560186',
+            'customerNumber' => '233249756900',
             'payby' => $payby,
             'callback' =>  Route::get('makepayment-callback,MakePaymentController@MakePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
