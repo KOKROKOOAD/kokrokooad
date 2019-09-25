@@ -35,7 +35,7 @@ class MakePaymentController extends Controller
 
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5('kokrokoogh' . $api_key . md5($api_key));
+        $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
         $src = $_SERVER['REMOTE_ADDR'];
         /*
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
@@ -56,7 +56,7 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => '233244560186',
             'payby' => $payby,
-            'callback' =>  'https://api.nalosolutions.com/nalosms/smspay/callback.php',
+            'callback' =>    route('makepayment-callback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
         $data  = json_encode($dataArray, true);
@@ -104,5 +104,12 @@ class MakePaymentController extends Controller
             return response()->json('failed');
         }
  */
+    }
+
+    public function makePaymentCallback()
+    {
+        if (isset($_GET['invoice'])) {
+            dd($_GET['invoice']);
+        }
     }
 }

@@ -99,6 +99,9 @@ Route::prefix('/user-account')->group(function () {
     Route::get('check-segment-api/{sub_date}', 'CheckSubController@checkSubAvailable');
     //=======================subscriptions routes ends here=============================
 
+    //========================make payment callback route==========================
+    Route::post('makepayment-callback', 'MakePaymentController@MakePaymentCallback');
+
 
     //===========================segment routs =====================================
     Route::get('fetch-media-types-api', 'SegmentController@fetchMediaTypes');
