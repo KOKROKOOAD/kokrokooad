@@ -53,7 +53,7 @@ class MakePaymentController extends Controller
             'key'    => $key,
             'order_id' => $order_id,
             'customerName' => auth()->user()->name,
-            'amount' => $amount,
+            'amount' => '1',
             'item_desc' => $item_desc,
             'customerNumber' => '233249756900',
             'payby' => $payby,
