@@ -33,9 +33,9 @@ class MakePaymentController extends Controller
         $callback =  env("PAY_CALLBACK");
 
 
-        $api_key = 'e0%0gu';
+        $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5('kokrokoo' . $key . md5($api_key));
+        $secret = md5('kokrokoogh' . $api_key . md5($api_key));
         $src = $_SERVER['REMOTE_ADDR'];
         /*
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
@@ -47,7 +47,7 @@ class MakePaymentController extends Controller
         // echo $data;
 
         $dataArray = array(
-            'merchant_id' => 'NPS_000015',
+            'merchant_id' => 'NPS_000035',
             'secrete' => $secret,
             'key'    => $key,
             'order_id' => $order_id,
