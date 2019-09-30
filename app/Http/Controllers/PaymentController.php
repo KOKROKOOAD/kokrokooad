@@ -99,4 +99,8 @@ class PaymentController extends Controller
                    return response()->json('failed');
                } */
     }
+
+    public function makePaymentCallback(Request $request){
+        dd($request->all());
+    }
 }
