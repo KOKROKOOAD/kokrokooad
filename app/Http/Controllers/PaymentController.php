@@ -68,10 +68,8 @@ class PaymentController extends Controller
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 
 
-        // 200
-        //  $res->getHeader('content-type');
-        // 'application/json; charset=utf8'
-        //$res->getBody();
+
+        dd($res->getBody());
         /*  $success = 'failed';
                if($phoneNumber){
                    $success = 'success';
