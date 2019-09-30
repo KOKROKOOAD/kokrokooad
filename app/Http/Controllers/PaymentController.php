@@ -62,7 +62,7 @@ class PaymentController extends Controller
 
             ]
         );
-
+            exit('displaying data from request ||' . $res);
         Log::info($res->getStatusCode());
 
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
