@@ -17,52 +17,56 @@ class PaymentController extends Controller
     {
         return response()->json($request->all);
 
-        
-      $client = new Client();
 
-      $payby = $request->input('payby');
-      $msisdn = $request->input('phone');
-      $transaction_id =  uniqid('k', true);
-      $order_id = auth()->user()->name."_". Carbon::now();
-      $amount = $request->input('amount');
-      $order_id = $request->input('invoice_id');
-      $subscription_id = $request->input('subscription_id');
-      $client_id = auth()->user()->client_id;
-      $media_house_id = $request->input('media_house_id');
-      $item_desc = "subscription purchase";
-      //$account_type = $request->input('acc_type');
-      $callback =  env("PAY_CALLBACK");
+        $client = new Client();
+
+        $payby = $request->input('payby');
+        $phone = $request->input('phone');
+        $transaction_id =  uniqid('k', true);
+        $order_id = auth()->user()->name . "_" . Carbon::now();
+        $amount = $request->input('amount');
+        $order_id = $request->input('invoice_id');
+        $subscription_id = $request->input('subscription_id');
+        $client_id = auth()->user()->client_id;
+        $media_house_id = $request->input('media_house_id');
+        $item_desc = "subscription purchase";
+        //$account_type = $request->input('acc_type');
+        $callback =  env("PAY_CALLBACK");
+
+        $msisdn = '233' . substr($phone, 1);
 
 
+        $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
+        $secrete = md5(env('MERCHANT_USERNAME') . $key . md5(env('MERCHANT_PASSWORD')));
+        $src = $_SERVER['REMOTE_ADDR'];
 
-      $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-      $secrete = md5(env('MERCHANT_USERNAME'). $key . md5(env('MERCHANT_PASSWORD')));
-      $src = $_SERVER['REMOTE_ADDR'];
+        $data = array(
+            'merchant_id' => env('MERCHANT_ID'),
+            'secret' => $secrete,
+            'key'    => $key,
+            'order_id' => $order_id,
+            'customerName' => auth()->user()->name,
+            'amount' => $amount,
+            'item_desc' => $item_desc,
+            'customerNumber' => $msisdn,
+            'payby' => $payby,
+            'callback' =>  redirect()->route('payment.callback'),
+        );
+        Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-      $data = array(
-          'merchant_id' => env('MERCHANT_ID'),
-          'secret' => $secrete,
-          'key'    => $key,
-          'order_id' => $order_id,
-          'customerName' => auth()->user()->name,
-          'amount' => $amount,
-          'item_desc' => $item_desc,
-          'customerNumber' => $msisdn,
-          'payby' => $payby,
-          'callback' =>  redirect()->route('payment.callback'),
-      );
-      Log::info(Carbon::now()->format('Y-m-d H:i:s')." $src || ",$data);
-      
-      $res = $client->request('POST', 'https://api.nalosolutions.com/payplus/api/index.php', 
-      [
-        'data' => $data
+        $res = $client->request(
+            'POST',
+            'https://api.nalosolutions.com/payplus/api/index.php',
+            [
+                'data' => $data
 
-      ]);
+            ]
+        );
 
-          Log::info($res->getStatusCode());
+        Log::info($res->getStatusCode());
 
-          Log::channel('paylog')->info('Loging response to API call '.$res->getStatusCode());
- 
+        Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
+
 
         // 200
         //  $res->getHeader('content-type');
@@ -100,7 +104,8 @@ class PaymentController extends Controller
                } */
     }
 
-    public function makePaymentCallback(Request $request){
-        dd($request->all());
+    public function makePaymentCallback(Request $request)
+    {
+        // dd($request->all());
     }
 }

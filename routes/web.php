@@ -11,6 +11,12 @@
 |
 */
 
+Route::get('/substrings', function () {
+    $msisdn = '0244560186';
+    $ms = '233' . substr($msisdn, 1);
+    echo $ms;
+});
+
 
 //==============guest routes=================
 Route::get('/', function () {
