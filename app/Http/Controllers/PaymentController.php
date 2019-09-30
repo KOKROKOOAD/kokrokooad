@@ -49,7 +49,7 @@ class PaymentController extends Controller
           'item_desc' => $item_desc,
           'customerNumber' => $msisdn,
           'payby' => $payby,
-          'callback' =>  $callback,
+          'callback' =>  redirect()->route('payment.callback'),
       );
       Log::info(Carbon::now()->format('Y-m-d H:i:s')." $src || ",$data);
       
