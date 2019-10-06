@@ -284,12 +284,12 @@
                             //self.$refs.calendar.$emit('refetch-events');
                             self.$router.push('payment');
 
-                            (new PNotify( {
+                           /*  (new PNotify( {
                                     title:'Success Desktop Notice', type:'success', text:'New subscription successfully created.', desktop: {
                                         desktop: true, icon: 'assets/images/pnotify/success.png'
                                     }
                                 }
-                            ));
+                            )); */
                         }
                         if (response.data === 'booked') {
                             (new PNotify( {

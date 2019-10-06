@@ -27,7 +27,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('register.personal') }}" style="color: #0c0c0c">Personal</a></li>
                                     <li><a href="{{route('register.org')}}" style="color: #0c0c0c">Organisation</a></li>
-                                    <li><a href="{{route('register.media')}}" style="color: #0c0c0c">Media house</a></li>
+                                    <li><a href="{{route('media.policy')}}" style="color: #0c0c0c">Media house</a></li>
                                 </ul>
                             </li>
                         </ul>

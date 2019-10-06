@@ -11,7 +11,7 @@
 <section id="contact-us7">
 
     <!-- about-us-1 start -->
-    <div id="contact-us-1" class="big-padding" style="background:#f9f9f9 ">
+    <div id="contact-us-1" class="" style="padding-bottom:50px;">
 
         <div class="container">
             <form  action="{{route('register')}}" method="post" enctype="multipart/form-data" id="company-form">
@@ -29,10 +29,10 @@
                                         <div class="col-md-12 center"><div id="result"></div> </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
                                                 <label for="company_name">Company name<span class="required">*</span></label>
-                                                <input type="text" class="form-control {{ $errors->has('company_name')  ?  "is-invalid" : '' }}" placeholder="Enter company name"  id="company_name" name="company_name" value="{{old('company_name')}}">
+                                                <input type="text" class="form-control"   id="company_name" name="company_name" value="{{old('company_name')}}" required>
                                                  <span class="text-danger"></span>
                                                 @if ($errors->has('company_name'))
                                                     <span class="invalid-feedback" role="alert">
@@ -41,10 +41,10 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                                 <label>Job Title<span class="required">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Job title" id="title" name="title" value="{{old('title')}}">
+                                                <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}" required>
                                                 @if ($errors->has('title'))
                                                     <span class="invalid-feedback" role="alert">
                                                       <strong>{{ $errors->first('title') }}</strong>
@@ -55,10 +55,10 @@
                                     </div>
                                     <div class="row">
 
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }}">
                                                 <label>Website<span class="required">*</span></label>
-                                                <input type="text" class="form-control{{ $errors->has('website') ? ' is-invalid' : '' }}" placeholder="website"  id="website" name="website" value="{{old('website')}}">
+                                                <input type="text" class="form-control" placeholder="website"  id="website" name="website" value="{{old('website')}}" required>
                                                 @if ($errors->has('website'))
                                                     <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $errors->first('website') }}</strong>
@@ -66,10 +66,10 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('industry_type') ? ' has-error' : '' }}">
                                                 <label>Industrial type<span class="required">*</span></label>
-                                                <input type="text" class="form-control{{ $errors->has('industry_type') ? ' is-invalid' : '' }}" placeholder="Industrial type"  id="industry_type" name="industry_type" value="{{old('website')}}">
+                                                <input type="text" class="form-control"  id="industry_type" name="industry_type" value="{{old('website')}}" required>
                                                 @if ($errors->has('industry_type'))
                                                     <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('industry_type') }}</strong>
@@ -79,10 +79,10 @@
                                         </div>
                                     </div>
                                      <div class="row">
-                                         <div class="col-sm-4">
-                                             <div class="form-group">
+                                         <div class="col-sm-6">
+                                             <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                                                  <label>Address<span class="required">*</span></label>
-                                                 <textarea class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" placeholder="Address"  id="address" name="address">{{old('address')}}</textarea>
+                                                 <textarea class="form-control"  id="address" name="address" required>{{old('address')}}</textarea>
                                                  @if ($errors->has('address'))
                                                      <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('address') }}</strong>
@@ -90,10 +90,10 @@
                                                  @endif
                                              </div>
                                          </div>
-                                         <div class="col-sm-4">
-                                             <div class="form-group">
+                                         <div class="col-sm-6">
+                                             <div class="form-group{{ $errors->has('company_profile') ? ' has-error' : '' }}">
                                                  <label>Profile<span class="required">*</span></label>
-                                                 <textarea class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" placeholder="Tell us about your company"  id="company_profile"  name="company_profile">{{old('company_profile')}}</textarea>
+                                                 <textarea class="form-control"   id="company_profile"  name="company_profile" required>{{old('company_profile')}}</textarea>
                                                  @if ($errors->has('company_profile'))
                                                      <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $errors->first('company_profile') }}</strong>
@@ -103,10 +103,10 @@
                                          </div>
                                      </div>
                                        <div class="row">
-                                           <div class="col-sm-4">
-                                               <div class="form-group">
+                                           <div class="col-sm-6">
+                                               <div class="form-group{{ $errors->has('policies') ? ' has-error' : '' }}">
                                                    <label>Policy<span class="required">*</span></label>
-                                                   <textarea class="form-control{{ $errors->has('policies') ? ' is-invalid' : '' }}" placeholder="Share your policies"  id="policies" name="policies">{{old('policies')}}</textarea>
+                                                   <textarea class="form-control"   id="policies" name="policies">{{old('policies')}}</textarea required>
                                                    @if ($errors->has('policies'))
                                                        <span class="invalid-feedback" role="alert">
                                                        <strong>{{ $errors->first('policies') }}</strong>
@@ -114,10 +114,10 @@
                                                    @endif
                                                </div>
                                            </div>
-                                           <div class="col-sm-4">
-                                               <div class="form-group">
+                                           <div class="col-sm-6">
+                                               <div class="form-group{{ $errors->has('logo') ? ' has-error' : '' }}">
                                                    <label for="logo">Upload logo(Required, only .jpg,.jpeg,.png files:)<span class="required">*</span></label>
-                                                   <input type="file" accept=".jpg|.jpeg|.png" data-max-size='32k' data-type='image'  placeholder="Current place of work" class="{{ $errors->has('logo') ? ' is-invalid' : '' }}"  id="logo" name="logo" value="{{old('logo')}}">
+                                                   <input type="file" accept=".jpg|.jpeg|.png" data-max-size='32k' data-type='image'  class="{{ $errors->has('logo') ? ' is-invalid' : '' }}"  id="logo" name="logo" value="{{old('logo')}}">
                                                    @if ($errors->has('logo'))
                                                        <span class="invalid-feedback" role="alert">
                                                           <strong>{{ $errors->first('logo') }}</strong>
@@ -148,10 +148,10 @@
                                         <div class="col-md-12 center"><div id="result"></div> </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Full name<span class="required">*</span></label>
-                                                <input type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Your Name" id="name" name="name" value="{{old('name')}}">
+                                                <input type="text" class="form-control"  id="name" name="name" value="{{old('name')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('name'))
                                                         <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('name') }}</strong></span>
@@ -159,10 +159,10 @@
 							                       </span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                                 <label>Email<span class="required">*</span></label>
-                                                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email Address" id="email" name="email" value="{{old('email')}}">
+                                                <input type="email" class="form-control"  id="email" name="email" value="{{old('email')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('email'))
                                                         <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
@@ -173,10 +173,10 @@
                                     </div>
                                        <div class="row">
 
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('phone1') ? ' has-error' : '' }}">
                                                 <label for="phone1">Phone no. 1<span class="required">*</span></label>
-                                                <input type="text" class="form-control{{ $errors->has('phone1') ? ' is-invalid' : '' }}" placeholder="Phone No.1"  id="phone1" name="phone1" value="{{old('phone1')}}">
+                                                <input type="text" class="form-control"   id="phone1" name="phone1" value="{{old('phone1')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone1'))
                                                         <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('phone1') }}</strong></span>
@@ -185,10 +185,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('phone2') ? ' has-error' : '' }}">
                                                 <label for="phone2">Phone no. 2</label>
-                                                <input type="text" class="form-control{{ $errors->has('phone2') ? ' is-invalid' : '' }}" placeholder="Phone No. 2"  id="phone2" name="phone2" value="{{old('phone2')}}">
+                                                <input type="text" class="form-control"   id="phone2" name="phone2" value="{{old('phone2')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone2'))
                                                         <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('phone2') }}</strong></span>
@@ -198,10 +198,10 @@
                                         </div>
                                        </div>
                                          <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                                 <label for="password">Password<span class="required">*</span></label>
-                                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Enter password" id="password" name="password">
+                                                <input type="password" class="form-control" placeholder="Enter password" id="password" name="password" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('password'))
                                                         <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('password') }}</strong></span>
@@ -210,10 +210,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                                                 <label for="re-pass">Re-type Password<span class="required">*</span></label>
-                                                <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder="Re-type password"  id="re-pass" name="password_confirmation">
+                                                <input type="password" class="form-control"   id="re-pass" name="password_confirmation">
                                                 @if ($errors->has('password_confirmation'))
                                                     <span class="invalid-feedback" role="alert">
                                                       <strong>{{ $errors->first('password_confirmation') }}</strong>

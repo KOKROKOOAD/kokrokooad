@@ -129,11 +129,19 @@
 
                 }
                 else if (this.getSelectMedia === 'RADIO' || this.getSelectMedia === 'TV'){
+                     let check = $.fullCalendar.formatDate(start,'yyyy-MM-dd');
+                     let today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
+                     if(check < today){
+
+                     }{
                     $('#mol').modal('show');
                     this.selectedStartTime = date.format("YYYY-MM-DD ");
                     this.selectedEndDate = date.format("YYYY-MM-DD ");
                     this.getSelDay(date);
                     this.fetchSelectedRate();
+                     }
+
+                    
                 }
                 else{
                     alert('select a media type');

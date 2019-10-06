@@ -118,7 +118,7 @@ class SubController extends Controller
                     'end' => $endDate[$key],
                     'title' => $request->input('title'),
                     'created_ad_data' => $request->input('created_ad_data'),
-                    'status' => 'pending',
+                    'status' => 'processing_payment',
                     'file_path' => storage_path() . '/files/uploads/' . $fileName . '.' . $ext,
                     'file_name' => $name,
                     'file_size' => $file_size,

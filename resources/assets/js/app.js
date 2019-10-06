@@ -59,6 +59,7 @@ Vue.component('pre-loader', require('./components/preloader/preLoader'));
 Vue.component('sub', require('./components/success-pages/subs'));
 Vue.component('display-select-ratecard', require('./components/display-selected-rate/selectRateAndTime'));
 Vue.component('confirm-payment', require('./components/payment/confirmPayment'));
+Vue.component('cart', require('./components/cart'));
 
 
 

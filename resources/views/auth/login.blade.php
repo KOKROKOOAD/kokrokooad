@@ -84,9 +84,20 @@
                             <div class="row m-b-20">
                                 <div class="col-md-12">
                                     <h3 class="text-center txt-primary">Sign In</h3>
+                                    @if ($errors->has('email'))
+                                     <div class="row" style="padding-top:10px;">
+                                     <div class="alert alert-danger background-danger" style="width:100%;padding-top:10px;text-align:center !important">
+                                     
+                                    <span   role="alert">{{ $errors->first('email') }}</span>
                                 </div>
+                                </div>
+                                @endif
+
+                                </div>
+                               
                             </div>
                             <div class="row m-b-20">
+                               
                                 <div class="col-md-6">
                                     <button class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</button>
                                 </div>
@@ -96,18 +107,16 @@
                             </div>
                             <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
 
-                            <div class="input-group form-primary">
+                            <div class="input-group {{ $errors->has('email') ? ' has-error' : '' }} form-primary">
                                 <span class="input-group-addon" id="basic-addon1"><i class="icofont icofont-envelope"></i> </span>
 
                                 <input type="email" name="email" required id="email" class="form-control" value="{{old('email')}}" placeholder="emial">
 
-                                @if ($errors->has('email'))
-                                    <span class="text-danger" role="alert">{{ $errors->first('email') }}</span>
-                                @endif
+                               
 
                                 <span class="form-bar"></span>
                             </div>
-                            <div class="input-group form-primary">
+                            <div class="input-group{{ $errors->has('password') ? ' has-error' : '' }} form-primary">
                                 <span class="input-group-addon" id="basic-addon2"><i class="icofont icofont-key"></i> </span>
 
                                 <input type="password" name="password" required id="password" class="form-control" placeholder="password">

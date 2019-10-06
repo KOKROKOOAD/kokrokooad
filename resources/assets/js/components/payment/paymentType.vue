@@ -7,6 +7,10 @@
       <div class="card" v-show="loading">
         <div class="card-header">
           <h4 class="card-title">Select payment type</h4>
+          <div v-show="process_payment">
+          <show-processing></show-processing>
+          </div>
+
           <hr />
         </div>
         <div class="card-body text-center">
@@ -79,10 +83,9 @@
             <input
               type="button"
               role="button"
-              :disabled="dis"
               class="btn btn-primary"
               value="Submit"
-              @click="payments(network.mobileNumber)"
+              @click="payments(network.mobileNumber)" :disabled="disable_payment_btn"
             />
           </div>
         </div>
@@ -125,7 +128,9 @@ export default {
       loading: true,
       amounts: "",
       sub_id: "",
-      selNetworks: ""
+      selNetworks: "",
+      process_payment : false,
+      disable_payment_btn : false,
     };
   },
   mounted() {
@@ -197,14 +202,16 @@ export default {
             //self.loading = true;
             // store.dispatch('getProcessing', false);
             new PNotify({
-              title: "Error Desktop Notice",
+              title: "Payment Error Notice",
               type: "error",
-              text: "Transaction failed please try again later.",
+              text: "Transaction failed please try again.",
               desktop: {
                 desktop: true,
                 icon: "assets/images/pnotify/error.png"
               }
             });
+            self.process_payment = false;
+            self.disable_payment_btn = false;
           }
         })
         .catch(function(error) {
@@ -283,6 +290,8 @@ export default {
             showLoaderOnConfirm: true
           },
           function() {
+            self.process_payment  = true;
+            self.disable_payment_btn = true;
             self.makePayment();
             // window.location.replace("http://localhost:8000/user-account/create-subscription");
           }

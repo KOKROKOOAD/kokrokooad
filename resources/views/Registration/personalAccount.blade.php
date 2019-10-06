@@ -14,17 +14,12 @@
     <!-- about-us-1 start -->
     <div id="about-us-1" class="big-padding">
         <div class="container">
-            <form id="personal-account-form" action="{{route('register')}}" method="post" novalidate>
+            <form id="personal-account-form" action="{{route('register')}}" method="post">
                 @csrf
                 <input type="hidden" name="account" value="personal">
             <div class="row">
                 <div class="col-sm-12">
-                        <div class="col-md-6">
-                                <button class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-google-plus m-b-20 btn-block"><i class="icofont icofont-social-google-plus"></i>google</button>
-                            </div>
+                       
                     <div class="outer-bound">
                         <div class=" vertical-heading">
                             <h2 style="color: #E6AA00; font-size: 25px;font-weight: 400">Personal Informations</h2><hr>
@@ -38,9 +33,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Industrial type<span class="required">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Industrial type" required="required"  name="industry_type" value="{{old('industry_type')}}">
+                                                <input type="text" class="form-control"  required="required"  name="industry_type" value="{{old('industry_type')}}">
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('industry_type'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('industry_type') }}</span>
@@ -51,7 +46,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Job Title<span class="required">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Job title" required="required"  name="title" value="{{old('title')}}">
+                                                <input type="text" class="form-control" required="required"  name="title" value="{{old('title')}}">
                                                     @if ($errors->has('title'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('title') }}</span>
                                                     @endif
@@ -66,7 +61,7 @@
                                      <div class="col-sm-8">
                                          <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                              <label>Address<span class="required">*</span></label>
-                                             <textarea class="form-control" placeholder="Address" required="required"  name="address">{{old('address')}}</textarea>
+                                             <textarea class="form-control"  required="required"  name="address">{{old('address')}}</textarea>
                                              <span class="agileits_grid">
                                                     @if ($errors->has('address'))
                                                      <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('address') }}</span>
@@ -102,9 +97,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Full name<span class="required">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Your Name" required="required"  name="name" value="{{ old('name') }}">
+                                                <input type="text" class="form-control"  required="required"  name="name" value="{{ old('name') }}">
                                                    <span class="agileits_grid">
                                                     @if ($errors->has('name'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('name') }}</span>
@@ -115,7 +110,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Email<span class="required">*</span></label>
-                                                <input type="email" class="form-control" placeholder="Email Address" required="required"  name="email" value="{{old('email')}}">
+                                                <input type="email" class="form-control" required="required"  name="email" value="{{old('email')}}">
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('email'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('email')  }}</span>
@@ -129,7 +124,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Phone no. 1<span class="required">*</span></label>
-                                                <input type="text" class="form-control" placeholder="Phone No.1" required="required"  name="phone1" value="{{old('phone1')}}">
+                                                <input type="text" class="form-control"  required="required"  name="phone1" value="{{old('phone1')}}">
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone1'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('phone1') }}</span>
@@ -141,7 +136,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Phone no. 2</label>
-                                                <input type="text" class="form-control" placeholder="Phone No. 2" required="required"  name="phone2" {{old('phone2')}}>
+                                                <input type="text" class="form-control"  required="required"  name="phone2" {{old('phone2')}}>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone2'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('phone2') }}</span>
@@ -154,7 +149,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label for="password">Password<span class="required">*</span></label>
-                                                <input type="password" class="form-control" placeholder="Enter password" required="required" id="password"  name="password">
+                                                <input type="password" class="form-control"  required="required" id="password"  name="password">
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('password'))
                                                         <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('password') }}</span>
@@ -166,7 +161,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-groupform-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                                 <label>Re-type Password<span class="required">*</span></label>
-                                                <input type="password" class="form-control" placeholder="Re-type password" required="required"  name="password_confirmation">
+                                                <input type="password" class="form-control"  required="required"  name="password_confirmation">
 
                                                 @if ($errors->has('password_confirmation'))
                                                 <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('password_confirmation') }}</span>

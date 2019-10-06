@@ -35,6 +35,12 @@ Route::get('/media-account', function () {
     return view('Registration.mediaAccount');
 })->name('register.media');
 
+Route::get('/media/policy',function(){
+       return view('Registration.mediaNotification');
+})->name('media.policy');
+
+
+
 Route::get('/register-success', function () {
     return view('notifications.register_success');
 })->name('register.success');

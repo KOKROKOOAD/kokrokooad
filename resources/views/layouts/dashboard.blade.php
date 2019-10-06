@@ -336,6 +336,7 @@
                     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/filer/custom-filer.js" type="text/javascript"></script>--}}
                     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/filer/jquery.fileuploads.init.js" type="text/javascript"></script>--}}
 
+                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/product-list/product-list.js"></script>
 
                     <!-- pnotify js -->
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.js"></script>

@@ -51,7 +51,12 @@
                             <router-link :to="{name : 'transactions'}">
                                 <span class="pcoded-micon"><i class="feather icon-edit-1"></i></span>
                                 <span class="pcoded-mtext" >Transactions</span>
-                                <!--<span class="pcoded-badge label label-warning">NEW</span>-->
+                            </router-link>
+                        </li>
+                         <li class=" ">
+                            <router-link :to="{name : 'transactions'}">
+                                <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                <span class="pcoded-mtext" >History</span>
                             </router-link>
                         </li>
                         <!--<li class=" ">-->

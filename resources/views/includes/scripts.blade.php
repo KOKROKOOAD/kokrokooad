@@ -18,5 +18,8 @@
     <script src="{{asset('js/website-assets/jquery.fancybox-thumbs.js')}}"></script>
     <script src="{{asset('js/website-assets/wow.js')}}"></script>
     <script src="{{asset('js/website-assets/script.js')}}"></script>
+    <script src="{{asset('js/website-assets/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('js/website-assets/validation.js')}}"></script>
+
 
 
