@@ -124,7 +124,6 @@
                 <div class="pcoded-inner-content">
                     <div class="main-body">
 
-                        <!--{{&#45;&#45;page content goes here&#45;&#45;}}-->
                         <!--@yield('dashboard')-->
                         <router-view></router-view>
 

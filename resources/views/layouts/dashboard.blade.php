@@ -101,7 +101,7 @@
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="/user-account/dashboard">
-                            <img class="img-fluid" src="/images/kokro-yellow.png" alt="Kokrokoo" />
+                            <img class="img-fluid" src="images/kokro-yellow.png" alt="Kokrokoo" />
                             {{--<a class="navbar-brand" href="#"><img src="images/kokro-yellow.png"  alt="kokrokoo"></a>--}}
 
                         </a>
