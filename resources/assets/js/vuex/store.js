@@ -47,6 +47,9 @@ const debug = process.env.NODE_ENV !== 'production';
        sub_id : '',
        invoice_id : '',
        total_bill : '',
+       card_id : '',
+       checkout_ids : [],
+       fileDuration : ''
 
     },
 
@@ -111,7 +114,7 @@ const debug = process.env.NODE_ENV !== 'production';
              state.segment_data.selSegmentDay = payload;
          },
          setRateCardTitle(state, payload){
-             state.rate_card_title = payload;
+             state.card_id = payload;
          },
          setSelMediaHouse(state,payload){
              state.selMediaHouse = payload;
@@ -148,6 +151,12 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setTotalBill(state, payload){
              state.total_bill = payload;
+         },
+         setCheckoutIds(state, payload){
+             state.checkout_ids = payload;
+         },
+         setFileDuration(state,payload){
+             state.fileDuration = payload;
          }
 
 
@@ -166,7 +175,6 @@ const debug = process.env.NODE_ENV !== 'production';
 
          //fetch segment titles eg:LPMs for selected media house
          fetchSegmentTitles(context, mediaHouseId){
-               alert(mediaHouseId);
             axios.get('fetch-segments-titles/' + mediaHouseId).then(function(res){
                  context.commit('setSegment_titles',res.data);
                //  context.commit('getSelMediaId',res.data[1].client_id);
@@ -258,6 +266,12 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          getTotalBill(context, payload){
              context.commit('setTotalBill',payload);
+         },
+         getCheckoutIds(context, payload){
+            context.commit('setCheckoutIds',payload);
+         },
+         getFIleDuration(context, payload){
+            context.commit('setFileDuration',payload);
          }
      },
      getters:{
@@ -324,6 +338,9 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          totalBill(state){
               return state.total_bill;
+         },
+         checkoutIds(state){
+             return state.checkout_ids;
          }
 
 

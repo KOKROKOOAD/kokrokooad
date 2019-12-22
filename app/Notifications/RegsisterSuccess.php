@@ -10,15 +10,16 @@ use Illuminate\Notifications\Messages\MailMessage;
 class RegsisterSuccess extends Notification
 {
     use Queueable;
-   
+   public  $user;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
         //
+        $this->user  = $user;
     }
 
     /**
@@ -40,7 +41,9 @@ class RegsisterSuccess extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('Mail.register.success');
+       // return (new MailMessage)->markdown('Mail.register.success');
+        return (new MailMessage)->subject('welcome to kokrokrooad.com')->markdown('Mail.register.success', ['user' => $this->user]);
+
     }
 
     /**

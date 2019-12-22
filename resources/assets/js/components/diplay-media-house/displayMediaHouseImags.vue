@@ -13,31 +13,16 @@
                 Which media house do you want to
                 <code>Publish to</code>, Select and click a media house to continue.
               </span>
-              <!--{{getSelectMedia}}-->
+              <p>{{no_media}}</p>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="page-header-breadcrumb">
-            <ul class="breadcrumb-title">
-              <li class="breadcrumb-item">
-                <a href="/">
-                  <i class="feather icon-home"></i>
-                </a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="#!">Select Media house</a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
     </div>
-
-    <!--<h5 class="m-b-20">Gallery with description</h5>-->
-    <!--<div v-show="getProcessStatus" class="default-grid row">-->
-    <!--<show-processing></show-processing>-->
-    <!--</div>-->
     <div v-show="loading" class="default-grid row" :class="fadeIn">
       <div class="row lightboxgallery-popup">
         <div
@@ -52,29 +37,23 @@
                 <label class="image-checkbox" :id="index">
                   <img
                     class="img-fluid"
-                    v-bind:src="[live_assets_path + logos.logo]"
+                    v-bind:src="[logo_path + logos.logo]"
                     @click="getSelMediaHouseId(logos.client_id)"
                     width="600"
                     height="515"
                   />
-                  <input type="radio" :value="logos.media_house" v-model="selMediaH" />
-                  <i class="fa fa-check hidden"></i>
+                  <input type="radio" :value="logos.media_house" v-model="selMediaH"/>
+<!--                  <i class="fa fa-check hidden"></i>-->
                 </label>
               </a>
             </div>
             <div class="card-block">
-              <!--<h6 class="job-card-desc">Media house Details</h6><hr>-->
-              <!--<p class="text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-              <!--<div class="job-meta-data"><i class="icofont icofont-safety"></i>washington</div>-->
-              <!--<div class="job-meta-data"><i class="icofont icofont-university"></i><b>{{ getSelectMedia}}</b></div>-->
-
               <div class="job-meta-data">
                 <i class="fa fa-recycle"></i>
                 <b class="text-danger">{{logos.media_house}}</b>
               </div>
               <div v-show="getSelectMedia === 'RADIO'" class="job-meta-data">
-                <i class="fa fa-signal"></i>
-                <b class="text-info">104.3fm</b>
+<!--                <b class="text-info">104.3fm</b>-->
               </div>
             </div>
           </div>
@@ -96,58 +75,52 @@
 
 <script>
 import store from "../../vuex/store";
-import PreLoader from "../preloader/preLoader.vue";
 import ShowProcessing from "../payment/showProcess.vue";
 
 export default {
-  //props :['media'],
   components: {
     ShowProcessing,
-    PreLoader
   },
   name: "displayMediaHouseImags",
   mounted() {
-    this.fetchMediaHouse();
+    if (this.getSelectMedia == ''){
+      this.$router.push({
+        name : 'selectMedia'
+      });
+    }
+    else{
+      this.fetchMediaHouse();
+
+    }
   },
   created() {},
   data() {
     return {
-      r_animate: "",
       selMediaH: "",
       selMediaHouse: "",
       showBtn: true,
       file_upload: "fileupload",
       selectMedia: "selectMedia",
-      media: this.$route.params.media,
       mediaHouseId: null,
       loading: false,
       logo_path: "/thumbnails/",
-      live_assets_path: "/kokrokoo.com/thumbnails/"
+      live_assets_path: '/home/cbnpj9thzweq/public_html/kuf/uploads/register/logo/',
+              //"http://kokrokooad.com/kuf/uploads/register/logo/",
+      no_media : '',
     };
   },
   methods: {
     fetchSegmentTitles() {
       let self = this;
-      // store.dispatch('getProcessing', true);
-
       store.dispatch("getProcessing", false);
-
-      // store.dispatch('fetchSegmentTitles', self.mediaHouseId);
-      // axios.get('testme').then(function (res) {
-      //     if (res){
-      //         alert(res);
-      //
-      //     }
-      // });
       store.dispatch("getSelMediaHouse", self.selMediaH);
-      // store.dispatch('changeStateShowSelMediaHouseTable', true);
     },
     fetchMediaHouse() {
       let self = this;
       store.dispatch("getProcessing", true);
 
       axios.get("media-houses-api/" + self.getSelectMedia).then(function(res) {
-        setTimeout(function() {
+
           if (res && res !== "") {
             store.dispatch("getMediaHouses", res.data);
             // store.dispatch('getSelMediaType',self.getSelectMedia);
@@ -156,7 +129,7 @@ export default {
             store.dispatch("getFadeIn", "animated fadeIn");
             store.dispatch("getShowMediaForm", true);
           }
-        }, 3000);
+
       });
     },
     getSelMediaHouseId(id) {
@@ -188,18 +161,8 @@ export default {
     getProcessStatus() {
       return store.state.processing;
     },
-    mediaHousesss() {
-      return store.state.selMediaHouse;
-    },
-    mediaLogsPath(){
-        if(location.hostname = 'localhost'){
-            this.logo_path = '/thumbnails/';
-            return logo_path;
-        }
-        else{
-          return  this.logo_path = '/kokrokoo.com/thumbnails/';
-        }
-    }
+
+
   }
 };
 </script>

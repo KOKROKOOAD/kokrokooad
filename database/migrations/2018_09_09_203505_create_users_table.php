@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('file_path')->nullable();
             $table->string('file_size')->nullable();
             $table->string('role');
-            $table->boolean('isActive')->default(false);
+            $table->string('isActive')->default('inactive');
             $table->string('activation_code')->nullable();
             $table->string('last_login')->nullable();
             $table->string('account_type');

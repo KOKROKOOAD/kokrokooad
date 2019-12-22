@@ -99,10 +99,10 @@
                             <div class="row m-b-20">
                                
                                 <div class="col-md-6">
-                                    <button class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</button>
+{{--                                    <button class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</button>--}}
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-google-plus m-b-20 btn-block"><i class="icofont icofont-social-google-plus"></i>google</button>
+{{--                                    <button class="btn btn-google-plus m-b-20 btn-block"><i class="icofont icofont-social-google-plus"></i>google</button>--}}
                                 </div>
                             </div>
                             <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
@@ -143,7 +143,7 @@
                             </div>
                             <div class="row m-t-30">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-info btn-md btn-block waves-ripple text-center m-b-20">LOGIN <i class="icofont icofont-sign-in"> </i> </button>
+                                    <button type="submit" class="btn btn-danger btn-md btn-block waves-ripple text-center m-b-20">LOGIN <i class="icofont icofont-sign-in"> </i> </button>
 
                                 </div>
                             </div>

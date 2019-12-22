@@ -1,9 +1,9 @@
 @component('mail::layout')
     {{-- Header --}}
     @slot('header')
-        @component('mail::header', ['url' => config('dash')])
-            {{ config('dash') }}
-        @endcomponent
+{{--        @component('mail::header', ['url' => config('dash')])--}}
+{{--            <img src="/images/kokro-yellow.png" alt="{{config('app.name')}}"/>--}}
+{{--        @endcomponent--}}
     @endslot
 
     {{-- Body --}}

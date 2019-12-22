@@ -15,12 +15,12 @@ class PaymentController extends Controller
 
     public function  payment(Request $request)
     {
-        return response()->json($request->all);
+       // return response()->json($request->all);
 
 
         $client = new Client();
 
-        $payby = $request->input('payby');
+        $network = $request->input('payby');
         $phone = $request->input('phone');
         $transaction_id =  uniqid('k', true);
         $order_id = auth()->user()->name . "_" . Carbon::now();
@@ -49,21 +49,26 @@ class PaymentController extends Controller
             'amount' => $amount,
             'item_desc' => $item_desc,
             'customerNumber' => $msisdn,
-            'payby' => $payby,
+            'payby' => $network,
             'callback' =>  redirect()->route('payment.callback'),
         );
         Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
 
-        $res = $client->request(
-            'POST',
-            'https://api.nalosolutions.com/payplus/api/index.php',
-            [
-                'data' => $data
+        if ($network == 'MTN' || $network == 'AIRTEL'){
+            $res = $client->request(
+                'POST',
+                'https://api.nalosolutions.com/payplus/api/index.php',
+                [
+                    'data' => $data
 
-            ]
-        );
+                ]
+            );
+
             exit('displaying data from request ||' . $res);
-        Log::info($res->getStatusCode());
+            Log::info($res->getStatusCode());
+        }
+
+
 
         Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
 

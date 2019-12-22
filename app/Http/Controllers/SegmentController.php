@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\MediaTypes;
 use App\Models\RateCardTitles;
+use App\PrintRateCard;
 use App\RateCards;
 use App\ScheduledAds;
+use App\SpotsBalance;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -21,12 +23,14 @@ class SegmentController extends Controller
 
    public function  fetchSegmentTitles($id){
 
-       $rate_cards  = RateCardTitles::all();
-//       $rate_cards =   RateCards::whereRate_card_title_id($id)->get();
-      // $rate_cards = 'processing';
-      // $rate_cards = User::whereClient_id($id);
+
+       $rate_cards  = RateCardTitles::all()->where('media_house_id','=',$id);
+
        return response()->json($rate_cards);
 }
+
+
+
 
     public function  fetchSegments(Request  $request){
 
@@ -36,7 +40,9 @@ class SegmentController extends Controller
 //        $segments =    $user->segment->where('ad_types_id', '=', $segment_title_id[0]->id);
 //        return response()->json($segments);
 
-        $rate_cards =   RateCards::whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $rate_cards =   RateCards::select('days_of_week','segments','days_of_weekend','weekend_segments','rate_card_id')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $spots_check = SpotsBalance::whereRateCardId($request->card_id)->whereSegmentDate($request->startDate)->get();
+
         $card_title = null;
          $title   = RateCardTitles::select('rate_card_title')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
 
@@ -44,11 +50,24 @@ class SegmentController extends Controller
            $card_title =   $value->rate_card_title;
          }
 
-
-        return response()->json(['ratecards'=>$rate_cards,'card_title'=>$card_title]);
+        return response()->json(['days_of_week'=>json_decode($rate_cards[0]->days_of_week),'days_of_weekend'=>$rate_cards[0]->days_of_weekend,
+            'segments'=>json_decode($rate_cards[0]->segments),'wsegments'=> json_decode($rate_cards[0]->weekend_segments),'card_title'=>$card_title,'spots_check'=>$spots_check]);
 
 
     }
+
+         // fetch print segments
+    public  function fetchPrintSegments(Request $request){
+        $print_rate_cards  = PrintRateCard::select('rate_card_data')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $card_title = null;
+        $title   = RateCardTitles::select('rate_card_title')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+
+        foreach ($title as $value){
+            $card_title =   $value->rate_card_title;
+        }
+        return response()->json(['card_title'=>$card_title, 'print_rate_cards'=> $print_rate_cards]);
+    }
+
 
     public function checkSpots($segment){
       $message = '';

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RegistrationSuccessfullJob;
+use App\Jobs\SendPurchaseReceiptEmailJob;
+use App\ScheduledAds;
+use App\User;
 use Illuminate\Http\Request;
 use App\Transactions;
 use GuzzleHttp\Client;
@@ -10,13 +14,18 @@ use Auth;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use function GuzzleHttp\Promise\all;
 
 class MakePaymentController extends Controller
 {
     //
     public function makePayment(Request $request)
     {
+      //  $user = User::find(auth()->user()->client_id);
 
+     //  $this->dispatch(new SendPurchaseReceiptEmailJob($user));
+
+     //      return  response()->json('success');
 
         $client = new Client();
 
@@ -36,7 +45,7 @@ class MakePaymentController extends Controller
 
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
+        $secret = md5('kokrokoogh' . $key . md5('k0kr00gh'));
         $src = $_SERVER['REMOTE_ADDR'];
         /*
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
@@ -57,24 +66,54 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => '233249756900',
             'payby' => $payby,
-            'callback' =>  action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
+            'callback' => 'https://api.nalosolutions.com/nalosms/smspay/callback.php'
+                //'payment/update'    // action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
         $data  = json_encode($dataArray, true);
-        //Log::info(Carbon::now()->format('Y-m-d H:i:s') . " $src || ", $data);
+        $res = null;
 
-        /*  $res = $client->request(
-            'POST',
-            'https://api.nalosolutions.com/payplus/api/index.php',
-            [
-                'data' => $data
-            ]
-        ); */
+//        if ($payby == 'MTN' || $payby == 'AIRTEL'){
 
-        $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
+            $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
+             $trans = $res;
+             dd($res);
+            return response()->json(['success'=> 'success','trans'=> $trans]);
 
 
-        return response($res);
+       // }
+//        else if ($payby == 'VODAFONE'){
+//
+//        }
+
+
+
+    }
+
+    // total amount  to be paid
+    public function getSubTotal(Request $request){
+
+        if(is_array($request->id)){
+
+            $payment  = ScheduledAds::select('spots','rate')->whereIn('subscription_id',$request->id)->get();
+            return response()->json(['status'=>'success','payment'=> $payment]);
+
+        }
+        else{
+            $payment  = ScheduledAds::select('spots','rate')->where('subscription_id','=',$request->id)->get();
+            return response()->json(['status'=>'success','spots' => $payment[0]->spots,'rate'=>$payment[0]->rate]);
+        }
+
+    }
+
+
+    public function makePaymentCallback(Request $request)
+    {
+
+        $data  = $request->all();
+        dd($data);
+
+
 
 
         //  Log::info($res->getStatusCode());
@@ -105,12 +144,8 @@ class MakePaymentController extends Controller
             return response()->json('failed');
         }
  */
-    }
 
-    public function makePaymentCallback()
-    {
-        if (isset($_GET['invoice'])) {
-            dd($_GET['invoice']);
-        }
+
+
     }
 }

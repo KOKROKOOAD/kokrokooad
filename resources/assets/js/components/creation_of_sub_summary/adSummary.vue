@@ -1,12 +1,12 @@
 <template>
 
     <div class="page-wrapper">
-
         <!-- Page body start -->
         <div class="page-body">
             <!-- Container-fluid starts -->
             <div class="container">
                 <!-- Main content starts -->
+
                 <div>
 
                     <!-- Invoice card start -->
@@ -14,11 +14,10 @@
                         <div class="row invoice-contact">
                             <div class="col-md-8">
                                 <div class="invoice-box row">
+                                    <p class="" v-show="process" style="padding-left:460px !important;position: absolute;z-index: 10"><img src="/images/loading.gif" style="height: 20px;width: 20px;">Processing please wait...</p>
+
                                     <div class="col-sm-12">
 
-                                        <div v-show="getProcessStatus" class="default-grid row">
-                                            <show-processing></show-processing>
-                                        </div>
 
                                         <table class="table table-responsive invoice-table table-borderless">
                                             <tbody>
@@ -91,15 +90,15 @@
                                             <thead>
                                             <tr class="thead-default">
                                                 <th scope="row">#</th>
-                                                <th v-show="getSelectMedia !== 'PRINT'">Subscription Date</th>
+                                                <th v-show="getSelectMedia !== 'PRINT'">Subscription date&time</th>
                                                 <th v-show="getSelectMedia !== 'PRINT'">Suscription duration</th>
+                                                <th v-show="getSelectMedia == 'PRINT'">Date</th>
 
+                                                <th>Day</th>
 
-                                                <th v-show="getSelectMedia !== 'PRINT'">Day</th>
-
-                                                <th v-show="getSelectMedia !== 'PRINT'" class="text-center">Segments</th>
-                                                <th v-show="getSelectMedia !== 'PRINT'">Spots</th>
-                                                <th v-show="getSelectMedia === 'PRINT'">Description</th>
+<!--                                                <th v-show="getSelectMedia !== 'PRINT'" class="text-center">Segments</th>-->
+                                                <th v-show="getSelectMedia === 'PRINT'">Size&Position</th>
+                                                <th>Spots</th>
                                                 <!--<th v-show="getSelectMedia === 'PRINT'">Quantity</th>-->
 
                                                 <th>Amount(GHC)</th>
@@ -109,22 +108,26 @@
                                             <tbody>
                                             <tr v-for="(sched_data,index) in schedAdsData">
                                                 <th scope="row">{{index + 1}}</th>
-
+                                                <td v-show="getSelectMedia == 'PRINT'">{{sched_data.startDate}}</td>
+                                                <td v-show="getSelectMedia == 'PRINT'">{{segmentDay}}</td>
                                                 <td v-show="getSelectMedia === 'PRINT'">
-                                                    <P>{{sched_data.advert_size}} </p>
+                                                    {{sched_data.advert_size}}
                                                 </td>
+                                                <td v-show="getSelectMedia == 'PRINT'">{{sched_data.spot}}</td>
+
                                                 <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.startDate + ' - ' + sched_data.endDate}}</td>
                                                 <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.durations}}</td>
 
                                                 <td v-show="getSelectMedia !== 'PRINT'">{{segmentDay}}</td>
 
-                                                <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.startTime}}-{{sched_data.endTime}}</td>
+<!--                                                <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.startTime}}-{{sched_data.endTime}}</td>-->
                                                 <!--<td v-show="getSelectMedia !== 'PRINT'"></td>-->
                                                 <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.spot}}</td>
 
                                                 <td>{{sched_data.rate}}</td>
                                                 <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.rate * sched_data.spot}}</td>
-                                                <td v-show="getSelectMedia === 'PRINT'">{{sched_data.rate}}</td>
+                                                <td v-show="getSelectMedia === 'PRINT'">{{sched_data.rate * sched_data.spot}}</td>
+
 
 
                                             </tr>
@@ -138,14 +141,14 @@
                                     <table class="table table-responsive invoice-table invoice-total">
                                         <tbody>
 
-                                        <tr>
-                                            <th>Taxes (0%) :</th>
-                                            <td>0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Discount (0%) :</th>
-                                            <td>0.00</td>
-                                        </tr>
+<!--                                        <tr>-->
+<!--                                            <th>Taxes (0%) :</th>-->
+<!--                                            <td>0.00</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <th>Discount (0%) :</th>-->
+<!--                                            <td>0.00</td>-->
+<!--                                        </tr>-->
                                         <tr class="text-info">
                                             <td>
                                                 <hr/>
@@ -160,21 +163,21 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p>By clicking "Continue", you agree to the <a href="" class="text-primary" >Terms</a> and <a href="" class="text-primary"> Privacy Policy</a></p>
-                                    <h6><input type="checkbox" v-model="accept"> I understand and have read the disclaimer, please take me to the next step.</h6>
-                                    <p> </p>
-                                </div>
-                            </div>
+<!--                            <div class="row">-->
+<!--                                <div class="col-sm-12">-->
+<!--                                    <p>By clicking "Continue", you agree to the <a href="" class="text-primary" >Terms</a> and <a href="" class="text-primary"> Privacy Policy</a></p>-->
+<!--                                    <h6><input type="checkbox" v-model="accept"> I understand and have read the disclaimer, please take me to the next step.</h6>-->
+<!--                                    <p> </p>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <!-- Invoice card end -->
                     <div class="row text-center">
                         <div class="col-sm-12 invoice-btn-group text-center">
-                            <router-link :to="{name:selectMedia}" type="button" class="btn btn-default waves-effect m-b-10 btn-sm waves-light">Back</router-link>
-                            <button type="button" class="btn btn-primary btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20">Print</button>
-                            <button  type="button" v-show="accept" class="btn btn-danger waves-effect m-b-10 btn-sm waves-light animate fadeIn" @click="storeSub(segTitle)">Continue</button>
+                            <router-link :to="{name:selectMedia}"  :disables="back" type="button" class="btn btn-default waves-effect m-b-10 btn-sm waves-light">Back</router-link>
+<!--                            <button type="button" class="btn btn-primary btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20">Print</button>-->
+                            <button  type="button"  class="btn btn-danger waves-effect m-b-10 btn-sm waves-light animated fadeIn" @click="storeSub(title)">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -192,7 +195,7 @@
     import  store from '../../vuex/store';
     import PaymentType from "../payment/paymentType.vue";
     export default {
-        props : ['day'],
+       // props : ['day'],
         components: {PaymentType},
         name: "adSummary",
 
@@ -204,16 +207,19 @@
                 formData : new FormData(),
                 image : '',
                 selectMedia : 'fullcalender',
-                accept: ''
+                accept: '',
+                back : false,
+                process : false,
             }
 
         },
         mounted(){
-
-            console.log(this.file);
-
-           console.log(this.file);
-
+           // check if  media type is selected.
+           if (this.getSelectMedia == ''){
+               this.$router.push({
+                   name : 'selectMedia'
+               });
+           }
         },
         methods: {
             amount(item) {
@@ -236,7 +242,6 @@
                     t = total[j] + t;
                 }
                 store.dispatch('getTotalBill', t);
-                //  console.log(t);
                 return   this.totalBill;
             },
             storeSub(title){
@@ -266,60 +271,68 @@
             saveSegmentData(title,segments) {
                 let self = this;
                 let formData = new FormData();
+                console.log(self.schedAdsData);
                 if(title !== ''){
-                    // store.dispatch('getSegmentTitle', title);
                     formData.append('title', title);
-                    formData.append('created_ad_data', JSON.stringify(self.schedAdsData));
+                    formData.append('durations', self.schedAdsData[0].durations);
+                    formData.append('segments', JSON.stringify({'startDate' : self.schedAdsData[0].startDate.substr(10,16), 'endDate' : self.schedAdsData[0].endDate.substr(10,16)}));
                     formData.append('uploadedFile', self.file);
-                    formData.append('card_id', self.rateCard);
+                    formData.append('day', self.segmentDay);
+                    formData.append('card_id', self.rateCardTitleId);
                     formData.append('media_house_id', self.mediaHouseIds);
-                    store.dispatch('getProcessing', true);
+                    formData.append('media_house', self.getMediaHouse);
+                    formData.append('amount',self.total());
+                    formData.append('scheduledData',JSON.stringify(self.schedAdsData));
 
-                    axios.post('ads-store', formData).then(function (response) {
-                        if (response.data.success === 'success'){
-                            store.dispatch('getSubId', response.data.sub_id);
-                            store.dispatch('getInvoiceId', response.data.invoice_id);
-                            store.dispatch('getProcessing', false);
+                    self.process = true;
+                         axios.post('ads-store', formData).then(function (response) {
+                             if (response.data.success === 'success'){
+                              //   store.dispatch('getSubId', response.data.sub_id);
+                                // store.dispatch('getInvoiceId', response.data.invoice_id);
+                                 self.process = false;
+                                 store.dispatch("getSubData", '');
+                                 store.dispatch('getTotalBill', '');
+                                 store.dispatch("getMediaHouseId", '');
+                                 store.dispatch('getSelSegmentDay', '');
+                                // store.dispatch('getSegTitle','');
+                                 store.dispatch('getSelectedMedia','');
+                                 store.dispatch('getFile','');
+                                 store.dispatch('getRateCardTitle','');
+                                 store.dispatch('getSelMediaHouse','');
+                                 store.dispatch('getSegmentTitle','');
 
-                            //self.$refs.calendar.$emit('refetch-events');
-                            self.$router.push('payment');
+                                 //self.rateCard = '';
+                               //  self.mediaHouseIds = '';
+                              //   self.getDate = null;
+                                    self.$router.push('cart');
+                             }
+                             if (response.data === 'booked') {
+                                 (new PNotify( {
+                                         title:'Error Desktop Notice', type:'error', text:'Segment already booked', desktop: {
+                                             desktop: true, icon: 'assets/images/pnotify/success.png'
+                                         }
+                                     }
+                                 ));
+                             }
 
-                           /*  (new PNotify( {
-                                    title:'Success Desktop Notice', type:'success', text:'New subscription successfully created.', desktop: {
-                                        desktop: true, icon: 'assets/images/pnotify/success.png'
-                                    }
-                                }
-                            )); */
-                        }
-                        if (response.data === 'booked') {
-                            (new PNotify( {
-                                    title:'Error Desktop Notice', type:'error', text:'Segment already booked', desktop: {
-                                        desktop: true, icon: 'assets/images/pnotify/success.png'
-                                    }
-                                }
-                            ));
-                        }
+                             if(response.data === 'failed'){
+                                 (new PNotify( {
+                                         title:'Info Desktop Notice', type:'info', text:'Kindly select a media type to create your subscription', desktop: {
+                                             desktop: true, icon: 'assets/images/pnotify/success.png'
+                                         }
+                                     }
+                                 ));
+                             }
 
-                        if(response.data === 'failed'){
-                            (new PNotify( {
-                                    title:'Info Desktop Notice', type:'info', text:'Kindly select a media type to create your subscription', desktop: {
-                                        desktop: true, icon: 'assets/images/pnotify/success.png'
-                                    }
-                                }
-                            ));
-                        }
+                         });
 
-                    });
+
                     $('#mol').modal('hide');
                     $('#print').modal('hide');
 
                 }
 
             },
-
-
-
-
         },
         computed:{
             getSelectMedia(){
@@ -363,6 +376,12 @@
             },
             segmentDay(){
                 return store.getters.segmentDay;
+            },
+            rateCardTitleId(){
+                return store.state.card_id;
+            },
+            mediaHouses(){
+                return store.state.selMediaHouse;
             },
 
 

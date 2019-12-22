@@ -12,7 +12,7 @@ window.moment = require('moment').default;
  */
 
 try {
-   //window.$ = window.jQuery = require('jquery');
+   // window.$ = window.jQuery = require('./app-assets/jquery.min');
    //  require('bootstrap');
 
 } catch (e) {}

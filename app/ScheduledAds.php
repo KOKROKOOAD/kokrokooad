@@ -14,7 +14,7 @@ class ScheduledAds extends Model
         return  $this->belongsTo(User::class, 'client_id', 'client_id');
     }
 
-    protected $casts =  ['created_ad_data'=> 'array'];
+    protected $casts =  ['segments'=> 'array'];
 
     protected $primaryKey = 'subscription_id';
     protected $keyType = 'string';

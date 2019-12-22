@@ -34,19 +34,19 @@
                                                 </tfoot>
 
                                                 <tbody>
-                                                <tr :class="r_animate"   style="border: none;background: transparent" v-for="(dtl,index) in segments_data" :key="index">
-                                                    <td>{{dtl.adSize}}</td>
-                                                    <td><input type="checkbox"   :value="{'segment':dtl.adSize,'rate':dtl.rate}" v-model="createAd.printAd"/>{{dtl.rate}}</td>
-                                                    <!--<td>{{dtl.vat}}</td>-->
-                                                    <td>
-                                                        <input type="date" class="animate fadeIn"  v-model="createAd.dates[index]" />
-                                                        <button  class="btn btn-primary btn-xs" @click="storeDates(index)" style="border:none">
-                                                        <i class="fa fa-save"></i></button>
-                                                        <select>
-                                                            <option value="" disabled selected>--selected dates</option>
-                                                            <option v-for="(d,i) in selDates" :key="i">{{d.date}}</option>
-                                                        </select></td>
-                                                </tr>
+<!--                                                <tr :class="r_animate"   style="border: none;background: transparent" v-for="(dtl,index) in segments_data" :key="index">-->
+<!--                                                    <td>{{dtl.adSize}}</td>-->
+<!--                                                    <td><input type="checkbox"   :value="{'segment':dtl.adSize,'rate':dtl.rate}" v-model="createAd.printAd"/>{{dtl.rate}}</td>-->
+<!--                                                    &lt;!&ndash;<td>{{dtl.vat}}</td>&ndash;&gt;-->
+<!--                                                    <td>-->
+<!--                                                        <input type="date" class="animate fadeIn"  v-model="createAd.dates[index]" />-->
+<!--                                                        <button  class="btn btn-primary btn-xs" @click="storeDates(index)" style="border:none">-->
+<!--                                                        <i class="fa fa-save"></i></button>-->
+<!--                                                        <select>-->
+<!--                                                            <option value="" disabled selected>&#45;&#45;selected dates</option>-->
+<!--                                                            <option v-for="(d,i) in selDates" :key="i">{{d.date}}</option>-->
+<!--                                                        </select></td>-->
+<!--                                                </tr>-->
 
 
 

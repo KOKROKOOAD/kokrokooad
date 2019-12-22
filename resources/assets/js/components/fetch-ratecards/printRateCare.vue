@@ -5,7 +5,7 @@
             <form  @submit.prevent="" id="segment-form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><b class="text-danger">{{getMediaHouse}}</b>- {{getTitle}} rate card</h4>
+                        <h4 class="modal-title"><b class="text-danger">{{getMediaHouse}}</b>- {{card_title}} rate card</h4>
                         <!--<span>Your file : <b class="text-info">{{fileName}}</b><i style="margin-left: 20px;">File size :</i> <b>{{fileSize}}bytes</b></span>-->
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -28,16 +28,22 @@
                                 <thead>
                                 <tr style="background: #36475F;color: #ffffff;">
                                     <th>#</th>
-                                    <th class="text-center"> Advert size</th>
+                                    <th class="text-center">Size & Position</th>
+                                    <th class="text-center"> Spots</th>
                                     <th class="text-center">Rate(GHC)</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(print,index) in print_segments">
+                                <tr v-for="(print,index) in print_card">
                                     <th scope="row">{{index + 1}}</th>
-                                    <td class="text-center">{{print.advert_size}} <i class="feather icon-eye text-info" style="padding-left: 10px;"> </i> </td>
-                                    <td class="text-center"><input type="radio"   :name="'print' + (index)" :value="{'startDate':startDate,'endDate':endDate,'startTime': print.startTime,'endTime':print.endTime,'rate':print.rate,'advert_size':print.advert_size}" v-model="seg_data[index]"/> {{print.rate}}</td>
+                                    <td class="text-center">{{print.sizeAndPosition}} <i class="feather icon-eye text-info" style="padding-left: 10px;"> </i> </td>
+                                    <td class="text-center">
+                                    <select  v-model="spots[index]">
+                                        <option value="" disabled selected>spots</option>
+                                        <option :value="4">{{print.spots}}</option>
+                                    </select>
+                                    </td>
+                                    <td class="text-center"><input type="radio"   :name="'print' + (index)" :value="{'startDate':startDate,'endDate':endDate,'rate':print.rate,'advert_size':print.sizeAndPosition,'spot':spots[index],'durations': ''}" v-model="seg_data[index]"/> {{print.rate}}</td>
 
                                 </tr>
                                 </tbody>
@@ -47,7 +53,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
                         <!--<button class="btn btn-mat btn-secondary ">save</button>-->
-                        <router-link :to="{name:'invoice'}"  :disabled="seg_data.length === 0" class="btn btn-primary waves-effect waves-light " @click.native="submit(title)">Schedule</router-link>
+                        <router-link :to="{name : 'invoice'}" v-if="title" v-show="validateRateCardSelection(this.seg_data)"   class="btn btn-primary waves-effect waves-light " @click.native="submits(title)" >Schedule</router-link>
                     </div>
                 </div>
             </form>
@@ -60,7 +66,7 @@
     import  store from '../../vuex/store';
 
     export default {
-        props :['saveSegment','startDate','endDate','submit'],
+        props :['saveSegment','startDate','endDate','submit','print_card','card_title'],
         name : 'printRateCard',
 
         mounted(){
@@ -80,9 +86,7 @@
                 selSegment: '',
                 selMedia: '',
                 advert_size : '',
-                seg_data : [],
                 spots : [],
-                print_segments: [{'advert_size': '1/1" Inside','rate':'104','startTime':'','endTime': ''},{'advert_size': '2/2" Inside','rate':'149','startTime':'','endTime': ''},{'advert_size': '2/3" Inside','rate':'208','startTime':'','endTime': ''}],
                 title : '',
                 rate : '',
                 day: 'Monday',
@@ -91,7 +95,9 @@
                 end : '',
                 event_time : false,
                 startDates : [],
-                endDates : []
+                endDates : [],
+                seg_data : [],
+
 
             }
         },
@@ -102,7 +108,7 @@
 
                 setTimeout(function () {
                     axios.get('fetch-segments/' +  self.getSelectMedia + '/' + self.getRateCardTitle).then(function (res) {
-
+                               console.log(res.data);
                         self.print_segments  = res.data.segments;
                         store.dispatch('getProcessing', false);
 
@@ -142,6 +148,23 @@
             save(){
                 store.dispatch('getSegmentTitle', this.title);
                 $('#mol').modal('hide');
+            },
+            validateRateCardSelection(segment){
+                // alert(segment.length > 0);
+
+                return segment.length > 0;
+
+            },
+            eventTime(){
+
+                store.dispatch('getSubData',this.seg_data);
+            },
+            submits(title){
+                store.dispatch('getSegmentTitle', title);
+                this.eventTime();
+                $('#print').modal('hide');
+                $('#mol').modal('hide');
+
             },
         },
 

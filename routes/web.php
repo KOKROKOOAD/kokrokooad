@@ -23,27 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/personal-account', function () {
-    return view('Registration.personalAccount');
-})->name('register.personal');
 
-Route::get('/organization-account', function () {
-    return view('Registration.companyAccount');
-})->name('register.org');
-
-Route::get('/media-account', function () {
-    return view('Registration.mediaAccount');
-})->name('register.media');
-
-Route::get('/media/policy',function(){
-       return view('Registration.mediaNotification');
-})->name('media.policy');
-
-
-
-Route::get('/register-success', function () {
-    return view('notifications.register_success');
-})->name('register.success');
 
 Route::get('/test-mail', function () {
     return view('testsviews.sendmail');
@@ -103,16 +83,29 @@ Route::prefix('/user-account')->group(function () {
     Route::get('media-program-api/{mediaHouse}', 'SubController@fetchMediaProgram');
     Route::get('program-date-api/{mediaProgram}', 'SubController@fetchProgramDates');
     Route::get('fetch-segments-titles/{id}', 'SegmentController@fetchSegmentTitles');
+    Route::get('checkratecard/duration-api/{id}', 'SpotsController@checkRateCardDurations');
+
+    Route::get('testing', 'testingController@testing');
+
+
     Route::get('fetch-segments', 'SegmentController@fetchSegments');
+    Route::get('fetch-printsegments', 'SegmentController@fetchPrintSegments');
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
     Route::post('sub-update-api', 'SubController@updateAds');
     Route::post('check-sub/api', 'SubController@checkIfSubExist');
-    Route::get('fetch-transac/api', 'SubController@fetchUserTransac');
+    Route::get('fetch-transac/api', 'TransactionController@index');
+    Route::post('delete/sub', 'SubController@softDeleteSub');
+    Route::get('fetch/sub-details/{id}','SubController@getSubSelectedMedia');
+    Route::post('subs-update','SubController@updateFile');
+
+//    Route::post('demo','SubController@test');
+
     Route::get('check-segment-api/{sub_date}', 'CheckSubController@checkSubAvailable');
     //=======================subscriptions routes ends here=============================
 
     //========================make payment callback route==========================
-    Route::get('makepayment/callback', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
+ //   Route::get('makepayment/callback', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
+    Route::get('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
 
 
     //===========================segment routs =====================================
@@ -123,8 +116,35 @@ Route::prefix('/user-account')->group(function () {
     //==========================payment  routes======================================
     Route::post('api-payment', 'PaymentController@payment');
     Route::post('api-purchasesubs', 'MakePaymentController@MakePayment');
+    Route::get('api-payment/amount', 'MakePaymentController@getSubTotal');
+
 
     //======================== payment routes ends here
+
+    //======================== user profile=============================
+    Route::get('profile/edit', 'ProfileController@index')->name('profile.show');
+    Route::post('/profile/update', 'ProfileController@update')->name('profile.edit');
+
+    //==============================user profile API====================
+    Route::get('user/profile', 'UserProfileController@getUserProfile');
+    Route::post('profile/personal/update', 'UserProfileController@updateUserPersonalProfile');
+
+    //===============================change password API====================================
+    Route::post('change/password', 'ChangePasswordController@changePassword');
+
+    //====================================subs details======================================
+    Route::get('fetch/media/ratecard/{m_id}/{id}', 'SubController@fetchSubDetails');
+    Route::get('fetch-subs/api', 'SubController@fetchClientSubs');
+
+
+//=========================================view rate cards API=================================
+    Route::get('fetchmediahouses/api/{media}', 'RateCardController@fetchMediaHouses');
+    Route::get('fetchratecard/api/{id}', 'RateCardController@fetchRateCardTitles');
+    Route::get('view-ratecard/api','RateCardController@fetchRateCardDetails');
+
+
+
+
 
 
     // =================vue router routes =====================================
@@ -133,9 +153,37 @@ Route::prefix('/user-account')->group(function () {
     })->where('any', '.*');
     //======================vue router routes ends here=============================
 
+
+
+
+
 });
 
-Auth::routes();
+Route::prefix('auth')->group(function () {
+    Route::get('/personal-account', function () {
+        return view('Registration.personalAccount');
+    })->name('register.personal');
+
+    Route::get('/organization-account', function () {
+        return view('Registration.companyAccount');
+    })->name('register.org');
+
+    Route::get('/media-account', function () {
+        return view('Registration.mediaAccount');
+    })->name('register.media');
+
+    Route::get('/media/policy',function(){
+        return view('Registration.mediaNotification');
+    })->name('media.policy');
+
+
+
+    Route::get('/registration-success', function () {
+        return view('notifications.register_success');
+    })->name('register.success');
+    Auth::routes();
+});
+
 
 
 //============================authenticated routes ends here===========================

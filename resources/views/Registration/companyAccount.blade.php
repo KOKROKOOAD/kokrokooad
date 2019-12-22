@@ -117,7 +117,7 @@
                                            <div class="col-sm-6">
                                                <div class="form-group{{ $errors->has('logo') ? ' has-error' : '' }}">
                                                    <label for="logo">Upload logo(Required, only .jpg,.jpeg,.png files:)<span class="required">*</span></label>
-                                                   <input type="file" accept=".jpg|.jpeg|.png" data-max-size='32k' data-type='image'  class="{{ $errors->has('logo') ? ' is-invalid' : '' }}"  id="logo" name="logo" value="{{old('logo')}}">
+                                                   <input type="file" accept="image/*" data-max-size='32k' data-type='image'  class="{{ $errors->has('logo') ? ' is-invalid' : '' }}"  id="logo" name="logo" value="{{old('logo')}}">
                                                    @if ($errors->has('logo'))
                                                        <span class="invalid-feedback" role="alert">
                                                           <strong>{{ $errors->first('logo') }}</strong>

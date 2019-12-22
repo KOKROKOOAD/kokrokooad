@@ -13,20 +13,15 @@
                             <ul class="pcoded-submenu">
                                 <li class="active">
                                     <router-link :to="{name : 'home'}">
-                                        <span class="pcoded-mtext">home</span>
+                                        <span class="pcoded-mtext">Dashboard</span>
                                     </router-link>
                                 </li>
-                                <!--<li class=" ">-->
-                                    <!--<a href="dashboard-analytics.html">-->
-                                        <!--<span class="pcoded-mtext">Analytics</span>-->
-                                        <!--<span class="pcoded-badge label label-info ">NEW</span>-->
-                                    <!--</a>-->
-                                <!--</li>-->
+
                             </ul>
                         </li>
                         <li class="pcoded-hasmenu active pcoded-trigger">
                             <a href="javascript:void(0)">
-                                <span class="pcoded-micon"><i class="feather icon-shield"></i></span>
+                                <span class="pcoded-micon"><i class="fa fa-archive"></i></span>
                                 <span class="pcoded-mtext">Subscriptions</span>
                             </a>
                             <ul class="pcoded-submenu">
@@ -42,30 +37,84 @@
                                         <span class="pcoded-mtext">My Subscriptions</span>
                                     </router-link>
                                 </li>
+
+                            </ul>
+                        </li>
+                        <li class="pcoded-hasmenu active pcoded-trigger">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                <span class="pcoded-mtext">Transactions</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li>
+                                    <router-link :to="{name : 'transactions'}">
+                                        <span class="pcoded-micon"><i class="feather icon-toolbox"></i></span>
+                                        <span class="pcoded-mtext">Transactions</span>
+                                    </router-link>
+                                </li>
                             </ul>
                         </li>
 
-                    </ul>
-                    <ul class="pcoded-item pcoded-left-item">
-                        <li class=" ">
-                            <router-link :to="{name : 'transactions'}">
-                                <span class="pcoded-micon"><i class="feather icon-edit-1"></i></span>
-                                <span class="pcoded-mtext" >Transactions</span>
-                            </router-link>
+                        <li class="pcoded-hasmenu active pcoded-trigger">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="fa fa-eye"></i></span>
+                                <span class="pcoded-mtext">Rate cards</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li>
+                                    <router-link :to="{name : 'select-mtype'}">
+                                        <span class="pcoded-micon"><i class="feather icon-cart"></i></span>
+                                        <span class="pcoded-mtext">View ratecards</span>
+                                    </router-link>
+                                </li>
+                            </ul>
                         </li>
-                         <li class=" ">
-                            <router-link :to="{name : 'transactions'}">
-                                <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                                <span class="pcoded-mtext" >History</span>
-                            </router-link>
+                        <li class="pcoded-hasmenu active pcoded-trigger">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="fa fa-shopping-cart"></i></span>
+                                <span class="pcoded-mtext">Your cart</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li>
+                                    <router-link :to="{name : 'cart'}">
+                                        <span class="pcoded-micon"><i class="feather icon-toolbox"></i></span>
+                                        <span class="pcoded-mtext">View cart</span>
+                                    </router-link>
+                                </li>
+                            </ul>
                         </li>
-                        <!--<li class=" ">-->
-                            <!--<router-link :to="{name : 'profile'}">-->
-                                <!--<span class="pcoded-micon"><i class="feather icon-user"></i></span>-->
-                                <!--<span class="pcoded-mtext" >User profile</span>-->
-                            <!--</router-link>-->
-                        <!--</li>-->
+
+
+
+
+                        <li class="pcoded-hasmenu active pcoded-trigger">
+                            <a href="javascript:void(0)">
+                                <span class="pcoded-micon"><i class="fa fa-cog"></i></span>
+                                <span class="pcoded-mtext">Settings</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li>
+                                    <router-link :to="{name : 'profile'}">
+                                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                                        <span class="pcoded-mtext">User Profile</span>
+                                    </router-link>
+                                </li>
+                                <li class="">
+                                    <router-link :to="{name : 'password'}">
+                                        <span class="pcoded-micon"><i class="feather icon-lock"></i></span>
+                                        <span class="pcoded-mtext">Change Password</span>
+                                    </router-link>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+
+
+
                     </ul>
+
                 </div>
             </nav>
 

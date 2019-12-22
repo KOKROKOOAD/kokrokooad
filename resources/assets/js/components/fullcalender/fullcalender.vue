@@ -16,9 +16,9 @@
                 <div class="page-header-breadcrumb">
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="index.html"> <i class="feather icon-home"></i> </a>
+<!--                            <a href="index.html"> <i class="feather icon-home"></i> </a>-->
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Segments</a> </li>
+<!--                        <li class="breadcrumb-item"><a href="#!">Segments</a> </li>-->
                     </ul>
                 </div>
             </div>
@@ -29,6 +29,15 @@
         <div class="card">
             <div class="card-header">
                 <h5>Segment Calender</h5>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-">
+                        <p class="" v-show="process" ><img src="/images/loading.gif" style="height: 20px;width: 20px;"><strong>Loading ratecard. Please wait.....</strong></p>
+
+                    </div>
+                    <div class="col-md-5"></div>
+
+                </div>
                 <div class="card-header-right">
                     <ul class="list-unstyled card-option">
                         <!--<li><i class="feather icon-maximize full-card"></i></li>-->
@@ -42,7 +51,7 @@
 
                     <div class="col-xl-12 col-md-12">
                         <!--<div id='calendar'></div>-->
-                        <full-calendar ref="calendar" :config="config" @day-click="daySelected" @event-drop="eventDrop"></full-calendar>
+                        <full-calendar ref="calendar"  :config="config" @day-click="daySelected" @event-drop="eventDrop"></full-calendar>
 
                     </div>
                 </div>
@@ -63,16 +72,16 @@
         <div style="padding-top: 20px;">
             <router-link :to="{name:selSegment_url}"  class="btn btn-mat btn-info" >Back</router-link>
             <!--<router-link :to="invoice" class="btn btn-mat btn-secondary ">save</router-link>-->
-            <!--<router-link :to="invoice" class="btn btn-mat btn-inverse ">Next</router-link>-->
+            <!--<router-link :to="invoice" class="btn btnF-mat btn-inverse ">Next</router-link>-->
             <!--<button @click="fetchSegments()">click me</button>-->
         </div>
 
 <!--        <segment-title></segment-title>-->
 <!--        // display selected rate modal-->
-        <display-select-ratecard :card_title="card_title" :saveSegment="saveSegmentData" :segments_data="segments_data" :media_id="mediaHouseId" :startDate="selectedStartTime" :endDate="selectedEndDate"></display-select-ratecard>
+        <display-select-ratecard :days="days_of_weekend" :card_title="card_title" :segment="days_of_week" :segments="weekdaySegment" :wsegments="wSegments" :media_id="mediaHouseId" :startDate="selectedStartTime" :endDate="selectedEndDate" :spot_check="spot_check"></display-select-ratecard>
 
 <!--        //display print rate cards-->
-        <print-rate-card  :saveSegment="saveSegmentData" :startDate="selectedStartTime" :endDate="selectedEndDate" :submit="submit"></print-rate-card>
+        <print-rate-card  :saveSegment="saveSegmentData" :card_title="card_title" :startDate="selectedStartTime" :endDate="selectedEndDate" :print_card="print_ratecard" :submit="submit"></print-rate-card>
 <!--        <update-segment></update-segment>-->
         <ad-summary  v-show="showSummary" :saveSegment="saveSegmentData" :day="segmentDay"></ad-summary>
 
@@ -102,6 +111,8 @@
                 config: {
                     defaultDate: new Date(),
                     defaultView: 'month',
+                    timezone : 'local',
+                    timeFormat: 'h:mm t',
                     header: {
                         right: 'month'
                     },
@@ -109,11 +120,23 @@
                         agenda: {
                             eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
                         }
-                    }
+                    },
+                    selectable: true,
+                    selectConstraint: {
+                      start: $.fullCalendar.moment().subtract(1, 'days'),
+                      end: $.fullCalendar.moment().startOf('month').add(1, 'month')
+    }
                 },
                 showSummary : false,
                 segments_data : [],
                 card_title : null,
+                process : false,
+                days_of_week : '',
+                weekdaySegment : [],
+                wSegments : [],
+                days_of_weekend : '',
+                spot_check : '',
+                print_ratecard : [],
 
             }
         },
@@ -126,60 +149,66 @@
                     $('#print').modal('show');
                     this.selectedStartTime = date.format("YYYY-MM-DD ");
                     this.selectedEndDate = date.format("YYYY-MM-DD ");
-
+                    this.getSelDay(date);
+                    this.fetchPrintRateCard();
                 }
                 else if (this.getSelectMedia === 'RADIO' || this.getSelectMedia === 'TV'){
-                     let check = $.fullCalendar.formatDate(start,'yyyy-MM-dd');
-                     let today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
-                     if(check < today){
-
-                     }{
-                    $('#mol').modal('show');
+                     let oldDate = new Date(date.format("YYYY-MM-DD "));
+                     let today  = new Date();
+                     // if(oldDate > today || oldDate == today){
+                    if(oldDate > today || oldDate == today){
+                        $('#radio_tv').modal('show');
                     this.selectedStartTime = date.format("YYYY-MM-DD ");
                     this.selectedEndDate = date.format("YYYY-MM-DD ");
-                    this.getSelDay(date);
-                    this.fetchSelectedRate();
+                     this.getSelDay(date);
+                     this.fetchSelectedRate();
                      }
-
-                    
                 }
                 else{
                     alert('select a media type');
                 }
-
-
-
             },
             submit(title){
-
                 store.dispatch('getSegmentTitle', title);
-
-                $('#mol').modal('hide');
-                $('#print').modal('hide');
+                $('#radio_tv').modal('hide');
+               // $('#print').modal('hide');
             },
             fetchSelectedRate(){
+
                 let self = this;
-                store.dispatch('getProcessing', true);
-                axios.get('fetch-segments', {params:{media_id : self.mediaHouseId,card_id:self.getTitle, day : self.segmentDay}}).then(function (res) {
-                   // alert(res.data);
-                    self.segments_data  = res.data.ratecards;
+                self.process  = true;
+                axios.get('fetch-segments', {params:{media_id : self.mediaHouseId,card_id:self.rateCard, startDate : self.selectedStartTime}}).then(function (res) {
+                    self.days_of_week  = JSON.parse(res.data.days_of_week);
+                    self.days_of_weekend = JSON.parse(res.data.days_of_weekend);
+                    self.wSegments = res.data.wsegments;
+                    self.weekdaySegment  = res.data.segments;
                     self.card_title = res.data.card_title;
-                     store.dispatch('getProcessing', false);
-
+                    self.spot_check = res.data.spots_check;
+                    self.process = false;
                 }).catch(function (error) {
-                    console.log(error);
+
                 });
-
-
             },
+            fetchPrintRateCard(){
+                let self = this;
+                self.process  = true;
+                axios.get('fetch-printsegments', {params:{media_id : self.mediaHouseId,card_id:self.rateCard, startDate : self.selectedStartTime}}).then(function (res) {
+                    self.card_title = res.data.card_title;
+                    self.print_ratecard = JSON.parse(res.data.print_rate_cards[0].rate_card_data);
+                     console.log(self.print_ratecard);
+                    //self.spot_check = res.data.spots_check;
+                    self.process = false;
+                }).catch(function (error) {
 
-
+                });
+            },
             // create a subscription
             saveSegmentData(title,segments) {
                 let self = this;
                 let formData = new FormData();
                 if(title !== ''){
                     store.dispatch('getSegmentTitle', title);
+                    store.dispatch('startDate', self.startDate);
                     formData.append('title', self.segTitle);
                     formData.append('created_ad_data', JSON.stringify(self.schedAdsData));
                     formData.append('uploadedFile', self.file);
@@ -216,7 +245,7 @@
                         }
 
                     });
-                    $('#mol').modal('hide');
+                    $('#radio_tv').modal('hide');
                     $('#print').modal('hide');
 
                 }
@@ -292,17 +321,58 @@
 
             },
 //  select date to create subscription
-            getSelDay(date) {
-                let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            getSelDay(date) {//  axios.get('testing').then(function (res) {
+                //      console.log(res.data);
+                // });
+          //  }
+                let days = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
                 // let selDay =  $('.sub_date').val();
                 //segment date
                 store.dispatch('getSegmentDate', date);
                 // this.sub_date = dat.split("/").join("-");
                 let d = new Date(date);
-                this.day = days[d.getDay() - 1];
-                console.log(this.day);
+                this.day = days[d.getDay()];
+                //console.log(this.segmentDay.substr(0,3).toUpperCase());
                 //selected segment day
                 store.dispatch('getSelSegmentDay', this.day);
+
+            },
+            spot_avail(){
+
+                this.sched.forEach(function(element,index,arrayItem){
+                    let x = element.start;
+                    console.log(x + ' => '+ element.spots);
+                });
+
+                // let s = parseInt(spot);
+                // let results = [];
+                // for (let i = 1; i < s + 1; i++){
+                //     results.push(i);
+                // }
+                // return results;
+            },
+            checkSpots(card_spots){
+                // let s = parseInt(spot);
+                // let usp  = parseInt(used_spot);
+                // let results = s - usp;
+                // let spots = [];
+                // for (let i = 1; i < results + 1; i++) {
+                //     spots.push(i);
+                // }
+                // return spots;
+                this.spot_check.forEach((spot)=>alert(spot.spots_used));
+
+
+
+                //    let sum = 0;
+                //    let x = 0;
+                //
+                //   this.spot_check.forEach(function(spot){
+                //         x = spot.spots_used;
+                //       console.log(x);
+                //   });
+                // //  sum = parseInt(card_spots) - parseInt(x);
+                return '06:30-08:30 AM' ;
             },
 
         },
@@ -318,7 +388,8 @@
                     {
                         events(start, end, timezone, callback) {
                             axios.get('fetch-ads/api').then(function (res) {
-                                callback(res.data);
+                              //  console.log(res.data);
+                             //   callback(res.data);
                             });
 
                         },
@@ -337,7 +408,7 @@
             },
             //get selected rate card title
             rateCard(){
-                return store.state.rate_card_title;
+                return store.state.card_id;
             },
            // get subscription start time
             startTimes(){
@@ -361,6 +432,9 @@
             getTitle(){
                 return store.state.rate_card_title;
             },
+            date(){
+                store.getters.segmentDate
+            }
 
         }
     }

@@ -10,7 +10,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * Class RateCardTitles
  *
  * @property int $id
- * @property string $client_id
+ * @property string $media_house_id
  * @property string $rate_card_title_id
  *  * @property string $rate_card_title
  * @property \Carbon\Carbon $created_at
@@ -22,7 +22,7 @@ class RateCardTitles extends Eloquent
 {
 
     protected $fillable = [
-        'client_id',
+        'media_house_id',
         'rate_card_title_id',
         'rate_card_title'
 

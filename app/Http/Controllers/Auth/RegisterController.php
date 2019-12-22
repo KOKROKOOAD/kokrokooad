@@ -6,9 +6,10 @@ use App\Events\RegistrationSuccessEvent;
 use App\Jobs\RegistrationSuccessfullJob;
 use App\User;
 use App\Http\Controllers\Controller;
-use http\Env\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Intervention\Image\Facades\Image;
@@ -33,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/register-success';
+    protected $redirectTo = '/auth/registration-success';
 
     /**
      * Create a new controller instance.
@@ -58,8 +59,8 @@ class RegisterController extends Controller
             return Validator::make($data, [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|unique:users',
-                'phone1' => 'required|numeric|max:10|unique:users',
-                'phone2' => 'required|numeric|max:10|unique:users',
+                'phone1' => 'required|numeric|unique:users',
+                'phone2' => 'required|numeric|unique:users',
                 'address' => 'required|string|max:100',
                 'industry_type' => 'required|string|max:255',
                 'title' => 'required|string|max:50',
@@ -74,8 +75,8 @@ class RegisterController extends Controller
             return Validator::make($data, [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'phone1' => 'required|number|max:10|unique:users',
-                'phone2' => 'required|number|max:10|unique:users',
+                'phone1' => 'required|numeric|unique:users',
+                'phone2' => 'required|numeric|unique:users',
                 'address' => 'required|string|max:100',
                 'policies' => 'required|string|max:100',
                 'company_profile' => 'required|string|max:100',
@@ -96,7 +97,7 @@ class RegisterController extends Controller
                 'phone1' => 'required|string|max:10|unique:users',
                 'phone2' => 'required|string|max:10|unique:users',
                 'media_type' => 'required|string',
-                'media_house' => 'required|string|max:50',
+                'media_house' => 'required|string|max:50|unique:users',
                 'address' => 'required|string|max:100',
                 'policies' => 'required|string|max:100',
                 'company_profile' => 'required|string|max:255',
@@ -137,6 +138,7 @@ class RegisterController extends Controller
                  'industry_type' => $data['industry_type'],
                  'role'   =>  'user',
                  'is_admin'   => false,
+                 'isActive'   => 'inactive',
                  'client_id'=>  $unique_id,
                  'account_type' =>  $data['account'],
                  'password' => Hash::make($data['password']),
@@ -146,29 +148,27 @@ class RegisterController extends Controller
 
          // validate request inputs if account type is company or organisation
          if($data['account'] == 'company'){
-
              $unique_id = uniqid('K',true);
              if(User::where('client_id', '=',$unique_id)){
                  $unique_id = uniqid('K',true);
              }
-             // dd($unique_id);
 
              if(Input::file('file') && Input::file('file')->isValid()) {
-
-                 $name = Input::file('file')->getClientOriginalName();
+                 $file = Input::file('file');
+                 $name = time().'_'.$data['name'].'_'.$file->getClientOriginalName();
                  $extension = Input::file('file')->getClientOriginalExtension();
                  $file_size = Input::file('file')->getClientSize();
                  $mime_type = Input::file('file')->getClientMimeType();
-                 $path = Input::file('file')->storeAs('public/images',time(). $name);
 
-                 $thumbnailPath = public_path().'/thumbnails/';
+                 $path = '/home/jarthur/register/';
+                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
 
-                 if( is_writable($thumbnailPath)){
                      if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                          $thumbnail = Image::make(Input::file('file'));
-                         $thumbnail->resize(320,320);
-                         $thumbnail->save($thumbnailPath.time().$name);
-                         $path = Input::file('file')->storeAs('/images',time().$name);
+                         $thumbnail->resize(120,120);
+                         $thumbnail->save($path.'thumbnails/'.$name);
+                         $file->move($path.'logos/',$name);
+
                      }
 //                    elseif ($extension === 'pdf') {
 //                        $pdf = new Pdf($file);
@@ -197,6 +197,7 @@ class RegisterController extends Controller
                      'policies' => $data['policies'],
                      'logo' => $name,
                      'is_admin'   => false,
+                     'isActive'   => 'inactive',
                      'file_path' => $path,
                      'file_size' => $file_size,
                      'role' => 'user',
@@ -211,30 +212,27 @@ class RegisterController extends Controller
         // validate request inputs if account type is media house
         if($data['account'] == 'MEDIA'){
 
-
-
           $unique_id = uniqid('K',true);
           if(User::where('client_id', '=',$unique_id)){
               $unique_id = uniqid('K',true);
           }
-         // dd($unique_id);
 
             if(Input::file('file') && Input::file('file')->isValid()) {
-                $path = '';
-                $name = Input::file('file')->getClientOriginalName();
+                $file = Input::file('file');
+                $name = time().'_'.$data['name'].'_'.$file->getClientOriginalName();
                 $extension = Input::file('file')->getClientOriginalExtension();
                 $file_size = Input::file('file')->getClientSize();
                 $mime_type = Input::file('file')->getClientMimeType();
-              //  $path = Input::file('file')->storeAs('public/images',time(). $name);
 
-                $thumbnailPath = public_path().'/thumbnails/';
+                $path = '/home/jarthur/register/';
+                if(File::isDirectory($path) or File::makeDirectory($path, 775, true)){
 
-                if( is_writable($thumbnailPath)){
                     if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                         $thumbnail = Image::make(Input::file('file'));
                         $thumbnail->resize(120,120);
-                        $thumbnail->save($thumbnailPath.$name);
-                        $path = Input::file('file')->storeAs('/images',$name);
+                        $thumbnail->save($path.'thumbnails/'.$name);
+                        $file->move($path.'logos/',$name);
+
                     }
 //                    elseif ($extension === 'pdf') {
 //                        $pdf = new Pdf($file);
@@ -245,7 +243,7 @@ class RegisterController extends Controller
 //                    }
 
                 }
-                $user = User::create([
+               $user = User::create([
 
                     'name' => $data['name'],
                     'title' => $data['title'],
@@ -261,10 +259,11 @@ class RegisterController extends Controller
                     'industry_type' => $data['industry_type'],
                     'policies' => $data['policies'],
                     'logo' => $name,
-                    'is_admin'   => false,
+                    'is_admin'   => true,
+                    'isActive'   => 'inactive',
                     'file_path' => $path,
                     'file_size' => $file_size,
-                    'role' => 'user',
+                    'role' => 'super_admin',
                     'client_id' => $unique_id,
                     'account_type' => 'media house',
                     'password' => Hash::make($data['password']),

@@ -11,6 +11,7 @@ require("./dashboard/js/jquery.validate.min");
 require('./dashboard/js/validations');
 require('../js/calender/notify');
 require('../js/calender/script');
+require('../js/myApp');
 
 window.Vue = require('vue');
 import VueRouter from 'vue-router';
@@ -59,6 +60,10 @@ Vue.component('pre-loader', require('./components/preloader/preLoader'));
 Vue.component('sub', require('./components/success-pages/subs'));
 Vue.component('display-select-ratecard', require('./components/display-selected-rate/selectRateAndTime'));
 Vue.component('confirm-payment', require('./components/payment/confirmPayment'));
+Vue.component('display-weekend-segments', require('./components/fetch-ratecards/displayWeekendSegments'));
+Vue.component('view-rate-cards',require('./components/view-ratecars/viewRateCards'));
+Vue.component('view-card-details',require('./components/view-ratecars/viewRateCard'));
+Vue.component('view-print-rate-card',require('./components/view-ratecars/printRateCare'));
 Vue.component('cart', require('./components/cart'));
 
 

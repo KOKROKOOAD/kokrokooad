@@ -47,8 +47,8 @@
                                 <th>Ref.#</th>
                                 <th>Service</th>
                                 <th>Payment source</th>
-                                <th>Delivered Amount(GHC)</th>
-                                <th>Transaction charge(GHC)</th>
+                                <th>Amount(GHC)</th>
+                                <th>Transaction Phone No.)</th>
                                 <th>Status</th>
 
                             </tr>
@@ -61,9 +61,9 @@
                                 <td>{{trans.service}}</td>
                                 <td>{{trans.payment_source}}</td>
                                 <td>{{trans.amount}}</td>
-                                <td>{{trans.transact_charge}} </td>
+                                <td>{{trans.phone}} </td>
                                 <td>{{ trans.transaction_status }}
-                                    <button class="btn btn-danger btn-sm"><i class="fa fa-edit"></i></button>
+<!--                                    <button class="btn btn-danger btn-sm"><i class="fa fa-edit"></i></button>-->
                                 </td>
                             </tr>
                             </tbody>
@@ -93,7 +93,6 @@
             fetchTransactions(){
                 let self = this;
                 axios.get('fetch-transac/api').then(function (res) {
-                       console.log(res.data);
                         self.transactions = res.data;
                 });
             }

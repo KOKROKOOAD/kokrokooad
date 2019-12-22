@@ -19,6 +19,7 @@ return [
     'merchant_username' => env('MERCHANT_USERNAME'),
     'merchant_password' => env('MERCHANT_PASSWORD'),
     'merchant_callback' => env('PAYCALL_BACK'),
+    'dash' => 'wwww.kokrokooad.com',
 
 
 

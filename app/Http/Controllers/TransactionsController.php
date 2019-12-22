@@ -14,7 +14,7 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        //
+        $trans = Transactions::all('payment_source','phone','created_at','service','transaction_status','amount','transaction_id');
     }
 
     /**

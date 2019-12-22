@@ -13,7 +13,7 @@
                     <div class="container-fluid">
                         <div class="row text-center">
                                 <p>
-                        <strong>{{'GHC ' + totalBill.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}}</strong> will be deducted from your wallet. Ensure you have enough balance in your account before proceeding with payment.'
+<!--                        <strong>{{'GHC ' + totalBill.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}}</strong> will be deducted from your wallet. Ensure you have enough balance in your account before proceeding with payment.'-->
 
                                 </p>
 

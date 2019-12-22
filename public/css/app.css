@@ -36310,4 +36310,8 @@ body.dark #styleSelector .form-control {
     .err {
         color: 'red';
     }
+    .fc-today{
+        background-color: blue;
+    }
+
 

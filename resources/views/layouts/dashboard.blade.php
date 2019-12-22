@@ -38,6 +38,8 @@
     {{--<link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/style.css">--}}
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/datedropper/css/datedropper.min.css">
+    <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
 @endsection
 {{--@section('dashboard')--}}
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
@@ -98,7 +100,7 @@
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
                             <i class="feather icon-menu"></i>
                         </a>
-                        <a href="{{route('welcome')}}">
+                        <a href="/user-account/dashboard">
                             <img class="img-fluid" src="/images/kokro-yellow.png" alt="Kokrokoo" />
                             {{--<a class="navbar-brand" href="#"><img src="images/kokro-yellow.png"  alt="kokrokoo"></a>--}}
 
@@ -133,7 +135,7 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="https://colorlib.com//polygon/adminty/files/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+{{--                                        <img src="https://colorlib.com//polygon/adminty/files/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">--}}
                                         <span>
                                             @auth()
                                             {{--<i class="nc-icon fa fa-user"></i>--}}
@@ -143,16 +145,16 @@
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        <li>
-                                            <a href="#!">
-                                                <i class="feather icon-settings"></i> Settings
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="user-profile.html">
-                                                <i class="feather icon-user"></i> Profile
-                                            </a>
-                                        </li>
+{{--                                        <li>--}}
+{{--                                            <a href="#!">--}}
+{{--                                                <i class="feather icon-settings"></i> Settings--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{route('profile.show')}}">--}}
+{{--                                                <i class="feather icon-user"></i> Profile--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
                                         {{--<li>--}}
                                             {{--<a href="email-inbox.html">--}}
                                                 {{--<i class="feather icon-mail"></i> My Messages--}}
@@ -370,6 +372,9 @@
                     <script src="https://colorlib.com//polygon/adminty/files/assets/js/pcoded.min.js"></script>
                     <script src="https://colorlib.com//polygon/adminty/files/assets/js/vartical-layout.min.js"></script>
                     <script src="https://colorlib.com//polygon/adminty/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+                    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
                     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/script.js"></script>--}}
 
                     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
@@ -382,46 +387,6 @@
 
                         gtag('config', 'UA-23581568-13');
                     </script>
-
-{{--@section('scripts')--}}
-    {{--<script src="{{ asset('dash') }}" ></script>--}}
-    {{--<script  src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>--}}
-    {{--<script  src="{{asset('js/locales/bootstrap-datetimepicker.fr.js')}}"></script>--}}
-    {{--<script type="text/javascript">--}}
-
-
-        {{--$('.form_date').datetimepicker({--}}
-            {{--language:  'en',--}}
-            {{--weekStart: 1,--}}
-            {{--todayBtn:  1,--}}
-            {{--autoclose: 1,--}}
-            {{--todayHighlight: 1,--}}
-            {{--startView: 2,--}}
-            {{--minView: 2,--}}
-            {{--forceParse: 0--}}
-        {{--});--}}
-
-    {{--</script>--}}
-
-
-
-    {{--@if(Route::currentRouteName() == 'dashboard')--}}
-    {{--<script type="text/javascript">--}}
-        {{--$(document).ready(function(){--}}
-
-
-            {{--$.notify({--}}
-                {{--icon: 'ti-gift',--}}
-                {{--message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."--}}
-
-            {{--},{--}}
-                {{--type: 'success',--}}
-                {{--timer: 4000--}}
-            {{--});--}}
-            {{----}}
-        {{--});--}}
-    {{--</script>--}}
-{{--@endif--}}
 
 
 @endsection

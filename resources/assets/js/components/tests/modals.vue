@@ -87,7 +87,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <h5>Default Modal</h5>
-                                                                <p>This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velitqwedqweqweqw eqweqweqweqweqweqweqw weqweqweqweqweqweqweqw eqweqwemqweqweqweqwe qweqwe qwe qwe qwe qweqweqw eqw eqw eqw eqw  auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
+                                                                <p>This is Photoshop's version of Lorem IpThis is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velitqfirqweqweqw eqweqweqweqweqweqweqw weqweqweqweqweqweqweqw eqweqwemqweqweqweqwe qweqwe qwe qwe qwe qweqweqw eqw eqw eqw eqw  auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.</p>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
@@ -684,7 +684,20 @@
                     </div>
                     <!-- Page body end -->
 
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sat">{{daysOfSegments.sat}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sun">{{daysOfSegments.sat}}</th>
+    <th >Spots</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sat" v-if="daysOfSegments.sec1 > 0">{{daysOfSegments.sec1 + daysOfSegments.time1}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sat" v-if="daysOfSegments.sec2 > 0">{{daysOfSegments.sec2 + daysOfSegments.time2}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sat" v-if="daysOfSegments.sec3 > 0">{{daysOfSegments.sec3 + daysOfSegments.time3}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sat" v-if="daysOfSegments.sec4 > 0">{{daysOfSegments.sec4 + daysOfSegments.time4}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sat" v-if="daysOfSegments.sec5 > 0">{{daysOfSegments.sec5 + daysOfSegments.time5}}</th>
 
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sun"  v-if="daysOfSegments.sec1 > 0">{{daysOfSegments.sec1 + daysOfSegments.time1}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sun"  v-if="daysOfSegments.sec2 > 0">{{daysOfSegments.sec2 + daysOfSegments.time2}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sun"  v-if="daysOfSegments.sec3 > 0">{{daysOfSegments.sec3 + daysOfSegments.time3}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sun"  v-if="daysOfSegments.sec4 > 0">{{daysOfSegments.sec4 + daysOfSegments.time4}}</th>
+    <th v-show="daysOfSegmentsDay.substr(0,3).toUpperCase()  === daysOfSegments.sun"  v-if="daysOfSegments.sec5 > 0">{{daysOfSegments.sec5 + daysOfSegments.time5}}</th>
 
 </template>
 
