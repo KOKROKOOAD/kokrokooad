@@ -32,8 +32,8 @@ class RateCardController extends Controller
         if($m !== 'Print'){
             $rate_cards = RateCards::whereRate_card_title_id($request->get('rateCardTitleId'))->get();
             $rate_cards_title = RateCardTitles::select('rate_card_title')->whereRate_card_title_id($request->get('rateCardTitleId'))->get();
-            $segments = json_decode($rate_cards[0]->segments);
-            $w_segments = json_decode($rate_cards[0]->weekend_segments);
+            $segments = $rate_cards[0]->segments;
+            $w_segments = $rate_cards[0]->weekend_segments;
             $days_of_week = json_decode($rate_cards[0]->days_of_week);
             $days_of_weekends = $rate_cards[0]->days_of_weekend;
 

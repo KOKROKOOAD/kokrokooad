@@ -207,11 +207,13 @@
                     droppable : false,
                     clickable : true,
                     editable : false,
-                    displayEventEnd : true,
+                    // displayEventTIme : true,
+                     displayEventEnd : true,
                     eventLimit : 2,
                     eventLimitText : 'click to view more ads',
                     timezone : 'local',
                     timeFormat: 'h:mm t',
+                  //  displayEventTime : true,
                     eventClick : (event)=>{
                         let self  = this;
                         self.process  = true;

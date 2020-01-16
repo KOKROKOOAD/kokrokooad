@@ -84,12 +84,12 @@ module.exports = __webpack_require__(354);
 //  */
 //
 // require('../dash/jquery-ui/jquery-ui.min');
-// //require('../dash/jquery-slimscrolljs/jquery-ui.min');
+// //require('../dash/jquery-slimscroll/jquery-ui.min');
 // require('../dash/jquery-ui/jquery-ui.min');
 // require('../dash/bower_components/modernizrjs/modernizr');
 // require('../dash/bower_components/modernizrjs/css-scrollbars');
 // require('../dash/jquery-ui/jquery-ui.min');
-// require('../dash/bower_components/jquery-slimscrolljs/jquery.slimscroll');
+// require('../dash/bower_components/jquery-slimscroll/jquery.slimscroll');
 // require('../dash/js/pcoded.min');
 // require('../dash/js/vartical-layout.min');
 // require('../dash/js/pcoded.min');

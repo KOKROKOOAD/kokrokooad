@@ -7,7 +7,7 @@ use App\Models\RateCardTitles;
 use App\PrintRateCard;
 use App\RateCards;
 use App\ScheduledAds;
-use App\SpotsBalance;
+use App\SpotsUsed;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -34,24 +34,17 @@ class SegmentController extends Controller
 
     public function  fetchSegments(Request  $request){
 
-//        $user_info  = User::select('id','client_id','media')->where('media_house','=',$mediaHouse)->get();
-//        $segment_title_id = RateCardTitles::select('id')->where( 'adTitle', '=', $segment)->get();
-//        $user = User::find($user_info[0]->id);
-//        $segments =    $user->segment->where('ad_types_id', '=', $segment_title_id[0]->id);
-//        return response()->json($segments);
-
-        $rate_cards =   RateCards::select('days_of_week','segments','days_of_weekend','weekend_segments','rate_card_id')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
-        $spots_check = SpotsBalance::whereRateCardId($request->card_id)->whereSegmentDate($request->startDate)->get();
-
         $card_title = null;
-         $title   = RateCardTitles::select('rate_card_title')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $rate_cards =   RateCards::select('days_of_week','segments','days_of_weekend','weekend_segments','rate_card_id')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $spots_check = SpotsUsed::select('segments','spots_used')->whereRateCardId($request->card_id)->whereSegmentDate($request->startDate)->get();
+        $title   = RateCardTitles::select('rate_card_title')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
 
          foreach ($title as $value){
            $card_title =   $value->rate_card_title;
          }
 
         return response()->json(['days_of_week'=>json_decode($rate_cards[0]->days_of_week),'days_of_weekend'=>$rate_cards[0]->days_of_weekend,
-            'segments'=>json_decode($rate_cards[0]->segments),'wsegments'=> json_decode($rate_cards[0]->weekend_segments),'card_title'=>$card_title,'spots_check'=>$spots_check]);
+            'segments'=> $rate_cards[0]->segments,'wsegments'=> $rate_cards[0]->weekend_segments,'card_title'=>$card_title,'spots_check'=>$spots_check]);
 
 
     }

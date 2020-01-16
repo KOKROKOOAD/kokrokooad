@@ -78,7 +78,7 @@
 
 <!--        <segment-title></segment-title>-->
 <!--        // display selected rate modal-->
-        <display-select-ratecard :days="days_of_weekend" :card_title="card_title" :segment="days_of_week" :segments="weekdaySegment" :wsegments="wSegments" :media_id="mediaHouseId" :startDate="selectedStartTime" :endDate="selectedEndDate" :spot_check="spot_check"></display-select-ratecard>
+        <display-select-ratecard :days="days_of_weekend" :card_title="card_title" :segment="days_of_week" :segments="weekdaySegment" :wsegments="wSegments" :media_id="mediaHouseId" :spot_check="spot_check" :startDate="selectedStartTime" :endDate="selectedEndDate"></display-select-ratecard>
 
 <!--        //display print rate cards-->
         <print-rate-card  :saveSegment="saveSegmentData" :card_title="card_title" :startDate="selectedStartTime" :endDate="selectedEndDate" :print_card="print_ratecard" :submit="submit"></print-rate-card>
@@ -135,8 +135,9 @@
                 weekdaySegment : [],
                 wSegments : [],
                 days_of_weekend : '',
-                spot_check : '',
+                spot_check : [],
                 print_ratecard : [],
+                main_seg : null,
 
             }
         },
@@ -174,7 +175,6 @@
                // $('#print').modal('hide');
             },
             fetchSelectedRate(){
-
                 let self = this;
                 self.process  = true;
                 axios.get('fetch-segments', {params:{media_id : self.mediaHouseId,card_id:self.rateCard, startDate : self.selectedStartTime}}).then(function (res) {
@@ -184,6 +184,8 @@
                     self.weekdaySegment  = res.data.segments;
                     self.card_title = res.data.card_title;
                     self.spot_check = res.data.spots_check;
+                     // console.log(res.data.segments);
+                   // self.main_seg = [...res.data.segments,...res.data.spot_check];
                     self.process = false;
                 }).catch(function (error) {
 
@@ -195,7 +197,7 @@
                 axios.get('fetch-printsegments', {params:{media_id : self.mediaHouseId,card_id:self.rateCard, startDate : self.selectedStartTime}}).then(function (res) {
                     self.card_title = res.data.card_title;
                     self.print_ratecard = JSON.parse(res.data.print_rate_cards[0].rate_card_data);
-                     console.log(self.print_ratecard);
+                   //  console.log(self.print_ratecard);
                     //self.spot_check = res.data.spots_check;
                     self.process = false;
                 }).catch(function (error) {
@@ -272,7 +274,7 @@
 
 
                         axios.post('check-sub/api', formData).then(function(response) {
-                            console.log(response.data);
+                          //  console.log(response.data);
                             if(response.data === 'available'){
 
                                 formData.append('endDate', event.end.format("YYYY-MM-DD " + event.end.format('h:mm')));
@@ -341,7 +343,8 @@
 
                 this.sched.forEach(function(element,index,arrayItem){
                     let x = element.start;
-                    console.log(x + ' => '+ element.spots);
+                  //
+                    //  console.log(x + ' => '+ element.spots);
                 });
 
                 // let s = parseInt(spot);
@@ -373,6 +376,17 @@
                 //   });
                 // //  sum = parseInt(card_spots) - parseInt(x);
                 return '06:30-08:30 AM' ;
+            },
+            tests(segments,spots){
+                let arr = [{'name':'Joojo'},{'sex': 34}];
+
+                let p  =  JSON.parse(JSON.stringify(spots));
+                let m;
+
+
+                m = {...segments[0],...p};
+              //   console.log(m);
+                return  m;
             },
 
         },

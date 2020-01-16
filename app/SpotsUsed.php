@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SpotsBalance extends Model
+class SpotsUsed extends Model
 {
     protected $fillable = [
         'ratecard_id',

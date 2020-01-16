@@ -283,6 +283,9 @@
                     formData.append('media_house', self.getMediaHouse);
                     formData.append('amount',self.total());
                     formData.append('scheduledData',JSON.stringify(self.schedAdsData));
+                    formData.append('startDate' , self.schedAdsData[0].startDate);
+                    formData.append('endDate' , self.schedAdsData[0].endDate);
+
 
                     self.process = true;
                          axios.post('ads-store', formData).then(function (response) {

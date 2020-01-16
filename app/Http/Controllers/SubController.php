@@ -12,7 +12,7 @@ use App\Jobs\SendAdCreatedMessagedJob;
 use App\Models\RateCardTitles;
 use App\RateCards;
 use App\ScheduledAds;
-use App\SpotsBalance;
+use App\SpotsUsed;
 use App\Transactions;
 use App\User;
 use Illuminate\Http\Request;
@@ -50,18 +50,7 @@ class SubController extends Controller
         $sub = null;
 
         if (auth()->check()) {
-          //  die(gettype(json_decode($request->scheduledData)));
 
-
-
-//            $d = json_decode($request->input('created_ad_data'));
-//
-//            $startDate = array();
-//            $endDate = array();
-//            foreach ($d as $key) {
-//                $startDate[] = $key->startDate;
-//                $endDate[] = $key->endDate;
-//            }
 
 
             $file = Input::file('uploadedFile');
@@ -105,10 +94,18 @@ class SubController extends Controller
               $card =   RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$request->card_id)->get();
               $card_title =  $card[0]->rate_card_title;
 
+               // die($chk_spots);
+                $spots_left = 0;
+                $spots_to_be_insert = 0;
+                $id = null;
+                $seg = null;
+
             foreach (json_decode($request->scheduledData) as $key => $values) {
                 $subscription_id = uniqid('k', true);
                 array_push($sub_id,$subscription_id);
                 $invoice_id = uniqid('k', true);
+                 $spots_to_be_insert = $values->spot;
+
 
                 $sub_data = [
                     'client_id' => auth()->user()->client_id,
@@ -137,17 +134,40 @@ class SubController extends Controller
                     'rate_card_id' => $request->input('card_id'),
                     'spots_used' => $values->spot,
                     'segment_date' => substr($values->startDate,0,10),
-                    'segments' => substr($values->startDate,11,17) .':' .substr($values->endDate,11,19),
+                    'segments' => substr($values->startDate,11,14) .'-' .substr($values->endDate,11,19),
                 ];
+
+                 $seg = substr($values->startDate,11,14) .'-' .substr($values->endDate,11,19);
+
+                $ad  = ScheduledAds::insert($sub_data);
+
+                if ($ad) {
+
+                    $chk_spots  = SpotsUsed::select('id','spots_used')->whereRateCardId($request->card_id)->whereSegmentDate(substr($request->startDate,0,10))->whereSegments($seg)->get();
+
+                    if (sizeof($chk_spots) < 1){
+                        $spots = SpotsUsed::insert($spots_used);
+
+                    }
+                    else{
+                        foreach ($chk_spots as $spots){
+                            $spots_left  = $spots->spots_used;
+                            $id  =  $spots->id;
+                        }
+
+                        $total = $spots_left + $spots_to_be_insert;
+                        SpotsUsed::whereId($id)->update([
+                            'spots_used' => $total
+                        ]);
+
+                    }
+
+                }
+
             }
 
-            $ad  = ScheduledAds::insert($sub_data);
 
-            if ($ad) {
-
-                $spots = SpotsBalance::insert($spots_used);
-            }
-                               return response()->json(['success' => 'success', 'sub_id' => $sub_id]);
+            return response()->json(['success' => 'success', 'sub_id' => $sub_id]);
 
 //                $transac = Transactions::create([
 //                    'phone' => '',

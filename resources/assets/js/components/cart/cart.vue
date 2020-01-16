@@ -6,11 +6,12 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Subscription Cart</h4>
-<!--                            <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>-->
+                             <h4> Subscription Cart</h4>
                         </div>
+
                     </div>
                 </div>
+                <span class="pull-right">Items : <b class="text-danger">{{ totalItems}} </b></span>
 
             </div>
         </div>
@@ -134,7 +135,8 @@
                 totals : [],
                 id : [],
                 table : false,
-                msg : ''
+                msg : '',
+                total_items : 0,
 
             }
         },
@@ -229,8 +231,12 @@
         computed:{
             checkoutIds(){
                 return store.getters.checkoutIds;
+            },
+            totalItems(){
+                return this.subs.length;
             }
         },
+
 
     }
 

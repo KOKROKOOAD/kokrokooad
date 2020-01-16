@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Adminty - Premium Admin Template by Colorlib </title>
+    <title>{{config('name', 'kokrokooad.com')}} </title>
     
     <!--[if lt IE 10]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -19,7 +19,7 @@
     <meta name="author" content="#">
     <!-- Favicon icon -->
 
-    <link rel="icon" href="https://colorlib.com//polygon/adminty/files/assets/images/favicon.ico" type="image/x-icon">
+{{--    <link rel="icon" href="https://colorlib.com//polygon/adminty/files/assets/images/favicon.ico" type="image/x-icon">--}}
     <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap/css/bootstrap.min.css">
@@ -110,7 +110,7 @@
                             <div class="input-group {{ $errors->has('email') ? ' has-error' : '' }} form-primary">
                                 <span class="input-group-addon" id="basic-addon1"><i class="icofont icofont-envelope"></i> </span>
 
-                                <input type="email" name="email" required id="email" class="form-control" value="{{old('email')}}" placeholder="emial">
+                                <input type="email" name="email" required id="email" class="form-control" value="{{old('email')}}" placeholder="email">
 
                                
 
@@ -158,7 +158,6 @@
         <!-- end of col-sm-12 -->
     </div>
     <!-- end of row -->
-    </div>
     <!-- end of container-fluid -->
 </section>
 <!-- Warning Section Starts -->

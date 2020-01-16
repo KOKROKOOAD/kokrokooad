@@ -6,11 +6,8 @@
     <link rel="icon" href="https://colorlib.com//polygon/adminty/files/assets/images/favicon.ico" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-    {{--<!-- jquery file upload Frame work -->--}}
-    {{--<link href="https://colorlib.com//polygon/adminty/files/assets/pages/jquery.filer/css/jquery.filer.css" type="text/css" rel="stylesheet" />--}}
-    {{--<link href="https://colorlib.com//polygon/adminty/files/assets/pages/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />--}}
+
     <!-- Required Fremwork -->
-    {{--<link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap/css/bootstrap.min.css">--}}
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/sweetalert/css/sweetalert.css">
 
     <!-- feather Awesome -->
@@ -34,12 +31,13 @@
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.mobile.css">
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/pages/pnotify/notify.css">
 
+
     <!-- Style.css -->
     {{--<link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/style.css">--}}
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/datedropper/css/datedropper.min.css">
-    <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 
+    <link  href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 @endsection
 {{--@section('dashboard')--}}
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
@@ -101,7 +99,7 @@
                             <i class="feather icon-menu"></i>
                         </a>
                         <a href="/user-account/dashboard">
-                            <img class="img-fluid" src="images/kokro-yellow.png" alt="Kokrokoo" />
+                            <img class="img-fluid" src="/images/kokro-yellow.png" alt="Kokrokoo" />
                             {{--<a class="navbar-brand" href="#"><img src="images/kokro-yellow.png"  alt="kokrokoo"></a>--}}
 
                         </a>
@@ -327,7 +325,7 @@
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-minicolors/js/jquery.minicolors.min.js"></script>
 
                     <!-- calender js -->
-{{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/moment/js/moment.min.js"></script>--}}
+                    {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/moment/js/moment.min.js"></script>--}}
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/fullcalendar/js/fullcalendar.min.js"></script>
 
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/modernizr/js/modernizr.js"></script>
@@ -338,7 +336,6 @@
                     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/filer/custom-filer.js" type="text/javascript"></script>--}}
                     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/filer/jquery.fileuploads.init.js" type="text/javascript"></script>--}}
 
-                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/product-list/product-list.js"></script>
 
                     <!-- pnotify js -->
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.js"></script>
@@ -354,7 +351,7 @@
 
                     <!-- sweet alert js -->
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/sweetalert/js/sweetalert.min.js"></script>
-{{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/modal.js"></script>--}}
+                    {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/modal.js"></script>--}}
                     <!-- sweet alert modal.js intialize js -->
                     <!-- modalEffects js nifty modal window effects -->
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/modalEffects.js"></script>
@@ -366,15 +363,12 @@
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
                     <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
 
-{{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/custom-picker.js"></script>--}}
+                    {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/custom-picker.js"></script>--}}
                     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/full-calender/calendar.js"></script>--}}
 
                     <script src="https://colorlib.com//polygon/adminty/files/assets/js/pcoded.min.js"></script>
                     <script src="https://colorlib.com//polygon/adminty/files/assets/js/vartical-layout.min.js"></script>
                     <script src="https://colorlib.com//polygon/adminty/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-                    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
                     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/script.js"></script>--}}
 
                     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
