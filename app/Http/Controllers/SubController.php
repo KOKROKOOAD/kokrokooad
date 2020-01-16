@@ -320,13 +320,6 @@ class SubController extends Controller
             'deleted' => 'deleted',
             'deleted_at' => Carbon::now()->toDateString(),
         ]);
-
-        $trans = Transactions::select('deleted','deleted_at')->where('subscription_id','=',$request->input('id'))->update([
-            'deleted' => 'deleted',
-            'deleted_at' => Carbon::now()->toDateString(),
-        ]);
-
-
         return response()->json('success');
     }
 
