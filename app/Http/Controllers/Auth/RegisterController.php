@@ -158,7 +158,7 @@ class RegisterController extends Controller
 
              if(Input::file('file') && Input::file('file')->isValid()) {
                  $file = Input::file('file');
-                 $user_name  = explode('',$data['name']);
+                 $user_name  = explode(' ',$data['name']);
                  $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
                  $extension = Input::file('file')->getClientOriginalExtension();
                  $file_size = Input::file('file')->getClientSize();
@@ -224,7 +224,7 @@ class RegisterController extends Controller
 
             if(Input::file('file') && Input::file('file')->isValid()) {
                 $file = Input::file('file');
-                $user_name  = explode('',$data['name']);
+                $user_name  = explode(' ',$data['name']);
                 $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
                 $extension = Input::file('file')->getClientOriginalExtension();
                 $file_size = Input::file('file')->getClientSize();
