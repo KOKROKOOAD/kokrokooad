@@ -122,6 +122,7 @@ class RegisterController extends Controller
      */
     protected function create( array $data)
     {
+        $user = null;
           // validate request input if account type is personal
          if($data['account'] == 'personal'){
              $unique_id = uniqid('K',true);
@@ -273,6 +274,6 @@ class RegisterController extends Controller
 
         }
 
-       // return  $user;
+        return  $user;
     }
 }
