@@ -164,7 +164,8 @@ class RegisterController extends Controller
                  $mime_type = Input::file('file')->getClientMimeType();
 
                  $path = '/home/jarthur/register/';
-                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
+//                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
+                     if(File::isDirectory($path)){
 
                      if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                          $thumbnail = Image::make(Input::file('file'));
