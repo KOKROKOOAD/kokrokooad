@@ -124,14 +124,14 @@ class RegisterController extends Controller
      */
     protected function create( array $data)
     {
-        $user = null;
+
           // validate request input if account type is personal
          if($data['account'] == 'personal'){
              $unique_id = uniqid('K',true);
              if(User::where('client_id', '=',$unique_id)){
                  $unique_id = uniqid('K',true);
              }
-              User::create([
+          $user =   User::create([
                  'name' => $data['name'],
                  'title' => $data['title'],
                  'email' => $data['email'],
@@ -183,7 +183,7 @@ class RegisterController extends Controller
 
                  }
 
-                  User::create([
+                $user =   User::create([
 
                      'name' => $data['name'],
                      'title' => $data['title'],
@@ -246,7 +246,7 @@ class RegisterController extends Controller
 //                    }
 
                 }
-                User::create([
+               $user =  User::create([
 
                     'name' => $data['name'],
                     'title' => $data['title'],
@@ -276,7 +276,7 @@ class RegisterController extends Controller
 
         }
 
-        return  $user;
+        //return  $user;
     }
 
     public function register(Request $request)
