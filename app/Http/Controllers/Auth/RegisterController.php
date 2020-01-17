@@ -163,7 +163,7 @@ class RegisterController extends Controller
                  $file_size = Input::file('file')->getClientSize();
                  $mime_type = Input::file('file')->getClientMimeType();
 
-                 $path = '/home/jarthur/register/';
+                        $path = '/var/www/html/register/';
 //                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
                      if(File::isDirectory($path)){
 
@@ -228,9 +228,9 @@ class RegisterController extends Controller
                 $file_size = Input::file('file')->getClientSize();
                 $mime_type = Input::file('file')->getClientMimeType();
 
-                $path = '/home/jarthur/register/';
-                if(File::isDirectory($path) or File::makeDirectory($path, 775, true)){
-
+                $path = '/var/www/html/register/';
+//                if(File::isDirectory($path) or File::makeDirectory($path, 775, true)){
+                    if(File::isDirectory($path)){
                     if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                         $thumbnail = Image::make(Input::file('file'));
                         $thumbnail->resize(120,120);
