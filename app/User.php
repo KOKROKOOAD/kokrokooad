@@ -36,19 +36,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function ads(){
-      return  $this->hasMany(Ads::class, 'client_id', 'client_id');
-    }
-
-    public function scheduledAds(){
-        return  $this->hasMany(ScheduledAds::class, 'client_id', 'client_id');
-
-    }
-
-
-    public  function segmentTitle(){
-        return $this->hasMany('App\Models\RateCardTitles','client_id', 'client_id');
-    }
+//    public function ads(){
+//      return  $this->hasMany(Ads::class, 'client_id', 'client_id');
+//    }
+//
+//    public function scheduledAds(){
+//        return  $this->hasMany(ScheduledAds::class, 'client_id', 'client_id');
+//
+//    }
+//
+//
+//    public  function segmentTitle(){
+//        return $this->hasMany('App\Models\RateCardTitles','client_id', 'client_id');
+//    }
 
 
 
