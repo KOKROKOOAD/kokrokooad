@@ -158,7 +158,8 @@ class RegisterController extends Controller
 
              if(Input::file('file') && Input::file('file')->isValid()) {
                  $file = Input::file('file');
-                 $name = time().'_'.$data['name'].'_'.$file->getClientOriginalName();
+                 $user_name  = explode('',$data['name']);
+                 $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
                  $extension = Input::file('file')->getClientOriginalExtension();
                  $file_size = Input::file('file')->getClientSize();
                  $mime_type = Input::file('file')->getClientMimeType();
@@ -223,7 +224,8 @@ class RegisterController extends Controller
 
             if(Input::file('file') && Input::file('file')->isValid()) {
                 $file = Input::file('file');
-                $name = time().'_'.$data['name'].'_'.$file->getClientOriginalName();
+                $user_name  = explode('',$data['name']);
+                $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
                 $extension = Input::file('file')->getClientOriginalExtension();
                 $file_size = Input::file('file')->getClientSize();
                 $mime_type = Input::file('file')->getClientMimeType();
