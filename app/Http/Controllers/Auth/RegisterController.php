@@ -129,7 +129,7 @@ class RegisterController extends Controller
              if(User::where('client_id', '=',$unique_id)){
                  $unique_id = uniqid('K',true);
              }
-             $user = User::create([
+              User::create([
                  'name' => $data['name'],
                  'title' => $data['title'],
                  'email' => $data['email'],
@@ -181,7 +181,7 @@ class RegisterController extends Controller
 
                  }
 
-                 $user = User::create([
+                  User::create([
 
                      'name' => $data['name'],
                      'title' => $data['title'],
@@ -244,7 +244,7 @@ class RegisterController extends Controller
 //                    }
 
                 }
-               $user = User::create([
+                User::create([
 
                     'name' => $data['name'],
                     'title' => $data['title'],
