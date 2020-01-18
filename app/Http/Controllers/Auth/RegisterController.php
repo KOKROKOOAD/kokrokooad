@@ -171,8 +171,8 @@ class RegisterController extends Controller
                      if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                          $thumbnail = Image::make(Input::file('file'));
                          $thumbnail->resize(120,120);
-                         $thumbnail->save($path.'avatars/'.$name);
-                         $file->move($path.'mediaHouseLogos/',$name);
+                         $thumbnail->save($path.'mediaHouseLogos/'.$name);
+                         $file->move($path.'avatars/',$name);
 
                      }
 //                    elseif ($extension === 'pdf') {
@@ -203,7 +203,7 @@ class RegisterController extends Controller
                      'logo' => $name,
                      'is_admin'   => false,
                      'isActive'   => 'pending',
-                     'file_path' => env('FILE_UPLOAD'),
+                     'file_path' => env('FILE_UPLOAD','/var/www/html/uploads/'),
                      'file_size' => $file_size,
                      'role' => 'user',
                      'client_id' => $unique_id,
@@ -236,8 +236,8 @@ class RegisterController extends Controller
                     if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                         $thumbnail = Image::make(Input::file('file'));
                         $thumbnail->resize(120,120);
-                        $thumbnail->save($path.'avatars/'.$name);
-                        $file->move($path.'mediaHouseLogos/',$name);
+                        $thumbnail->save($path.'mediaHouseLogos/'.$name);
+                        $file->move($path.'avatars/',$name);
 
                     }
 //                    elseif ($extension === 'pdf') {
@@ -267,7 +267,7 @@ class RegisterController extends Controller
                     'logo' => $name,
                     'is_admin'   => true,
                     'isActive'   => 'pending',
-                    'file_path' => env('FILE_UPLOAD'),
+                    'file_path' => env('FILE_UPLOAD','/var/www/html/uploads/'),
                     'file_size' => $file_size,
                     'role' => 'super_admin',
                     'client_id' => $unique_id,
