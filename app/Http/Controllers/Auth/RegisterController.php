@@ -164,15 +164,15 @@ class RegisterController extends Controller
                  $file_size = Input::file('file')->getClientSize();
                  $mime_type = Input::file('file')->getClientMimeType();
 
-                        $path = '/var/www/html/register/';
+                        $path = '/var/www/html/uploads/';
 //                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
                      if(File::isDirectory($path)){
 
                      if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                          $thumbnail = Image::make(Input::file('file'));
                          $thumbnail->resize(120,120);
-                         $thumbnail->save($path.'thumbnails/'.$name);
-                         $file->move($path.'logos/',$name);
+                         $thumbnail->save($path.'avatars/'.$name);
+                         $file->move($path.'mediaHouseLogos/',$name);
 
                      }
 //                    elseif ($extension === 'pdf') {
@@ -203,7 +203,7 @@ class RegisterController extends Controller
                      'logo' => $name,
                      'is_admin'   => false,
                      'isActive'   => 'pending',
-                     'file_path' => $path,
+                     'file_path' => env('FILE_UPLOAD'),
                      'file_size' => $file_size,
                      'role' => 'user',
                      'client_id' => $unique_id,
@@ -230,14 +230,14 @@ class RegisterController extends Controller
                 $file_size = Input::file('file')->getClientSize();
                 $mime_type = Input::file('file')->getClientMimeType();
 
-                $path = '/var/www/html/register/';
+                $path = '/var/www/html/uploads/';
 //                if(File::isDirectory($path) or File::makeDirectory($path, 775, true)){
                     if(File::isDirectory($path)){
                     if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                         $thumbnail = Image::make(Input::file('file'));
                         $thumbnail->resize(120,120);
-                        $thumbnail->save($path.'thumbnails/'.$name);
-                        $file->move($path.'logos/',$name);
+                        $thumbnail->save($path.'avatars/'.$name);
+                        $file->move($path.'mediaHouseLogos/',$name);
 
                     }
 //                    elseif ($extension === 'pdf') {
@@ -267,7 +267,7 @@ class RegisterController extends Controller
                     'logo' => $name,
                     'is_admin'   => true,
                     'isActive'   => 'pending',
-                    'file_path' => $path,
+                    'file_path' => env('FILE_UPLOAD'),
                     'file_size' => $file_size,
                     'role' => 'super_admin',
                     'client_id' => $unique_id,
