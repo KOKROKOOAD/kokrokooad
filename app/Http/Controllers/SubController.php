@@ -69,7 +69,7 @@ class SubController extends Controller
 //                Storage::disk('docs')->put($fileName . '.' . $ext, $name);
 //            }
 
-            $path = '/home/jarthur/ads/uploads';
+            $path =  env('SUB_FILES_URL');
             if(File::isDirectory($path) or File::makeDirectory($path, 775, true)){
                 $file->move($path,$name);
             }
@@ -81,10 +81,10 @@ class SubController extends Controller
                 $unique_id = uniqid('K', true);
             }
 
-            $unique_id2 = uniqid('K', true);
-            if (Transactions::where('subscription_id', '=', $unique_id2)) {
-                $unique_id2 = uniqid('K', true);
-            }
+//            $unique_id2 = uniqid('K', true);
+//            if (Transactions::where('subscription_id', '=', $unique_id2)) {
+//                $unique_id2 = uniqid('K', true);
+//            }
 
             $sub_data = array();
 //            $subscription_id = uniqid('k', true);
@@ -169,28 +169,6 @@ class SubController extends Controller
 
             return response()->json(['success' => 'success', 'sub_id' => $sub_id]);
 
-//                $transac = Transactions::create([
-//                    'phone' => '',
-//                    'payment_source' => '',
-//                    'transaction_id' => $unique_id2,
-//                    'media_house_id' => $request->input('media_house_id'),
-//                    'amount' => $request->input('amount'),
-//                    'invoice_id' => $invoice_id,
-//                    'client_id' => auth()->user()->client_id,
-//                    'subscription_id' => $subscription_id,
-//                    'service' => $request->input('title'),
-//                    'transaction_status' => 'not_paid',
-//                    'transact_charge' => '',
-//                    'response'   => '',
-//                ]);
-
-//                if ($invoice) {
-//
-//                    // event(new SendAdCreatedMessageEvent($ad->user));
-//                    return response()->json(['success' => 'success', 'sub_id' => $sub_id, 'invoice_id' => $invoice_id]);
-//                } else {
-//                    return response()->json('could not insert');
-//                }
 
         } else {
             return response()->json('failed');
@@ -202,12 +180,6 @@ class SubController extends Controller
     public function fetchUserTransac(Request $request)
     {
 
-       // $trans = Transactions::select()->whereClientId(auth()->user()->client_id)->whereDeleted(null)->whereStatus('pending')->get();
-//        $trans = Transactions::where(function ($query){
-//            $query->where('client_id',auth()->user()->client_id)
-//                ->where('deleted','=',null)
-//                ->where('transaction_status','<>','not_paid');
-//        });
         return response()->json('success');
     }
 
