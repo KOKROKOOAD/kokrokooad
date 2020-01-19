@@ -68328,7 +68328,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       mediaHouseId: null,
       loading: false,
       logo_path: "/thumbnails/",
-      live_assets_path: '/home/cbnpj9thzweq/public_html/kuf/uploads/register/logo/',
+      live_assets_path: 'http://uploads.kokrokooad.com/uploads/mediaHouseLogos/',
       //"http://kokrokooad.com/kuf/uploads/register/logo/",
       no_media: ''
     };
@@ -68571,7 +68571,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: [_vm.logo_path + logos.logo],
+                                  src: [_vm.live_assets_path + logos.logo],
                                   width: "600",
                                   height: "515"
                                 },
