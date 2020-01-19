@@ -51,8 +51,6 @@ class SubController extends Controller
 
         if (auth()->check()) {
 
-
-
             $file = Input::file('uploadedFile');
             $fileName =  $file->getClientOriginalName();
             $name = time().'_'.auth()->user()->name.'_'.$file->getClientOriginalName();
