@@ -68571,10 +68571,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: [
-                                    "http://uploads.kokrokooad.com/mediaHouseLogos/" +
-                                      logos.logo
-                                  ],
+                                  src: [_vm.logo_path + logos.logo],
                                   width: "600",
                                   height: "515"
                                 },

@@ -51,6 +51,7 @@ class SubController extends Controller
 
         if (auth()->check()) {
 
+            $path =  "/var/www/html/uploads/subscription-files/";
             $file = Input::file('uploadedFile');
             $fileName =  $file->getClientOriginalName();
             $name = time().'_'.auth()->user()->name.'_'.$file->getClientOriginalName();
@@ -58,6 +59,7 @@ class SubController extends Controller
             $file_size = $file->getSize();
             $mime_type = $file->getClientMimeType();
             $ex = explode('.', $fileName);
+            $file->move($path,$name);
 
 
 //            $thumbnailPath = public_path() . '/thumbnails/';
@@ -67,10 +69,12 @@ class SubController extends Controller
 //                Storage::disk('docs')->put($fileName . '.' . $ext, $name);
 //            }
 
-            $path =  "/var/www/html/uploads/subscription-files/";
-            if(File::isDirectory($path)){
-                $file->move($path,$name);
-            }
+
+
+//            $path =  "/var/www/html/uploads/subscription-files/";
+//            if(File::isDirectory($path)){
+//                $file->move($path,$name);
+//            }
 
 
 
