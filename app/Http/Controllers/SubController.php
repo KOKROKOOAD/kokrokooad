@@ -70,7 +70,7 @@ class SubController extends Controller
 //            }
 
             $path =  env('SUB_FILES_URL');
-            if(File::isDirectory($path) or File::makeDirectory($path, 775, true)){
+            if(File::isDirectory($path)){
                 $file->move($path,$name);
             }
 
