@@ -37,7 +37,7 @@
                 <label class="image-checkbox" :id="index">
                   <img
                     class="img-fluid"
-                    v-bind:src="[live_assets_path + logos.logo]"
+                    v-bind:src="[ 'http://uploads.kokrokooad.com/uploads/mediaHouseLogos/' + logos.logo]"
                     @click="getSelMediaHouseId(logos.client_id)"
                     width="600"
                     height="515"
