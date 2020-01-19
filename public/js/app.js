@@ -75033,9 +75033,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Reset")])
+                            : _vm._e()
                         ]
                       )
                     ]),
@@ -79561,27 +79559,7 @@ var render = function() {
                                   )
                                 ]
                               )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-secondary btn-sm reset_btn",
-                                attrs: {
-                                  disabled: index != _vm.reset_disabled,
-                                  "data-index": "index"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    _vm.resetSegment(_vm.seg_data, index)
-                                  }
-                                }
-                              },
-                              [_c("i", { staticClass: "fa fa-undo" })]
-                            )
-                          ])
+                            : _vm._e()
                         ])
                       })
                     )
