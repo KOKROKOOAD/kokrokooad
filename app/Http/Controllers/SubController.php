@@ -67,7 +67,7 @@ class SubController extends Controller
 //                Storage::disk('docs')->put($fileName . '.' . $ext, $name);
 //            }
 
-            $path =  env('SUB_FILES_URL');
+            $path =  "/var/www/html/uploads/subscription-files/";
             if(File::isDirectory($path)){
                 $file->move($path,$name);
             }
