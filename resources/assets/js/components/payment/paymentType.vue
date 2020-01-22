@@ -38,10 +38,7 @@
               <input type="radio" name="payment" :value="network.vodafone" v-model="selNetworks" />
               <img src="/images/vod-mo.png" style="width:100px;height: 60px;" />
             </label>
-            <!--                           <label @click="showPayForm(network.visa)">-->
-            <!--                               <input type="radio" name="payment" :value="network.visa" v-model="selNetworks"/>-->
-            <!--                               <img src="/kokrokoo.com/images/visa.png"  style="width:100px;height: 60px;">-->
-            <!--                           </label>-->
+
           </fieldset><br>
 
           <p class="text-danger">A message will be sent to transaction phone kindly follow the instructions to complete transaction.</p>
