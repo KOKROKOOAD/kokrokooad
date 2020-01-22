@@ -18,16 +18,13 @@ use function GuzzleHttp\Promise\all;
 
 class MakePaymentController extends Controller
 {
-    //
+
     public function makePayment(Request $request)
     {
-      //  $user = User::find(auth()->user()->client_id);
 
-     //  $this->dispatch(new SendPurchaseReceiptEmailJob($user));
+           die('hello Joojo');
 
-     //      return  response()->json('success');
-
-        $client = new Client();
+       // $client = new Client();
 
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
@@ -47,7 +44,7 @@ class MakePaymentController extends Controller
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secret = md5('kokrokoogh' . $key . md5('k0kr00gh'));
         $src = $_SERVER['REMOTE_ADDR'];
-        /*
+        /*\\
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secrete = md5("kokrokoo" . $key . md5('3bksh!9$'));
         $dataArray = array("merchant_id" => "NPS_000002", "secrete" => "$secrete", "key" => "$key", "order_id" => "$order_id", "customerName" => "$username", "amount" => "$amount", "item_desc" => "$item_desc", "customerNumber" => "$msisdn", "payby" => "$payby", "callback" => "$callback");
@@ -66,25 +63,23 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => '233249756900',
             'payby' => $payby,
-            'callback' => 'https://api.nalosolutions.com/nalosms/smspay/callback.php'
+            'callback' =>  'payment/update'                  //'https://api.nalosolutions.com/nalosms/smspay/callback.php'
                 //'payment/update'    // action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
         $data  = json_encode($dataArray, true);
         $res = null;
 
-//        if ($payby == 'MTN' || $payby == 'AIRTEL'){
+        if ($payby == 'MTN' || $payby == 'AIRTEL'){
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
-             $trans = $res;
-             dd($res);
-            return response()->json(['success'=> 'success','trans'=> $trans]);
+
+             die($res);
+
+            return response()->json(['success'=> 'success']);
 
 
-       // }
-//        else if ($payby == 'VODAFONE'){
-//
-//        }
+        }
 
 
 

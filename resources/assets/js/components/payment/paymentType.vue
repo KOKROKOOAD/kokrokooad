@@ -226,11 +226,11 @@
       makePayment(number) {
         let self = this;
         let formData = new FormData();
-        formData.append("phone", number);
+        formData.append("phone", this.network.mobileNumber);
         formData.append("voucher_code", self.network.code);
        // formData.append("amount", self.totalBill);
         formData.append("payby", self.selNetworks);
-        formData.append("media_house_id", self.mediaHouseId);
+        //formData.append("media_house_id", self.mediaHouseId);
         formData.append("subscription_id", self.subId);
         formData.append("invoice_id", self.invoiceId);
 

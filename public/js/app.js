@@ -70406,11 +70406,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     makePayment: function makePayment(number) {
       var self = this;
       var formData = new FormData();
-      formData.append("phone", number);
+      formData.append("phone", this.network.mobileNumber);
       formData.append("voucher_code", self.network.code);
       // formData.append("amount", self.totalBill);
       formData.append("payby", self.selNetworks);
-      formData.append("media_house_id", self.mediaHouseId);
+      //formData.append("media_house_id", self.mediaHouseId);
       formData.append("subscription_id", self.subId);
       formData.append("invoice_id", self.invoiceId);
 
@@ -84571,7 +84571,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         self.loader = false;
                         self.processing = true;
                         self.rate_card_title = res.data.rate_card_title;
-                        $('.bd-example-modal-lg1').modal('show');
+                        // $('.bd-example-modal-lg1').modal('show');
                     }
                 });
             } else {
@@ -84586,7 +84586,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         self.rate_card_title = res.data.rate_card_title;
                         self.loader = false;
                         self.processing = true;
-                        $('.bd-example-modal-lg1').modal('show');
+                        // $('.bd-example-modal-lg1').modal('show');
                     }
                 });
             }
