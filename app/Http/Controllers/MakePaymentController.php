@@ -123,7 +123,8 @@ class MakePaymentController extends Controller
 
     public function makePaymentCallback(Request $request)
     {
-           die(print_r($request->all()));
+        Log::info('checking incoming request',$request->all());
+      //     die(print_r($request->all()));
 //        $data  = json_decode($request->all(), true);
 //        $trans = Transactions::where('transaction_id', 'like', '%' . substr(\Illuminate\Support\Carbon::now()->toDateString(),10,6) . '%')->whereStatus('active')->update([
 //            'status' => 'Live'
