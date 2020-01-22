@@ -121,7 +121,7 @@ class MakePaymentController extends Controller
 
     public function makePaymentCallback(Request $request)
     {
-            dd('am updating my self');
+
         $data  = $request->all();
 
 

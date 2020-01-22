@@ -70537,7 +70537,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           showCancelButton: true,
           confirmButtonText: "Yes",
           confirmButtonColor: "#E44032",
-          closeOnConfirm: true,
+          closeOnConfirm: false,
           showLoaderOnConfirm: true
         }, function () {
           self.submit_btn = false;
