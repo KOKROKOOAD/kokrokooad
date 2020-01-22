@@ -70426,6 +70426,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
           self.process_payment = false;
           self.disable_payment_btn = false;
+          self.submit_btn = true;
         }
       }).catch(function (error) {
         if (error) {

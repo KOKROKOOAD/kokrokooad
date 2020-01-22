@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\RegistrationSuccessfullJob;
 use App\Jobs\SendPurchaseReceiptEmailJob;
+use App\Models\ScheduledAd;
 use App\ScheduledAds;
 use App\User;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class MakePaymentController extends Controller
             'key'    => $key,
             'order_id' => $transaction_id,
             'customerName' => $name,
-            'amount' => $amount,
+            'amount' => 0.5,
             'item_desc' => $item_desc,
             'customerNumber' => $msisdn,
             'payby' => $payby,
@@ -91,16 +92,13 @@ class MakePaymentController extends Controller
                     'transaction_date' => $res_obj['Timestamp'],
                 ]);
 
-                $dueAds = ScheduledAds::where('subscription_id','=',$subscription_id)->update([
-                    'status' => 'Transaction pending'
-                ]);
             }
 
             return response()->json(['success'=> 'success']);
 
             }
 
-               elseif ($payby == 'VODAFONE'){
+               elseif ($payby === 'VODAFONE'){
 
             }
 
@@ -125,9 +123,11 @@ class MakePaymentController extends Controller
 
     public function makePaymentCallback(Request $request)
     {
-
-        $data  = $request->all();
-
+           die(print_r($request->all()));
+//        $data  = json_decode($request->all(), true);
+//        $trans = Transactions::where('transaction_id', 'like', '%' . substr(\Illuminate\Support\Carbon::now()->toDateString(),10,6) . '%')->whereStatus('active')->update([
+//            'status' => 'Live'
+//        ]);
 
     }
 }
