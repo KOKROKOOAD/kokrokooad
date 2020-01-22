@@ -22,7 +22,7 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-
+        die($request->all());
        // $client = new Client();
 
         $payby = $request->input('payby');
