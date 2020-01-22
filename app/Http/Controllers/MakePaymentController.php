@@ -80,7 +80,7 @@ class MakePaymentController extends Controller
 
             $res_obj  = json_decode($res);
 
-            die($res_obj->accepted);
+            die($res_obj);
 
         //    return response()->json(['success'=> 'success']);
 
