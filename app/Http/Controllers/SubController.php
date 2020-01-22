@@ -218,7 +218,7 @@ class SubController extends Controller
         $subs  =  DB::table('scheduled_ads')
             ->join('users', 'scheduled_ads.media_house_id','=','users.client_id')
             ->select('scheduled_ads.*', 'users.media_house')
-            -> where('user.client_id','=',auth()->user()->client_id)->where('scheduled_ads.status','=','in cart')->where('scheduled_ads','!=','deleted')
+            -> where('users.client_id','=',auth()->user()->client_id)->where('scheduled_ads.status','=','in cart')->where('scheduled_ads','!=','deleted')
             ->get();
 
         //$subs =  ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->get();
