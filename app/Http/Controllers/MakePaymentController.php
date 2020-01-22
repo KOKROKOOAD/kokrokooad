@@ -22,7 +22,6 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-        die(print_r($request->all()));
 
         $user_name  = explode(' ',auth()->user()->client_id);
         $name = time().'_'.$user_name[0].'_'.$user_name[1.];
@@ -70,7 +69,10 @@ class MakePaymentController extends Controller
                 //'payment/update'    // action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
+        die(print_r($dataArray));
+
         $data  = json_encode($dataArray, true);
+
 
         if ($payby == 'MTN' || $payby == 'AIRTEL'){
 
