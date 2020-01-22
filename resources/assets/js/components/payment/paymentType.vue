@@ -367,7 +367,7 @@
           self.prefix_error = '';
           sweetAlert(
                   {
-                    //title: "Confirm Payment.",
+                     title: "Confirm Payment.",
                      text: 'A message will be sent to transaction phone. kindly follow the instructions to complete transaction',
                     type: "warning",
                     showCancelButton: true,
