@@ -15,7 +15,6 @@
           />
           <h4 class="card-title">Select payment channel.</h4>
 
-          <p class="text-danger">A message will be sent to transaction phone kindly follow the instructions to complete transaction.</p>
 
 
           <hr />
@@ -43,8 +42,9 @@
             <!--                               <input type="radio" name="payment" :value="network.visa" v-model="selNetworks"/>-->
             <!--                               <img src="/kokrokoo.com/images/visa.png"  style="width:100px;height: 60px;">-->
             <!--                           </label>-->
-          </fieldset>
+          </fieldset><br>
 
+          <p class="text-danger">A message will be sent to transaction phone kindly follow the instructions to complete transaction.</p>
 
         </div>
       </div>
