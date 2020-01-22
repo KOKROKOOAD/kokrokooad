@@ -69,7 +69,6 @@ class MakePaymentController extends Controller
                 //'payment/update'    // action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
-        die(print_r($dataArray));
 
         $data  = json_encode($dataArray, true);
 
@@ -113,8 +112,6 @@ class MakePaymentController extends Controller
         dd($data);
 
 
-
-
         //  Log::info($res->getStatusCode());
 
         //  Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
@@ -124,15 +121,10 @@ class MakePaymentController extends Controller
                 'phone' => $phoneNumber,
                 'payment_source' => $network,
                 'transaction_id' => $transaction_id,
-                'media_house_id' => $media_house_id,
                 'amount' => $amount,
-                'invoice_id' => $invoice_id,
-                'client_id' => $client_id,
                 'subscription_id' => $subscription_id,
                 'service' => $service,
-                'transaction_status' => $success,
-                'transact_charge' => $amount_charge,
-                'response'   => '{response: success}',
+                'status' => $success,
             ]);
             if ($transac) {
                 return response()->json('success');
