@@ -22,7 +22,6 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-           die('hello Joojo');
 
        // $client = new Client();
 
