@@ -43,8 +43,9 @@ class MakePaymentController extends Controller
 
 
         $api_key = 'vUqBR$Hz';
+       // k0kr00gh
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secret = md5('kokrokoogh' . $key . md5('k0kr00gh'));
+        $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
         $src = $_SERVER['REMOTE_ADDR'];
         /*\\
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
