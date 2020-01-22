@@ -84564,7 +84564,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         self.loader = false;
                         self.processing = true;
                         self.rate_card_title = res.data.rate_card_title;
-                        // $('.bd-example-modal-lg1').modal('show');
+                        $('.bd-example-modal-lg1').modal('show');
                     }
                 });
             } else {
@@ -84579,7 +84579,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         self.rate_card_title = res.data.rate_card_title;
                         self.loader = false;
                         self.processing = true;
-                        // $('.bd-example-modal-lg1').modal('show');
+                        $('.bd-example-modal-lg1').modal('show');
                     }
                 });
             }
