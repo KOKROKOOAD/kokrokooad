@@ -134,7 +134,7 @@ Route::prefix('/user-account')->group(function () {
 
     //====================================subs details======================================
     Route::get('fetch/media/ratecard/{m_id}/{id}', 'SubController@fetchSubDetails');
-    Route::get('fetch-subs/api', 'SubController@fetchClientSubs');
+    Route::get('fetch-subs/api', 'SubController@fetchClientSubsInCart');
 
 
 //=========================================view rate cards API=================================

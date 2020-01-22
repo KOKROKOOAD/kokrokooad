@@ -20,6 +20,7 @@ use Illuminate\Http\Response;
 
 use Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
@@ -212,13 +213,19 @@ class SubController extends Controller
     public function checkIfSubExist(Request $request)
     { }
 
-    public function fetchClientSubs(){
+    public function fetchClientSubsInCart(){
 
-        $subs =  ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereNull('deleted')->get();
+        $subs  =  DB::table('scheduled_ads')
+            ->join('users', 'scheduled_ads.media_house_id','=','users.client_id')
+            ->select('scheduled_ads.*', 'users.media_house')
+            -> where('user.client_id','=',auth()->user()->client_id)->where('scheduled_ads.status','=','in cart')->where('scheduled_ads','!=','deleted')
+            ->get();
+
+        //$subs =  ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->get();
         if (!$subs->isEmpty()){
-            $media_house = User::select('media_house')->where('client_id','=',$subs[0]->media_house_id)->get();
+          //  $media_house = User::select('media_house')->where('client_id','=',$subs[0]->media_house_id)->get();
            // $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$subs[0]->rate_card_id)->get();
-            return response()->json(['status'=>'success','subs'=>$subs,'media_house'=>$media_house[0]->media_house]);
+            return response()->json(['status'=>'success','subs'=>$subs]);
         }
         else{
             return response()->json(['status'=> 'Add subscriptions to cart']);
