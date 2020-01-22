@@ -78,8 +78,8 @@ class MakePaymentController extends Controller
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
 
-            $res_obj = json_decode($res);
-            die($res_obj[0]->order_id);
+           // $res_obj = json_decode($res);
+            die($res);
 
         //    return response()->json(['success'=> 'success']);
 
