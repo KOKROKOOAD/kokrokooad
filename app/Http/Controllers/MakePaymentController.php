@@ -67,7 +67,7 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => $msisdn,
             'payby' => $payby,
-            'callback' =>  'http://kokrokooad.com/user-account/payment/update'
+            'callback' =>  'http://kokrokooad.com/user-account/payment-update'
         );
 
 
