@@ -23,20 +23,24 @@ class MakePaymentController extends Controller
     {
 
         die(print_r($request->all()));
-       // $client = new Client();
+
+        $user_name  = explode(' ',auth()->user()->client_id);
+        $name = time().'_'.$user_name[0].'_'.$user_name[1.];
+
+        $unique_id = uniqid('K',true);
+        if(Transactions::where('client_id', '=',$unique_id)){
+            $unique_id = uniqid('K',true);
+        }
 
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
-        $transaction_id =  uniqid('k', true);
-        $order_id = auth()->user()->name . "_" . Carbon::now();
+        $transaction_id = $unique_id;
+        $customer =  $name;
         $amount = $request->input('amount');
-        $order_id = $request->input('invoice_id');
         $subscription_id = $request->input('subscription_id');
-        $client_id = auth()->user()->client_id;
-        $media_house_id = $request->input('media_house_id');
-        $item_desc = "subscription";
-        //$account_type = $request->input('acc_type');
+        $item_desc = "subscription purchase";
         $callback =  env("PAY_CALLBACK");
+
 
 
         $api_key = 'vUqBR$Hz';
@@ -56,18 +60,17 @@ class MakePaymentController extends Controller
             'merchant_id' => 'NPS_000035',
             'secrete' => $secret,
             'key'    => $key,
-            'order_id' => $order_id,
-            'customerName' => auth()->user()->name,
-            'amount' => '1',
+            'order_id' => $transaction_id,
+            'customerName' => $name,
+            'amount' => $amount,
             'item_desc' => $item_desc,
-            'customerNumber' => '233249756900',
+            'customerNumber' => $msisdn,
             'payby' => $payby,
             'callback' =>  'payment/update'                  //'https://api.nalosolutions.com/nalosms/smspay/callback.php'
                 //'payment/update'    // action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
         );
 
         $data  = json_encode($dataArray, true);
-        $res = null;
 
         if ($payby == 'MTN' || $payby == 'AIRTEL'){
 
