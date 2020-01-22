@@ -24,7 +24,7 @@ class MakePaymentController extends Controller
 
 
         $user_name  = explode(' ',auth()->user()->client_id);
-        $name = time().'_'.$user_name[0].'_'.$user_name[1.];
+        $name = time().'_'.$user_name[0].'_'.$user_name[1];
 
         $unique_id = uniqid('K',true);
         if(Transactions::where('client_id', '=',$unique_id)){
