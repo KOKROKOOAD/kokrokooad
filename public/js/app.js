@@ -70398,21 +70398,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.fColor = "";
         }
     },
-
-    // totals() {
-    //   this.amounts = this.totalBill;
-    //   return this.amounts;
-    // },
     makePayment: function makePayment(number) {
       var self = this;
       var formData = new FormData();
       formData.append("phone", this.network.mobileNumber);
       formData.append("voucher_code", self.network.code);
-      // formData.append("amount", self.totalBill);
+      formData.append("amount", self.amounts);
       formData.append("payby", self.selNetworks);
-      //formData.append("media_house_id", self.mediaHouseId);
       formData.append("subscription_id", self.subId);
-      formData.append("invoice_id", self.invoiceId);
 
       axios.post("api-purchasesubs", formData).then(function (res) {
 

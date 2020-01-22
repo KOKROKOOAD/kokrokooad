@@ -219,20 +219,15 @@
           this.fColor = "";
         }
       },
-      // totals() {
-      //   this.amounts = this.totalBill;
-      //   return this.amounts;
-      // },
+
       makePayment(number) {
         let self = this;
         let formData = new FormData();
         formData.append("phone", this.network.mobileNumber);
         formData.append("voucher_code", self.network.code);
-       // formData.append("amount", self.totalBill);
+        formData.append("amount", self.amounts);
         formData.append("payby", self.selNetworks);
-        //formData.append("media_house_id", self.mediaHouseId);
         formData.append("subscription_id", self.subId);
-        formData.append("invoice_id", self.invoiceId);
 
         axios
                 .post("api-purchasesubs", formData)
