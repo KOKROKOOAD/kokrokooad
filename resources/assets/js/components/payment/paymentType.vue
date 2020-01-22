@@ -23,7 +23,7 @@
         </div>
         <div class="card-body text-center">
           <!--          displays loader before payment channels are displayed-->
-          <p class="animated fadeOut" v-show="loader"><img src="/images/loading.gif"  style="height: 20px;width: 20px;">Please wait....</p>
+          <p class="animated fadeOut" ><img src="/images/loading.gif"  style="height: 20px;width: 20px;">Please wait....</p>
 
           <fieldset class="payment animated fadeIn" style="padding-left: 10px;" v-show="hide_channels">
             <label @click="showPayForm(network.airtel)">

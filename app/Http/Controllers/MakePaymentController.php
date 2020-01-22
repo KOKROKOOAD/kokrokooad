@@ -90,6 +90,10 @@ class MakePaymentController extends Controller
                     'transaction_status' => 'pending',
                     'transaction_date' => $res_obj['Timestamp'],
                 ]);
+
+                $dueAds = ScheduledAds::where('subscription_id','=',$subscription_id)->update([
+                    'status' => 'Transaction pending'
+                ]);
             }
 
             return response()->json(['success'=> 'success']);

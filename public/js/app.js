@@ -70871,27 +70871,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-body text-center" }, [
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.loader,
-                        expression: "loader"
-                      }
-                    ],
-                    staticClass: "animated fadeOut"
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { height: "20px", width: "20px" },
-                      attrs: { src: "/images/loading.gif" }
-                    }),
-                    _vm._v("Please wait....")
-                  ]
-                ),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "fieldset",
@@ -71242,13 +71222,13 @@ var render = function() {
                         class: _vm.visa_anim_faIn
                       },
                       [
-                        _vm._m(0),
-                        _vm._v(" "),
                         _vm._m(1),
                         _vm._v(" "),
                         _vm._m(2),
                         _vm._v(" "),
-                        _vm._m(3)
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _vm._m(4)
                       ]
                     ),
                     _vm._v(" "),
@@ -71291,6 +71271,18 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "animated fadeOut" }, [
+      _c("img", {
+        staticStyle: { height: "20px", width: "20px" },
+        attrs: { src: "/images/loading.gif" }
+      }),
+      _vm._v("Please wait....")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
