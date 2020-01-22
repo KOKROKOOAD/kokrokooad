@@ -46,7 +46,7 @@
                                                     <table id="e-product-list" class="table table-responsive table-striped dt-responsive nowrap dataTable no-footer dtr-inline cart-page" role="grid" style="width: 100%;">
                                                         <thead>
                                                         <tr>
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 125px;">#</th>
+<!--                                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 125px;">#</th>-->
                                                             <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 125px;">Date</th>
                                                             <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 125px;">Segment</th>
                                                             <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 125px;">Title</th>
@@ -61,9 +61,9 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr class="odd" v-for="(sub,index) in subs">
-                                                            <td>
-                                                                <input type="checkbox">
-                                                            </td>
+<!--                                                            <td>-->
+<!--                                                                <input type="checkbox">-->
+<!--                                                            </td>-->
                                                             <td style="font-weight: bolder">
                                                                 {{sub.start.substr(0,10) + ' - ' + sub.end.substr(0,10)}}
                                                             </td>

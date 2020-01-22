@@ -85901,8 +85901,6 @@ var render = function() {
                                     "tbody",
                                     _vm._l(_vm.subs, function(sub, index) {
                                       return _c("tr", { staticClass: "odd" }, [
-                                        _vm._m(2, true),
-                                        _vm._v(" "),
                                         _c(
                                           "td",
                                           {
@@ -86157,16 +86155,6 @@ var staticRenderFns = [
             staticStyle: { width: "125px" },
             attrs: { rowspan: "1", colspan: "1" }
           },
-          [_vm._v("#")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass: "sorting_disabled",
-            staticStyle: { width: "125px" },
-            attrs: { rowspan: "1", colspan: "1" }
-          },
           [_vm._v("Date")]
         ),
         _vm._v(" "),
@@ -86261,12 +86249,6 @@ var staticRenderFns = [
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [_c("input", { attrs: { type: "checkbox" } })])
   }
 ]
 render._withStripped = true
