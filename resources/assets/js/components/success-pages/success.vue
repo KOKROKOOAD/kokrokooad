@@ -4,7 +4,7 @@
         <p class="lead"><strong>Transaction is currently being processed.A receipt </strong>  of your purchase will be sent to your email once transaction is done.</p>
         <hr>
         <p>
-            Have any questions? <a href="">Contact us :  suport@kokrokoo.com</a>
+            Have any questions? <a href="">Contact  suport@kokrokoo.com</a>
         </p>
         <p class="lead">
             <router-link :to="{name: 'selectMedia'}" class="btn btn-primary btn-sm" role="button">Create another advert</router-link>

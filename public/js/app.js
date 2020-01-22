@@ -87955,9 +87955,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", [
       _vm._v("\n        Have any questions? "),
-      _c("a", { attrs: { href: "" } }, [
-        _vm._v("Contact us :  suport@kokrokoo.com")
-      ])
+      _c("a", { attrs: { href: "" } }, [_vm._v("Contact  suport@kokrokoo.com")])
     ])
   }
 ]
