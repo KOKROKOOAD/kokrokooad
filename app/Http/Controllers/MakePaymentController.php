@@ -123,6 +123,9 @@ class MakePaymentController extends Controller
 
     public function makePaymentCallback(Request $request)
     {
+
+           echo  "Hello Joojo Arthur";
+
         Log::info('checking incoming request',$request->all());
       //     die(print_r($request->all()));
 //        $data  = json_decode($request->all(), true);
