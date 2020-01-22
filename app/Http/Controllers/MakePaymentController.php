@@ -66,29 +66,41 @@ class MakePaymentController extends Controller
             'item_desc' => $item_desc,
             'customerNumber' => $msisdn,
             'payby' => $payby,
-            'callback' =>  'payment/update'                  //'https://api.nalosolutions.com/nalosms/smspay/callback.php'
-                //'payment/update'    // action('MakePaymentController@makePaymentCallback')  //route('makepayment-callback,MakePaymentController@MakePaymentCallback')          // 'https://api.nalosolutions.com/nalosms/smspay/callback.php',
+            'callback' =>  'http://kokrokooad.com/user-account/payment/update'
         );
 
 
         $data  = json_encode($dataArray, true);
 
-
         if ($payby == 'MTN' || $payby == 'AIRTEL'){
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
 
-            $res_obj = json_decode($res, true);
-            die(print_r($res_obj));
+            if($res){
+                $res_obj = json_decode($res, true);
 
-        //    return response()->json(['success'=> 'success']);
+                $transac = Transactions::create([
+                    'phone' => $msisdn,
+                    'payment_source' => $payby,
+                    'transaction_id' => $res_obj['Order_id'],
+                    'amount' => $amount,
+                    'subscription_id' => $subscription_id,
+                    'invoice_id' => $res_obj['Invoice_id'],
+                    'service' => $item_desc,
+                    'payment_status' => 'pending',
+                    'transaction_date' => $res_obj['Timestamp'],
+                ]);
+            }
 
+            return response()->json(['success'=> 'success']);
 
-        }
+            }
 
+               elseif ($payby == 'VODAFONE'){
 
+            }
 
-    }
+            }
 
     // total amount  to be paid
     public function getSubTotal(Request $request){
@@ -109,35 +121,8 @@ class MakePaymentController extends Controller
 
     public function makePaymentCallback(Request $request)
     {
-
+            dd('am updating my self');
         $data  = $request->all();
-       // dd($data);
-
-
-        //  Log::info($res->getStatusCode());
-
-        //  Log::channel('paylog')->info('Loging response to API call ' . $res->getStatusCode());
-
-        /*  if ($res->getBody()->getContents() == 200) {
-            $transac = Transactions::create([
-                'phone' => $phoneNumber,
-                'payment_source' => $network,
-                'transaction_id' => $transaction_id,
-                'amount' => $amount,
-                'subscription_id' => $subscription_id,
-                'service' => $service,
-                'status' => $success,
-            ]);
-            if ($transac) {
-                return response()->json('success');
-            } else {
-                return response()->json('error');
-            }
-        } else {
-            return response()->json('failed');
-        }
- */
-
 
 
     }
