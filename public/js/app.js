@@ -70537,7 +70537,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           showCancelButton: true,
           confirmButtonText: "Yes",
           confirmButtonColor: "#E44032",
-          closeOnConfirm: false,
+          closeOnConfirm: true,
           showLoaderOnConfirm: true
         }, function () {
           self.submit_btn = false;
@@ -87942,9 +87942,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "lead" }, [
       _c("strong", [
-        _vm._v("Your subscription is successfully created.A receipt ")
+        _vm._v("Transaction is currently being processed.A receipt ")
       ]),
-      _vm._v("  of your purchase has been sent to your email.")
+      _vm._v(
+        "  of your purchase will be sent to your email once transaction is done."
+      )
     ])
   },
   function() {

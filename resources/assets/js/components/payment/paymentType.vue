@@ -377,7 +377,7 @@
                     showCancelButton: true,
                     confirmButtonText: "Yes",
                     confirmButtonColor: "#E44032",
-                    closeOnConfirm: false,
+                    closeOnConfirm: true,
                     showLoaderOnConfirm: true
                   },
                   function () {

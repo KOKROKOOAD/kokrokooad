@@ -1,7 +1,7 @@
 <template>
     <div class="jumbotron text-center">
         <h6 class="display-3" style="font-size:38px;font-weight:bolder">Thank You for using our advertising platform!</h6>
-        <p class="lead"><strong>Your subscription is successfully created.A receipt </strong>  of your purchase has been sent to your email.</p>
+        <p class="lead"><strong>Transaction is currently being processed.A receipt </strong>  of your purchase will be sent to your email once transaction is done.</p>
         <hr>
         <p>
             Have any questions? <a href="">Contact us :  suport@kokrokoo.com</a>
