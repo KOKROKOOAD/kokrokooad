@@ -15,7 +15,7 @@
           />
           <h4 class="card-title">Select payment channel.</h4>
 
-          <span>A message will be sent to transaction phone kindly follow the instructions to complete transaction.</span>
+          <p class="text-danger">A message will be sent to transaction phone kindly follow the instructions to complete transaction.</p>
 
 
           <hr />

@@ -70861,7 +70861,7 @@ var render = function() {
                   _vm._v("Select payment channel.")
                 ]),
                 _vm._v(" "),
-                _c("span", [
+                _c("p", { staticClass: "text-danger" }, [
                   _vm._v(
                     "A message will be sent to transaction phone kindly follow the instructions to complete transaction."
                   )
