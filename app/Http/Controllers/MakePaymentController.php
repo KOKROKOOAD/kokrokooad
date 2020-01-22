@@ -23,7 +23,7 @@ class MakePaymentController extends Controller
     {
 
 
-        $user_name  = explode(' ',auth()->user()->client_id);
+        $user_name  = explode(' ',auth()->user()->name);
         $name = time().'_'.$user_name[0].'_'.$user_name[1];
 
         $unique_id = uniqid('K',true);
