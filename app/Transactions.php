@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Transactions extends Model
 {
 
-     protected $fillable = ['client_id','invoice_id','phone','subscription_id','transaction_id','media_house_id','amount','transaction_status','payment_source','service','transact_charge','response'];
+     protected $fillable = ['invoice_id','phone','subscription_id',
+         'transaction_id','amount','transaction_status',
+         'payment_source','service','transaction_date'];
 
     public function user(){
       return  $this->belongsTo(User::class, 'client', 'client_id');
