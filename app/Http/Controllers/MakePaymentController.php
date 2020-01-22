@@ -87,7 +87,7 @@ class MakePaymentController extends Controller
                     'subscription_id' => $subscription_id,
                     'invoice_id' => $res_obj['InvoiceNo'],
                     'service' => $item_desc,
-                    'payment_status' => 'pending',
+                    'transaction_status' => 'pending',
                     'transaction_date' => $res_obj['Timestamp'],
                 ]);
             }
