@@ -70299,7 +70299,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -70529,7 +70528,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         self.prefix_error = '';
         sweetAlert({
           title: "Confirm Payment.",
-          // text: 'Do you want to cancel this transaction?',
+          text: 'A message will be sent to transaction phone. kindly follow the instructions to complete transaction',
           type: "warning",
           showCancelButton: true,
           confirmButtonText: "Yes",
@@ -70997,13 +70996,7 @@ var render = function() {
                     )
                   ]
                 ),
-                _c("br"),
-                _vm._v(" "),
-                _c("p", { staticClass: "text-danger" }, [
-                  _vm._v(
-                    "A message will be sent to transaction phone kindly follow the instructions to complete transaction."
-                  )
-                ])
+                _c("br")
               ])
             ]
           ),

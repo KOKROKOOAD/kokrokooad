@@ -41,7 +41,6 @@
 
           </fieldset><br>
 
-          <p class="text-danger">A message will be sent to transaction phone kindly follow the instructions to complete transaction.</p>
 
         </div>
       </div>
@@ -369,7 +368,7 @@
           sweetAlert(
                   {
                     title: "Confirm Payment.",
-                    // text: 'Do you want to cancel this transaction?',
+                     text: 'A message will be sent to transaction phone. kindly follow the instructions to complete transaction',
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonText: "Yes",
