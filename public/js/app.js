@@ -70401,7 +70401,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     makePayment: function makePayment(number) {
       var self = this;
       var formData = new FormData();
-      formData.append("phone", this.network.mobileNumber);
+      formData.append("phone", self.network.mobileNumber);
       formData.append("voucher_code", self.network.code);
       formData.append("amount", self.amounts);
       formData.append("payby", self.selNetworks);
