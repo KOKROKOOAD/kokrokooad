@@ -27,8 +27,8 @@ class MakePaymentController extends Controller
         if($request->payby === 'MTN' || $request->payby === 'AIRTELTIGO'){
             $form_data = $request->validate([
                 'payby' => 'required|alpha',
-                'phone' => 'required|numeric|min:10|max:12',
-                'subscription_id' => 'required|alpha_num',
+                'phone' => 'required|numeric|min:10',
+                'subscription_id' => 'required',
                 'amount' => 'required|numeric',
 
             ]);
@@ -37,8 +37,8 @@ class MakePaymentController extends Controller
             $form_data = $request->validate([
                 'voucher_code' => 'required|numeric',
                 'payby' => 'required|alpha',
-                'phone' => 'required|numeric|min:10|max:12',
-                'subscription_id' => 'required|alpha_num',
+                'phone' => 'required|numeric|max:10',
+                'subscription_id' => 'required',
                 'amount' => 'required|numeric',
 
             ]);
