@@ -130,7 +130,7 @@ class MakePaymentController extends Controller
 
         if ($payment_callback) {
             $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
-                'status' => strtolower($payment_callback['Status']),
+                'transaction_status' => strtolower($payment_callback['Status']),
                 'updated_at' => $payment_callback['Timestamp'],
             ]);
 
