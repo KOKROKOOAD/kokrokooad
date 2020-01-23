@@ -119212,7 +119212,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {};
     },
     mounted: function mounted() {
-        this.success(this.message);
+        this.successMessage(this.message);
     },
 
     methods: {

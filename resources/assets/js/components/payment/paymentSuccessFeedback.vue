@@ -12,7 +12,7 @@
            }
         },
         mounted() {
-            this.success(this.message);
+            this.successMessage(this.message);
         },
         methods :{
             successMessage(message){
