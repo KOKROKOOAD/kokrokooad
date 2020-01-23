@@ -126,13 +126,13 @@
 
                     <div class="navbar-container container-fluid">
 
-                        @if(session()->has('payment-success'))
-                            <div class="alert alert-success">
-                                <p>{{session('payment-success')}}</p>
-                            </div>
-                        @endif
+{{--                        @if(session()->has('payment-success'))--}}
+{{--                            <div class="alert alert-success">--}}
+{{--                                <p>{{session('payment-success')}}</p>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
 
-                        <div class="alert alert-success">hello</div>
+{{--                        <div class="alert alert-success">hello</div>--}}
                         <ul class="nav-right">
 
                             <li class="user-profile header-notification">
