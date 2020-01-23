@@ -126,7 +126,7 @@ class MakePaymentController extends Controller
     public function makePaymentCallback(Request $request)
     {
 
-        $payment_callback = json_decode($request->all(), true);
+        $payment_callback = json_decode($request->getContent(), true);
 
         if (!isEmpty($payment_callback)) {
             $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
