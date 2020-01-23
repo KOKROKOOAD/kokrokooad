@@ -24,14 +24,26 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-        $form_data = $request->validate([
-            'payby' => 'required|alpha',
-            'voucher_code' => 'numeric',
-            'phone' => 'required|numeric|digits_between:10,12|min:10|max:12',
-            'subscription_id' => 'alpha_num',
-            'amount' => 'required|numeric',
+        if($request->payby === 'MTN' || $request->payby === 'AIRTELTIGO'){
+            $form_data = $request->validate([
+                'payby' => 'required|alpha',
+                'phone' => 'required|numeric|min:10|max:12',
+                'subscription_id' => 'alpha_num',
+                'amount' => 'required|numeric',
 
-        ]);
+            ]);
+        }
+        elseif($request->payby === 'MTN' ){
+            $form_data = $request->validate([
+                'voucher_code' => 'required|numeric',
+                'payby' => 'required|alpha',
+                'phone' => 'required|numeric|min:10|max:12',
+                'subscription_id' => 'required|alpha_num',
+                'amount' => 'required|numeric',
+
+            ]);
+        }
+
 
 
         $user_name = explode(' ', auth()->user()->name);
@@ -75,7 +87,7 @@ class MakePaymentController extends Controller
 
         $data = json_encode($dataArray, true);
 
-        if ($payby == 'MTN' || $payby == 'AIRTEL') {
+        if ($payby == 'MTN' || $payby == 'AIRTELTIGO') {
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
