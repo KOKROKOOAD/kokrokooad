@@ -24,27 +24,13 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-        if($request->payby === 'MTN' || $request->payby === 'AIRTELTIGO'){
-            $form_data = $request->validate([
-                'payby' => 'required|alpha',
-                'phone' => 'required|numeric|min:10',
-                'subscription_id' => 'required',
-                'amount' => 'required|numeric',
+        $form_data = $request->validate([
+            'payby' => 'required|alpha',
+            'phone' => 'required|numeric|min:10',
+            'subscription_id' => 'required',
+            'amount' => 'required|numeric',
 
-            ]);
-        }
-        elseif($request->payby === 'VODAFONE' ){
-            $form_data = $request->validate([
-                'voucher_code' => 'required|numeric',
-                'payby' => 'required|alpha',
-                'phone' => 'required|numeric|max:10',
-                'subscription_id' => 'required',
-                'amount' => 'required|numeric',
-
-            ]);
-        }
-
-
+        ]);
 
         $user_name = explode(' ', auth()->user()->name);
         $name = time() . '_' . $user_name[0] . '_' . $user_name[1];
@@ -59,7 +45,7 @@ class MakePaymentController extends Controller
         $callback = env("PAY_CALLBACK");
 
 
-         $msisdn = substr($msisdn, 1,9);
+        $msisdn = substr($msisdn, 1, 9);
 
 
         $api_key = 'vUqBR$Hz';
@@ -76,7 +62,7 @@ class MakePaymentController extends Controller
             'customerName' => $name,
             'amount' => 0.3,
             'item_desc' => $item_desc,
-            'customerNumber' => '233'.$msisdn,
+            'customerNumber' => '233' . $msisdn,
             'payby' => $payby,
             'callback' => 'http://kokrokooad.com/user-account/payment/update'
         );
