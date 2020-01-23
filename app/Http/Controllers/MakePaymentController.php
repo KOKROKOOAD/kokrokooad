@@ -76,9 +76,12 @@ class MakePaymentController extends Controller
         if ($payby == 'MTN' || $payby == 'AIRTEL') {
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
+            $res_obj = json_decode($res, true);
 
-            if ($res) {
-                $res_obj = json_decode($res, true);
+            Log::info('logging response from api', $res_obj, true));
+
+
+            if (isset($res_obj['InvoiceNo'])) {
 
                 $transac = Transactions::create([
                     'phone' => $msisdn,
