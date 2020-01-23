@@ -59,11 +59,9 @@ class MakePaymentController extends Controller
         $callback = env("PAY_CALLBACK");
 
 
-        if(substr($msisdn,0,1) === '0'){
-          $msisdn =  str_replace('0','233',$msisdn);
-        }
+        ltrim($msisdn, '0');
 
-         die($msisdn);
+         die('233'.$msisdn);
 
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
