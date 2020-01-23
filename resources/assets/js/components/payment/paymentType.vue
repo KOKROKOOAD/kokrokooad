@@ -6,7 +6,7 @@
 
       <div class="card" v-show="loading">
         <div class="card-header">
-          <input
+          <input v-show="submit_btn"
                   type="button"
                   role="button"
                   class="btn btn-danger btn-sm pull-right"
@@ -22,7 +22,7 @@
         </div>
         <div class="card-body text-center">
           <!--          displays loader before payment channels are displayed-->
-          <p class="animated fadeOut" ><img src="/images/loading.gif"  style="height: 20px;width: 20px;">Please wait....</p>
+          <p class="animated fadeOut" v-show="loader" ><img src="/images/loading.gif"  style="height: 20px;width: 20px;">Please wait....</p>
 
           <fieldset class="payment animated fadeIn" style="padding-left: 10px;" v-show="hide_channels">
             <label @click="showPayForm(network.airtel)">
@@ -235,6 +235,9 @@
                     store.dispatch('getSelMediaHouse','');
                     store.dispatch('getInvoiceId','');
                     store.dispatch(' getMediaHouseId','');
+
+                    self.submit_btn = true;
+                    self.loader = false;
 
                     self.$router.push("payment-success");
                   } else {
