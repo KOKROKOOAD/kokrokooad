@@ -7,7 +7,9 @@
         props : ['message'],
         name: "paymentSuccessFeedback",
         data(){
+           return{
 
+           }
         },
         mounted() {
             this.success(this.message);

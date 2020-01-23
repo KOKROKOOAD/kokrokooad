@@ -233,21 +233,15 @@
                   if (res.data.success === "success") {
                     self.process_payment = false;
                     store.dispatch('getSubId', '');
-                    store.dispatch('getSelMediaHouse', '');
-                    store.dispatch('getInvoiceId', '');
-                    store.dispatch(' getMediaHouseId', '');
+                    store.dispatch('getSelMediaHouse','');
+                    store.dispatch('getInvoiceId','');
+                    store.dispatch(' getMediaHouseId','');
 
                     self.submit_btn = true;
                     self.loader = false;
 
                     self.$router.push("payment-success");
-                  }
-                    else if(res.data.errors){
-                      console.log(res.data.errors);
-                    self.submit_btn = true;
-                    self.loader = false;
-                    }
-                   else {
+                  } else {
 
                     new PNotify({
                       title: "Payment Error Notice",

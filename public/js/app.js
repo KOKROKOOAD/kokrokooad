@@ -70418,10 +70418,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           self.loader = false;
 
           self.$router.push("payment-success");
-        } else if (res.data.errors) {
-          console.log(res.data.errors);
-          self.submit_btn = true;
-          self.loader = false;
         } else {
 
           new PNotify({
@@ -119193,7 +119189,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -119212,7 +119208,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['message'],
     name: "paymentSuccessFeedback",
-    data: function data() {},
+    data: function data() {
+        return {};
+    },
     mounted: function mounted() {
         this.success(this.message);
     },
