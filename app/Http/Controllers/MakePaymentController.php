@@ -15,6 +15,7 @@ use Auth;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use function GuzzleHttp\Promise\all;
 
 class MakePaymentController extends Controller
@@ -24,27 +25,26 @@ class MakePaymentController extends Controller
     {
 
 
-        $user_name  = explode(' ',auth()->user()->name);
-        $name = time().'_'.$user_name[0].'_'.$user_name[1];
+        $user_name = explode(' ', auth()->user()->name);
+        $name = time() . '_' . $user_name[0] . '_' . $user_name[1];
 
-        $unique_id = uniqid('K',true);
-        if(Transactions::where('client_id', '=',$unique_id)){
-            $unique_id = uniqid('K',true);
+        $unique_id = uniqid('K', true);
+        if (Transactions::where('client_id', '=', $unique_id)) {
+            $unique_id = uniqid('K', true);
         }
 
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
         $transaction_id = $unique_id;
-        $customer =  $name;
+        $customer = $name;
         $amount = $request->input('amount');
         $subscription_id = $request->input('subscription_id');
         $item_desc = "subscription purchase";
-        $callback =  env("PAY_CALLBACK");
-
+        $callback = env("PAY_CALLBACK");
 
 
         $api_key = 'vUqBR$Hz';
-       // k0kr00gh
+        // k0kr00gh
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
         $src = $_SERVER['REMOTE_ADDR'];
@@ -60,24 +60,24 @@ class MakePaymentController extends Controller
         $dataArray = array(
             'merchant_id' => 'NPS_000035',
             'secrete' => $secret,
-            'key'    => $key,
-            'order_id' => $transaction_id,
+            'key' => $key,
+            'order_id' => $subscription_id,
             'customerName' => $name,
-            'amount' => 0.5,
+            'amount' => 0.3,
             'item_desc' => $item_desc,
             'customerNumber' => $msisdn,
             'payby' => $payby,
-            'callback' =>  'http://kokrokooad.com/user-account/payment-update'
+            'callback' => 'http://kokrokooad.com/user-account/payment/update'
         );
 
 
-        $data  = json_encode($dataArray, true);
+        $data = json_encode($dataArray, true);
 
-        if ($payby == 'MTN' || $payby == 'AIRTEL'){
+        if ($payby == 'MTN' || $payby == 'AIRTEL') {
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
 
-            if($res){
+            if ($res) {
                 $res_obj = json_decode($res, true);
 
                 $transac = Transactions::create([
@@ -88,34 +88,33 @@ class MakePaymentController extends Controller
                     'subscription_id' => $subscription_id,
                     'invoice_id' => $res_obj['InvoiceNo'],
                     'service' => $item_desc,
+                    'customer' => $customer,
                     'transaction_status' => 'pending',
                     'transaction_date' => $res_obj['Timestamp'],
                 ]);
 
             }
 
-            return response()->json(['success'=> 'success']);
+            return response()->json(['success' => 'success']);
 
-            }
-
-               elseif ($payby === 'VODAFONE'){
-
-            }
-
-            }
-
-    // total amount  to be paid
-    public function getSubTotal(Request $request){
-
-        if(is_array($request->id)){
-
-            $payment  = ScheduledAds::select('spots','rate')->whereIn('subscription_id',$request->id)->get();
-            return response()->json(['status'=>'success','payment'=> $payment]);
+        } elseif ($payby === 'VODAFONE') {
 
         }
-        else{
-            $payment  = ScheduledAds::select('spots','rate')->where('subscription_id','=',$request->id)->get();
-            return response()->json(['status'=>'success','spots' => $payment[0]->spots,'rate'=>$payment[0]->rate]);
+
+    }
+
+    // total amount  to be paid
+    public function getSubTotal(Request $request)
+    {
+
+        if (is_array($request->id)) {
+
+            $payment = ScheduledAds::select('spots', 'rate')->whereIn('subscription_id', $request->id)->get();
+            return response()->json(['status' => 'success', 'payment' => $payment]);
+
+        } else {
+            $payment = ScheduledAds::select('spots', 'rate')->where('subscription_id', '=', $request->id)->get();
+            return response()->json(['status' => 'success', 'spots' => $payment[0]->spots, 'rate' => $payment[0]->rate]);
         }
 
     }
@@ -124,14 +123,24 @@ class MakePaymentController extends Controller
     public function makePaymentCallback(Request $request)
     {
 
-           echo  "Hello Joojo Arthur";
+        $payment_callback = json_decode($request->all(), true);
 
-        Log::info('checking incoming request',$request->all());
-      //     die(print_r($request->all()));
-//        $data  = json_decode($request->all(), true);
-//        $trans = Transactions::where('transaction_id', 'like', '%' . substr(\Illuminate\Support\Carbon::now()->toDateString(),10,6) . '%')->whereStatus('active')->update([
-//            'status' => 'Live'
-//        ]);
+        if (!isEmpty($payment_callback)) {
+            $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
+                'status' => strtolower($payment_callback['Status']),
+                'updated_at' => $payment_callback['Timestamp'],
+            ]);
+
+            $trans = ScheduledAds::whereSubscription_id($payment_callback['Order_id'])->update([
+                'status' => 'pending',
+            ]);
+
+            $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
+
+        }
+
+
+        Log::info('checking incoming request', json_decode($request->all(), true));
 
     }
 }

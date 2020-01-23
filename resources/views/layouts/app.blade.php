@@ -19,54 +19,56 @@
 
     <!-- Styles -->
 
-        @yield('styles')
+    @yield('styles')
     @auth()
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-        @endauth
+        <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    @endauth
 </head>
 @guest()
-<body  data-spy="scroll" data-target=".navbar" data-offset="50">
-<!-- loader start -->
-@stack('loader')
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- loader start -->
+    @stack('loader')
     <!-- loader end -->
-@endguest
+    @endguest
 
-@auth()
-    <body>
+    @auth()
+        <body>
 
-@endauth
+        @endauth
 
         <div id="app">
-
+            @if(\Illuminate\Support\Facades\Session::has('payment-success'))
+                <div class="alert alert-success">
+                  {{session()->get('payment-success')}}
+                </div>
+            @endif
 
             @yield('content')
 
 
-    </div>
+        </div>
 
-<!-- footer start -->
-{{--<footer class="text-center">--}}
-    {{--<div class="container">--}}
+        <!-- footer start -->
+        {{--<footer class="text-center">--}}
+        {{--<div class="container">--}}
         {{--<div class="row">--}}
-            {{--<div class="col-xs-12">--}}
-                {{--<p>Copyright © 2018 Kokrokoo All rights reserved.</p>--}}
-            {{--</div>--}}
+        {{--<div class="col-xs-12">--}}
+        {{--<p>Copyright © 2018 Kokrokoo All rights reserved.</p>--}}
         {{--</div>--}}
-    {{--</div>--}}
-{{--</footer>--}}
-<!-- footer end -->
+        {{--</div>--}}
+        {{--</div>--}}
+        {{--</footer>--}}
+        <!-- footer end -->
 
-    <!-- Scripts -->
-<div class="modal-overlay"></div>
+        <!-- Scripts -->
+        <div class="modal-overlay"></div>
 
-    @yield('scripts')
+        @yield('scripts')
 
-    @auth()
-        <script src="{{asset('js/app.js')}}"></script>
+        @auth()
+            <script src="{{asset('js/app.js')}}"></script>
         @endauth
 
 
-
-
-</body>
+        </body>
 </html>
