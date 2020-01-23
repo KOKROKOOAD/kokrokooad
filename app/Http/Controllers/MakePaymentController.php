@@ -24,7 +24,7 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-        $form_data = $request->validate($request->all(),[
+        $form_data = $request->validate([
             'payby' => 'required|alpha',
             'voucher_code' => 'numeric',
             'phone' => 'required|digits_between:10,12|start_with:0,233',
