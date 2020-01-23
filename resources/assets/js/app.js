@@ -65,6 +65,8 @@ Vue.component('view-rate-cards',require('./components/view-ratecars/viewRateCard
 Vue.component('view-card-details',require('./components/view-ratecars/viewRateCard'));
 Vue.component('view-print-rate-card',require('./components/view-ratecars/printRateCare'));
 Vue.component('cart', require('./components/cart'));
+Vue.component('payment-success-feedback', require('./components/payment/paymentSuccessFeedback'));
+
 
 
 

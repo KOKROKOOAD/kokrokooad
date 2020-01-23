@@ -24,6 +24,15 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
+        $form_data = $request->validate($request->all(),[
+            'payby' => 'required|alpha',
+            'voucher_code' => 'numeric',
+            'phone' => 'required|digits_between:10,12|start_with:0,233',
+            'subscription_id' => 'alpha_num',
+            'amount' => 'required|numeric',
+
+        ]);
+
 
         $user_name = explode(' ', auth()->user()->name);
         $name = time() . '_' . $user_name[0] . '_' . $user_name[1];
@@ -44,18 +53,10 @@ class MakePaymentController extends Controller
 
 
         $api_key = 'vUqBR$Hz';
-        // k0kr00gh
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
         $src = $_SERVER['REMOTE_ADDR'];
-        /*\\
-        $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
-        $secrete = md5("kokrokoo" . $key . md5('3bksh!9$'));
-        $dataArray = array("merchant_id" => "NPS_000002", "secrete" => "$secrete", "key" => "$key", "order_id" => "$order_id", "customerName" => "$username", "amount" => "$amount", "item_desc" => "$item_desc", "customerNumber" => "$msisdn", "payby" => "$payby", "callback" => "$callback");
-        $data = json_encode($dataArray, true);
-        $src = $_SERVER['REMOTE_ADDR'];
-        file_put_contents("syslog.log", date('Y-m-d H:i:s') . " $src || $data" . PHP_EOL, FILE_APPEND); */
-        // echo $data;
+
 
         $dataArray = array(
             'merchant_id' => 'NPS_000035',
@@ -78,7 +79,6 @@ class MakePaymentController extends Controller
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
 
-            Log::info('logging response from api', $res_obj, true);
 
 
             if (isset($res_obj['InvoiceNo'])) {

@@ -37,11 +37,8 @@
         @endauth
 
         <div id="app">
-            @if(session()->has('payment-success'))
-                <div class="alert alert-success">
-                  <p>{{session('payment-success')}}</p>
-                </div>
-            @endif
+            <payment-success-feedback message="{{'hello'}}"></payment-success-feedback>
+
 
             @yield('content')
 
