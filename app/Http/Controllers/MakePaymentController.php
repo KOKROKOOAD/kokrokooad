@@ -28,12 +28,12 @@ class MakePaymentController extends Controller
             $form_data = $request->validate([
                 'payby' => 'required|alpha',
                 'phone' => 'required|numeric|min:10|max:12',
-                'subscription_id' => 'alpha_num',
+                'subscription_id' => 'required|alpha_num',
                 'amount' => 'required|numeric',
 
             ]);
         }
-        elseif($request->payby === 'MTN' ){
+        elseif($request->payby === 'VODAFONE' ){
             $form_data = $request->validate([
                 'voucher_code' => 'required|numeric',
                 'payby' => 'required|alpha',
