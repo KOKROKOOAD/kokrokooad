@@ -27,7 +27,7 @@ class MakePaymentController extends Controller
         $form_data = $request->validate([
             'payby' => 'required|alpha',
             'voucher_code' => 'numeric',
-            'phone' => 'required|numeric|digits_between:10,12|min:10|max:12|starts_with:0,233',
+            'phone' => 'required|numeric|digits_between:10,12|min:10|max:12',
             'subscription_id' => 'alpha_num',
             'amount' => 'required|numeric',
 
@@ -37,20 +37,21 @@ class MakePaymentController extends Controller
         $user_name = explode(' ', auth()->user()->name);
         $name = time() . '_' . $user_name[0] . '_' . $user_name[1];
 
-        $unique_id = uniqid('K', true);
-        if (Transactions::where('client_id', '=', $unique_id)) {
-            $unique_id = uniqid('K', true);
-        }
 
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
-        $transaction_id = $unique_id;
         $customer = $name;
         $amount = $request->input('amount');
         $subscription_id = $request->input('subscription_id');
         $item_desc = "subscription purchase";
         $callback = env("PAY_CALLBACK");
 
+
+        if(substr($msisdn,o,1) === '0'){
+            str_replace('0','233',$msisdn);
+        }
+
+         die($msisdn);
 
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
@@ -80,13 +81,18 @@ class MakePaymentController extends Controller
             $res_obj = json_decode($res, true);
 
 
-
             if (isset($res_obj['InvoiceNo'])) {
+
+                $unique_id = uniqid('K', true);
+                if (Transactions::where('client_id', '=', $unique_id)) {
+                    $unique_id = uniqid('K', true);
+                }
+
 
                 $transac = Transactions::create([
                     'phone' => $msisdn,
                     'payment_source' => $payby,
-                    'transaction_id' => $res_obj['Order_id'],
+                    'transaction_id' => $unique_id,
                     'amount' => $amount,
                     'subscription_id' => $subscription_id,
                     'invoice_id' => $res_obj['InvoiceNo'],
