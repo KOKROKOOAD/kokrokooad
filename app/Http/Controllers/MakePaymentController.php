@@ -27,7 +27,7 @@ class MakePaymentController extends Controller
         $form_data = $request->validate([
             'payby' => 'required|alpha',
             'voucher_code' => 'numeric',
-            'phone' => 'required|digits_between:10,12|start_with:0,233',
+            'phone' => 'required|numeric|digits_between:10,12|min:10|max:12|starts_with:0,233',
             'subscription_id' => 'alpha_num',
             'amount' => 'required|numeric',
 
