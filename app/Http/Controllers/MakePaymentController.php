@@ -60,7 +60,7 @@ class MakePaymentController extends Controller
 
 
         if(substr($msisdn,0,1) === '0'){
-            str_replace('0','233',$msisdn);
+          $msisdn =  str_replace('0','233',$msisdn);
         }
 
          die($msisdn);
