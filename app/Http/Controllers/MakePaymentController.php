@@ -59,7 +59,7 @@ class MakePaymentController extends Controller
         $callback = env("PAY_CALLBACK");
 
 
-        ltrim($msisdn, '0');
+         $msisdn = substr($msisdn, 1,9);
 
          die('233'.$msisdn);
 
