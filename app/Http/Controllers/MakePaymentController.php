@@ -61,7 +61,6 @@ class MakePaymentController extends Controller
 
          $msisdn = substr($msisdn, 1,9);
 
-         die('233'.$msisdn);
 
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
@@ -77,7 +76,7 @@ class MakePaymentController extends Controller
             'customerName' => $name,
             'amount' => 0.3,
             'item_desc' => $item_desc,
-            'customerNumber' => $msisdn,
+            'customerNumber' => '233'.$msisdn,
             'payby' => $payby,
             'callback' => 'http://kokrokooad.com/user-account/payment/update'
         );

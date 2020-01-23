@@ -37,8 +37,7 @@
         @endauth
 
         <div id="app">
-            <payment-success-feedback message="{{'hello'}}" ></payment-success-feedback>
-
+{{--            <payment-success-feedback message="{{'hello'}}" ></payment-success-feedback>--}}
 
             @yield('content')
 
