@@ -70347,7 +70347,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       error_msg: '',
       process: false,
       trans_num: ''
-    }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", false), _defineProperty(_ref, "loader", true), _ref;
+    }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", false), _defineProperty(_ref, "loader", false), _ref;
   },
   mounted: function mounted() {
     if (Object.keys(this.checkoutIds).length > 0) {
@@ -70397,6 +70397,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     makePayment: function makePayment(number) {
       var self = this;
+      self.loader = true;
       var formData = new FormData();
       formData.append("phone", self.network.mobileNumber);
       formData.append("voucher_code", self.network.code);

@@ -164,7 +164,7 @@
         trans_num : '',
         process_payment : true,
         hide_channels : false,
-        loader : true,
+        loader : false,
       };
     },
     mounted() {
@@ -218,6 +218,7 @@
 
       makePayment(number) {
         let self = this;
+        self.loader = true;
         let formData = new FormData();
         formData.append("phone", self.network.mobileNumber);
         formData.append("voucher_code", self.network.code);
