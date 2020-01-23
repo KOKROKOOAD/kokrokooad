@@ -410,7 +410,7 @@
                     element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #ffffff '> "+event.status+"</span>");
 
                 }
-                else if(event.status === 'inactive'){
+                else if(event.status === 'Live'){
                     element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #7b0c32;'> "+event.status+"</span>");
 
                 }
