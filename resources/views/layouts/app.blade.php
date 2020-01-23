@@ -37,9 +37,9 @@
         @endauth
 
         <div id="app">
-            @if(\Illuminate\Support\Facades\Session::has('payment-success'))
+            @if(session()->has('payment-success'))
                 <div class="alert alert-success">
-                  {{session()->get('payment-success')}}
+                  <p>{{session('payment-success')}}</p>
                 </div>
             @endif
 
