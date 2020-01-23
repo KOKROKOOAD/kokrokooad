@@ -16,16 +16,18 @@
         },
         methods :{
             successMessage(message){
-                    console.log('hello Jooojo');
-                    new PNotify({
-                        title: "Payment successful",
-                        type: "info",
-                        text:  message,
-                        desktop: {
-                            desktop: true,
-                            icon: "assets/images/pnotify/info.png"
-                        }
-                    });
+                 if(message !== ''){
+                     new PNotify({
+                         title: "Payment successful",
+                         type: "info",
+                         text:  message,
+                         desktop: {
+                             desktop: true,
+                             icon: "assets/images/pnotify/info.png"
+                         }
+                     });
+                 }
+
 
 
             }

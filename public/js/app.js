@@ -119189,7 +119189,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -119217,16 +119217,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         successMessage: function successMessage(message) {
-            console.log('hello Jooojo');
-            new PNotify({
-                title: "Payment successful",
-                type: "info",
-                text: message,
-                desktop: {
-                    desktop: true,
-                    icon: "assets/images/pnotify/info.png"
-                }
-            });
+            if (message !== '') {
+                new PNotify({
+                    title: "Payment successful",
+                    type: "info",
+                    text: message,
+                    desktop: {
+                        desktop: true,
+                        icon: "assets/images/pnotify/info.png"
+                    }
+                });
+            }
         }
     }
 });
