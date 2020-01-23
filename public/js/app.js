@@ -70418,6 +70418,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           self.loader = false;
 
           self.$router.push("payment-success");
+        } else if (res.data.errors) {
+          console.log(res.data.errors);
         } else {
 
           new PNotify({
