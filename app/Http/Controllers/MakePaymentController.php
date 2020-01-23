@@ -59,7 +59,7 @@ class MakePaymentController extends Controller
         $callback = env("PAY_CALLBACK");
 
 
-        if(substr($msisdn,o,1) === '0'){
+        if(substr($msisdn,0,1) === '0'){
             str_replace('0','233',$msisdn);
         }
 
