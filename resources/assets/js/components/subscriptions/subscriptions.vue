@@ -411,11 +411,11 @@
 
                 }
                 else if(event.status === 'Live'){
-                    element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: #7b0c32;'> "+event.status+"</span>");
+                    element.find('.fc-title').after("<br><span class=' fa fa-comment' style='font-weight: bolder;color: green;'> "+event.status+"</span>");
 
                 }
                 else if(event.status === 'active'){
-                    element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder;color: green'> "+event.status+"</span>");
+                    element.find('.fc-title').after("<br><span class='text-success fa fa-comment' style='font-weight: bolder;color: greenyellow'> "+event.status+"</span>");
 
                 }
                 else if(event.status === 'completed'){
