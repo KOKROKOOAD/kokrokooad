@@ -146,7 +146,7 @@ class RegisterController extends Controller
                  'account_type' =>  $data['account'],
                  'password' => Hash::make($data['password']),
              ]);
-             $this->dispatch(new RegistrationSuccessfullJob($user));
+          //   $this->dispatch(new RegistrationSuccessfullJob($user));
          }
 
          // validate request inputs if account type is company or organisation
@@ -210,7 +210,7 @@ class RegisterController extends Controller
                      'account_type' => 'media house',
                      'password' => Hash::make($data['password']),
                  ]);
-                 $this->dispatch(new RegistrationSuccessfullJob($user));
+               //  $this->dispatch(new RegistrationSuccessfullJob($user));
              }
          }
 
@@ -274,7 +274,7 @@ class RegisterController extends Controller
                     'account_type' => 'media house',
                     'password' => Hash::make($data['password']),
                 ]);
-                $this->dispatch(new RegistrationSuccessfullJob($user));
+             //   $this->dispatch(new RegistrationSuccessfullJob($user));
             }
 
         }
