@@ -244,6 +244,8 @@
                   }
                     else if(res.data.errors){
                       console.log(res.data.errors);
+                    self.submit_btn = true;
+                    self.loader = false;
                     }
                    else {
 
