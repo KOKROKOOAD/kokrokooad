@@ -18,7 +18,7 @@
             <form method="post" id="register"  action="{{route('register')}}" enctype="multipart/form-data">
                 @csrf
 
-                                  
+                                
 
 
                 <input type="hidden" name="account" value="MEDIA">

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default yellow " style="background: transparent">
-    <div class="container-fluid">
+<nav class="navbar navbar-static-top">
+<div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{route('welcome')}}"><img src="/images/kokro-yellow.png"  alt="kokrokoo"></a>
         </div>
