@@ -73,7 +73,7 @@ class RegisterController extends Controller
 
 
         if($data['account'] == 'company') {
-
+              die('am here');
             return Validator::make($data, [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
