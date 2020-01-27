@@ -165,7 +165,6 @@ class RegisterController extends Controller
                  $mime_type = Input::file('file')->getClientMimeType();
 
                         $path = '/var/www/html/uploads/';
-                 die('am here in company registration');
 
                  if(File::isDirectory($path)){
 
@@ -181,10 +180,12 @@ class RegisterController extends Controller
 //                       // $pdf->setOutputFormat('jpg');
 //                        $pdf->saveImage($thumbnailPath.'hello.jpg');
 //                        $path = $request->file('file')->storeAs('/images','hello.jpg');
-//                       return  dd($pdf);
+//                       return  dd($pdf);//                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
+
 //                    }
 
                  }
+                 die('am here in company registration');
 
                 $user =   User::create([
 
