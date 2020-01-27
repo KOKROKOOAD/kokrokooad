@@ -150,7 +150,6 @@ class RegisterController extends Controller
 
          // validate request inputs if account type is company or organisation
          if($data['account'] == 'company'){
-             die('am here in company registration');
 
              $unique_id = uniqid('K',true);
              if(User::where('client_id', '=',$unique_id)){
@@ -166,8 +165,9 @@ class RegisterController extends Controller
                  $mime_type = Input::file('file')->getClientMimeType();
 
                         $path = '/var/www/html/uploads/';
-//                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
-                     if(File::isDirectory($path)){
+                 die('am here in company registration');
+
+                 if(File::isDirectory($path)){
 
                      if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
                          $thumbnail = Image::make(Input::file('file'));
