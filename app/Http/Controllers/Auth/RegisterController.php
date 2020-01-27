@@ -73,7 +73,6 @@ class RegisterController extends Controller
 
 
         if($data['account'] == 'company') {
-              die('am here');
             return Validator::make($data, [
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
@@ -151,6 +150,8 @@ class RegisterController extends Controller
 
          // validate request inputs if account type is company or organisation
          if($data['account'] == 'company'){
+             die('am here');
+
              $unique_id = uniqid('K',true);
              if(User::where('client_id', '=',$unique_id)){
                  $unique_id = uniqid('K',true);
