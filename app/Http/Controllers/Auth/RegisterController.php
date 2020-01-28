@@ -148,6 +148,8 @@ class RegisterController extends Controller
           //   $this->dispatch(new RegistrationSuccessfullJob($user));
          }
 
+
+
          // validate request inputs if account type is company or organisation
          if($data['account'] == 'company'){
 
@@ -156,20 +158,23 @@ class RegisterController extends Controller
                  $unique_id = uniqid('K',true);
              }
 
-             if(Input::file('file') && Input::file('file')->isValid()) {
-                 $file = Input::file('file');
+
+             if(Input::file('logo') && Input::file('logo')->isValid()) {
+
+                 $file = Input::file('logo');
+
                  $user_name  = explode(' ',$data['name']);
                  $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
-                 $extension = Input::file('file')->getClientOriginalExtension();
-                 $file_size = Input::file('file')->getClientSize();
-                 $mime_type = Input::file('file')->getClientMimeType();
+                 $extension = Input::file('logo')->getClientOriginalExtension();
+                 $file_size = Input::file('logo')->getClientSize();
+                 $mime_type = Input::file('logo')->getClientMimeType();
 
                         $path = '/var/www/html/uploads/';
 
                  if(File::isDirectory($path)){
 
                      if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png'){
-                         $thumbnail = Image::make(Input::file('file'));
+                         $thumbnail = Image::make(Input::file('logo'));
                          $thumbnail->resize(120,120);
                          $thumbnail->save($path.'mediaHouseLogos/'.$name);
                          $file->move($path.'avatars/',$name);
@@ -185,7 +190,6 @@ class RegisterController extends Controller
 //                    }
 
                  }
-                 die('am here in company registration');
 
                 $user =   User::create([
 
@@ -196,7 +200,7 @@ class RegisterController extends Controller
                      'phone2' => $data['phone2'],
                      'address' => $data['address'],
                      'media' => $data['media_type'],
-                     'media_house' => $data['media_house'],
+                    // 'media_house' => $data['media_house'],
                      'website' => $data['website'],
                      'company_profile' => $data['company_profile'],
                      'company_name' => $data['company_name'],
@@ -209,10 +213,13 @@ class RegisterController extends Controller
                      'file_size' => $file_size,
                      'role' => 'user',
                      'client_id' => $unique_id,
-                     'account_type' => 'media house',
+                     'account_type' => 'Organization',
                      'password' => Hash::make($data['password']),
                  ]);
                //  $this->dispatch(new RegistrationSuccessfullJob($user));
+             }
+             else{
+                 dd('invalid file');
              }
          }
 

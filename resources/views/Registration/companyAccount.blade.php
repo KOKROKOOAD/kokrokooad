@@ -106,7 +106,7 @@
                                            <div class="col-sm-6">
                                                <div class="form-group{{ $errors->has('policies') ? ' has-error' : '' }}">
                                                    <label>Policy<span class="required">*</span></label>
-                                                   <textarea class="form-control"   id="policies" name="policies">{{old('policies')}}</textarea required>
+                                                   <textarea class="form-control"   id="policies" name="policies">{{old('policies')}}</textarea>
                                                    @if ($errors->has('policies'))
                                                        <span class="invalid-feedback" role="alert">
                                                        <strong>{{ $errors->first('policies') }}</strong>
