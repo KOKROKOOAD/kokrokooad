@@ -32,10 +32,7 @@ class MakePaymentController extends Controller
 //
 //        ]);
 
-        $user_name = explode(' ', auth()->user()->name);
-        $name = time() . '_' . $user_name[0] . '_' . $user_name[1];
-
-
+        $name = time() .auth()->user()->email;
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
         $customer = $name;
@@ -44,9 +41,7 @@ class MakePaymentController extends Controller
         $item_desc = "subscription purchase";
         $callback = env("PAY_CALLBACK");
 
-
         $msisdn = substr($msisdn, 1, 9);
-
 
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
