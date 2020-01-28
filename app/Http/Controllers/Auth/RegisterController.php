@@ -211,7 +211,7 @@ class RegisterController extends Controller
                      'file_size' => $file_size,
                      'role' => 'user',
                      'client_id' => $unique_id,
-                     'account_type' => 'Organization',
+                     'account_type' => 'personal',
                      'password' => Hash::make($data['password']),
                  ]);
                //  $this->dispatch(new RegistrationSuccessfullJob($user));
