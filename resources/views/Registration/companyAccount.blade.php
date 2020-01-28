@@ -35,9 +35,9 @@
                                                 <input type="text" class="form-control"   id="company_name" name="company_name" value="{{old('company_name')}}" required>
                                                  <span class="text-danger"></span>
                                                 @if ($errors->has('company_name'))
-                                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('company_name') }}</strong>
-                                    </span>
+                                                    <span class="text-danger animated fadeIn" role="alert">
+                                                       {{ $errors->first('company_name') }}
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>
@@ -46,8 +46,8 @@
                                                 <label>Job Title<span class="required">*</span></label>
                                                 <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}" required>
                                                 @if ($errors->has('title'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                      <strong>{{ $errors->first('title') }}</strong>
+                                                    <span class="text-danger animated fadeIn" role="alert">
+                                                      {{ $errors->first('title') }}
                                     </span>
                                                 @endif
                                             </div>
@@ -60,8 +60,8 @@
                                                 <label>Website<span class="required">*</span></label>
                                                 <input type="text" class="form-control" placeholder="website"  id="website" name="website" value="{{old('website')}}" required>
                                                 @if ($errors->has('website'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                  <strong>{{ $errors->first('website') }}</strong>
+                                                    <span class="text-danger animated fadeIn" role="alert">
+                                                  {{ $errors->first('website') }}
                                     </span>
                                                 @endif
                                             </div>
@@ -71,8 +71,8 @@
                                                 <label>Industrial type<span class="required">*</span></label>
                                                 <input type="text" class="form-control"  id="industry_type" name="industry_type" value="{{old('website')}}" required>
                                                 @if ($errors->has('industry_type'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('industry_type') }}</strong>
+                                                    <span class="text-danger animated fadeIn" role="alert">
+                                                    {{ $errors->first('industry_type') }}
                                     </span>
                                                 @endif
                                             </div>
@@ -84,9 +84,9 @@
                                                  <label>Address<span class="required">*</span></label>
                                                  <textarea class="form-control"  id="address" name="address" required>{{old('address')}}</textarea>
                                                  @if ($errors->has('address'))
-                                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
+                                                     <span class="text-danger animated fadeIn" role="alert">
+                                                    {{ $errors->first('address') }}
+                                                     </span>
                                                  @endif
                                              </div>
                                          </div>
@@ -95,8 +95,8 @@
                                                  <label>Profile<span class="required">*</span></label>
                                                  <textarea class="form-control"   id="company_profile"  name="company_profile" required>{{old('company_profile')}}</textarea>
                                                  @if ($errors->has('company_profile'))
-                                                     <span class="invalid-feedback" role="alert">
-                                                  <strong>{{ $errors->first('company_profile') }}</strong>
+                                                     <span class="text-danger animated fadeIn" role="alert">
+                                                        {{ $errors->first('company_profile') }}
                                                  </span>
                                                  @endif
                                              </div>
@@ -108,8 +108,8 @@
                                                    <label>Policy<span class="required">*</span></label>
                                                    <textarea class="form-control"   id="policies" name="policies">{{old('policies')}}</textarea>
                                                    @if ($errors->has('policies'))
-                                                       <span class="invalid-feedback" role="alert">
-                                                       <strong>{{ $errors->first('policies') }}</strong>
+                                                       <span class="text-danger animated fadeIn" role="alert">
+                                                           {{ $errors->first('policies') }}
                                                         </span>
                                                    @endif
                                                </div>
@@ -119,8 +119,8 @@
                                                    <label for="logo">Upload logo(Required, only .jpg,.jpeg,.png files:)<span class="required">*</span></label>
                                                    <input type="file" accept="image/*" data-max-size='32k' data-type='image'  class="{{ $errors->has('logo') ? ' is-invalid' : '' }}"  id="logo" name="logo" value="{{old('logo')}}">
                                                    @if ($errors->has('logo'))
-                                                       <span class="invalid-feedback" role="alert">
-                                                          <strong>{{ $errors->first('logo') }}</strong>
+                                                       <span class="text-danger animated fadeIn" role="alert">
+                                                           {{ $errors->first('logo') }}
                                                         </span>
                                                    @endif
                                                </div>
@@ -154,7 +154,8 @@
                                                 <input type="text" class="form-control"  id="name" name="name" value="{{old('name')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('name'))
-                                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('name') }}</strong></span>
+                                                        <span class="text-danger animated fadeIn" role="alert">
+                                                            {{ $errors->first('name') }}</span>
                                                     @endif
 							                       </span>
                                             </div>
@@ -165,7 +166,9 @@
                                                 <input type="email" class="form-control"  id="email" name="email" value="{{old('email')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('email'))
-                                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('email') }}</strong></span>
+                                                        <span class="text-danger animated fadeIn" role="alert">
+                                                            {{ $errors->first('email') }}
+                                                        </span>
                                                     @endif
 							                       </span>
                                             </div>
@@ -179,7 +182,8 @@
                                                 <input type="text" class="form-control"   id="phone1" name="phone1" value="{{old('phone1')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone1'))
-                                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('phone1') }}</strong></span>
+                                                        <span class="text-danger animated fadeIn" role="alert">
+                                                            {{ $errors->first('phone1') }}</span>
                                                     @endif
 							                       </span>
                                             </div>
@@ -191,7 +195,8 @@
                                                 <input type="text" class="form-control"   id="phone2" name="phone2" value="{{old('phone2')}}" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone2'))
-                                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('phone2') }}</strong></span>
+                                                        <span class="text-danger animated fadeIn" role="alert">
+                                                            {{ $errors->first('phone2') }}</span>
                                                     @endif
 							                       </span>
                                             </div>
@@ -204,7 +209,8 @@
                                                 <input type="password" class="form-control" placeholder="Enter password" id="password" name="password" required>
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('password'))
-                                                        <span class="invalid-feedback" role="alert"><strong>{{ $errors->first('password') }}</strong></span>
+                                                        <span class="text-danger animated fadeIn" role="alert">
+                                                            {{ $errors->first('password') }}</span>
                                                     @endif
 							                       </span>
                                             </div>
@@ -215,8 +221,8 @@
                                                 <label for="re-pass">Re-type Password<span class="required">*</span></label>
                                                 <input type="password" class="form-control"   id="re-pass" name="password_confirmation">
                                                 @if ($errors->has('password_confirmation'))
-                                                    <span class="invalid-feedback" role="alert">
-                                                      <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                                    <span class="text-danger animated fadeIn" role="alert">
+                                                       {{ $errors->first('password_confirmation') }}
                                                        </span>
                                                 @endif
                                             </div>
