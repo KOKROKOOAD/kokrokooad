@@ -81,7 +81,7 @@ class RegisterController extends Controller
                 'address' => 'required|string|max:100',
                 'policies' => 'required|string|max:100',
                 'company_profile' => 'required|string|max:100',
-                'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'logo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'industry_type' => 'required|string|max:255',
                 'title' => 'required|string|max:50',
                 'website' => 'required|string|max:100|unique:users',
@@ -102,7 +102,7 @@ class RegisterController extends Controller
                 'address' => 'required|string|max:100',
                 'policies' => 'required|string|max:100',
                 'company_profile' => 'required|string|max:255',
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
                 'industry_type' => 'required|string|max:255',
                 'title' => 'required|string|max:50',
                 'website' => 'required|string|max:100|unique:users',
@@ -162,9 +162,7 @@ class RegisterController extends Controller
              if(Input::file('logo') && Input::file('logo')->isValid()) {
 
                  $file = Input::file('logo');
-
-                 $user_name  = explode(' ',$data['name']);
-                 $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
+                 $name = time().'_'.$data['email'].$file->getClientOriginalName();
                  $extension = Input::file('logo')->getClientOriginalExtension();
                  $file_size = Input::file('logo')->getClientSize();
                  $mime_type = Input::file('logo')->getClientMimeType();
@@ -218,9 +216,7 @@ class RegisterController extends Controller
                  ]);
                //  $this->dispatch(new RegistrationSuccessfullJob($user));
              }
-             else{
-                 dd('invalid file');
-             }
+
          }
 
         // validate request inputs if account type is media house
@@ -233,8 +229,7 @@ class RegisterController extends Controller
 
             if(Input::file('file') && Input::file('file')->isValid()) {
                 $file = Input::file('file');
-                $user_name  = explode(' ',$data['name']);
-                $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
+                $name = time().'_'.$data['email'].$file->getClientOriginalName();
                 $extension = Input::file('file')->getClientOriginalExtension();
                 $file_size = Input::file('file')->getClientSize();
                 $mime_type = Input::file('file')->getClientMimeType();
