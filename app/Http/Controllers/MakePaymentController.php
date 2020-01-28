@@ -24,13 +24,13 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-        $form_data = $request->validate([
-            'payby' => 'required|alpha',
-            'phone' => 'required|numeric|digits:10',
-            'subscription_id' => 'required',
-            'amount' => 'required|numeric',
-
-        ]);
+//        $form_data = $request->validate([
+//            'payby' => 'required|alpha',
+//            'phone' => 'required|numeric|digits:10',
+//            'subscription_id' => 'required',
+//            'amount' => 'required|numeric',
+//
+//        ]);
 
         $user_name = explode(' ', auth()->user()->name);
         $name = time() . '_' . $user_name[0] . '_' . $user_name[1];
