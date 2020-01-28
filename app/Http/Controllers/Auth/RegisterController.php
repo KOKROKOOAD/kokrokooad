@@ -199,7 +199,7 @@ class RegisterController extends Controller
                      'phone1' => $data['phone1'],
                      'phone2' => $data['phone2'],
                      'address' => $data['address'],
-                     'media' => $data['media_type'],
+                    // 'media' => $data['media_type'],
                     // 'media_house' => $data['media_house'],
                      'website' => $data['website'],
                      'company_profile' => $data['company_profile'],
