@@ -57,7 +57,7 @@ class SubController extends Controller
             $fileName =  $file->getClientOriginalName();
             $user_name  = explode(' ', auth()->user()->name);
             //$name = time().'_'.auth()->user()->name.'_'.$file->getClientOriginalName();
-            $name = time().'_'.$user_name[0].'_'.$user_name[1.].$file->getClientOriginalName();
+            $name = time().auth()->user()->email.$file->getClientOriginalName();
             $ext = $file->getClientOriginalExtension();
             $file_size = $file->getSize();
             $mime_type = $file->getClientMimeType();
