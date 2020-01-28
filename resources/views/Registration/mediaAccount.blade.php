@@ -257,7 +257,7 @@
                                     </div>
                                     <button type="submit" class="btn button" id="submit_btn" style="color: #1b1e21;background: #F1CF00">Submit</button>
                                 <span style="color:#E6AA00 ">Already  registered?
-                                </span><a href="{{route('login')}}" class="link text-info">Login</a>
+                                </span><a href="http://media.kokrokooad.com" class="link text-info">Login</a>
                             </div>
                         </div>
 
