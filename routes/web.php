@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +12,8 @@
 |
 */
 
+use App\Mail\OrderCreated;
+
 Route::get('/substrings', function () {
     $msisdn = '0244560186';
     $ms = '233' . substr($msisdn, 1);
@@ -19,7 +22,13 @@ Route::get('/substrings', function () {
 
 //Route::post('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
 
+// Route::get('/send-mail', function () {
+//     Mail::to('jarthur@nalosolutions.com')->send(new OrderCreated());
+// })->name('send.mail');
 
+// Route::get('/send', function () {
+//     return view('tests.mail-test');
+// });
 
 //==============guest routes=================
 Route::get('/', function () {
@@ -98,17 +107,17 @@ Route::prefix('/user-account')->group(function () {
     Route::post('check-sub/api', 'SubController@checkIfSubExist');
     Route::get('fetch-transac/api', 'TransactionController@index');
     Route::post('delete/sub', 'SubController@softDeleteSub');
-    Route::get('fetch/sub-details/{id}','SubController@getSubSelectedMedia');
-    Route::post('subs-update','SubController@updateFile');
+    Route::get('fetch/sub-details/{id}', 'SubController@getSubSelectedMedia');
+    Route::post('subs-update', 'SubController@updateFile');
 
-//    Route::post('demo','SubController@test');
+    //    Route::post('demo','SubController@test');
 
     Route::get('check-segment-api/{sub_date}', 'CheckSubController@checkSubAvailable');
     //=======================subscriptions routes ends here=============================
 
     //========================make payment callback route==========================
- //   Route::get('makepayment/callback', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
-      Route::post('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
+    //   Route::get('makepayment/callback', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
+    Route::post('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
 
 
     //===========================segment routs =====================================
@@ -140,10 +149,10 @@ Route::prefix('/user-account')->group(function () {
     Route::get('fetch-subs/api', 'SubController@fetchClientSubsInCart');
 
 
-//=========================================view rate cards API=================================
+    //=========================================view rate cards API=================================
     Route::get('fetchmediahouses/api/{media}', 'RateCardController@fetchMediaHouses');
     Route::get('fetchratecard/api/{id}', 'RateCardController@fetchRateCardTitles');
-    Route::get('view-ratecard/api','RateCardController@fetchRateCardDetails');
+    Route::get('view-ratecard/api', 'RateCardController@fetchRateCardDetails');
 
 
 
@@ -175,7 +184,7 @@ Route::prefix('auth')->group(function () {
         return view('Registration.mediaAccount');
     })->name('register.media');
 
-    Route::get('/media/policy',function(){
+    Route::get('/media/policy', function () {
         return view('Registration.mediaNotification');
     })->name('media.policy');
 
