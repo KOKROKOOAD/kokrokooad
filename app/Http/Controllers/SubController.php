@@ -57,27 +57,27 @@ class SubController extends Controller
             $fileName =  $file->getClientOriginalName();
             $user_name  = explode(' ', auth()->user()->name);
             //$name = time().'_'.auth()->user()->name.'_'.$file->getClientOriginalName();
-            $name = time().auth()->user()->email.$file->getClientOriginalName();
+            $name = time() . auth()->user()->email . $file->getClientOriginalName();
             $ext = $file->getClientOriginalExtension();
             $file_size = $file->getSize();
             $mime_type = $file->getClientMimeType();
             $ex = explode('.', $fileName);
-            $file->move($path,$name);
+            $file->move($path, $name);
 
 
-//            $thumbnailPath = public_path() . '/thumbnails/';
-//            $fileName = hash('sha256', time());
+            //            $thumbnailPath = public_path() . '/thumbnails/';
+            //            $fileName = hash('sha256', time());
 
-//            if (Storage::disk('docs')) {
-//                Storage::disk('docs')->put($fileName . '.' . $ext, $name);
-//            }
+            //            if (Storage::disk('docs')) {
+            //                Storage::disk('docs')->put($fileName . '.' . $ext, $name);
+            //            }
 
 
 
-//            $path =  "/var/www/html/uploads/subscription-files/";
-//            if(File::isDirectory($path)){
-//                $file->move($path,$name);
-//            }
+            //            $path =  "/var/www/html/uploads/subscription-files/";
+            //            if(File::isDirectory($path)){
+            //                $file->move($path,$name);
+            //            }
 
 
 
@@ -86,30 +86,30 @@ class SubController extends Controller
                 $unique_id = uniqid('K', true);
             }
 
-//            $unique_id2 = uniqid('K', true);
-//            if (Transactions::where('subscription_id', '=', $unique_id2)) {
-//                $unique_id2 = uniqid('K', true);
-//            }
+            //            $unique_id2 = uniqid('K', true);
+            //            if (Transactions::where('subscription_id', '=', $unique_id2)) {
+            //                $unique_id2 = uniqid('K', true);
+            //            }
 
             $sub_data = array();
-//            $subscription_id = uniqid('k', true);
-//            $invoice_id = uniqid('k', true);
+            //            $subscription_id = uniqid('k', true);
+            //            $invoice_id = uniqid('k', true);
             $sub_id = array();
 
-              $card =   RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$request->card_id)->get();
-              $card_title =  $card[0]->rate_card_title;
+            $card =   RateCardTitles::select('rate_card_title')->where('rate_card_title_id', '=', $request->card_id)->get();
+            $card_title =  $card[0]->rate_card_title;
 
-               // die($chk_spots);
-                $spots_left = 0;
-                $spots_to_be_insert = 0;
-                $id = null;
-                $seg = null;
+            // die($chk_spots);
+            $spots_left = 0;
+            $spots_to_be_insert = 0;
+            $id = null;
+            $seg = null;
 
             foreach (json_decode($request->scheduledData) as $key => $values) {
                 $subscription_id = uniqid('k', true);
-                array_push($sub_id,$subscription_id);
+                array_push($sub_id, $subscription_id);
                 $invoice_id = uniqid('k', true);
-                 $spots_to_be_insert = $values->spot;
+                $spots_to_be_insert = $values->spot;
 
 
                 $sub_data = [
@@ -125,10 +125,10 @@ class SubController extends Controller
                     'rate' => $values->rate,
                     'rate_card_title' => $card_title,
                     'media_house' => $request->media_house,
-                    'segments' => json_encode(['startDat'=>$values->startDate,'endDate'=>$values->endDate]),
+                    'segments' => json_encode(['startDat' => $values->startDate, 'endDate' => $values->endDate]),
                     'status' => 'in cart',
                     'payment_status' => 'pending',
-//                    'spots_used' => '0',
+                    //                    'spots_used' => '0',
                     'file_path' => $path,
                     'file_name' => $name,
                     'file_size' => $file_size,
@@ -138,24 +138,22 @@ class SubController extends Controller
                 $spots_used = [
                     'rate_card_id' => $request->input('card_id'),
                     'spots_used' => $values->spot,
-                    'segment_date' => substr($values->startDate,0,10),
-                    'segments' => substr($values->startDate,11,14) .'-' .substr($values->endDate,11,19),
+                    'segment_date' => substr($values->startDate, 0, 10),
+                    'segments' => substr($values->startDate, 11, 14) . '-' . substr($values->endDate, 11, 19),
                 ];
 
-                 $seg = substr($values->startDate,11,14) .'-' .substr($values->endDate,11,19);
+                $seg = substr($values->startDate, 11, 14) . '-' . substr($values->endDate, 11, 19);
 
                 $ad  = ScheduledAds::insert($sub_data);
 
                 if ($ad) {
 
-                    $chk_spots  = SpotsUsed::select('id','spots_used')->whereRateCardId($request->card_id)->whereSegmentDate(substr($request->startDate,0,10))->whereSegments($seg)->get();
+                    $chk_spots  = SpotsUsed::select('id', 'spots_used')->whereRateCardId($request->card_id)->whereSegmentDate(substr($request->startDate, 0, 10))->whereSegments($seg)->get();
 
-                    if (sizeof($chk_spots) < 1){
+                    if (sizeof($chk_spots) < 1) {
                         $spots = SpotsUsed::insert($spots_used);
-
-                    }
-                    else{
-                        foreach ($chk_spots as $spots){
+                    } else {
+                        foreach ($chk_spots as $spots) {
                             $spots_left  = $spots->spots_used;
                             $id  =  $spots->id;
                         }
@@ -164,17 +162,12 @@ class SubController extends Controller
                         SpotsUsed::whereId($id)->update([
                             'spots_used' => $total
                         ]);
-
                     }
-
                 }
-
             }
 
-
+            $this->dispatch(new SendAdCreatedMessagedJob(auth()->user()));
             return response()->json(['success' => 'success', 'sub_id' => $sub_id]);
-
-
         } else {
             return response()->json('failed');
         }
@@ -194,44 +187,43 @@ class SubController extends Controller
     // login user fetch subscriptions
     public function fetchAds()
     {
-          $user_subscriptions = ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereDeleted(null)->get();
-       // $user_subscriptions = auth()->user()->scheduledAds;
+        $user_subscriptions = ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereDeleted(null)->get();
+        // $user_subscriptions = auth()->user()->scheduledAds;
         return  response()->json($user_subscriptions);
     }
 
     // fetch selected media house and ratecard for sub details
-    public function fetchSubDetails($m_id,$id){
-     $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$id)->get();
-     $media_house = User::select('media_house')->where('client_id','=',$m_id)->get();
-     $details  = [$media_house,$rate_card];
-     $det = [$details[0],$details[1]];
+    public function fetchSubDetails($m_id, $id)
+    {
+        $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id', '=', $id)->get();
+        $media_house = User::select('media_house')->where('client_id', '=', $m_id)->get();
+        $details  = [$media_house, $rate_card];
+        $det = [$details[0], $details[1]];
 
-        return response()->json(['title'=>$rate_card[0]->rate_card_title,'media_house'=>$media_house[0]->media_house]);
+        return response()->json(['title' => $rate_card[0]->rate_card_title, 'media_house' => $media_house[0]->media_house]);
     }
 
 
     public function checkIfSubExist(Request $request)
     { }
 
-    public function fetchClientSubsInCart(){
+    public function fetchClientSubsInCart()
+    {
 
-//        $subs  =  DB::table('scheduled_ads')
-//            ->join('users', 'scheduled_ads.media_house_id','=','users.client_id')
-//            ->select('scheduled_ads.*', 'users.media_house')
-//            -> where('user.client_id','=',auth()->user()->client_id)->where('scheduled_ads.status','=','in cart')->where('scheduled_ads','!=','deleted')
-//            ->get();
+        //        $subs  =  DB::table('scheduled_ads')
+        //            ->join('users', 'scheduled_ads.media_house_id','=','users.client_id')
+        //            ->select('scheduled_ads.*', 'users.media_house')
+        //            -> where('user.client_id','=',auth()->user()->client_id)->where('scheduled_ads.status','=','in cart')->where('scheduled_ads','!=','deleted')
+        //            ->get();
 
         $subs =  ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->get();
-        if (!$subs->isEmpty()){
-            $media_house = User::select('media_house')->where('client_id','=',$subs[0]->media_house_id)->get();
-           // $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$subs[0]->rate_card_id)->get();
-            return response()->json(['status'=>'success','subs'=>$subs,'media_house'=>$media_house[0]->media_house]);
+        if (!$subs->isEmpty()) {
+            $media_house = User::select('media_house')->where('client_id', '=', $subs[0]->media_house_id)->get();
+            // $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$subs[0]->rate_card_id)->get();
+            return response()->json(['status' => 'success', 'subs' => $subs, 'media_house' => $media_house[0]->media_house]);
+        } else {
+            return response()->json(['status' => 'Add subscriptions to cart']);
         }
-        else{
-            return response()->json(['status'=> 'Add subscriptions to cart']);
-
-        }
-
     }
 
 
@@ -259,54 +251,55 @@ class SubController extends Controller
     }
 
 
-         public  function getSubSelectedMedia($id){
-            $media_id = ScheduledAds::select('media_house_id')->where('subscription_id','=',$id)->get();
-            $selMedia = User::select('media')->where('client_id','=',$media_id[0]->media_house_id)->get();
-            return response()->json($selMedia[0]->media);
-           }
+    public  function getSubSelectedMedia($id)
+    {
+        $media_id = ScheduledAds::select('media_house_id')->where('subscription_id', '=', $id)->get();
+        $selMedia = User::select('media')->where('client_id', '=', $media_id[0]->media_house_id)->get();
+        return response()->json($selMedia[0]->media);
+    }
 
     //update subscription file
 
 
-    public function updateFile(Request $request){
+    public function updateFile(Request $request)
+    {
 
-        if(Input::file('file') && Input::file('file')->isValid()) {
+        if (Input::file('file') && Input::file('file')->isValid()) {
             $file = Input::file('file');
             $fileName =  $file->getClientOriginalName();
-            $name = time().'_'.auth()->user()->name.'_'.$file->getClientOriginalName();
+            $name = time() . '_' . auth()->user()->name . '_' . $file->getClientOriginalName();
             $extension = Input::file('file')->getClientOriginalExtension();
             $file_size = Input::file('file')->getClientSize();
             $mime_type = Input::file('file')->getClientMimeType();
             $ext = explode('.', $fileName);
             $path = '/home/jarthur/ads/uploads';
-            if(File::isDirectory($path)){
-                $file->move($path,$name);
+            if (File::isDirectory($path)) {
+                $file->move($path, $name);
             }
 
-            ScheduledAds::where('subscription_id','=',$request->id)->update([
-                 'file_path' => $path,
-                 'file_name' => $name,
-                 'file_size' => $file_size,
-                 'file_type' => $ext[1]
-             ]);
+            ScheduledAds::where('subscription_id', '=', $request->id)->update([
+                'file_path' => $path,
+                'file_name' => $name,
+                'file_size' => $file_size,
+                'file_type' => $ext[1]
+            ]);
 
             return response()->json('success');
-
-
         }
-
     }
 
     //soft delete subs
-    public function  softDeleteSub(Request $request){
-        $sub = ScheduledAds::select('deleted','deleted_at')->where('subscription_id','=',$request->input('id'))->update([
+    public function  softDeleteSub(Request $request)
+    {
+        $sub = ScheduledAds::select('deleted', 'deleted_at')->where('subscription_id', '=', $request->input('id'))->update([
             'deleted' => 'deleted',
             'deleted_at' => Carbon::now()->toDateString(),
         ]);
         return response()->json('success');
     }
 
-    public function test(){
+    public function test()
+    {
         dd('hello');
     }
 }
