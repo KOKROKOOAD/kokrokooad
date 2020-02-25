@@ -22,13 +22,13 @@ Route::get('/substrings', function () {
 
 //Route::post('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
 
-// Route::get('/send-mail', function () {
-//     Mail::to('jarthur@nalosolutions.com')->send(new OrderCreated());
-// })->name('send.mail');
+Route::get('/send-mail', function () {
+    Mail::to('jarthur@nalosolutions.com')->send(new OrderCreated());
+})->name('send.mail');
 
-// Route::get('/send', function () {
-//     return view('tests.mail-test');
-// });
+Route::get('/send', function () {
+    return view('tests.mail-test');
+});
 
 //==============guest routes=================
 Route::get('/', function () {
