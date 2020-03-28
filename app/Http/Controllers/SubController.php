@@ -15,6 +15,7 @@ use App\ScheduledAds;
 use App\SpotsUsed;
 use App\Transactions;
 use App\User;
+use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -38,7 +39,7 @@ class SubController extends Controller
     public function fetchMediaHouse($media)
     {
         //  $media = $request->input('media');
-        $mediaHouses = User::select('client_id', 'media_house', 'logo', 'file_path')->where('media', '=', $media)->get();
+        $mediaHouses = UserProfile::select('client_id', 'media_house', 'logo', 'file_path')->where('media', '=', $media)->get();
         return response()->json($mediaHouses);
     }
 
