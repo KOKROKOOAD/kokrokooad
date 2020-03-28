@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Avatars;
 use App\Events\RegistrationSuccessEvent;
 use App\Jobs\RegistrationSuccessfullJob;
 use App\User;
 use App\Http\Controllers\Controller;
+use App\UserProfile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
@@ -62,7 +64,7 @@ class RegisterController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|unique:users',
                 'phone1' => 'required|numeric|unique:users',
-                'phone2' => 'numeric',
+                'phone2' => 'required|numeric|unique:user_profiles',
                 'address' => 'required|string|max:100',
                 'industry_type' => 'required|string|max:255',
                 'title' => 'required|string|max:50',
@@ -130,16 +132,21 @@ class RegisterController extends Controller
                 'title' => $data['title'],
                 'email' => $data['email'],
                 'phone1' => $data['phone1'],
-                'phone2' => $data['phone2'],
-                'address' => $data['address'],
-                'industry_type' => $data['industry_type'],
                 'role'   =>  'user',
-                'is_admin'   => false,
                 'isActive'   => 'pending',
                 'client_id' =>  $unique_id,
                 'account_type' =>  $data['account'],
                 'password' => Hash::make($data['password']),
             ]);
+
+            UserProfile::create([
+                'phone2' => $data['phone2'],
+                'address' => $data['address'],
+                'industry_type' => $data['industry_type'],
+                'client_id' =>  $unique_id,
+
+            ]);
+
             $this->dispatch(new RegistrationSuccessfullJob($user));
         }
 
@@ -172,15 +179,6 @@ class RegisterController extends Controller
                         $thumbnail->save($path . 'mediaHouseLogos/' . $name);
                         $file->move($path . 'avatars/', $name);
                     }
-                    //                    elseif ($extension === 'pdf') {
-                    //                        $pdf = new Pdf($file);
-                    //                       // $pdf->setOutputFormat('jpg');
-                    //                        $pdf->saveImage($thumbnailPath.'hello.jpg');
-                    //                        $path = $request->file('file')->storeAs('/images','hello.jpg');
-                    //                       return  dd($pdf);//                 if(File::isDirectory($path) or File::makeDirectory($path, 755, true)){
-
-                    //                    }
-
                 }
 
                 $user =   User::create([
@@ -189,25 +187,34 @@ class RegisterController extends Controller
                     'title' => $data['title'],
                     'email' => $data['email'],
                     'phone1' => $data['phone1'],
-                    'phone2' => $data['phone2'],
-                    'address' => $data['address'],
-                    // 'media' => $data['media_type'],
-                    // 'media_house' => $data['media_house'],
-                    'website' => $data['website'],
-                    'company_profile' => $data['company_profile'],
-                    'company_name' => $data['company_name'],
-                    'industry_type' => $data['industry_type'],
-                    'policies' => $data['policies'],
-                    'logo' => $name,
-                    'is_admin'   => false,
                     'isActive'   => 'pending',
-                    'file_path' => env('FILE_UPLOAD', '/var/www/html/uploads/'),
-                    'file_size' => $file_size,
                     'role' => 'user',
                     'client_id' => $unique_id,
                     'account_type' => 'personal',
                     'password' => Hash::make($data['password']),
                 ]);
+
+                Avatars::create([
+                    'client_id' =>  $unique_id,
+                    'file_path' => env('FILE_UPLOAD', '/var/www/html/uploads/'),
+                    'file_size' => $file_size,
+                    'logo' => $name,
+                    'created_by' => $unique_id,
+                    'media_house' => $data['company_name'],
+                    'media' => $data['media']
+                ]);
+
+                UserProfile::create([
+                    'phone2' => $data['phone2'],
+                    'address' => $data['address'],
+                    'industry_type' => $data['industry_type'],
+                    'client_id' =>  $unique_id,
+                    'website' => $data['website'],
+                    'company_profile' => $data['company_profile'],
+                    'company_name' => $data['company_name'],
+                    'policies' => $data['policies'],
+                ]);
+
                 $this->dispatch(new RegistrationSuccessfullJob($user));
             }
         }
@@ -269,6 +276,27 @@ class RegisterController extends Controller
                     'client_id' => $unique_id,
                     'account_type' => 'media house',
                     'password' => Hash::make($data['password']),
+                ]);
+
+                Avatars::create([
+                    'client_id' =>  $unique_id,
+                    'file_path' => env('FILE_UPLOAD', '/var/www/html/uploads/'),
+                    'file_size' => $file_size,
+                    'logo' => $name,
+                    'created_by' => $unique_id,
+                    'media_house' => $data['media_house'],
+                    'media' => $data['media']
+                ]);
+
+                UserProfile::create([
+                    'phone2' => $data['phone2'],
+                    'address' => $data['address'],
+                    'industry_type' => $data['industry_type'],
+                    'client_id' =>  $unique_id,
+                    'website' => $data['website'],
+                    'company_profile' => $data['company_profile'],
+                    'company_name' => $data['company_name'],
+                    'policies' => $data['policies'],
                 ]);
                 $this->dispatch(new RegistrationSuccessfullJob($user));
             }

@@ -21,9 +21,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'title','email','phone1','phone2','is_admin','address','website','company_profile','company_name','media','media_house','client_id','file_size','file_path',
-        'industry_type','policies','logo',
-        'role','isActive','activation_code','last_login',
+        'name', 'title', 'email', 'phone1', 'phone2', 'is_admin', 'address', 'website', 'company_profile', 'company_name', 'media', 'media_house', 'client_id', 'file_size', 'file_path',
+        'industry_type', 'policies', 'logo',
+        'role', 'isActive', 'activation_code', 'last_login',
         'account_type', 'password',
     ];
 
@@ -36,31 +36,37 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-//    public function ads(){
-//      return  $this->hasMany(Ads::class, 'client_id', 'client_id');
-//    }
-//
-//    public function scheduledAds(){
-//        return  $this->hasMany(ScheduledAds::class, 'client_id', 'client_id');
-//
-//    }
-//
-//
-//    public  function segmentTitle(){
-//        return $this->hasMany('App\Models\RateCardTitles','client_id', 'client_id');
-//    }
+    //    public function ads(){
+    //      return  $this->hasMany(Ads::class, 'client_id', 'client_id');
+    //    }
+    //
+    //    public function scheduledAds(){
+    //        return  $this->hasMany(ScheduledAds::class, 'client_id', 'client_id');
+    //
+    //    }
+    //
+    //
+    //    public  function segmentTitle(){
+    //        return $this->hasMany('App\Models\RateCardTitles','client_id', 'client_id');
+    //    }
 
 
-
-    public  function transaction(){
-      return  $this->hasMany(Transactions::class, 'client_id', 'client_id');
+    public function avatars()
+    {
+        return $this->hasOne('App\Avatars', 'client_id', 'client_id');
     }
 
 
 
-    public function invoice(){
+    public  function transaction()
+    {
+        return  $this->hasMany(Transactions::class, 'client_id', 'client_id');
+    }
+
+
+
+    public function invoice()
+    {
         return $this->hasMany(Invoices::class, 'client_id', 'client_id');
     }
-
-
 }

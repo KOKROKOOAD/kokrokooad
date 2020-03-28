@@ -13,6 +13,7 @@
 */
 
 use App\Mail\OrderCreated;
+use App\User;
 
 Route::get('/substrings', function () {
     $msisdn = '0244560186';
@@ -48,6 +49,12 @@ Route::get('/sendmail', 'SendMailsController@sendMail')->name('sendmail');
 
 //=====================authenticated routes======================
 Route::prefix('/user-account')->group(function () {
+
+    Route::get('/relation', function () {
+        $user =  User::find('K5ba2f53a290f55.38466924')->avatars->client_id;
+        dd($user);
+    });
+
 
     //Route::middleware(['auth'])->prefix('/user-account')->group(function () {
     Route::get('dashboard', function () {
