@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ads;
+use App\Avatars;
 use App\Events\SendAdCreatedMessageEvent;
 use App\Http\Requests\StoreAds;
 use App\Invoice;
@@ -39,7 +40,7 @@ class SubController extends Controller
     public function fetchMediaHouse($media)
     {
         //  $media = $request->input('media');
-        $mediaHouses = UserProfile::select('client_id', 'media_house', 'logo', 'file_path')->where('media', '=', $media)->get();
+        $mediaHouses = Avatars::select('client_id', 'media_house', 'logo', 'file_path')->where('media', '=', $media)->get();
         return response()->json($mediaHouses);
     }
 

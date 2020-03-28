@@ -14,7 +14,7 @@ class UserProfile extends Model
         'website',
         'industry_type',
         'policies',
-        'phone2'
+        'phone2',
     ];
 
     public function user()
