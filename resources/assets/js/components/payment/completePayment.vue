@@ -151,7 +151,7 @@
                 amount: "",
                 formData: new FormData(),
                 loading: true,
-                amounts: "",
+                amounts: 0,
                 sub_id: "",
                 selNetworks: "",
                 process_payment : false,

@@ -275,7 +275,6 @@ export default {
             self.loader = false;
             self.amounts =
               parseFloat(res.data.spots) * parseFloat(res.data.rate);
-            console.log(self.amounts);
             self.hide_channels = true;
           } else {
             self.$router.push({

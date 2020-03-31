@@ -70300,6 +70300,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -70324,7 +70332,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         airtel: "AIRTEL",
         visa: "Credit Card",
         mobileNumber: "",
-        code: ''
+        code: ""
       },
       selPaymentType: "",
       fColor: "",
@@ -70332,21 +70340,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       amount: "",
       formData: new FormData(),
       loading: true,
-      amounts: "",
+      amounts: 0,
       sub_id: "",
       selNetworks: "",
       process_payment: false,
       disable_payment_btn: false,
-      mtn_prefix: ['24', '54', '55'],
-      airt_prefix: ['26', '56', '27', '57'],
-      voda_prefix: ['20', '50'],
-      prefix_error: '',
-      border_color: '',
+      mtn_prefix: ["24", "54", "55"],
+      airt_prefix: ["26", "56", "27", "57"],
+      voda_prefix: ["20", "50"],
+      prefix_error: "",
+      border_color: "",
       submit_btn: true,
       voda: false,
-      error_msg: '',
+      error_msg: "",
       process: false,
-      trans_num: ''
+      trans_num: ""
     }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", false), _defineProperty(_ref, "loader", false), _ref;
   },
   mounted: function mounted() {
@@ -70360,9 +70368,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     showPayForm: function showPayForm(value) {
       var self = this;
-      if (value === 'VODAFONE') {
+      if (value === "VODAFONE") {
         this.voda = true;
-      } else if (value === 'MTN' || value === 'AIRTEL') {
+      } else if (value === "MTN" || value === "AIRTEL") {
         this.voda = false;
       }
       this.payType = true;
@@ -70406,20 +70414,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formData.append("subscription_id", self.subId);
 
       axios.post("api-purchasesubs", formData).then(function (res) {
-
         if (res.data.success === "success") {
           self.process_payment = false;
-          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubId', '');
-          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelMediaHouse', '');
-          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getInvoiceId', '');
-          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch(' getMediaHouseId', '');
+          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubId", "");
+          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelMediaHouse", "");
+          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getInvoiceId", "");
+          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch(" getMediaHouseId", "");
 
           self.submit_btn = true;
           self.loader = false;
 
           self.$router.push("payment-success");
         } else {
-
           new PNotify({
             title: "Payment Error Notice",
             type: "error",
@@ -70440,12 +70446,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     getAmount: function getAmount() {
-
       var self = this;
-      axios.get('api-payment/amount', { params: { 'id': self.subId } }).then(function (res) {
-        if (res.data.status == 'success') {
+      axios.get("api-payment/amount", { params: { id: self.subId } }).then(function (res) {
+        if (res.data.status == "success") {
           self.loader = false;
-          self.amounts = parseInt(res.data.spots) * parseInt(res.data.rate);
+          self.amounts = parseFloat(res.data.spots) * parseFloat(res.data.rate);
           self.hide_channels = true;
         } else {
           self.$router.push({
@@ -70456,8 +70461,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     checkout: function checkout() {
       var self = this;
-      axios.get('api-payment/amount', { params: { 'id': self.checkoutIds } }).then(function (res) {
-        if (res.data.status == 'success') {
+      axios.get("api-payment/amount", { params: { id: self.checkoutIds } }).then(function (res) {
+        if (res.data.status == "success") {
           console.log(res.data.payment);
           self.loader = false;
           self.amounts = self.total(res.data.payment);
@@ -70473,7 +70478,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var total = [];
       var t = 0;
       for (var i = 0; i < subs.length; i++) {
-
         total.push(parseInt(subs[i].rate) * parseInt(subs[i].spots));
       }
 
@@ -70531,10 +70535,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       if (this.process) {
-        self.prefix_error = '';
+        self.prefix_error = "";
         sweetAlert({
           title: "Confirm Payment.",
-          text: 'A message will be sent to transaction phone. kindly follow the instructions to complete transaction',
+          text: "A message will be sent to transaction phone. kindly follow the instructions to complete transaction",
           type: "warning",
           showCancelButton: true,
           confirmButtonText: "Yes",
@@ -70551,19 +70555,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     validateprefix: function validateprefix(number) {
-      if (number.substr(0, 1) == '0' && number.length == '10') {
-        var t_number = number.replace('0', '233');
+      if (number.substr(0, 1) == "0" && number.length == "10") {
+        var t_number = number.replace("0", "233");
         return t_number;
       }
     },
     validateNumber: function validateNumber(number) {
       if (number == "") {
-        this.error_msg = 'Please enter a valid phone number.';
+        this.error_msg = "Please enter a valid phone number.";
         this.invalidNumberMessage();
       }
-      if (number.substr(0, 1) == '0' && number.length == '10') {
+      if (number.substr(0, 1) == "0" && number.length == "10") {
         return true;
-      } else if (number.substr(0, 3) == '233' && number.length == '12') {
+      } else if (number.substr(0, 3) == "233" && number.length == "12") {
         return true;
       } else {
         // this.error_msg = 'Please enter a valid phone number.';
@@ -70583,8 +70587,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     validateVoucherCode: function validateVoucherCode(voucherCode) {
-      if (voucherCode === '') {
-        this.error_msg = 'Please enter a valid voucher code.';
+      if (voucherCode === "") {
+        this.error_msg = "Please enter a valid voucher code.";
         this.invalidNumberMessage();
         return false;
       }
@@ -70893,7 +70897,7 @@ var render = function() {
                       staticStyle: { height: "20px", width: "20px" },
                       attrs: { src: "/images/loading.gif" }
                     }),
-                    _vm._v("Please wait....")
+                    _vm._v("Please wait....\n        ")
                   ]
                 ),
                 _vm._v(" "),
@@ -71030,6 +71034,7 @@ var render = function() {
                     )
                   ]
                 ),
+                _vm._v(" "),
                 _c("br")
               ])
             ]
@@ -71062,7 +71067,11 @@ var render = function() {
                           class: _vm.fColor
                         },
                         [
-                          _vm._v(_vm._s(_vm.selPaymentType)),
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(_vm.selPaymentType) +
+                              "\n          "
+                          ),
                           _c(
                             "small",
                             {
@@ -83144,7 +83153,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             amount: "",
             formData: new FormData(),
             loading: true,
-            amounts: "",
+            amounts: 0,
             sub_id: "",
             selNetworks: "",
             process_payment: false,
