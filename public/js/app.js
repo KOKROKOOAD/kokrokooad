@@ -69979,192 +69979,228 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    // props : ['day'],
-    components: { PaymentType: __WEBPACK_IMPORTED_MODULE_1__payment_paymentType_vue___default.a },
-    name: "adSummary",
+  // props : ['day'],
+  components: { PaymentType: __WEBPACK_IMPORTED_MODULE_1__payment_paymentType_vue___default.a },
+  name: "adSummary",
 
-    data: function data() {
-        return {
-            sche: true,
-            name: '',
-            fileNames: '',
-            formData: new FormData(),
-            image: '',
-            selectMedia: 'fullcalender',
-            accept: '',
-            back: false,
-            process: false
-        };
-    },
-    mounted: function mounted() {
-        // check if  media type is selected.
-        if (this.getSelectMedia == '') {
-            this.$router.push({
-                name: 'selectMedia'
-            });
-        }
-    },
-
-    methods: {
-        amount: function amount(item) {
-            return item.rate;
-        },
-        sum: function sum(prev, next) {
-            return prev + next;
-        },
-        total: function total() {
-            var total = [];
-            var t = 0;
-            for (var i = 0; i < this.schedAdsData.length; i++) {
-
-                total.push(parseFloat(this.schedAdsData[i].rate) * parseFloat(this.schedAdsData[i].spot));
-            }
-
-            for (var j = 0; j < total.length; j++) {
-                t = total[j] + t;
-            }
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getTotalBill', t);
-            return this.totalBill;
-        },
-        storeSub: function storeSub(title) {
-            var self = this;
-            sweetAlert({
-                title: 'Warning',
-                text: 'Do you really want to proceed ?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Proceed',
-                confirmButtonColor: '#FFB800',
-                closeOnConfirm: true,
-
-                showLoaderOnConfirm: true
-            }, function (isConfirm) {
-                if (isConfirm) {
-                    self.saveSegmentData(title);
-                }
-            });
-        },
-
-        // create a subscription
-        saveSegmentData: function saveSegmentData(title, segments) {
-            var self = this;
-            var formData = new FormData();
-            console.log(self.schedAdsData);
-            if (title !== '') {
-                formData.append('title', title);
-                formData.append('durations', self.schedAdsData[0].durations);
-                formData.append('segments', JSON.stringify({ 'startDate': self.schedAdsData[0].startDate.substr(10, 16), 'endDate': self.schedAdsData[0].endDate.substr(10, 16) }));
-                formData.append('uploadedFile', self.file);
-                formData.append('day', self.segmentDay);
-                formData.append('card_id', self.rateCardTitleId);
-                formData.append('media_house_id', self.mediaHouseIds);
-                formData.append('media_house', self.getMediaHouse);
-                formData.append('amount', self.total());
-                formData.append('scheduledData', JSON.stringify(self.schedAdsData));
-                formData.append('startDate', self.schedAdsData[0].startDate);
-                formData.append('endDate', self.schedAdsData[0].endDate);
-
-                self.process = true;
-                axios.post('ads-store', formData).then(function (response) {
-                    if (response.data.success === 'success') {
-                        //   store.dispatch('getSubId', response.data.sub_id);
-                        // store.dispatch('getInvoiceId', response.data.invoice_id);
-                        self.process = false;
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubData", '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getTotalBill', '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getMediaHouseId", '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelSegmentDay', '');
-                        // store.dispatch('getSegTitle','');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelectedMedia', '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getFile', '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getRateCardTitle', '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelMediaHouse', '');
-                        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', '');
-
-                        //self.rateCard = '';
-                        //  self.mediaHouseIds = '';
-                        //   self.getDate = null;
-                        self.$router.push('cart');
-                    }
-                    if (response.data === 'booked') {
-                        new PNotify({
-                            title: 'Error Desktop Notice', type: 'error', text: 'Segment already booked', desktop: {
-                                desktop: true, icon: 'assets/images/pnotify/success.png'
-                            }
-                        });
-                    }
-
-                    if (response.data === 'failed') {
-                        new PNotify({
-                            title: 'Info Desktop Notice', type: 'info', text: 'Kindly select a media type to create your subscription', desktop: {
-                                desktop: true, icon: 'assets/images/pnotify/success.png'
-                            }
-                        });
-                    }
-                });
-
-                $('#mol').modal('hide');
-                $('#print').modal('hide');
-            }
-        }
-    },
-    computed: {
-        getSelectMedia: function getSelectMedia() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
-        },
-        getMediaHouse: function getMediaHouse() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedMediaHouse;
-        },
-        segTitle: function segTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
-        },
-        schedAdsData: function schedAdsData() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
-        },
-        fileName: function fileName() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileName;
-        },
-        getDate: function getDate() {
-            var today = new Date().toISOString().slice(0, 10);
-            return today;
-        },
-        title: function title() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
-        },
-
-        // get seleceted media house id
-        mediaHouseIds: function mediaHouseIds() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.mediaHouseId;
-        },
-
-        //get selected rate card title
-        rateCard: function rateCard() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
-        },
-        file: function file() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.file;
-        },
-        getProcessStatus: function getProcessStatus() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
-        },
-        totalBill: function totalBill() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.totalBill;
-        },
-        segmentDay: function segmentDay() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
-        },
-        rateCardTitleId: function rateCardTitleId() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.card_id;
-        },
-        mediaHouses: function mediaHouses() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMediaHouse;
-        }
+  data: function data() {
+    return {
+      sche: true,
+      name: "",
+      fileNames: "",
+      formData: new FormData(),
+      image: "",
+      selectMedia: "fullcalender",
+      accept: "",
+      back: false,
+      process: false
+    };
+  },
+  mounted: function mounted() {
+    // check if  media type is selected.
+    if (this.getSelectMedia == "") {
+      this.$router.push({
+        name: "selectMedia"
+      });
     }
+  },
 
+  methods: {
+    amount: function amount(item) {
+      return item.rate;
+    },
+    sum: function sum(prev, next) {
+      return prev + next;
+    },
+    total: function total() {
+      var total = [];
+      var t = 0;
+      for (var i = 0; i < this.schedAdsData.length; i++) {
+        total.push(parseFloat(this.schedAdsData[i].rate) * parseFloat(this.schedAdsData[i].spot));
+      }
+
+      for (var j = 0; j < total.length; j++) {
+        t = total[j] + t;
+      }
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getTotalBill", t);
+      return this.totalBill.toFixed(2);
+    },
+    storeSub: function storeSub(title) {
+      var self = this;
+      sweetAlert({
+        title: "Warning",
+        text: "Do you really want to proceed ?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Proceed",
+        confirmButtonColor: "#FFB800",
+        closeOnConfirm: true,
+
+        showLoaderOnConfirm: true
+      }, function (isConfirm) {
+        if (isConfirm) {
+          self.saveSegmentData(title);
+        }
+      });
+    },
+
+    // create a subscription
+    saveSegmentData: function saveSegmentData(title, segments) {
+      var self = this;
+      var formData = new FormData();
+      console.log(self.schedAdsData);
+      if (title !== "") {
+        formData.append("title", title);
+        formData.append("durations", self.schedAdsData[0].durations);
+        formData.append("segments", JSON.stringify({
+          startDate: self.schedAdsData[0].startDate.substr(10, 16),
+          endDate: self.schedAdsData[0].endDate.substr(10, 16)
+        }));
+        formData.append("uploadedFile", self.file);
+        formData.append("day", self.segmentDay);
+        formData.append("card_id", self.rateCardTitleId);
+        formData.append("media_house_id", self.mediaHouseIds);
+        formData.append("media_house", self.getMediaHouse);
+        formData.append("amount", self.total());
+        formData.append("scheduledData", JSON.stringify(self.schedAdsData));
+        formData.append("startDate", self.schedAdsData[0].startDate);
+        formData.append("endDate", self.schedAdsData[0].endDate);
+
+        self.process = true;
+        axios.post("ads-store", formData).then(function (response) {
+          if (response.data.success === "success") {
+            //   store.dispatch('getSubId', response.data.sub_id);
+            // store.dispatch('getInvoiceId', response.data.invoice_id);
+            self.process = false;
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubData", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getTotalBill", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getMediaHouseId", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelSegmentDay", "");
+            // store.dispatch('getSegTitle','');
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelectedMedia", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getFile", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getRateCardTitle", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelMediaHouse", "");
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSegmentTitle", "");
+
+            //self.rateCard = '';
+            //  self.mediaHouseIds = '';
+            //   self.getDate = null;
+            self.$router.push("cart");
+          }
+          if (response.data === "booked") {
+            new PNotify({
+              title: "Error Desktop Notice",
+              type: "error",
+              text: "Segment already booked",
+              desktop: {
+                desktop: true,
+                icon: "assets/images/pnotify/success.png"
+              }
+            });
+          }
+
+          if (response.data === "failed") {
+            new PNotify({
+              title: "Info Desktop Notice",
+              type: "info",
+              text: "Kindly select a media type to create your subscription",
+              desktop: {
+                desktop: true,
+                icon: "assets/images/pnotify/success.png"
+              }
+            });
+          }
+        });
+
+        $("#mol").modal("hide");
+        $("#print").modal("hide");
+      }
+    }
+  },
+  computed: {
+    getSelectMedia: function getSelectMedia() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
+    },
+    getMediaHouse: function getMediaHouse() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedMediaHouse;
+    },
+    segTitle: function segTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+    },
+    schedAdsData: function schedAdsData() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
+    },
+    fileName: function fileName() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileName;
+    },
+    getDate: function getDate() {
+      var today = new Date().toISOString().slice(0, 10);
+      return today;
+    },
+    title: function title() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+    },
+
+    // get seleceted media house id
+    mediaHouseIds: function mediaHouseIds() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.mediaHouseId;
+    },
+
+    //get selected rate card title
+    rateCard: function rateCard() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
+    },
+    file: function file() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.file;
+    },
+    getProcessStatus: function getProcessStatus() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+    },
+    totalBill: function totalBill() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.totalBill;
+    },
+    segmentDay: function segmentDay() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
+    },
+    rateCardTitleId: function rateCardTitleId() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.card_id;
+    },
+    mediaHouses: function mediaHouses() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMediaHouse;
+    }
+  }
 });
 
 /***/ }),
@@ -71395,7 +71431,7 @@ var render = function() {
                         staticStyle: { height: "20px", width: "20px" },
                         attrs: { src: "/images/loading.gif" }
                       }),
-                      _vm._v("Processing please wait...")
+                      _vm._v("Processing please wait...\n                ")
                     ]
                   ),
                   _vm._v(" "),
@@ -71420,10 +71456,10 @@ var render = function() {
                       _c(
                         "span",
                         {
-                          staticClass: " text-muted ",
+                          staticClass: "text-muted",
                           staticStyle: { "padding-left": "90px" }
                         },
-                        [_vm._v(" " + _vm._s(_vm.getSelectMedia))]
+                        [_vm._v(_vm._s(_vm.getSelectMedia))]
                       )
                     ]),
                     _vm._v(" "),
@@ -71483,7 +71519,7 @@ var render = function() {
                 _c("div", { staticClass: "col-md-4 col-sm-6" }, [
                   _c("h6", { staticClass: "text-uppercase text-primary" }, [
                     _vm._v(
-                      "Total Amount :\n                                        "
+                      "\n                  Total Amount :\n                  "
                     ),
                     _c("span", [_vm._v("GHC " + _vm._s(_vm.total()))])
                   ])
@@ -71493,48 +71529,91 @@ var render = function() {
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-sm-12" }, [
                   _c("div", { staticClass: "table-responsive" }, [
-                    _c(
-                      "table",
-                      { staticClass: "table  invoice-detail-table" },
-                      [
-                        _c("thead", [
-                          _c("tr", { staticClass: "thead-default" }, [
+                    _c("table", { staticClass: "table invoice-detail-table" }, [
+                      _c("thead", [
+                        _c("tr", { staticClass: "thead-default" }, [
+                          _c("th", { attrs: { scope: "row" } }, [_vm._v("#")]),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.getSelectMedia !== "PRINT",
+                                  expression: "getSelectMedia !== 'PRINT'"
+                                }
+                              ]
+                            },
+                            [_vm._v("Subscription date&time")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.getSelectMedia !== "PRINT",
+                                  expression: "getSelectMedia !== 'PRINT'"
+                                }
+                              ]
+                            },
+                            [_vm._v("Suscription duration")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.getSelectMedia == "PRINT",
+                                  expression: "getSelectMedia == 'PRINT'"
+                                }
+                              ]
+                            },
+                            [_vm._v("Date")]
+                          ),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Day")]),
+                          _vm._v(" "),
+                          _c(
+                            "th",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.getSelectMedia === "PRINT",
+                                  expression: "getSelectMedia === 'PRINT'"
+                                }
+                              ]
+                            },
+                            [_vm._v("Size&Position")]
+                          ),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Spots")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Amount(GHC)")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Total(GHC)")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.schedAdsData, function(sched_data, index) {
+                          return _c("tr", [
                             _c("th", { attrs: { scope: "row" } }, [
-                              _vm._v("#")
+                              _vm._v(_vm._s(index + 1))
                             ]),
                             _vm._v(" "),
                             _c(
-                              "th",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.getSelectMedia !== "PRINT",
-                                    expression: "getSelectMedia !== 'PRINT'"
-                                  }
-                                ]
-                              },
-                              [_vm._v("Subscription date&time")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "th",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.getSelectMedia !== "PRINT",
-                                    expression: "getSelectMedia !== 'PRINT'"
-                                  }
-                                ]
-                              },
-                              [_vm._v("Suscription duration")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "th",
+                              "td",
                               {
                                 directives: [
                                   {
@@ -71545,13 +71624,26 @@ var render = function() {
                                   }
                                 ]
                               },
-                              [_vm._v("Date")]
+                              [_vm._v(_vm._s(sched_data.startDate))]
                             ),
                             _vm._v(" "),
-                            _c("th", [_vm._v("Day")]),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia == "PRINT",
+                                    expression: "getSelectMedia == 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [_vm._v(_vm._s(_vm.segmentDay))]
+                            ),
                             _vm._v(" "),
                             _c(
-                              "th",
+                              "td",
                               {
                                 directives: [
                                   {
@@ -71562,203 +71654,135 @@ var render = function() {
                                   }
                                 ]
                               },
-                              [_vm._v("Size&Position")]
+                              [_vm._v(_vm._s(sched_data.advert_size))]
                             ),
                             _vm._v(" "),
-                            _c("th", [_vm._v("Spots")]),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia == "PRINT",
+                                    expression: "getSelectMedia == 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [_vm._v(_vm._s(sched_data.spot))]
+                            ),
                             _vm._v(" "),
-                            _c("th", [_vm._v("Amount(GHC)")]),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia !== "PRINT",
+                                    expression: "getSelectMedia !== 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    sched_data.startDate +
+                                      " - " +
+                                      sched_data.endDate
+                                  )
+                                )
+                              ]
+                            ),
                             _vm._v(" "),
-                            _c("th", [_vm._v("Total(GHC)")])
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia !== "PRINT",
+                                    expression: "getSelectMedia !== 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [_vm._v(_vm._s(sched_data.durations))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia !== "PRINT",
+                                    expression: "getSelectMedia !== 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [_vm._v(_vm._s(_vm.segmentDay))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia !== "PRINT",
+                                    expression: "getSelectMedia !== 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [_vm._v(_vm._s(sched_data.spot))]
+                            ),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(sched_data.rate))]),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia !== "PRINT",
+                                    expression: "getSelectMedia !== 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(sched_data.rate * sched_data.spot)
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.getSelectMedia === "PRINT",
+                                    expression: "getSelectMedia === 'PRINT'"
+                                  }
+                                ]
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(sched_data.rate * sched_data.spot)
+                                )
+                              ]
+                            )
                           ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.schedAdsData, function(sched_data, index) {
-                            return _c("tr", [
-                              _c("th", { attrs: { scope: "row" } }, [
-                                _vm._v(_vm._s(index + 1))
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia == "PRINT",
-                                      expression: "getSelectMedia == 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [_vm._v(_vm._s(sched_data.startDate))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia == "PRINT",
-                                      expression: "getSelectMedia == 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [_vm._v(_vm._s(_vm.segmentDay))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia === "PRINT",
-                                      expression: "getSelectMedia === 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                    " +
-                                      _vm._s(sched_data.advert_size) +
-                                      "\n                                                "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia == "PRINT",
-                                      expression: "getSelectMedia == 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [_vm._v(_vm._s(sched_data.spot))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia !== "PRINT",
-                                      expression: "getSelectMedia !== 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      sched_data.startDate +
-                                        " - " +
-                                        sched_data.endDate
-                                    )
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia !== "PRINT",
-                                      expression: "getSelectMedia !== 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [_vm._v(_vm._s(sched_data.durations))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia !== "PRINT",
-                                      expression: "getSelectMedia !== 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [_vm._v(_vm._s(_vm.segmentDay))]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia !== "PRINT",
-                                      expression: "getSelectMedia !== 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [_vm._v(_vm._s(sched_data.spot))]
-                              ),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(sched_data.rate))]),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia !== "PRINT",
-                                      expression: "getSelectMedia !== 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(sched_data.rate * sched_data.spot)
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.getSelectMedia === "PRINT",
-                                      expression: "getSelectMedia === 'PRINT'"
-                                    }
-                                  ]
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(sched_data.rate * sched_data.spot)
-                                  )
-                                ]
-                              )
-                            ])
-                          })
-                        )
-                      ]
-                    )
+                        })
+                      )
+                    ])
                   ])
                 ])
               ]),
