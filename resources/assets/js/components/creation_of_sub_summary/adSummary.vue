@@ -235,7 +235,7 @@
                 let t = 0;
                 for (let i =0; i < this.schedAdsData.length; i++){
 
-                    total.push(parseInt(this.schedAdsData[i].rate) *  parseInt(this.schedAdsData[i].spot));
+                    total.push(parseFloat(this.schedAdsData[i].rate) *  parseFloat(this.schedAdsData[i].spot));
                 }
 
                 for(let j = 0; j < total.length; j++){

@@ -54,7 +54,8 @@ class SubController extends Controller
 
         if (auth()->check()) {
 
-            $path =  "/var/www/html/uploads/subscription-files/";
+             $path =  "/var/www/html/uploads/subscription-files/";
+            //$path = "/home/jarthur/Documents/kokroko-downds/";
             $file = Input::file('uploadedFile');
             $fileName =  $file->getClientOriginalName();
             $user_name  = explode(' ', auth()->user()->name);

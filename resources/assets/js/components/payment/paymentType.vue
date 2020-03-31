@@ -273,8 +273,9 @@ export default {
         .then(function(res) {
           if (res.data.status == "success") {
             self.loader = false;
-            self.amounts =
-              parseFloat(res.data.spots) * parseFloat(res.data.rate);
+            self.amounts = (
+              parseFloat(res.data.spots) * parseFloat(res.data.rate)
+            ).toFixed(2);
             console.log(self.amounts);
             self.hide_channels = true;
           } else {

@@ -68329,8 +68329,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       mediaHouseId: null,
       loading: false,
       logo_path: "/thumbnails/",
-      live_assets_path: 'http://uploads.kokrokooad.com/uploads/mediaHouseLogos/',
-      //"http://kokrokooad.com/kuf/uploads/register/logo/",
+      live_assets_path: 'http://uploads.kokrokooad.com/mediaHouseLogos/',
+
       no_media: ''
     };
   },
@@ -68572,10 +68572,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: [
-                                    "http://uploads.kokrokooad.com/mediaHouseLogos/" +
-                                      logos.logo
-                                  ],
+                                  src: [_vm.live_assets_path + logos.logo],
                                   width: "600",
                                   height: "515"
                                 },
@@ -70024,7 +70021,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var t = 0;
             for (var i = 0; i < this.schedAdsData.length; i++) {
 
-                total.push(parseInt(this.schedAdsData[i].rate) * parseInt(this.schedAdsData[i].spot));
+                total.push(parseFloat(this.schedAdsData[i].rate) * parseFloat(this.schedAdsData[i].spot));
             }
 
             for (var j = 0; j < total.length; j++) {
@@ -70450,7 +70447,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get("api-payment/amount", { params: { id: self.subId } }).then(function (res) {
         if (res.data.status == "success") {
           self.loader = false;
-          self.amounts = parseFloat(res.data.spots) * parseFloat(res.data.rate);
+          self.amounts = (parseFloat(res.data.spots) * parseFloat(res.data.rate)).toFixed(2);
           console.log(self.amounts);
           self.hide_channels = true;
         } else {
@@ -85570,7 +85567,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -85705,114 +85702,203 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "cart",
-    data: function data() {
-        return {
-            subs: [],
-            media_h: [],
-            process: false,
-            details: false,
-            media_ratecard: '',
-            totals: [],
-            id: [],
-            table: false,
-            msg: '',
-            total_items: 0
+  name: "cart",
+  data: function data() {
+    return {
+      subs: [],
+      media_h: [],
+      process: false,
+      details: false,
+      media_ratecard: "",
+      totals: [],
+      id: [],
+      table: false,
+      msg: "",
+      total_items: 0
+    };
+  },
+  mounted: function mounted() {
+    this.fetchSubs();
+    __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getCheckoutIds", []);
+    __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubId", "");
+  },
 
-        };
-    },
-    mounted: function mounted() {
-        this.fetchSubs();
-        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getCheckoutIds', []);
-        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubId', '');
-    },
-
-    methods: {
-        fetchSubs: function fetchSubs() {
-            var self = this;
-            self.process = true;
-            axios.get('fetch-subs/api').then(function (res) {
-                if (res.data.status == 'success') {
-                    self.subs = res.data.subs;
-                    //self.media_ratecard = res.data.card_title;
-                    self.media_h = res.data.media_house;
-                    self.process = false;
-                    self.table = true;
-                } else {
-                    self.msg = res.data.status;
-                }
-            });
-        },
-        total: function total() {
-            var total = [];
-            var t = 0;
-            for (var i = 0; i < this.subs.length; i++) {
-
-                total.push(parseInt(this.subs[i].rate) * parseInt(this.subs[i].spots));
-            }
-
-            for (var j = 0; j < total.length; j++) {
-                t = total[j] + t;
-            }
-            return t;
-        },
-        getSubId: function getSubId(id) {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubId', id);
-        },
-        getSubsIds: function getSubsIds(subs) {
-            var id = [];
-            subs.forEach(function (arrayItem) {
-                var x = arrayItem.subscription_id;
-                id.push(x);
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getCheckoutIds', id);
-            });
-            this.$router.push({
-                name: 'payment'
-            });
-        },
-        deleteSub: function deleteSub(id) {
-            setInterval(this.deleteSubModal(id), 100);
-            clearInterval(this.deleteSubModal(id));
-        },
-        deleteSubModal: function deleteSubModal(id) {
-            var self = this;
-            var formData = new FormData();
-            formData.append('id', id);
-            sweetAlert({
-                title: 'Warning',
-                text: 'Do you want to remove subscription?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Remove',
-                confirmButtonColor: '#FFB800',
-                closeOnConfirm: true
-            }, function (isConfirm) {
-                if (isConfirm) {
-                    self.del = true;
-
-                    axios.post('delete/sub', formData).then(function (res) {
-                        if (res.data == 'success') {
-                            self.del = false;
-                            window.location.reload();
-                        }
-                    });
-                } else {}
-            });
+  methods: {
+    fetchSubs: function fetchSubs() {
+      var self = this;
+      self.process = true;
+      axios.get("fetch-subs/api").then(function (res) {
+        if (res.data.status == "success") {
+          self.subs = res.data.subs;
+          //self.media_ratecard = res.data.card_title;
+          self.media_h = res.data.media_house;
+          self.process = false;
+          self.table = true;
+        } else {
+          self.msg = res.data.status;
         }
+      });
     },
-    computed: {
-        checkoutIds: function checkoutIds() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkoutIds;
-        },
-        totalItems: function totalItems() {
-            return this.subs.length;
-        }
+    total: function total() {
+      var total = [];
+      var t = 0;
+      for (var i = 0; i < this.subs.length; i++) {
+        total.push(parseFloat(this.subs[i].rate) * parseFloat(this.subs[i].spots));
+      }
+
+      for (var j = 0; j < total.length; j++) {
+        t = total[j] + t;
+      }
+      return t.toFixed(2);
+    },
+    getSubId: function getSubId(id) {
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubId", id);
+    },
+    getSubsIds: function getSubsIds(subs) {
+      var id = [];
+      subs.forEach(function (arrayItem) {
+        var x = arrayItem.subscription_id;
+        id.push(x);
+        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getCheckoutIds", id);
+      });
+      this.$router.push({
+        name: "payment"
+      });
+    },
+    deleteSub: function deleteSub(id) {
+      setInterval(this.deleteSubModal(id), 100);
+      clearInterval(this.deleteSubModal(id));
+    },
+    deleteSubModal: function deleteSubModal(id) {
+      var self = this;
+      var formData = new FormData();
+      formData.append("id", id);
+      sweetAlert({
+        title: "Warning",
+        text: "Do you want to remove subscription?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Remove",
+        confirmButtonColor: "#FFB800",
+        closeOnConfirm: true
+      }, function (isConfirm) {
+        if (isConfirm) {
+          self.del = true;
+
+          axios.post("delete/sub", formData).then(function (res) {
+            if (res.data == "success") {
+              self.del = false;
+              window.location.reload();
+            }
+          });
+        } else {}
+      });
     }
-
+  },
+  computed: {
+    checkoutIds: function checkoutIds() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkoutIds;
+    },
+    totalItems: function totalItems() {
+      return this.subs.length;
+    }
+  }
 });
 
 /***/ }),
@@ -85829,9 +85915,9 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("span", { staticClass: "pull-right" }, [
-          _vm._v("Items : "),
+          _vm._v("\n        Items :\n        "),
           _c("b", { staticClass: "text-danger" }, [
-            _vm._v(_vm._s(_vm.totalItems) + " ")
+            _vm._v(_vm._s(_vm.totalItems))
           ])
         ])
       ])
@@ -85865,7 +85951,11 @@ var render = function() {
                       },
                       [
                         _c("i", { staticClass: "fa fa-shopping-cart" }),
-                        _vm._v(" " + _vm._s(_vm.msg))
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(_vm.msg) +
+                            "\n                "
+                        )
                       ]
                     )
                   ],
@@ -85916,185 +86006,203 @@ var render = function() {
                                   _c(
                                     "tbody",
                                     _vm._l(_vm.subs, function(sub, index) {
-                                      return _c("tr", { staticClass: "odd" }, [
-                                        _c("td", [_vm._v(_vm._s(index + 1))]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "td",
-                                          {
-                                            staticStyle: {
-                                              "font-weight": "bolder"
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                                                " +
+                                      return _c(
+                                        "tr",
+                                        { key: index, staticClass: "odd" },
+                                        [
+                                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            {
+                                              staticStyle: {
+                                                "font-weight": "bolder"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
                                                 _vm._s(
                                                   sub.start.substr(0, 10) +
                                                     " - " +
                                                     sub.end.substr(0, 10)
-                                                ) +
-                                                "\n                                                            "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "td",
-                                          {
-                                            staticClass: "pro-list-img",
-                                            attrs: { tabindex: "0" }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                                                " +
-                                                _vm._s(
-                                                  sub.start.substr(11, 16)
-                                                ) +
-                                                " "
-                                            ),
-                                            _c(
-                                              "span",
-                                              {
-                                                directives: [
-                                                  {
-                                                    name: "show",
-                                                    rawName: "v-show",
-                                                    value:
-                                                      sub.start.substr(
-                                                        11,
-                                                        16
-                                                      ) != "",
-                                                    expression:
-                                                      "sub.start.substr(11,16) != ''"
-                                                  }
-                                                ]
-                                              },
-                                              [_vm._v("- ")]
-                                            ),
-                                            _vm._v(
-                                              _vm._s(sub.end.substr(11, 16)) +
-                                                "\n                                                            "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("td", { staticClass: "pro-name" }, [
-                                          _c("span", [
-                                            _vm._v(_vm._s(sub.title))
-                                          ])
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", { staticClass: "pro-name" }, [
-                                          _c("span", [
-                                            _vm._v(_vm._s(sub.media_house))
-                                          ])
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", { staticClass: "pro-name" }, [
-                                          _c("span", [
-                                            _vm._v(_vm._s(sub.rate_card_title))
-                                          ])
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [
-                                          _vm._v(_vm._s("GHS" + sub.rate))
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [
-                                          _c("input", {
-                                            staticClass: "form-control",
-                                            staticStyle: {
-                                              border: "none",
-                                              background: "transparent"
-                                            },
-                                            attrs: {
-                                              type: "text",
-                                              disabled: "disabled"
-                                            },
-                                            domProps: { value: sub.spots }
-                                          })
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [
-                                          _vm._v(
-                                            "\n                                                                 " +
-                                              _vm._s(sub.durations) +
-                                              "\n                                                            "
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("td", [
-                                          _c(
-                                            "b",
-                                            { staticClass: "text-primary" },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  "GHS" + sub.spots * sub.rate
                                                 )
                                               )
                                             ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c(
-                                          "td",
-                                          {
-                                            staticClass:
-                                              "action-icon text-center"
-                                          },
-                                          [
-                                            _c(
-                                              "router-link",
-                                              {
-                                                staticClass: "text-muted ",
-                                                attrs: {
-                                                  role: "button",
-                                                  to: { name: "payment" },
-                                                  "data-toggle": "tooltip"
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            {
+                                              staticClass: "pro-list-img",
+                                              attrs: { tabindex: "0" }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                " +
+                                                  _vm._s(
+                                                    sub.start.substr(11, 16)
+                                                  ) +
+                                                  "\n                                "
+                                              ),
+                                              _c(
+                                                "span",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "show",
+                                                      rawName: "v-show",
+                                                      value:
+                                                        sub.start.substr(
+                                                          11,
+                                                          16
+                                                        ) != "",
+                                                      expression:
+                                                        "sub.start.substr(11,16) != ''"
+                                                    }
+                                                  ]
                                                 },
-                                                nativeOn: {
-                                                  click: function($event) {
-                                                    _vm.getSubId(
-                                                      sub.subscription_id
-                                                    )
-                                                  }
-                                                }
+                                                [_vm._v("-")]
+                                              ),
+                                              _vm._v(
+                                                "\n                                " +
+                                                  _vm._s(
+                                                    sub.end.substr(11, 16)
+                                                  ) +
+                                                  "\n                              "
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            { staticClass: "pro-name" },
+                                            [
+                                              _c("span", [
+                                                _vm._v(_vm._s(sub.title))
+                                              ])
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            { staticClass: "pro-name" },
+                                            [
+                                              _c("span", [
+                                                _vm._v(_vm._s(sub.media_house))
+                                              ])
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            { staticClass: "pro-name" },
+                                            [
+                                              _c("span", [
+                                                _vm._v(
+                                                  _vm._s(sub.rate_card_title)
+                                                )
+                                              ])
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("td", [
+                                            _vm._v(_vm._s("GHS" + sub.rate))
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("td", [
+                                            _c("input", {
+                                              staticClass: "form-control",
+                                              staticStyle: {
+                                                border: "none",
+                                                background: "transparent"
                                               },
-                                              [
-                                                _c("i", {
-                                                  staticClass: "fa fa-edit"
-                                                })
-                                              ]
-                                            ),
-                                            _vm._v(" "),
+                                              attrs: {
+                                                type: "text",
+                                                disabled: "disabled"
+                                              },
+                                              domProps: { value: sub.spots }
+                                            })
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("td", [
+                                            _vm._v(_vm._s(sub.durations))
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("td", [
                                             _c(
-                                              "a",
-                                              {
-                                                staticClass: "text-danger",
-                                                attrs: {
-                                                  href: "#!",
-                                                  "data-toggle": "tooltip"
-                                                }
-                                              },
+                                              "b",
+                                              { staticClass: "text-primary" },
                                               [
-                                                _c("i", {
-                                                  staticClass: "fa fa-trash",
-                                                  on: {
+                                                _vm._v(
+                                                  _vm._s(
+                                                    "GHS" +
+                                                      (
+                                                        sub.spots * sub.rate
+                                                      ).toFixed(2)
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            {
+                                              staticClass:
+                                                "action-icon text-center"
+                                            },
+                                            [
+                                              _c(
+                                                "router-link",
+                                                {
+                                                  staticClass: "text-muted",
+                                                  attrs: {
+                                                    role: "button",
+                                                    to: { name: "payment" },
+                                                    "data-toggle": "tooltip"
+                                                  },
+                                                  nativeOn: {
                                                     click: function($event) {
-                                                      _vm.deleteSub(
+                                                      _vm.getSubId(
                                                         sub.subscription_id
                                                       )
                                                     }
                                                   }
-                                                })
-                                              ]
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ])
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-edit"
+                                                  })
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticClass: "text-danger",
+                                                  attrs: {
+                                                    href: "#!",
+                                                    "data-toggle": "tooltip"
+                                                  }
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-trash",
+                                                    on: {
+                                                      click: function($event) {
+                                                        _vm.deleteSub(
+                                                          sub.subscription_id
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
                                     })
                                   )
                                 ]
@@ -86155,7 +86263,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-lg-8" }, [
       _c("div", { staticClass: "page-header-title" }, [
         _c("div", { staticClass: "d-inline" }, [
-          _c("h4", [_vm._v(" Subscription Cart")])
+          _c("h4", [_vm._v("Subscription Cart")])
         ])
       ])
     ])

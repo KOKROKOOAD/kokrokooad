@@ -37,7 +37,7 @@
                 <label class="image-checkbox" :id="index">
                   <img
                     class="img-fluid"
-                    v-bind:src="[ 'http://uploads.kokrokooad.com/mediaHouseLogos/' + logos.logo]"
+                    v-bind:src="[ live_assets_path + logos.logo]"
                     @click="getSelMediaHouseId(logos.client_id)"
                     width="600"
                     height="515"
@@ -104,8 +104,8 @@ export default {
       mediaHouseId: null,
       loading: false,
       logo_path: "/thumbnails/",
-      live_assets_path: 'http://uploads.kokrokooad.com/uploads/mediaHouseLogos/',
-              //"http://kokrokooad.com/kuf/uploads/register/logo/",
+      live_assets_path: 'http://uploads.kokrokooad.com/mediaHouseLogos/',
+
       no_media : '',
     };
   },
