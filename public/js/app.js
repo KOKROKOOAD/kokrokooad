@@ -70451,6 +70451,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (res.data.status == "success") {
           self.loader = false;
           self.amounts = parseFloat(res.data.spots) * parseFloat(res.data.rate);
+          console.log(self.amounts);
           self.hide_channels = true;
         } else {
           self.$router.push({
