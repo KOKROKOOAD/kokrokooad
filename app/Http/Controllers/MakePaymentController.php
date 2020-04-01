@@ -88,9 +88,8 @@ class MakePaymentController extends Controller
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
-            print_r($res_obj);
             if (isset($res_obj['InvoiceNo'])) {
-
+                echo 'am here';
                 $unique_id = uniqid('K', true);
                 if (Transactions::where('client_id', '=', $unique_id)) {
                     $unique_id = uniqid('K', true);
@@ -107,7 +106,6 @@ class MakePaymentController extends Controller
                         'transaction_date' => $res_obj['Timestamp'],
                     ]);
                     return response()->json(['success' => 'success']);
-
                 }
             }
         } elseif ($payby === 'VODAFONE') {
@@ -134,15 +132,9 @@ class MakePaymentController extends Controller
                         'transaction_date' => $res_obj['Timestamp'],
                     ]);
                     return response()->json(['success' => 'success']);
-
                 }
-
-
             }
         }
-
-
-
     }
 
     // total amount  to be paid
