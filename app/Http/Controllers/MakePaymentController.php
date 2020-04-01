@@ -89,30 +89,29 @@ class MakePaymentController extends Controller
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
             if (isset($res_obj['InvoiceNo'])) {
-                echo 'am here';
-                $unique_id = uniqid('K', true);
-                if (Transactions::where('client_id', '=', $unique_id)) {
-                    $unique_id = uniqid('K', true);
-                    $transac = Transactions::create([
-                        'phone' => $msisdn,
-                        'payment_source' => $payby,
-                        'transaction_id' => $unique_id,
-                        'amount' => $amount,
-                        'subscription_id' => $subscription_id,
-                        'invoice_id' => $res_obj['InvoiceNo'],
-                        'service' => $item_desc,
-                        'customer' => $customer,
-                        'transaction_status' => 'pending',
-                        'transaction_date' => $res_obj['Timestamp'],
-                    ]);
-                    return response()->json(['success' => 'success']);
-                }
+                echo  $res_obj['InvoiceNo'];
+                // $unique_id = uniqid('K', true);
+                // if (Transactions::where('client_id', '=', $unique_id)) {
+                //     $unique_id = uniqid('K', true);
+                //     $transac = Transactions::create([
+                //         'phone' => $msisdn,
+                //         'payment_source' => $payby,
+                //         'transaction_id' => $unique_id,
+                //         'amount' => $amount,
+                //         'subscription_id' => $subscription_id,
+                //         'invoice_id' => $res_obj['InvoiceNo'],
+                //         'service' => $item_desc,
+                //         'customer' => $customer,
+                //         'transaction_status' => 'pending',
+                //         'transaction_date' => $res_obj['Timestamp'],
+                //     ]);
+                //     return response()->json(['success' => 'success']);
+                // }
             }
         } elseif ($payby === 'VODAFONE') {
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
-            print_r($res_obj);
             if (isset($res_obj['InvoiceNo'])) {
 
                 $unique_id = uniqid('K', true);
