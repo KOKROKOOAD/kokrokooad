@@ -24,11 +24,7 @@
             <img src="/images/loading.gif" style="height: 20px;width: 20px;" />Please wait....
           </p>
 
-          <fieldset
-            class="payment animated fadeIn"
-            style="padding-left: 10px;"
-            v-show="hide_channels"
-          >
+          <fieldset class="payment animated fadeIn" style="padding-left: 10px;" v-show="submit_btn">
             <label @click="showPayForm(network.airtel)">
               <input type="radio" name="payment" :value="network.airtel" v-model="selNetworks" />
               <img src="/images/airt-money.png" style="width:100px;height: 60px;" />
@@ -140,6 +136,7 @@ export default {
       anim_d: "animated slideInDown",
       momo_anim_faIn: "animated fadeIn",
       visa_anim_faIn: "animated fadeIn",
+      on_error: "",
 
       network: {
         mtn: "MTN",
@@ -171,7 +168,7 @@ export default {
       process: false,
       trans_num: "",
       process_payment: true,
-      hide_channels: false,
+      hide_channels: true,
       loader: false
     };
   },
@@ -208,7 +205,7 @@ export default {
     checkSel() {
       if (this.selPaymentType === "MTN") {
         this.fColor = "mtn";
-      } else if (this.selPaymentType === "AIRTEL") {
+      } else if (this.selPaymentType === "AIRTELTIGO") {
         this.fColor = "airtel";
       } else if (this.selPaymentType === "VODAFONE") {
         this.fColor = "voda";
@@ -241,6 +238,8 @@ export default {
             store.dispatch("getInvoiceId", "");
             store.dispatch(" getMediaHouseId", "");
 
+            self.process_payment = false;
+            self.disable_payment_btn = false;
             self.submit_btn = true;
             self.loader = false;
 
@@ -258,6 +257,7 @@ export default {
             self.process_payment = false;
             self.disable_payment_btn = false;
             self.submit_btn = true;
+            self.loader = false;
           }
         })
         .catch(function(error) {
@@ -315,10 +315,10 @@ export default {
       }
       return t;
     },
-    payments(number) {
-      let self = this;
-      self.validatePaymentNumber(number);
-    },
+    // payments(number) {
+    //   let self = this;
+    //   self.validatePaymentNumber(number);
+    // },
 
     cancel() {
       sweetAlert(
@@ -361,16 +361,16 @@ export default {
     },
 
     // validate phone number
-    validatePaymentNumber(number) {
+    payments(number) {
       let self = this;
       if (this.validateNumber(number)) {
         this.trans_num = self.validateprefix(number);
         // if (this.network.vodafone === 'VODAFONE' &&  self.validateVoucherCode(self.network.code) === true) {
-        this.process = true;
-        // }
-      }
+        self.process = true;
+        self.border_color = "";
 
-      if (this.process) {
+        // }
+
         self.prefix_error = "";
         sweetAlert(
           {
@@ -385,6 +385,7 @@ export default {
             showLoaderOnConfirm: true
           },
           function() {
+            self.loader = false;
             self.submit_btn = false;
             self.process_payment = true;
             self.disable_payment_btn = true;
@@ -401,25 +402,34 @@ export default {
       }
     },
     validateNumber(number) {
-      if (number == "") {
-        this.error_msg = "Please enter a valid phone number.";
+      let len = number.length;
+      console.log(number.charAt(0));
+
+      //  console.log("phone number digits is : " + number.length);
+      if (len == 0) {
+        this.border_color = { "border-color": "red" };
         this.invalidNumberMessage();
-      }
-      if (number.substr(0, 1) == "0" && number.length == "10") {
-        return true;
-      } else if (number.substr(0, 3) == "233" && number.length == "12") {
-        return true;
-      } else {
-        // this.error_msg = 'Please enter a valid phone number.';
-        // this.invalidNumberMessage();
         return false;
       }
+
+      if (
+        (len != 0 && number.charAt(0) == "0" && len == 10) ||
+        (len != 0 && number.substring(0, 3) == "233" && len == 12)
+      ) {
+        return true;
+      } else {
+        this.border_color = { "border-color": "red" };
+        this.invalidNumberMessage();
+        return false;
+      }
+
+      return true;
     },
     invalidNumberMessage() {
       new PNotify({
         title: "Error",
         type: "error",
-        text: this.error_msg,
+        text: "Please enter a valid phone number",
         desktop: {
           desktop: true,
           icon: "assets/images/pnotify/error.png"

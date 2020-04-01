@@ -70337,10 +70337,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -70358,6 +70354,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       anim_d: "animated slideInDown",
       momo_anim_faIn: "animated fadeIn",
       visa_anim_faIn: "animated fadeIn",
+      on_error: "",
 
       network: {
         mtn: "MTN",
@@ -70388,7 +70385,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       error_msg: "",
       process: false,
       trans_num: ""
-    }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", false), _defineProperty(_ref, "loader", false), _ref;
+    }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", true), _defineProperty(_ref, "loader", false), _ref;
   },
   mounted: function mounted() {
     if (Object.keys(this.checkoutIds).length > 0) {
@@ -70424,7 +70421,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     checkSel: function checkSel() {
       if (this.selPaymentType === "MTN") {
         this.fColor = "mtn";
-      } else if (this.selPaymentType === "AIRTEL") {
+      } else if (this.selPaymentType === "AIRTELTIGO") {
         this.fColor = "airtel";
       } else if (this.selPaymentType === "VODAFONE") {
         this.fColor = "voda";
@@ -70454,6 +70451,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getInvoiceId", "");
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch(" getMediaHouseId", "");
 
+          self.process_payment = false;
+          self.disable_payment_btn = false;
           self.submit_btn = true;
           self.loader = false;
 
@@ -70471,6 +70470,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           self.process_payment = false;
           self.disable_payment_btn = false;
           self.submit_btn = true;
+          self.loader = false;
         }
       }).catch(function (error) {
         if (error) {
@@ -70520,10 +70520,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
       return t;
     },
-    payments: function payments(number) {
-      var self = this;
-      self.validatePaymentNumber(number);
-    },
+
+    // payments(number) {
+    //   let self = this;
+    //   self.validatePaymentNumber(number);
+    // },
+
     cancel: function cancel() {
       sweetAlert({
         title: "Warning",
@@ -70559,16 +70561,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
     // validate phone number
-    validatePaymentNumber: function validatePaymentNumber(number) {
+    payments: function payments(number) {
       var self = this;
       if (this.validateNumber(number)) {
         this.trans_num = self.validateprefix(number);
         // if (this.network.vodafone === 'VODAFONE' &&  self.validateVoucherCode(self.network.code) === true) {
-        this.process = true;
-        // }
-      }
+        self.process = true;
+        self.border_color = "";
 
-      if (this.process) {
+        // }
+
         self.prefix_error = "";
         sweetAlert({
           title: "Confirm Payment.",
@@ -70580,6 +70582,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           closeOnConfirm: true,
           showLoaderOnConfirm: true
         }, function () {
+          self.loader = false;
           self.submit_btn = false;
           self.process_payment = true;
           self.disable_payment_btn = true;
@@ -70595,25 +70598,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     validateNumber: function validateNumber(number) {
-      if (number == "") {
-        this.error_msg = "Please enter a valid phone number.";
+      var len = number.length;
+      console.log(number.charAt(0));
+
+      //  console.log("phone number digits is : " + number.length);
+      if (len == 0) {
+        this.border_color = { "border-color": "red" };
         this.invalidNumberMessage();
-      }
-      if (number.substr(0, 1) == "0" && number.length == "10") {
-        return true;
-      } else if (number.substr(0, 3) == "233" && number.length == "12") {
-        return true;
-      } else {
-        // this.error_msg = 'Please enter a valid phone number.';
-        // this.invalidNumberMessage();
         return false;
       }
+
+      if (len != 0 && number.charAt(0) == "0" && len == 10 || len != 0 && number.substring(0, 3) == "233" && len == 12) {
+        return true;
+      } else {
+        this.border_color = { "border-color": "red" };
+        this.invalidNumberMessage();
+        return false;
+      }
+
+      return true;
     },
     invalidNumberMessage: function invalidNumberMessage() {
       new PNotify({
         title: "Error",
         type: "error",
-        text: this.error_msg,
+        text: "Please enter a valid phone number",
         desktop: {
           desktop: true,
           icon: "assets/images/pnotify/error.png"
@@ -70942,8 +70951,8 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.hide_channels,
-                        expression: "hide_channels"
+                        value: _vm.submit_btn,
+                        expression: "submit_btn"
                       }
                     ],
                     staticClass: "payment animated fadeIn",

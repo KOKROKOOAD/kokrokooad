@@ -24,21 +24,40 @@ class MakePaymentController extends Controller
     public function makePayment(Request $request)
     {
 
-//        $form_data = $request->validate([
-//            'payby' => 'required|alpha',
-//            'phone' => 'required|numeric|digits:10',
-//            'subscription_id' => 'required',
-//            'amount' => 'required|numeric',
-//
-//        ]);
+        function __construct()
+        {
+            $this->middleware('auth');
+        }
 
-        $name = time() .auth()->user()->email;
+        $item_desc = null;
+        if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
+            $form_data = $request->validate([
+                'payby' => 'required|alpha',
+                'phone' => 'required|regex:/(0)[0-9]{9}/',
+                'subscription_id' => 'required',
+                'amount' => 'required|numeric',
+
+            ]);
+            $item_desc = "subscription purchase";
+        } else {
+            $form_data = $request->validate([
+                'payby' => 'required|alpha',
+                'phone' => 'required|regex:/(0)[0-9]{9}/',
+                'subscription_id' => 'required',
+                'amount' => 'required|numeric',
+                'voucher_code' => 'required|numeric'
+            ]);
+            $item_desc = $request->voucher_code;
+        }
+
+
+        $name = time() . auth()->user()->email;
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
         $customer = $name;
         $amount = $request->input('amount');
         $subscription_id = $request->input('subscription_id');
-        $item_desc = "subscription purchase";
+
         $callback = env("PAY_CALLBACK");
 
         $msisdn = substr($msisdn, 1, 9);
@@ -69,36 +88,60 @@ class MakePaymentController extends Controller
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
-
-
+            print_r($res_obj);
             if (isset($res_obj['InvoiceNo'])) {
 
                 $unique_id = uniqid('K', true);
                 if (Transactions::where('client_id', '=', $unique_id)) {
                     $unique_id = uniqid('K', true);
+                    $transac = Transactions::create([
+                        'phone' => $msisdn,
+                        'payment_source' => $payby,
+                        'transaction_id' => $unique_id,
+                        'amount' => $amount,
+                        'subscription_id' => $subscription_id,
+                        'invoice_id' => $res_obj['InvoiceNo'],
+                        'service' => $item_desc,
+                        'customer' => $customer,
+                        'transaction_status' => 'pending',
+                        'transaction_date' => $res_obj['Timestamp'],
+                    ]);
+                    return response()->json(['success' => 'success']);
+
+                }
+            }
+        } elseif ($payby === 'VODAFONE') {
+
+            $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
+            $res_obj = json_decode($res, true);
+            print_r($res_obj);
+            if (isset($res_obj['InvoiceNo'])) {
+
+                $unique_id = uniqid('K', true);
+                if (Transactions::where('client_id', '=', $unique_id)) {
+                    $unique_id = uniqid('K', true);
+
+                    $transac = Transactions::create([
+                        'phone' => $msisdn,
+                        'payment_source' => $payby,
+                        'transaction_id' => $unique_id,
+                        'amount' => $amount,
+                        'subscription_id' => $subscription_id,
+                        'invoice_id' => $res_obj['InvoiceNo'],
+                        'service' => $item_desc,
+                        'customer' => $customer,
+                        'transaction_status' => 'pending',
+                        'transaction_date' => $res_obj['Timestamp'],
+                    ]);
+                    return response()->json(['success' => 'success']);
+
                 }
 
 
-                $transac = Transactions::create([
-                    'phone' => $msisdn,
-                    'payment_source' => $payby,
-                    'transaction_id' => $unique_id,
-                    'amount' => $amount,
-                    'subscription_id' => $subscription_id,
-                    'invoice_id' => $res_obj['InvoiceNo'],
-                    'service' => $item_desc,
-                    'customer' => $customer,
-                    'transaction_status' => 'pending',
-                    'transaction_date' => $res_obj['Timestamp'],
-                ]);
-
             }
-
-            return response()->json(['success' => 'success']);
-
-        } elseif ($payby === 'VODAFONE') {
-
         }
+
+
 
     }
 
@@ -110,12 +153,10 @@ class MakePaymentController extends Controller
 
             $payment = ScheduledAds::select('spots', 'rate')->whereIn('subscription_id', $request->id)->get();
             return response()->json(['status' => 'success', 'payment' => $payment]);
-
         } else {
             $payment = ScheduledAds::select('spots', 'rate')->where('subscription_id', '=', $request->id)->get();
             return response()->json(['status' => 'success', 'spots' => $payment[0]->spots, 'rate' => $payment[0]->rate]);
         }
-
     }
 
 
@@ -135,11 +176,9 @@ class MakePaymentController extends Controller
             ]);
 
             $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
-
         }
 
 
         Log::info('checking incoming request', json_decode($request->all(), true));
-
     }
 }
