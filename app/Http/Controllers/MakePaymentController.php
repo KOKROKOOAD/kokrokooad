@@ -164,12 +164,13 @@ class MakePaymentController extends Controller
                 'updated_at' => $payment_callback['Timestamp'],
             ]);
 
-            $trans = ScheduledAds::whereSubscription_id($payment_callback['Order_id'])->update([
+            $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
+            $users = ScheduledAds::find($trans_info->subscription_id);
+
+            $trans = ScheduledAds::whereSubscription_id($trans_info->subscription_id)->update([
                 'status' => 'pending',
             ]);
 
-            $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
-            $users = ScheduledAds::find($trans_info->subscription_id);
             // send email
             $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
             //send text
