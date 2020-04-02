@@ -30,6 +30,7 @@ class MakePaymentController extends Controller
             $this->middleware('auth');
         }
 
+
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
             $form_data = $request->validate([
@@ -178,7 +179,7 @@ class MakePaymentController extends Controller
             $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
 
 
-            $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
+            $request->session()->flash('payment-success', 'Hello ,' . $users->user->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
         }
 
 
