@@ -83,7 +83,7 @@ class MakePaymentController extends Controller
             'key' => $key,
             'order_id' => $transaction_id,
             'customerName' => $name,
-            'amount' => 0.3,
+            'amount' => 0.1,
             'item_desc' => $item_desc,
             'customerNumber' => '233' . $msisdn,
             'payby' => $payby,
@@ -167,13 +167,13 @@ class MakePaymentController extends Controller
                 'status' => 'pending',
             ]);
 
-            $trans_info = Transactions::select('amount', 'phone', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
-            $user = User::find(auth()->user()->client_id);
+            $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
+            $users = ScheduledAds::find($trans_info->subscription_id);
             // send email
-            $this->dispatch(new SendPurchaseReceiptEmailJob($user, $trans_info->amount, $trans_info->transaction_id));
+            $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
             //send text
             $sendText = new SendTextMessage();
-            $sendText->paymentMessage($user->name, $trans_info->amount, $$trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
+            $sendText->paymentMessage($users->user->name, $trans_info->amount, $$trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
 
 
             $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
