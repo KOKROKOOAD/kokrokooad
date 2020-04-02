@@ -99,21 +99,20 @@ class MakePaymentController extends Controller
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
             if (isset($res_obj['InvoiceNo'])) {
-            
-                    $transac = Transactions::create([
-                        'phone' => $msisdn,
-                        'payment_source' => $payby,
-                        'transaction_id' => $transaction_id,
-                        'amount' => $amount,
-                        'subscription_id' => $subscription_id,
-                        'invoice_id' => $res_obj['InvoiceNo'],
-                        'service' => $item_desc,
-                        'customer' => $customer,
-                        'transaction_status' => 'pending',
-                        'transaction_date' => $res_obj['Timestamp'],
-                    ]);
-                    return response()->json(['success' => 'success']);
-                
+
+                $transac = Transactions::create([
+                    'phone' => $msisdn,
+                    'payment_source' => $payby,
+                    'transaction_id' => $transaction_id,
+                    'amount' => $amount,
+                    'subscription_id' => $subscription_id,
+                    'invoice_id' => $res_obj['InvoiceNo'],
+                    'service' => $item_desc,
+                    'customer' => $customer,
+                    'transaction_status' => 'pending',
+                    'transaction_date' => $res_obj['Timestamp'],
+                ]);
+                return response()->json(['success' => 'success']);
             }
         } elseif ($payby === 'VODAFONE') {
 
@@ -121,19 +120,20 @@ class MakePaymentController extends Controller
             $res_obj = json_decode($res, true);
             if (isset($res_obj['InvoiceNo'])) {
 
-                    $transac = Transactions::create([
-                        'phone' => $msisdn,
-                        'payment_source' => $payby,
-                        'transaction_id' => $transaction_id,
-                        'amount' => $amount,
-                        'subscription_id' => $subscription_id,
-                        'invoice_id' => $res_obj['InvoiceNo'],
-                        'service' => $item_desc,
-                        'customer' => $customer,
-                        'transaction_status' => 'pending',
-                        'transaction_date' => $res_obj['Timestamp'],
-                    ]);
-                    return response()->json(['success' => 'success']);
+                $transac = Transactions::create([
+                    'phone' => $msisdn,
+                    'payment_source' => $payby,
+                    'transaction_id' => $transaction_id,
+                    'amount' => $amount,
+                    'subscription_id' => $subscription_id,
+                    'media_house_id' => $request->media_house_id,
+                    'invoice_id' => $res_obj['InvoiceNo'],
+                    'service' => $item_desc,
+                    'customer' => $customer,
+                    'transaction_status' => 'pending',
+                    'transaction_date' => $res_obj['Timestamp'],
+                ]);
+                return response()->json(['success' => 'success']);
             }
         }
     }
@@ -167,15 +167,15 @@ class MakePaymentController extends Controller
                 'status' => 'pending',
             ]);
 
-             $trans_info = Transactions::select('amount','phone','transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
-             $user = User::find(auth()->user()->client_id);
-               // send email
-             $this->dispatch(new SendPurchaseReceiptEmailJob($user,$trans_info->amount,$trans_info->transaction_id));
-             //send text
-             $sendText = new SendTextMessage();
-             $sendText->paymentMessage($user->name,$trans_info->amount, $$trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
+            $trans_info = Transactions::select('amount', 'phone', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
+            $user = User::find(auth()->user()->client_id);
+            // send email
+            $this->dispatch(new SendPurchaseReceiptEmailJob($user, $trans_info->amount, $trans_info->transaction_id));
+            //send text
+            $sendText = new SendTextMessage();
+            $sendText->paymentMessage($user->name, $trans_info->amount, $$trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
 
-              
+
             $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
         }
 
