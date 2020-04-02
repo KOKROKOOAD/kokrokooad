@@ -112,6 +112,7 @@ class MakePaymentController extends Controller
             if (isset($res_obj['InvoiceNo'])) {
 
                 $transac = Transactions::create([
+                    'client_id' => auth()->user()->client_id,
                     'phone' => '233' . $msisdn,
                     'payment_source' => $payby,
                     'transaction_id' => $transaction_id,
@@ -133,6 +134,7 @@ class MakePaymentController extends Controller
             if (isset($res_obj['InvoiceNo'])) {
 
                 $transac = Transactions::create([
+                    'client_id' => auth()->user()->client_id,
                     'phone' => '233' . $msisdn,
                     'payment_source' => $payby,
                     'transaction_id' => $transaction_id,
