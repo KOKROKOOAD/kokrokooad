@@ -178,7 +178,7 @@ class MakePaymentController extends Controller
             //send text
             $sendText = new SendTextMessage();
             $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
-            Log::info('text', $text);
+            Log::info('send text', ['text' => $text]);
             Log::info('mytests', 'am testing');
 
 
