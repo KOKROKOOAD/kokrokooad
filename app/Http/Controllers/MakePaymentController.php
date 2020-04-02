@@ -174,12 +174,13 @@ class MakePaymentController extends Controller
 
 
             // send email
-            $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
+            $sendMail =  $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
             //send text
             $sendText = new SendTextMessage();
             $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
-            Log::info($text);
-            Log::info('am testing');
+            Log::info('sending email to client ' . $sendMail);
+            Log::info('sending text to client ' . $text);
+            return redirect()->route('message');
 
 
             //  $request->session()->flash('payment-success', 'Hello ,' . $users->user->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');

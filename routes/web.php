@@ -127,7 +127,7 @@ Route::prefix('/user-account')->group(function () {
     Route::post('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
 
     Route::get('test-page', function () {
-        Log::info('test', 'am inside test controller');
+        Log::info('am redirected to  test controller');
     })->name('message');
 
 
