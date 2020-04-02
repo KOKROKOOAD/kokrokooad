@@ -169,7 +169,8 @@ export default {
       trans_num: "",
       process_payment: true,
       hide_channels: true,
-      loader: false
+      loader: false,
+      media_house_id: ""
     };
   },
   mounted() {
@@ -227,7 +228,8 @@ export default {
       formData.append("amount", self.amounts);
       formData.append("payby", self.selNetworks);
       formData.append("subscription_id", self.subId);
-
+      formData.append("media_house_id", self.media_house_id);
+      console.log(self.media_house_id);
       axios
         .post("api-purchasesubs", formData)
         .then(function(res) {
@@ -276,7 +278,7 @@ export default {
             self.amounts = (
               parseFloat(res.data.spots) * parseFloat(res.data.rate)
             ).toFixed(2);
-            console.log(self.amounts);
+            self.media_house_id = res.data.media_house_id;
             self.hide_channels = true;
           } else {
             self.$router.push({
@@ -292,7 +294,6 @@ export default {
         .get("api-payment/amount", { params: { id: self.checkoutIds } })
         .then(function(res) {
           if (res.data.status == "success") {
-            console.log(res.data.payment);
             self.loader = false;
             self.amounts = self.total(res.data.payment);
             self.hide_channels = true;

@@ -15,15 +15,20 @@ class SendPurchaseReceiptEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public  $user;
+    public $amount;
+    public $ref;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user,$amount,$ref)
     {
         $this->user = $user;
+        $this->amount = $amount;
+        $this->ref = $ref;
+
     }
 
     /**
@@ -33,7 +38,7 @@ class SendPurchaseReceiptEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Notification::send($this->user, new SendPurchaseReceiptEmailNotification($this->user));
+        Notification::send($this->user, new SendPurchaseReceiptEmailNotification($this->user,$this->amount,$this->ref));
 
     }
 }

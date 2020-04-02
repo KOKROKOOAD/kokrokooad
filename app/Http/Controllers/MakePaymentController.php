@@ -6,6 +6,7 @@ use App\Jobs\RegistrationSuccessfullJob;
 use App\Jobs\SendPurchaseReceiptEmailJob;
 use App\Models\ScheduledAd;
 use App\ScheduledAds;
+use App\Services\SendTextMessage;
 use App\User;
 use Illuminate\Http\Request;
 use App\Transactions;
@@ -29,6 +30,7 @@ class MakePaymentController extends Controller
             $this->middleware('auth');
         }
 
+
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
             $form_data = $request->validate([
@@ -36,6 +38,7 @@ class MakePaymentController extends Controller
                 'phone' => 'required|regex:/(0)[0-9]{9}/',
                 'subscription_id' => 'required',
                 'amount' => 'required|numeric',
+                'media_house_id' => 'required'
 
             ]);
             $item_desc = "subscription purchase";
@@ -45,7 +48,9 @@ class MakePaymentController extends Controller
                 'phone' => 'required|regex:/(0)[0-9]{9}/',
                 'subscription_id' => 'required',
                 'amount' => 'required|numeric',
-                'voucher_code' => 'required|numeric'
+                'voucher_code' => 'required|numeric',
+                'media_house_id' => 'required'
+
             ]);
             $item_desc = $request->voucher_code;
         }
@@ -66,13 +71,18 @@ class MakePaymentController extends Controller
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
         $src = $_SERVER['REMOTE_ADDR'];
+        $transaction_id = uniqid('K', true);
+
+        if (Transactions::where('transaction_id', '=', $transaction_id)) {
+            $transaction_id = uniqid('K', true);
+        }
 
 
         $dataArray = array(
             'merchant_id' => 'NPS_000035',
             'secrete' => $secret,
             'key' => $key,
-            'order_id' => $subscription_id,
+            'order_id' => $transaction_id,
             'customerName' => $name,
             'amount' => 0.3,
             'item_desc' => $item_desc,
@@ -89,13 +99,11 @@ class MakePaymentController extends Controller
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
             if (isset($res_obj['InvoiceNo'])) {
-                $unique_id = uniqid('K', true);
-                if (Transactions::where('transaction_id', '=', $unique_id)) {
-                    $unique_id = uniqid('K', true);
+            
                     $transac = Transactions::create([
                         'phone' => $msisdn,
                         'payment_source' => $payby,
-                        'transaction_id' => $unique_id,
+                        'transaction_id' => $transaction_id,
                         'amount' => $amount,
                         'subscription_id' => $subscription_id,
                         'invoice_id' => $res_obj['InvoiceNo'],
@@ -105,7 +113,7 @@ class MakePaymentController extends Controller
                         'transaction_date' => $res_obj['Timestamp'],
                     ]);
                     return response()->json(['success' => 'success']);
-                }
+                
             }
         } elseif ($payby === 'VODAFONE') {
 
@@ -113,14 +121,10 @@ class MakePaymentController extends Controller
             $res_obj = json_decode($res, true);
             if (isset($res_obj['InvoiceNo'])) {
 
-                $unique_id = uniqid('K', true);
-                if (Transactions::where('transaction_id', '=', $unique_id)) {
-                    $unique_id = uniqid('K', true);
-
                     $transac = Transactions::create([
                         'phone' => $msisdn,
                         'payment_source' => $payby,
-                        'transaction_id' => $unique_id,
+                        'transaction_id' => $transaction_id,
                         'amount' => $amount,
                         'subscription_id' => $subscription_id,
                         'invoice_id' => $res_obj['InvoiceNo'],
@@ -130,7 +134,6 @@ class MakePaymentController extends Controller
                         'transaction_date' => $res_obj['Timestamp'],
                     ]);
                     return response()->json(['success' => 'success']);
-                }
             }
         }
     }
@@ -141,11 +144,11 @@ class MakePaymentController extends Controller
 
         if (is_array($request->id)) {
 
-            $payment = ScheduledAds::select('spots', 'rate')->whereIn('subscription_id', $request->id)->get();
-            return response()->json(['status' => 'success', 'payment' => $payment]);
+            $payment = ScheduledAds::select('spots', 'rate', 'media_house_id')->whereIn('subscription_id', $request->id)->get();
+            return response()->json(['status' => 'success', 'payment' => $payment, 'media_house_id' => $payment[0]->media_house_id]);
         } else {
-            $payment = ScheduledAds::select('spots', 'rate')->where('subscription_id', '=', $request->id)->get();
-            return response()->json(['status' => 'success', 'spots' => $payment[0]->spots, 'rate' => $payment[0]->rate]);
+            $payment = ScheduledAds::select('spots', 'rate', 'media_house_id')->where('subscription_id', '=', $request->id)->get();
+            return response()->json(['status' => 'success', 'spots' => $payment[0]->spots, 'rate' => $payment[0]->rate, 'media_house_id' => $payment[0]->media_house_id]);
         }
     }
 
@@ -154,8 +157,7 @@ class MakePaymentController extends Controller
     {
 
         $payment_callback = json_decode($request->getContent(), true);
-
-        if ($payment_callback) {
+        if ($payment_callback['InvoiceNo'] && $payment_callback['Status'] == "PAID") {
             $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
                 'transaction_status' => strtolower($payment_callback['Status']),
                 'updated_at' => $payment_callback['Timestamp'],
@@ -165,6 +167,15 @@ class MakePaymentController extends Controller
                 'status' => 'pending',
             ]);
 
+             $trans_info = Transactions::select('amount','phone','transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
+             $user = User::find(auth()->user()->client_id);
+               // send email
+             $this->dispatch(new SendPurchaseReceiptEmailJob($user,$trans_info->amount,$trans_info->transaction_id));
+             //send text
+             $sendText = new SendTextMessage();
+             $sendText->paymentMessage($user->name,$trans_info->amount, $$trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
+
+              
             $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
         }
 

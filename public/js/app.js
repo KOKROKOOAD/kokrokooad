@@ -70385,7 +70385,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       error_msg: "",
       process: false,
       trans_num: ""
-    }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", true), _defineProperty(_ref, "loader", false), _ref;
+    }, _defineProperty(_ref, "process_payment", true), _defineProperty(_ref, "hide_channels", true), _defineProperty(_ref, "loader", false), _defineProperty(_ref, "media_house_id", ""), _ref;
   },
   mounted: function mounted() {
     if (Object.keys(this.checkoutIds).length > 0) {
@@ -70442,7 +70442,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       formData.append("amount", self.amounts);
       formData.append("payby", self.selNetworks);
       formData.append("subscription_id", self.subId);
-
+      formData.append("media_house_id", self.media_house_id);
+      console.log(self.media_house_id);
       axios.post("api-purchasesubs", formData).then(function (res) {
         if (res.data.success === "success") {
           self.process_payment = false;
@@ -70484,7 +70485,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (res.data.status == "success") {
           self.loader = false;
           self.amounts = (parseFloat(res.data.spots) * parseFloat(res.data.rate)).toFixed(2);
-          console.log(self.amounts);
+          self.media_house_id = res.data.media_house_id;
           self.hide_channels = true;
         } else {
           self.$router.push({
@@ -70497,7 +70498,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var self = this;
       axios.get("api-payment/amount", { params: { id: self.checkoutIds } }).then(function (res) {
         if (res.data.status == "success") {
-          console.log(res.data.payment);
           self.loader = false;
           self.amounts = self.total(res.data.payment);
           self.hide_channels = true;
