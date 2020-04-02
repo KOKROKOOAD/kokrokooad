@@ -55,7 +55,8 @@ class MakePaymentController extends Controller
         }
 
 
-        $name = time() . auth()->user()->email;
+        // $name = time() . auth()->user()->email;
+        $name =  auth()->user()->name;
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
         $customer = $name;
