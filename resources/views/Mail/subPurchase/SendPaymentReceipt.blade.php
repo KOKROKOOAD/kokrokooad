@@ -1,32 +1,28 @@
-
+@component('mail::header', ['url' => config('app.url')])
+    {{ config('app.name') }}
+@endcomponent
 @component('mail::message')
-  <h2>Registration Successful</h2>
 
-  <section>
-    <article>
-      <h3>Hello {{ $user->name }},</h3>
-      <p>
-        Congratulations and welcome to Kokrokoo!
-      </p>
-    </article>
-    <article style="font-size:8px !important;">
-      <p>
-        Your  transaction details have been received and will be reviewed for  approval!
-      </p>
-    </article>
-    <article>
-      <p>
-        Find attached to this email is a copy of our Code of Operations and Instruction Manual
-        as a company, which we believe will boost our working relations and tell you everything you need to know about us.
-      </p>
-      <article>
-        <p>
-          We are glad you registered with us and we look forward to bringing you more services in the future.
-        </p>
-      </article>
-    </article>
-  </section>
+    # Transaction Details <br><br>
 
+{{-- <p>Hello <b style="font-weight: bolder;color: #0c0c0c">{{ $user->name }}</b>,</p><br> --}}
+<p>Thank you for choosing {{ config('app.name') }}.Your subscription is created and  transaction was processed successfully.We will send you a confirmation email once your subscription is approved.See transaction details below:</p>
+<section>
+    <article>
+<table align="center">
+    <tr>
+        <td align="center">Ref#</td>
+        <td align="center">Service</td>
+        <td align="center">Amount</td>
+    </tr>
+    <tr>
+        <td align="center">k2345</td>
+        <td align="center">Subscription purchase</td>
+        <td align="center">GHC500</td>
+    </tr>
+</table>
+    </article>
+</section>    <br>
 {{--@component('mail::button', ['url' => ''])--}}
 {{--Button Text--}}
 {{--@endcomponent--}}

@@ -42,7 +42,7 @@ class PaymentSuccess extends Notification
     public function toMail($notifiable)
     {
         // return (new MailMessage)->markdown('Mail.register.success');
-        return (new MailMessage)->subject('welcome to kokrokrooad.com')->markdown('Mail.register.success', ['user' => $this->user]);
+        return (new MailMessage)->subject('welcome to kokrokrooad.com')->markdown('Mail.subPurchase.SendPaymentReceipt', ['user' => $this->user]);
     }
 
     /**

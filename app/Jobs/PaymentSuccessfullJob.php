@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Notifications\PaymentSuccess;
 use App\Notifications\RegsisterSuccess;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -33,6 +34,6 @@ class PaymentSuccessfullJob implements ShouldQueue
      */
     public function handle()
     {
-       Notification::send($this->user, new RegsisterSuccess($this->user));
+        Notification::send($this->user, new PaymentSuccess($this->user));
     }
 }
