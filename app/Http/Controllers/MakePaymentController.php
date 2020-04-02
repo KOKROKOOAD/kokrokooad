@@ -35,9 +35,9 @@ class MakePaymentController extends Controller
         $users = ScheduledAds::find($trans_info->subscription_id);
 
         // send email
-        $this->dispatch(new RegistrationSuccessfullJob($users->user));
+        $email  =  $this->dispatch(new RegistrationSuccessfullJob($users->user));
 
-        die();
+        die($email);
 
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
