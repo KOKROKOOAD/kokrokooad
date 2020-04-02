@@ -124,7 +124,11 @@ Route::prefix('/user-account')->group(function () {
 
     //========================make payment callback route==========================
     //   Route::get('makepayment/callback', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
-    Route::post('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
+    Route::get('payment/update', 'MakePaymentController@makePaymentCallback')->name('payment.callback');
+
+    Route::get('test-page', function () {
+        dd('hello world');
+    })->name('message');
 
 
     //===========================segment routs =====================================
@@ -171,10 +175,6 @@ Route::prefix('/user-account')->group(function () {
         return view('userDashboard.dashboard');
     })->where('any', '.*');
     //======================vue router routes ends here=============================
-
-
-
-
 
 });
 

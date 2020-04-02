@@ -157,39 +157,36 @@ class MakePaymentController extends Controller
 
     public function makePaymentCallback(Request $request)
     {
-        $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id('10033448')->first();
-        $users = ScheduledAds::find($trans_info->subscription_id);
 
-        // send email
-        $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
-        //send text
-        $sendText = new SendTextMessage();
-        $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
-        Log::info('text-message', $text);
-        // $payment_callback = json_decode($request->getContent(), true);
-        // if ($payment_callback['InvoiceNo'] && $payment_callback['Status'] == "PAID") {
-        //     $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
-        //         'transaction_status' => strtolower($payment_callback['Status']),
-        //         'updated_at' => $payment_callback['Timestamp'],
-        //     ]);
+        $payment_callback = json_decode($request->getContent(), true);
+        if ($payment_callback['InvoiceNo'] && $payment_callback['Status'] == "PAID") {
+            $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
+                'transaction_status' => strtolower($payment_callback['Status']),
+                'updated_at' => $payment_callback['Timestamp'],
+            ]);
 
-        //     $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
-        //     $users = ScheduledAds::find($trans_info->subscription_id);
+            $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
+            $users = ScheduledAds::find($trans_info->subscription_id);
 
-        //     $trans = ScheduledAds::whereSubscription_id($trans_info->subscription_id)->update([
-        //         'status' => 'pending',
-        //     ]);
+            $trans = ScheduledAds::whereSubscription_id($trans_info->subscription_id)->update([
+                'status' => 'pending',
+            ]);
 
-        //     // send email
-        //     $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
-        //     //send text
-        //     $sendText = new SendTextMessage();
-        //     $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
+            return redirect()->route('message');
 
-        //     $request->session()->flash('payment-success', 'Hello ,' . $users->user->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
+
+            // send email
+            // $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
+            // //send text
+            // $sendText = new SendTextMessage();
+            // $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
+
+
+
+            //  $request->session()->flash('payment-success', 'Hello ,' . $users->user->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
+        }
+
+
+        // Log::info('checking incoming request', json_decode($request->all(), true));
     }
-
-
-    // Log::info('checking incoming request', json_decode($request->all(), true));
-    // }
 }
