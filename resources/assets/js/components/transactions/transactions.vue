@@ -56,7 +56,7 @@
                             <tbody>
                             <tr v-for="(trans,index) in transactions" :key="index">
                                 <th scope="row">{{index + 1}}.</th>
-                                <td>{{trans.created_at}}</td>
+                                <td>{{trans.updated_at}}</td>
                                 <td>{{trans.transaction_id}}</td>
                                 <td>{{trans.service}}</td>
                                 <td>{{trans.payment_source}}</td>

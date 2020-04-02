@@ -14,9 +14,9 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        $trans = Transactions::select('payment_source', 'phone', 'created_at', 'service', 'transaction_status', 'amount', 'transaction_id')
+        $trans = Transactions::select('payment_source', 'phone', 'updated_at', 'service', 'transaction_status', 'amount', 'transaction_id')
             ->whereTransactionStatus('paid')
-            ->whereClient(auth()->user()->client_id)->get();
+            ->whereClientId(auth()->user()->client_id)->get();
         return response()->json($trans);
     }
 

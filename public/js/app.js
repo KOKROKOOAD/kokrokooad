@@ -85436,7 +85436,7 @@ var render = function() {
                       _vm._v(_vm._s(index + 1) + ".")
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(trans.created_at))]),
+                    _c("td", [_vm._v(_vm._s(trans.updated_at))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(trans.transaction_id))]),
                     _vm._v(" "),
