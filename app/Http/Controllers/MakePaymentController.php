@@ -29,7 +29,7 @@ class MakePaymentController extends Controller
         {
             $this->middleware('auth');
         }
-
+        echo $request->media_house_id;
 
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
