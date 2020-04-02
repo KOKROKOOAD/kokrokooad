@@ -23,11 +23,11 @@ class SendPurchaseReceiptEmailJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($user,$amount,$ref)
+    public function __construct($user)
     {
         $this->user = $user;
-        $this->amount = $amount;
-        $this->ref = $ref;
+       // $this->amount = $amount;
+       // $this->ref = $ref;
 
     }
 
@@ -38,7 +38,7 @@ class SendPurchaseReceiptEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Notification::send($this->user, new SendPurchaseReceiptEmailNotification($this->user,$this->amount,$this->ref));
+        Notification::send($this->user, new SendPurchaseReceiptEmailNotification($this->user));
 
     }
 }
