@@ -106,6 +106,7 @@ class MakePaymentController extends Controller
                     'transaction_id' => $transaction_id,
                     'amount' => $amount,
                     'subscription_id' => $subscription_id,
+                    'media_house_id' => $request->media_house_id,
                     'invoice_id' => $res_obj['InvoiceNo'],
                     'service' => $item_desc,
                     'customer' => $customer,
