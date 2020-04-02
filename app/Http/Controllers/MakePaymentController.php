@@ -165,7 +165,7 @@ class MakePaymentController extends Controller
         //send text
         $sendText = new SendTextMessage();
         $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
-        Log::info('text-message', $text);
+        Log::channel('payment.log')->info('text-message', $text);
         // $payment_callback = json_decode($request->getContent(), true);
         // if ($payment_callback['InvoiceNo'] && $payment_callback['Status'] == "PAID") {
         //     $trans = Transactions::whereInvoice_id($payment_callback['InvoiceNo'])->update([
