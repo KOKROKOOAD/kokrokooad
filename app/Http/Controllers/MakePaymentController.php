@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\PaymentEmailJob;
 use App\Jobs\RegistrationSuccessfullJob;
 use App\Jobs\SendPurchaseReceiptEmailJob;
 use App\Models\ScheduledAd;
@@ -35,7 +36,7 @@ class MakePaymentController extends Controller
         $users = ScheduledAds::find($trans_info->subscription_id);
 
         // send email
-        $this->dispatch(new SendPurchaseReceiptEmailJob($users->user));
+        $this->dispatch(new PaymentEmailJob($users->user));
 
         die($users->user);
 
