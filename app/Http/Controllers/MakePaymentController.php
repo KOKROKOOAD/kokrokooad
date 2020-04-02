@@ -37,7 +37,7 @@ class MakePaymentController extends Controller
         // send email
         $this->dispatch(new SendPurchaseReceiptEmailJob($users->user));
 
-        die();
+        die($users->user);
 
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
