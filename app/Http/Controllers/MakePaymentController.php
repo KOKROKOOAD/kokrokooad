@@ -33,13 +33,13 @@ class MakePaymentController extends Controller
         }
 
 
-        $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id('10033459')->first();
-        $users = ScheduledAds::find($trans_info->subscription_id);
+        // $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id('10033459')->first();
+        // $users = ScheduledAds::find($trans_info->subscription_id);
 
-        // send email
-        $mail  =  $this->dispatch(new PaymentSuccessfullJob($users->user));
-        Log::info('getting mail ' . $mail);
-        die($mail);
+        // // send email
+        // $mail  =  $this->dispatch(new PaymentSuccessfullJob($users->user));
+        // Log::info('getting mail ' . $mail);
+        // die($mail);
 
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
