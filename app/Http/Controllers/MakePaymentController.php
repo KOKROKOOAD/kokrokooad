@@ -101,7 +101,7 @@ class MakePaymentController extends Controller
             if (isset($res_obj['InvoiceNo'])) {
 
                 $transac = Transactions::create([
-                    'phone' => $msisdn,
+                    'phone' => '233' . $msisdn,
                     'payment_source' => $payby,
                     'transaction_id' => $transaction_id,
                     'amount' => $amount,
@@ -122,7 +122,7 @@ class MakePaymentController extends Controller
             if (isset($res_obj['InvoiceNo'])) {
 
                 $transac = Transactions::create([
-                    'phone' => $msisdn,
+                    'phone' => '233' . $msisdn,
                     'payment_source' => $payby,
                     'transaction_id' => $transaction_id,
                     'amount' => $amount,
@@ -175,7 +175,7 @@ class MakePaymentController extends Controller
             $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
             //send text
             $sendText = new SendTextMessage();
-            $sendText->paymentMessage($users->user->name, $trans_info->amount, $$trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
+            $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
 
 
             $request->session()->flash('payment-success', 'Hello ,' . auth()->user()->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
