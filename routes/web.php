@@ -112,7 +112,7 @@ Route::prefix('/user-account')->group(function () {
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
     Route::post('sub-update-api', 'SubController@updateAds');
     Route::post('check-sub/api', 'SubController@checkIfSubExist');
-    Route::get('fetch-transac/api', 'TransactionController@index');
+    Route::get('fetch-transac/api', 'TransactionsController@index');
     Route::post('delete/sub', 'SubController@softDeleteSub');
     Route::get('fetch/sub-details/{id}', 'SubController@getSubSelectedMedia');
     Route::post('subs-update', 'SubController@updateFile');
