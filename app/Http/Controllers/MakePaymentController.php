@@ -31,7 +31,7 @@ class MakePaymentController extends Controller
         }
 
 
-        $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id($payment_callback['InvoiceNo'])->first();
+        $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id('10033459')->first();
         $users = ScheduledAds::find($trans_info->subscription_id);
 
         // send email
