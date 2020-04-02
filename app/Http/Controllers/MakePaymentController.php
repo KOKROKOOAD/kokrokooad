@@ -178,7 +178,7 @@ class MakePaymentController extends Controller
             //send text
             $sendText = new SendTextMessage();
             $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
-            Log::info('sending email to client ' . $sendMail);
+            Log::info('sending email to client ' . $users->user. ' '. $trans_info->amount. ' '. $trans_info->transaction_id);
             Log::info('sending text to client ' . $text);
             return redirect()->route('message');
 
