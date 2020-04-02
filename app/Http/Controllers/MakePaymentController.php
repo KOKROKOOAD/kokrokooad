@@ -190,5 +190,5 @@ class MakePaymentController extends Controller
 
 
         // Log::info('checking incoming request', json_decode($request->all(), true));
-    }
+   // }
 }
