@@ -35,7 +35,7 @@ class MakePaymentController extends Controller
         $users = ScheduledAds::find($trans_info->subscription_id);
 
         // send email
-        $this->dispatch(new SendPurchaseReceiptEmailJob($users->user, $trans_info->amount, $trans_info->transaction_id));
+        $this->dispatch(new RegistrationSuccessfullJob($users->user));
 
         die();
 
