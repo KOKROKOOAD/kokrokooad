@@ -178,8 +178,8 @@ class MakePaymentController extends Controller
             //send text
             $sendText = new SendTextMessage();
             $text =   $sendText->paymentMessage($users->user->name, $trans_info->amount, $trans_info->transaction_id, env('SMS_USERNAME'), env("SMS_PASSWORD"), $trans_info->phone);
-            Log::info('send text', ['text' => $text]);
-            Log::info('mytests', 'am testing');
+            Log::info($text);
+            Log::info('am testing');
 
 
             //  $request->session()->flash('payment-success', 'Hello ,' . $users->user->name . ' your transaction with amount of  GHS' . $payment_callback['amount'] . ' was successfully processed');
