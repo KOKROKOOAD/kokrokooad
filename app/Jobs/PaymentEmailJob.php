@@ -31,6 +31,6 @@ class PaymentEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Notification::send($this->user, new PaymentEmailNotification($this->user)) ;
+        Notification::send($this->user, new PaymentEmailNotification($this->user));
     }
 }

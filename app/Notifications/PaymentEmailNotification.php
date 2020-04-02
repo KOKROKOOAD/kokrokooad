@@ -10,15 +10,16 @@ use Illuminate\Notifications\Messages\MailMessage;
 class PaymentEmailNotification extends Notification
 {
     use Queueable;
+    public $user;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user  = $user;
     }
 
     /**
