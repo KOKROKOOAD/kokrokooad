@@ -25,7 +25,7 @@
     </div>
     <!-- Page-header end -->
 
-    <div class="row">
+    <div class="row" v-show="process">
       <div class="col-md-4"></div>
       <div class="col-md-3">
         <show-processing class="float-right"></show-processing>
@@ -40,10 +40,10 @@
           <div class="row">
             <div class="col-md-5"></div>
             <div class="col-md-">
-              <p class v-show="process">
+              <!-- <p class v-show="process">
                 <img src="/images/loading.gif" style="height: 20px;width: 20px;" />
                 <strong>Loading ratecard. Please wait.....</strong>
-              </p>
+              </p>-->
             </div>
             <div class="col-md-5"></div>
           </div>

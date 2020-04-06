@@ -84250,56 +84250,36 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-4" }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-md-3" },
-          [_c("show-processing", { staticClass: "float-right" })],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-4" })
-      ]),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.process,
+              expression: "process"
+            }
+          ],
+          staticClass: "row"
+        },
+        [
+          _c("div", { staticClass: "col-md-4" }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-3" },
+            [_c("show-processing", { staticClass: "float-right" })],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" })
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "page-body" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("h5", [_vm._v("Segment Calender")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-5" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-" }, [
-                _c(
-                  "p",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.process,
-                        expression: "process"
-                      }
-                    ]
-                  },
-                  [
-                    _c("img", {
-                      staticStyle: { height: "20px", width: "20px" },
-                      attrs: { src: "/images/loading.gif" }
-                    }),
-                    _vm._v(" "),
-                    _c("strong", [_vm._v("Loading ratecard. Please wait.....")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-5" })
-            ]),
-            _vm._v(" "),
-            _vm._m(1)
-          ]),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "card-block" }, [
             _c("div", { staticClass: "row" }, [
@@ -84414,8 +84394,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header-right" }, [
-      _c("ul", { staticClass: "list-unstyled card-option" })
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h5", [_vm._v("Segment Calender")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-5" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-5" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-header-right" }, [
+        _c("ul", { staticClass: "list-unstyled card-option" })
+      ])
     ])
   },
   function() {
