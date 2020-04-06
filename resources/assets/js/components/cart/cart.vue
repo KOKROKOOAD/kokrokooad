@@ -10,7 +10,7 @@
             </div>
           </div>
         </div>
-        <span class="pull-right">
+        <span class="pull-right" v-show="show_cart">
           Items :
           <b class="text-danger">{{ totalItems}}</b>
         </span>
@@ -18,9 +18,17 @@
     </div>
     <!-- Page-header end -->
 
+    <div class="row" v-show="show_process">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+        <show-processing class="float-right"></show-processing>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
     <!-- Page body start -->
     <div class="page-body">
-      <div class="row">
+      <div class="row" v-show="show_cart">
         <div class="col-sm-12">
           <!-- Shopping cart start -->
           <div class="card animated fadeIn">
@@ -138,7 +146,9 @@
                                 >{{sub.start.substr(0,10) + ' - ' + sub.end.substr(0,10)}}</td>
                                 <td class="pro-list-img" tabindex="0">
                                   {{sub.start.substr(11,16) }}
-                                  <span v-show="sub.start.substr(11,16) != ''">-</span>
+                                  <span
+                                    v-show="sub.start.substr(11,16) != ''"
+                                  >-</span>
                                   {{ sub.end.substr(11,16)}}
                                 </td>
                                 <td class="pro-name">
@@ -164,7 +174,9 @@
                                 <td>{{sub.durations}}</td>
 
                                 <td>
-                                  <b class="text-primary">{{'GHS' + (sub.spots * sub.rate).toFixed(2)}}</b>
+                                  <b
+                                    class="text-primary"
+                                  >{{'GHS' + (sub.spots * sub.rate).toFixed(2)}}</b>
                                 </td>
                                 <td class="action-icon text-center">
                                   <router-link
@@ -222,14 +234,16 @@ export default {
     return {
       subs: [],
       media_h: [],
-      process: false,
+      process: true,
       details: false,
       media_ratecard: "",
       totals: [],
       id: [],
       table: false,
       msg: "",
-      total_items: 0
+      total_items: 0,
+      show_cart: false,
+      show_process: true
     };
   },
   mounted() {
@@ -248,6 +262,8 @@ export default {
           self.media_h = res.data.media_house;
           self.process = false;
           self.table = true;
+          self.show_process = false;
+          self.show_cart = true;
         } else {
           self.msg = res.data.status;
         }

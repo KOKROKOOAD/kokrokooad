@@ -86950,7 +86950,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -87177,6 +87177,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -87186,14 +87198,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       subs: [],
       media_h: [],
-      process: false,
+      process: true,
       details: false,
       media_ratecard: "",
       totals: [],
       id: [],
       table: false,
       msg: "",
-      total_items: 0
+      total_items: 0,
+      show_cart: false,
+      show_process: true
     };
   },
   mounted: function mounted() {
@@ -87213,6 +87227,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           self.media_h = res.data.media_house;
           self.process = false;
           self.table = true;
+          self.show_process = false;
+          self.show_cart = true;
         } else {
           self.msg = res.data.status;
         }
@@ -87297,344 +87313,409 @@ var render = function() {
       _c("div", { staticClass: "row align-items-end" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("span", { staticClass: "pull-right" }, [
-          _vm._v("\n        Items :\n        "),
-          _c("b", { staticClass: "text-danger" }, [
-            _vm._v(_vm._s(_vm.totalItems))
-          ])
-        ])
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.show_cart,
+                expression: "show_cart"
+              }
+            ],
+            staticClass: "pull-right"
+          },
+          [
+            _vm._v("\n        Items :\n        "),
+            _c("b", { staticClass: "text-danger" }, [
+              _vm._v(_vm._s(_vm.totalItems))
+            ])
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.show_process,
+            expression: "show_process"
+          }
+        ],
+        staticClass: "row"
+      },
+      [
+        _c("div", { staticClass: "col-md-4" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-3" },
+          [_c("show-processing", { staticClass: "float-right" })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" })
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "page-body" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-12" }, [
-          _c("div", { staticClass: "card animated fadeIn" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-5" }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-md-3" },
-                  [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.show_cart,
+              expression: "show_cart"
+            }
+          ],
+          staticClass: "row"
+        },
+        [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("div", { staticClass: "card animated fadeIn" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-5" }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-md-3" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.msg != "",
+                              expression: "msg != ''"
+                            }
+                          ],
+                          staticClass: "btn btn-danger",
+                          attrs: { to: { name: "selectMedia" }, role: "button" }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-shopping-cart" }),
+                          _vm._v(
+                            "\n                  " +
+                              _vm._s(_vm.msg) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-4" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-block" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
                     _c(
-                      "router-link",
+                      "div",
                       {
                         directives: [
                           {
                             name: "show",
                             rawName: "v-show",
-                            value: _vm.msg != "",
-                            expression: "msg != ''"
+                            value: _vm.table,
+                            expression: "table"
                           }
                         ],
-                        staticClass: "btn btn-danger",
-                        attrs: { to: { name: "selectMedia" }, role: "button" }
+                        attrs: { id: "wizard animated fadeIn" }
                       },
                       [
-                        _c("i", { staticClass: "fa fa-shopping-cart" }),
-                        _vm._v(
-                          "\n                  " +
-                            _vm._s(_vm.msg) +
-                            "\n                "
-                        )
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-4" })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-block" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c(
-                    "div",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.table,
-                          expression: "table"
-                        }
-                      ],
-                      attrs: { id: "wizard animated fadeIn" }
-                    },
-                    [
-                      _c("section", [
-                        _c(
-                          "form",
-                          {
-                            staticClass: "wizard-form",
-                            attrs: { id: "basic-forms", action: "#" }
-                          },
-                          [
-                            _c("fieldset", [
-                              _c(
-                                "table",
-                                {
-                                  staticClass:
-                                    "table table-responsive table-striped dt-responsive nowrap dataTable no-footer dtr-inline cart-page",
-                                  staticStyle: { width: "100%" },
-                                  attrs: { id: "e-product-list", role: "grid" }
-                                },
-                                [
-                                  _vm._m(1),
-                                  _vm._v(" "),
-                                  _c(
-                                    "tbody",
-                                    _vm._l(_vm.subs, function(sub, index) {
-                                      return _c(
-                                        "tr",
-                                        { key: index, staticClass: "odd" },
-                                        [
-                                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            {
-                                              staticStyle: {
-                                                "font-weight": "bolder"
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  sub.start.substr(0, 10) +
-                                                    " - " +
-                                                    sub.end.substr(0, 10)
-                                                )
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            {
-                                              staticClass: "pro-list-img",
-                                              attrs: { tabindex: "0" }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                " +
-                                                  _vm._s(
-                                                    sub.start.substr(11, 16)
-                                                  ) +
-                                                  "\n                                "
-                                              ),
-                                              _c(
-                                                "span",
-                                                {
-                                                  directives: [
-                                                    {
-                                                      name: "show",
-                                                      rawName: "v-show",
-                                                      value:
-                                                        sub.start.substr(
-                                                          11,
-                                                          16
-                                                        ) != "",
-                                                      expression:
-                                                        "sub.start.substr(11,16) != ''"
-                                                    }
-                                                  ]
-                                                },
-                                                [_vm._v("-")]
-                                              ),
-                                              _vm._v(
-                                                "\n                                " +
-                                                  _vm._s(
-                                                    sub.end.substr(11, 16)
-                                                  ) +
-                                                  "\n                              "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            { staticClass: "pro-name" },
-                                            [
-                                              _c("span", [
-                                                _vm._v(_vm._s(sub.title))
-                                              ])
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            { staticClass: "pro-name" },
-                                            [
-                                              _c("span", [
-                                                _vm._v(_vm._s(sub.media_house))
-                                              ])
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            { staticClass: "pro-name" },
-                                            [
-                                              _c("span", [
-                                                _vm._v(
-                                                  _vm._s(sub.rate_card_title)
-                                                )
-                                              ])
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(_vm._s("GHS" + sub.rate))
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _c("input", {
-                                              staticClass: "form-control",
-                                              staticStyle: {
-                                                border: "none",
-                                                background: "transparent"
-                                              },
-                                              attrs: {
-                                                type: "text",
-                                                disabled: "disabled"
-                                              },
-                                              domProps: { value: sub.spots }
-                                            })
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(_vm._s(sub.durations))
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("td", [
+                        _c("section", [
+                          _c(
+                            "form",
+                            {
+                              staticClass: "wizard-form",
+                              attrs: { id: "basic-forms", action: "#" }
+                            },
+                            [
+                              _c("fieldset", [
+                                _c(
+                                  "table",
+                                  {
+                                    staticClass:
+                                      "table table-responsive table-striped dt-responsive nowrap dataTable no-footer dtr-inline cart-page",
+                                    staticStyle: { width: "100%" },
+                                    attrs: {
+                                      id: "e-product-list",
+                                      role: "grid"
+                                    }
+                                  },
+                                  [
+                                    _vm._m(1),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tbody",
+                                      _vm._l(_vm.subs, function(sub, index) {
+                                        return _c(
+                                          "tr",
+                                          { key: index, staticClass: "odd" },
+                                          [
+                                            _c("td", [
+                                              _vm._v(_vm._s(index + 1))
+                                            ]),
+                                            _vm._v(" "),
                                             _c(
-                                              "b",
-                                              { staticClass: "text-primary" },
+                                              "td",
+                                              {
+                                                staticStyle: {
+                                                  "font-weight": "bolder"
+                                                }
+                                              },
                                               [
                                                 _vm._v(
                                                   _vm._s(
-                                                    "GHS" +
-                                                      (
-                                                        sub.spots * sub.rate
-                                                      ).toFixed(2)
+                                                    sub.start.substr(0, 10) +
+                                                      " - " +
+                                                      sub.end.substr(0, 10)
                                                   )
                                                 )
                                               ]
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c(
-                                            "td",
-                                            {
-                                              staticClass:
-                                                "action-icon text-center"
-                                            },
-                                            [
-                                              _c(
-                                                "router-link",
-                                                {
-                                                  staticClass: "text-muted",
-                                                  attrs: {
-                                                    role: "button",
-                                                    to: { name: "payment" },
-                                                    "data-toggle": "tooltip"
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                staticClass: "pro-list-img",
+                                                attrs: { tabindex: "0" }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      sub.start.substr(11, 16)
+                                                    ) +
+                                                    "\n                                "
+                                                ),
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    directives: [
+                                                      {
+                                                        name: "show",
+                                                        rawName: "v-show",
+                                                        value:
+                                                          sub.start.substr(
+                                                            11,
+                                                            16
+                                                          ) != "",
+                                                        expression:
+                                                          "sub.start.substr(11,16) != ''"
+                                                      }
+                                                    ]
                                                   },
-                                                  nativeOn: {
-                                                    click: function($event) {
-                                                      _vm.getSubId(
-                                                        sub.subscription_id
-                                                      )
-                                                    }
-                                                  }
+                                                  [_vm._v("-")]
+                                                ),
+                                                _vm._v(
+                                                  "\n                                " +
+                                                    _vm._s(
+                                                      sub.end.substr(11, 16)
+                                                    ) +
+                                                    "\n                              "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "pro-name" },
+                                              [
+                                                _c("span", [
+                                                  _vm._v(_vm._s(sub.title))
+                                                ])
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "pro-name" },
+                                              [
+                                                _c("span", [
+                                                  _vm._v(
+                                                    _vm._s(sub.media_house)
+                                                  )
+                                                ])
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "pro-name" },
+                                              [
+                                                _c("span", [
+                                                  _vm._v(
+                                                    _vm._s(sub.rate_card_title)
+                                                  )
+                                                ])
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("td", [
+                                              _vm._v(_vm._s("GHS" + sub.rate))
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", [
+                                              _c("input", {
+                                                staticClass: "form-control",
+                                                staticStyle: {
+                                                  border: "none",
+                                                  background: "transparent"
                                                 },
-                                                [
-                                                  _c("i", {
-                                                    staticClass: "fa fa-edit"
-                                                  })
-                                                ]
-                                              ),
-                                              _vm._v(" "),
+                                                attrs: {
+                                                  type: "text",
+                                                  disabled: "disabled"
+                                                },
+                                                domProps: { value: sub.spots }
+                                              })
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", [
+                                              _vm._v(_vm._s(sub.durations))
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("td", [
                                               _c(
-                                                "a",
-                                                {
-                                                  staticClass: "text-danger",
-                                                  attrs: {
-                                                    href: "#!",
-                                                    "data-toggle": "tooltip"
-                                                  }
-                                                },
+                                                "b",
+                                                { staticClass: "text-primary" },
                                                 [
-                                                  _c("i", {
-                                                    staticClass: "fa fa-trash",
-                                                    on: {
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      "GHS" +
+                                                        (
+                                                          sub.spots * sub.rate
+                                                        ).toFixed(2)
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              {
+                                                staticClass:
+                                                  "action-icon text-center"
+                                              },
+                                              [
+                                                _c(
+                                                  "router-link",
+                                                  {
+                                                    staticClass: "text-muted",
+                                                    attrs: {
+                                                      role: "button",
+                                                      to: { name: "payment" },
+                                                      "data-toggle": "tooltip"
+                                                    },
+                                                    nativeOn: {
                                                       click: function($event) {
-                                                        _vm.deleteSub(
+                                                        _vm.getSubId(
                                                           sub.subscription_id
                                                         )
                                                       }
                                                     }
-                                                  })
-                                                ]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      )
-                                    })
-                                  )
-                                ]
+                                                  },
+                                                  [
+                                                    _c("i", {
+                                                      staticClass: "fa fa-edit"
+                                                    })
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass: "text-danger",
+                                                    attrs: {
+                                                      href: "#!",
+                                                      "data-toggle": "tooltip"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("i", {
+                                                      staticClass:
+                                                        "fa fa-trash",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          _vm.deleteSub(
+                                                            sub.subscription_id
+                                                          )
+                                                        }
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c("p", [
+                              _c("strong", [_vm._v("Total:")]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticStyle: {
+                                    "padding-left": "20px",
+                                    color: "rgb(246, 139, 30)",
+                                    "font-weight": "bolder",
+                                    "font-size": "20px"
+                                  }
+                                },
+                                [_vm._v("GHS" + _vm._s(" " + _vm.total()))]
                               )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", [
-                          _c("p", [
-                            _c("strong", [_vm._v("Total:")]),
+                            ]),
                             _vm._v(" "),
                             _c(
-                              "span",
+                              "button",
                               {
-                                staticStyle: {
-                                  "padding-left": "20px",
-                                  color: "rgb(246, 139, 30)",
-                                  "font-weight": "bolder",
-                                  "font-size": "20px"
+                                staticClass: "btn btn-danger",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.getSubsIds(_vm.subs)
+                                  }
                                 }
                               },
-                              [_vm._v("GHS" + _vm._s(" " + _vm.total()))]
+                              [_vm._v("Checkout")]
                             )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-danger",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  _vm.getSubsIds(_vm.subs)
-                                }
-                              }
-                            },
-                            [_vm._v("Checkout")]
-                          )
+                          ])
                         ])
-                      ])
-                    ]
-                  )
+                      ]
+                    )
+                  ])
                 ])
               ])
             ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
   ])
 }
@@ -119225,11 +119306,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -119251,1348 +119327,1245 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "page-wrapper" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "page-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.cart,
+                  expression: "cart"
+                }
+              ],
+              staticClass: "card"
+            },
+            [_vm._m(1), _vm._v(" "), _vm._m(2)]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _c("div", { staticClass: "md-overlay" })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page-wrapper" }, [
-      _c("div", { staticClass: "page-header" }, [
-        _c("div", { staticClass: "row align-items-end" }, [
-          _c("div", { staticClass: "col-lg-8" }, [
-            _c("div", { staticClass: "page-header-title" }, [
-              _c("div", { staticClass: "d-inline" }, [
-                _c("h4", [_vm._v("Product List")]),
-                _vm._v(" "),
-                _c("span", [
-                  _vm._v(
-                    "lorem ipsum dolor sit amet, consectetur adipisicing elit"
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("div", { staticClass: "page-header-breadcrumb" }, [
-              _c("ul", { staticClass: "breadcrumb-title" }, [
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "index.html" } }, [
-                    _c("i", { staticClass: "feather icon-home" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#!" } }, [_vm._v("E-Commerce")])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#!" } }, [_vm._v("Product List")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "page-body" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c("h5", [_vm._v("Product List")]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger",
-                    attrs: { type: "button", "data-modal": "modal-13" }
-                  },
-                  [
-                    _c("i", { staticClass: "icofont icofont-plus m-r-5" }),
-                    _vm._v(" Add Product\n                            ")
-                  ]
-                )
-              ]),
+    return _c("div", { staticClass: "page-header" }, [
+      _c("div", { staticClass: "row align-items-end" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("div", { staticClass: "page-header-title" }, [
+            _c("div", { staticClass: "d-inline" }, [
+              _c("h4", [_vm._v("Product List")]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-block" }, [
-                _c("div", { staticClass: "table-responsive" }, [
-                  _c("div", { staticClass: "table-content" }, [
-                    _c("div", { staticClass: "project-table" }, [
-                      _c(
-                        "table",
-                        {
-                          staticClass:
-                            "table table-striped dt-responsive nowrap",
-                          attrs: { id: "e-product-list" }
-                        },
-                        [
-                          _c("thead", [
-                            _c("tr", [
-                              _c("th", [_vm._v("Image")]),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Product Name")]),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Amount")]),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Stock")]),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Action")])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("tbody", [
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l1.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v("Frock Designs")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$456")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-danger" }, [
-                                  _vm._v("Out Of Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l6.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" Style Tops ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$689")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l2.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" Kurta Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$755")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-warning" }, [
-                                  _vm._v("Low Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l3.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$989")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l4.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" Black Frock For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$1150")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l5.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$2006")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-danger" }, [
-                                  _vm._v("Out Of Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l7.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" Digital Print Top ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "sum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$1199")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l8.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" One Piece Dress")]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "text-muted f-12" }, [
-                                  _vm._v(
-                                    "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$589")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-warning" }, [
-                                  _vm._v("Low Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l9.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" kurat style Dress ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "sum dolor sit consec te imperdiet iaculis ipsum.."
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$1255")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-danger" }, [
-                                  _vm._v("Out Of Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l8.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$499")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l7.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$259")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l6.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$456")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l5.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$456")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l4.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$456")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l2.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$456")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
-                              _c("td", { staticClass: "pro-list-img" }, [
-                                _c("img", {
-                                  staticClass: "img-fluid",
-                                  attrs: {
-                                    src:
-                                      "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l1.png",
-                                    alt: "tbl"
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "pro-name" }, [
-                                _c("h6", [_vm._v(" T Shirts For Women ")]),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(
-                                    "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v("$456")]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("label", { staticClass: "text-success" }, [
-                                  _vm._v("In Stock")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "action-icon" }, [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "m-r-15 text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Edit"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-ui-edit"
-                                    })
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "text-muted",
-                                    attrs: {
-                                      href: "#!",
-                                      "data-toggle": "tooltip",
-                                      "data-placement": "top",
-                                      title: "",
-                                      "data-original-title": "Delete"
-                                    }
-                                  },
-                                  [
-                                    _c("i", {
-                                      staticClass: "icofont icofont-delete-alt"
-                                    })
-                                  ]
-                                )
-                              ])
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ])
-                ])
+              _c("span", [
+                _vm._v(
+                  "lorem ipsum dolor sit amet, consectetur adipisicing elit"
+                )
               ])
             ])
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "md-modal md-effect-13 addcontact",
-            attrs: { id: "modal-13" }
-          },
-          [
-            _c("div", { staticClass: "md-content" }, [
-              _c("h3", { staticClass: "f-26" }, [_vm._v("Add Product")]),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "input-group" }, [
-                  _c("input", {
-                    staticClass: "form-control pname",
-                    attrs: { type: "text", placeholder: "Prodcut Name" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    { staticClass: "input-group-addon btn btn-primary" },
-                    [_vm._v("Chooese File")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c("span", { staticClass: "input-group-addon" }, [
-                    _c("i", { staticClass: "icofont icofont-user" })
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control pname",
-                    attrs: { type: "text", placeholder: "Prodcut Name" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c("span", { staticClass: "input-group-addon" }, [
-                    _c("i", { staticClass: "icofont icofont-user" })
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control pamount",
-                    attrs: { type: "text", placeholder: "Amount" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c(
-                    "select",
-                    {
-                      staticClass: "form-control stock",
-                      attrs: { id: "hello-single" }
-                    },
-                    [
-                      _c("option", { attrs: { value: "" } }, [
-                        _vm._v("---- Select Stock ----")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "married" } }, [
-                        _vm._v("In Stock")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "unmarried" } }, [
-                        _vm._v("Out of Stock")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "unmarried" } }, [
-                        _vm._v("Law Stock")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Save")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Close")]
-                  )
+        _c("div", { staticClass: "col-lg-4" }, [
+          _c("div", { staticClass: "page-header-breadcrumb" }, [
+            _c("ul", { staticClass: "breadcrumb-title" }, [
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "index.html" } }, [
+                  _c("i", { staticClass: "feather icon-home" })
                 ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "#!" } }, [_vm._v("E-Commerce")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "breadcrumb-item" }, [
+                _c("a", { attrs: { href: "#!" } }, [_vm._v("Product List")])
               ])
             ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "md-overlay" })
+          ])
+        ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h5", [_vm._v("Product List")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger",
+          attrs: { type: "button", "data-modal": "modal-13" }
+        },
+        [
+          _c("i", { staticClass: "icofont icofont-plus m-r-5" }),
+          _vm._v(" Add Product\n                            ")
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-block" }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("div", { staticClass: "table-content" }, [
+          _c("div", { staticClass: "project-table" }, [
+            _c(
+              "table",
+              {
+                staticClass: "table table-striped dt-responsive nowrap",
+                attrs: { id: "e-product-list" }
+              },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", [_vm._v("Image")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Product Name")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Amount")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Stock")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Action")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l1.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v("Frock Designs")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$456")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-danger" }, [
+                        _vm._v("Out Of Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l6.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" Style Tops ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$689")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l2.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" Kurta Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$755")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-warning" }, [
+                        _vm._v("Low Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l3.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$989")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l4.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" Black Frock For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$1150")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l5.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$2006")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-danger" }, [
+                        _vm._v("Out Of Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l7.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" Digital Print Top ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "sum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$1199")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l8.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" One Piece Dress")]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-muted f-12" }, [
+                        _vm._v(
+                          "Lorem ipsum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$589")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-warning" }, [
+                        _vm._v("Low Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l9.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" kurat style Dress ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "sum dolor sit consec te imperdiet iaculis ipsum.."
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$1255")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-danger" }, [
+                        _vm._v("Out Of Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l8.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$499")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l7.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$259")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l6.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$456")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l5.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$456")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l4.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$456")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l2.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$456")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("td", { staticClass: "pro-list-img" }, [
+                      _c("img", {
+                        staticClass: "img-fluid",
+                        attrs: {
+                          src:
+                            "https://colorlib.com//polygon/adminty/files/assets/images/product-list/pro-l1.png",
+                          alt: "tbl"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "pro-name" }, [
+                      _c("h6", [_vm._v(" T Shirts For Women ")]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("$456")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("label", { staticClass: "text-success" }, [
+                        _vm._v("In Stock")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "action-icon" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-r-15 text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Edit"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-ui-edit" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "text-muted",
+                          attrs: {
+                            href: "#!",
+                            "data-toggle": "tooltip",
+                            "data-placement": "top",
+                            title: "",
+                            "data-original-title": "Delete"
+                          }
+                        },
+                        [_c("i", { staticClass: "icofont icofont-delete-alt" })]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "md-modal md-effect-13 addcontact",
+        attrs: { id: "modal-13" }
+      },
+      [
+        _c("div", { staticClass: "md-content" }, [
+          _c("h3", { staticClass: "f-26" }, [_vm._v("Add Product")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("div", { staticClass: "input-group" }, [
+              _c("input", {
+                staticClass: "form-control pname",
+                attrs: { type: "text", placeholder: "Prodcut Name" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "input-group-addon btn btn-primary" }, [
+                _vm._v("Chooese File")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group" }, [
+              _c("span", { staticClass: "input-group-addon" }, [
+                _c("i", { staticClass: "icofont icofont-user" })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control pname",
+                attrs: { type: "text", placeholder: "Prodcut Name" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group" }, [
+              _c("span", { staticClass: "input-group-addon" }, [
+                _c("i", { staticClass: "icofont icofont-user" })
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control pamount",
+                attrs: { type: "text", placeholder: "Amount" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group" }, [
+              _c(
+                "select",
+                {
+                  staticClass: "form-control stock",
+                  attrs: { id: "hello-single" }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("---- Select Stock ----")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "married" } }, [
+                    _vm._v("In Stock")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "unmarried" } }, [
+                    _vm._v("Out of Stock")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "unmarried" } }, [
+                    _vm._v("Law Stock")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "btn btn-primary waves-effect m-r-20 f-w-600 d-inline-block save_btn",
+                  attrs: { type: "button" }
+                },
+                [_vm._v("Save")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "btn btn-primary waves-effect m-r-20 f-w-600 md-close d-inline-block close_btn",
+                  attrs: { type: "button" }
+                },
+                [_vm._v("Close")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true

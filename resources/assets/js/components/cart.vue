@@ -33,7 +33,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <!-- Product list card start -->
-                                                <div class="card">
+                                                <div class="card" v-show="cart">
                                                     <div class="card-header">
                                                         <h5>Product List</h5>
                                                         <button type="button" class="btn btn-primary waves-effect waves-light f-right d-inline-block md-trigger" data-modal="modal-13"> <i class="icofont icofont-plus m-r-5"></i> Add Product
@@ -374,12 +374,7 @@
                                     </div>
                                     <!-- Page body end -->
                                 </div>
-                            </div>
-                           
-                    
-                
-            
-        
+                        
 </template>
 
 <script>
