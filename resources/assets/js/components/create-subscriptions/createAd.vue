@@ -19,21 +19,19 @@
     </div>
     <!-- Page-header end -->
 
-    <div v-show="process" class="default-grid row"></div>
+    <div class="row" v-show="process">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+        <show-processing class="float-right"></show-processing>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
 
     <!-- Page body start -->
     <div class="page-body" v-show="view">
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-3">
-          <show-processing v-show="process" class="float-right"></show-processing>
-        </div>
-        <div class="col-md-4"></div>
-      </div>
-      <div class="row">
         <div class="col-sm-12">
           <!-- Default select start -->
-
           <div class="card">
             <div class="card-block animated fadeIn">
               <div class="row">

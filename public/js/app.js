@@ -66354,7 +66354,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -66399,8 +66399,6 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
-//
-//
 //
 //
 //
@@ -67593,17 +67591,32 @@ var render = function() {
   return _c("div", { staticClass: "page-wrapper" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.process,
-          expression: "process"
-        }
-      ],
-      staticClass: "default-grid row"
-    }),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.process,
+            expression: "process"
+          }
+        ],
+        staticClass: "row"
+      },
+      [
+        _c("div", { staticClass: "col-md-4" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-3" },
+          [_c("show-processing", { staticClass: "float-right" })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" })
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -67619,31 +67632,6 @@ var render = function() {
         staticClass: "page-body"
       },
       [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-4" }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-md-3" },
-            [
-              _c("show-processing", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.process,
-                    expression: "process"
-                  }
-                ],
-                staticClass: "float-right"
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" })
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-sm-12" }, [
             _c("div", { staticClass: "card" }, [
