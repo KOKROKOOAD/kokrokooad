@@ -84250,32 +84250,18 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.show_process,
-              expression: "show_process"
-            }
-          ],
-          staticClass: "row"
-        },
-        [
-          _c("div", { staticClass: "col-md-4" }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-md-3" },
-            [_c("show-processing", { staticClass: "float-right" })],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4" })
-        ]
-      ),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-4" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-3" },
+          [_c("show-processing", { staticClass: "float-right" })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" })
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "page-body" }, [
         _c("div", { staticClass: "card" }, [

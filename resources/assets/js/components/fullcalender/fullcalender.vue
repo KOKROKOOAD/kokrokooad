@@ -25,7 +25,7 @@
     </div>
     <!-- Page-header end -->
 
-    <div class="row" v-show="show_process">
+    <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-3">
         <show-processing class="float-right"></show-processing>
