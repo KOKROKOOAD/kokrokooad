@@ -72580,7 +72580,7 @@ var render = function() {
                 expression: "show_calendar"
               }
             ],
-            staticClass: "card"
+            staticClass: "card animated fadeIn"
           },
           [
             _c("div", { staticClass: "card-header" }, [

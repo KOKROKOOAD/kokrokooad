@@ -36,7 +36,7 @@
     </div>
 
     <div class="page-body">
-      <div class="card" v-show="show_calendar">
+      <div class="card animated fadeIn" v-show="show_calendar">
         <div class="card-header">
           <h5>
             Segment Calender
