@@ -1,7 +1,7 @@
 <template>
-    <div   class="card" style="position : absolute;z-index: 99;top:25em;left:460px;padding-left:5px;padding-right:5px;background:transparent">
+    <!-- <div   class="card" style="position : absolute;z-index: 99;top:25em;left:460px;padding-left:5px;padding-right:5px;background:transparent"> -->
         <span style="font-size:16px;"><img src="/images/loading.gif" style="height: 20px;width: 20px;"><strong style="font-weight:900"> Processing please wait.....</strong></span>
-    </div>
+    <!-- </div> -->
 
 </template>
 

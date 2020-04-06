@@ -40601,7 +40601,7 @@ Vue.component('invoice', __webpack_require__(368));
 Vue.component('del-selected-media-house', __webpack_require__(371));
 Vue.component('ad-summary', __webpack_require__(162));
 Vue.component('payment-type', __webpack_require__(19));
-Vue.component('show-processing', __webpack_require__(18));
+//Vue.component('show-processing', require('./components/payment/showProcess'));
 Vue.component('show-processing', __webpack_require__(18));
 Vue.component('file-upload', __webpack_require__(159));
 Vue.component('select-rate-card', __webpack_require__(161));
@@ -66354,7 +66354,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -66450,49 +66450,73 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "createAd",
-    data: function data() {
-        return {
-            createAd: {
-                medias: ''
-            },
-            mediaTypes: [],
-            process: true,
-            view: false
-        };
-    },
-    mounted: function mounted() {
-        this.fetchMediaTypes();
-    },
+  name: "createAd",
+  data: function data() {
+    return {
+      createAd: {
+        medias: ""
+      },
+      mediaTypes: [],
+      process: true,
+      view: false
+    };
+  },
+  mounted: function mounted() {
+    this.fetchMediaTypes();
+  },
 
-    methods: {
-        fetchMediaTypes: function fetchMediaTypes(index) {
-            var self = this;
-            axios.get('fetch-media-types-api').then(function (res) {
-                self.process = false;
-                self.view = true;
-                self.mediaTypes = res.data;
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelectedMedia', '');
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getFIleDuration', '');
-            }).catch(function (error) {});
-        },
-        getSelectedMedia: function getSelectedMedia() {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelectedMedia', this.createAd.medias);
-        }
+  methods: {
+    fetchMediaTypes: function fetchMediaTypes(index) {
+      var self = this;
+      axios.get("fetch-media-types-api").then(function (res) {
+        self.process = false;
+        self.view = true;
+        self.mediaTypes = res.data;
+        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelectedMedia", "");
+        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getFIleDuration", "");
+      }).catch(function (error) {});
     },
-    computed: {
-        getSelectMedia: function getSelectMedia() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
-        },
-        showMedia: function showMedia() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.showMediaForm;
-        }
+    getSelectedMedia: function getSelectedMedia() {
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelectedMedia", this.createAd.medias);
     }
-
+  },
+  computed: {
+    getSelectMedia: function getSelectMedia() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
+    },
+    showMedia: function showMedia() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.showMediaForm;
+    }
+  }
 });
 
 /***/ }),
@@ -67569,22 +67593,17 @@ var render = function() {
   return _c("div", { staticClass: "page-wrapper" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.process,
-            expression: "process"
-          }
-        ],
-        staticClass: "default-grid row"
-      },
-      [_c("show-processing")],
-      1
-    ),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.process,
+          expression: "process"
+        }
+      ],
+      staticClass: "default-grid row"
+    }),
     _vm._v(" "),
     _c(
       "div",
@@ -67601,6 +67620,31 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-4" }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-3" },
+            [
+              _c("show-processing", {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.process,
+                    expression: "process"
+                  }
+                ],
+                staticClass: "float-right"
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-sm-12" }, [
             _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-block animated fadeIn" }, [
@@ -67610,7 +67654,7 @@ var render = function() {
                     { staticClass: "col-md-12 col-sm-12 col-xl-12 m-b-30" },
                     [
                       _c("h4", { staticClass: "sub-title" }, [
-                        _vm._v(" Select media type")
+                        _vm._v("Select media type")
                       ]),
                       _vm._v(" "),
                       _c(
@@ -67724,9 +67768,11 @@ var staticRenderFns = [
               _c("h4", [_vm._v("Media selection form")]),
               _vm._v(" "),
               _c("span", [
-                _vm._v("What type of ad do you want to "),
+                _vm._v(
+                  "\n              What type of ad do you want to\n              "
+                ),
                 _c("code", [_vm._v("Publish")]),
-                _vm._v(", Select a media to get started.")
+                _vm._v(", Select a media to get started.\n            ")
               ])
             ])
           ])
@@ -68438,32 +68484,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "card",
-        staticStyle: {
-          position: "absolute",
-          "z-index": "99",
-          top: "25em",
-          left: "460px",
-          "padding-left": "5px",
-          "padding-right": "5px",
-          background: "transparent"
-        }
-      },
-      [
-        _c("span", { staticStyle: { "font-size": "16px" } }, [
-          _c("img", {
-            staticStyle: { height: "20px", width: "20px" },
-            attrs: { src: "/images/loading.gif" }
-          }),
-          _c("strong", { staticStyle: { "font-weight": "900" } }, [
-            _vm._v(" Processing please wait.....")
-          ])
-        ])
-      ]
-    )
+    return _c("span", { staticStyle: { "font-size": "16px" } }, [
+      _c("img", {
+        staticStyle: { height: "20px", width: "20px" },
+        attrs: { src: "/images/loading.gif" }
+      }),
+      _c("strong", { staticStyle: { "font-weight": "900" } }, [
+        _vm._v(" Processing please wait.....")
+      ])
+    ])
   }
 ]
 render._withStripped = true
