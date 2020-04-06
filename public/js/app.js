@@ -72552,7 +72552,7 @@ var render = function() {
               expression: "show_process"
             }
           ],
-          staticClass: "row"
+          staticClass: "row animated fadeIn"
         },
         [
           _c("div", { staticClass: "col-md-4" }),
