@@ -24,6 +24,15 @@
       </div>
     </div>
     <!-- Page-header end -->
+
+    <div class="row" v-show="show_process">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+        <show-processing class="float-right"></show-processing>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
     <div class="page-body">
       <div class="card">
         <div class="card-header">
