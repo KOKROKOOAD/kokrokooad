@@ -45,7 +45,10 @@
     <link rel="stylesheet" type="text/css"
           href="https://colorlib.com//polygon/adminty/files/assets/pages/pnotify/notify.css">
 
-
+ <!-- Switch component css -->
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/switchery/css/switchery.min.css">
+    <!-- Tags css -->
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap-tagsinput/css/bootstrap-tagsinput.css" />
     <!-- Style.css -->
     {{--<link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/style.css">--}}
     <link rel="stylesheet" type="text/css"
@@ -427,6 +430,11 @@
 
     {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/custom-picker.js"></script>--}}
     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/full-calender/calendar.js"></script>--}}
+      <!-- Switch component js -->
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/switchery/js/switchery.min.js"></script>
+    <!-- Tags js -->
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
 
     <script src="https://colorlib.com//polygon/adminty/files/assets/js/pcoded.min.js"></script>
     <script src="https://colorlib.com//polygon/adminty/files/assets/js/vartical-layout.min.js"></script>

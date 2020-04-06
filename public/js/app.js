@@ -68333,7 +68333,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -68344,9 +68343,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   name: "displayMediaHouseImags",
   mounted: function mounted() {
-    if (this.getSelectMedia == '') {
+    if (this.getSelectMedia == "") {
       this.$router.push({
-        name: 'selectMedia'
+        name: "selectMedia"
       });
     } else {
       this.fetchMediaHouse();
@@ -68363,9 +68362,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       mediaHouseId: null,
       loading: false,
       logo_path: "/thumbnails/",
-      live_assets_path: 'http://uploads.kokrokooad.com/mediaHouseLogos/',
+      live_assets_path: "http://uploads.kokrokooad.com/mediaHouseLogos/",
 
-      no_media: ''
+      no_media: ""
     };
   },
 
@@ -68380,7 +68379,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getProcessing", true);
 
       axios.get("media-houses-api/" + self.getSelectMedia).then(function (res) {
-
         if (res && res !== "") {
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getMediaHouses", res.data);
           // store.dispatch('getSelMediaType',self.getSelectMedia);
@@ -68589,7 +68587,7 @@ var render = function() {
                               _c("img", {
                                 staticClass: "img-fluid",
                                 attrs: {
-                                  src: [_vm.live_assets_path + logos.logo],
+                                  src: [_vm.logo_path + logos.logo],
                                   width: "600",
                                   height: "515"
                                 },
@@ -68718,10 +68716,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _vm._v(
-        "\n                Which media house do you want to\n                "
+        "\n              Which media house do you want to\n              "
       ),
       _c("code", [_vm._v("Publish to")]),
-      _vm._v(", Select and click a media house to continue.\n              ")
+      _vm._v(", Select and click a media house to continue.\n            ")
     ])
   },
   function() {
@@ -73953,213 +73951,1035 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['saveSegment', 'startDate', 'endDate', 'media_id', 'segments_data', 'card_title', 'segment', 'segments', 'weekendSegments', 'days', 'wsegments', 'spot_check'],
-    name: 'selectSegments',
+  props: ["saveSegment", "startDate", "endDate", "media_id", "segments_data", "card_title", "segment", "segments", "weekendSegments", "days", "wsegments", "spot_check"],
+  name: "selectSegments",
 
-    mounted: function mounted() {
-        // this.eventTime();
-        // this.validateRateCardSelection(this.seg_data);
-        setInterval(function () {
-            this.data = true;
-        }, 2000);
+  mounted: function mounted() {
+    // this.eventTime();
+    // this.validateRateCardSelection(this.seg_data);
+    setInterval(function () {
+      this.data = true;
+    }, 2000);
 
-        if (this.segment_data != '') {
-            this.data = false;
-        }
-    },
-    created: function created() {},
-    data: function data() {
-        return {
-            invoice: [],
-            segment_date: '/user-account/create-sub-date',
-            selSegment_url: '/user-account/select-segment',
-
-            // segments_data : [],
-            // segments_headings : {"sec1": 15, "sec2": 20, "sec3": 25, "sec4": 30, "sec5": null},
-            //  spots_available : 10,
-            selSegment: '',
-            selMedia: '',
-            seg_data: [],
-            spots: [],
-            print_segments: [{}],
-            title: '',
-            rate: '',
-            // day: 'Monday',
-            // invoice : 'invoice',
-            start: '',
-            end: '',
-            event_time: false,
-            startDates: [],
-            endDates: [],
-            days_of_week: true,
-            schedule: false,
-            weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            weekends: ['Saturday', 'Sunday'],
-            show_ratecard: false,
-            data: false,
-            //   su : [1,2,3,4],
-            //   ba : 0,
-            segment_exist: false,
-            booked: 'Booked',
-            addSegment: true,
-            reset_disabled: null,
-            reset_button_index: []
-
-        };
-    },
-
-    methods: {
-        submit: function submit(title) {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', title);
-            this.eventTime();
-
-            $('#radio_tv').modal('hide');
-            $('#print').modal('hide');
-        },
-        eventTime: function eventTime() {
-
-            var data = this.seg_data.filter(function (el) {
-                return el === 0 || Boolean(el);
-            });
-
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSubData', data);
-        },
-        spot_avail: function spot_avail(spot) {
-            var s = parseInt(spot);
-            var results = [];
-            for (var i = 1; i < s + 1; i++) {
-                results.push(i);
-            }
-            return results;
-        },
-        checkIfSegmentExist: function checkIfSegmentExist(segment, spots) {
-            var z = 0;
-            var n = 0;
-            this.spot_check.forEach(function (item, index) {
-                if (segment == item.segments) {
-                    z = item.spots_used;
-                    n = segment[index];
-                }
-            });
-            if (n == 0 || n > 0) {
-                var spots_left = parseInt(spots) - parseInt(z);
-                this.segment_exist = true;
-
-                return parseInt(spots_left);
-            }
-        },
-        removeSegment: function removeSegment(addSegment) {
-            var _this = this;
-
-            this.seg_data = this.seg_data.filter(function (name) {
-                return name !== _this.addSegment;
-            });
-            console.log(name);
-        },
-        save: function save() {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', this.title);
-            $('#radio_tv').modal('hide');
-        },
-        validateRateCardSelection: function validateRateCardSelection(segment) {
-            // alert(segment.length > 0);
-
-            return segment.length > 0;
-        },
-        checkDays: function checkDays(days) {
-            for (var i = 0; i < days.length; i++) {
-                if (days[i] == this.segmentDay) {
-                    return true;
-                }
-            }
-        },
-        onChange: function onChange(event) {
-            var optionText = event.target.value;
-            console.log(optionText);
-        },
-        resetSegment: function resetSegment(arr, ind) {
-            // $("input[type=radio]").prop('checked', false);
-            console.log('before filter ' + this.seg_data);
-            this.seg_data = this.seg_data.filter(function (item, index, arr_items) {
-                return index !== ind;
-            });
-            console.log('after filter ' + ' ' + ind + this.seg_data);
-        },
-        enableResetButton: function enableResetButton(index) {
-            this.reset_button_index.push(index);
-            for (var i = 0; i < this.reset_button_index.length; i++) {
-                if (this.reset_button_index[i] === index) {
-                    return this.reset_disabled = index;
-                }
-            }
-        }
-    },
-    resetButtonDisabled: function resetButtonDisabled() {},
-
-
-    computed: {
-        notification: function notification() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkAvailableDate;
-        },
-        segmentDay: function segmentDay() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
-        },
-        getMediaHouse: function getMediaHouse() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedMediaHouse;
-        },
-        getRateCardTitle: function getRateCardTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
-        },
-        segData: function segData() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentsData;
-        },
-        getProcessStatus: function getProcessStatus() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
-        },
-        segDate: function segDate() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDate;
-        },
-        selSegments: function selSegments() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedSegment;
-        },
-        segTitle: function segTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
-        },
-        startTimes: function startTimes() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.startTime;
-        },
-        endTimes: function endTimes() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.endTime;
-        },
-        getTitle: function getTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
-        },
-        fileName: function fileName() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileName;
-        },
-        fileSize: function fileSize() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileSize;
-        },
-        startDat: function startDat() {
-            return this.startDate;
-        },
-        schedAdsData: function schedAdsData() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
-        },
-        mediaId: function mediaId() {
-            return this.media_id;
-        },
-        segmentData: function segmentData() {
-            return [this.days];
-        },
-        getFileDurations: function getFileDurations() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.fileDuration;
-        }
+    if (this.segment_data != "") {
+      this.data = false;
     }
+  },
+  created: function created() {},
+  data: function data() {
+    return {
+      invoice: [],
+      segment_date: "/user-account/create-sub-date",
+      selSegment_url: "/user-account/select-segment",
 
+      // segments_data : [],
+      // segments_headings : {"sec1": 15, "sec2": 20, "sec3": 25, "sec4": 30, "sec5": null},
+      //  spots_available : 10,
+      selSegment: "",
+      selMedia: "",
+      seg_data: [],
+      spots: [],
+      print_segments: [{}],
+      title: "",
+      rate: "",
+      // day: 'Monday',
+      // invoice : 'invoice',
+      start: "",
+      end: "",
+      event_time: false,
+      startDates: [],
+      endDates: [],
+      days_of_week: true,
+      schedule: false,
+      weekdays: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      weekends: ["Saturday", "Sunday"],
+      show_ratecard: false,
+      data: false,
+      //   su : [1,2,3,4],
+      //   ba : 0,
+      segment_exist: false,
+      booked: "Booked",
+      addSegment: true,
+      reset_disabled: null,
+      reset_button_index: []
+    };
+  },
+
+  methods: {
+    submit: function submit(title) {
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSegmentTitle", title);
+      this.eventTime();
+
+      $("#radio_tv").modal("hide");
+      $("#print").modal("hide");
+    },
+    eventTime: function eventTime() {
+      var data = this.seg_data.filter(function (el) {
+        return el === 0 || Boolean(el);
+      });
+
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubData", data);
+    },
+    spot_avail: function spot_avail(spot) {
+      var s = parseInt(spot);
+      var results = [];
+      for (var i = 1; i < s + 1; i++) {
+        results.push(i);
+      }
+      return results;
+    },
+    checkIfSegmentExist: function checkIfSegmentExist(segment, spots) {
+      var z = 0;
+      var n = 0;
+      this.spot_check.forEach(function (item, index) {
+        if (segment == item.segments) {
+          z = item.spots_used;
+          n = segment[index];
+        }
+      });
+      if (n == 0 || n > 0) {
+        var spots_left = parseInt(spots) - parseInt(z);
+        this.segment_exist = true;
+
+        return parseInt(spots_left);
+      }
+    },
+    removeSegment: function removeSegment(addSegment) {
+      var _this = this;
+
+      this.seg_data = this.seg_data.filter(function (name) {
+        return name !== _this.addSegment;
+      });
+      console.log(name);
+    },
+    save: function save() {
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSegmentTitle", this.title);
+      $("#radio_tv").modal("hide");
+    },
+    validateRateCardSelection: function validateRateCardSelection(segment) {
+      // alert(segment.length > 0);
+
+      return segment.length > 0;
+    },
+    checkDays: function checkDays(days) {
+      for (var i = 0; i < days.length; i++) {
+        if (days[i] == this.segmentDay) {
+          return true;
+        }
+      }
+    },
+    onChange: function onChange(event) {
+      var optionText = event.target.value;
+      console.log(optionText);
+    },
+    resetSegment: function resetSegment(arr, ind) {
+      // $("input[type=radio]").prop('checked', false);
+      console.log("before filter " + this.seg_data);
+      this.seg_data = this.seg_data.filter(function (item, index, arr_items) {
+        return index !== ind;
+      });
+      console.log("after filter " + " " + ind + this.seg_data);
+    },
+    enableResetButton: function enableResetButton(index) {
+      this.reset_button_index.push(index);
+      for (var i = 0; i < this.reset_button_index.length; i++) {
+        if (this.reset_button_index[i] === index) {
+          return this.reset_disabled = index;
+        }
+      }
+    }
+  },
+  resetButtonDisabled: function resetButtonDisabled() {},
+
+
+  computed: {
+    notification: function notification() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.checkAvailableDate;
+    },
+    segmentDay: function segmentDay() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
+    },
+    getMediaHouse: function getMediaHouse() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedMediaHouse;
+    },
+    getRateCardTitle: function getRateCardTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
+    },
+    segData: function segData() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentsData;
+    },
+    getProcessStatus: function getProcessStatus() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.processing;
+    },
+    segDate: function segDate() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDate;
+    },
+    selSegments: function selSegments() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.selectedSegment;
+    },
+    segTitle: function segTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+    },
+    startTimes: function startTimes() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.startTime;
+    },
+    endTimes: function endTimes() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.endTime;
+    },
+    getTitle: function getTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
+    },
+    fileName: function fileName() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileName;
+    },
+    fileSize: function fileSize() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.fileSize;
+    },
+    startDat: function startDat() {
+      return this.startDate;
+    },
+    schedAdsData: function schedAdsData() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
+    },
+    mediaId: function mediaId() {
+      return this.media_id;
+    },
+    segmentData: function segmentData() {
+      return [this.days];
+    },
+    getFileDurations: function getFileDurations() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.fileDuration;
+    }
+  }
 });
 
 /***/ }),
@@ -74188,12 +75008,17 @@ var render = function() {
                 _c("b", { staticClass: "text-danger" }, [
                   _vm._v(_vm._s(_vm.getMediaHouse))
                 ]),
-                _vm._v("- " + _vm._s(_vm.card_title) + " rate card")
+                _vm._v("\n          -\n          "),
+                _c("span", [_vm._v(_vm._s(_vm.card_title) + " rate card")])
               ]),
               _vm._v(" "),
               _c("h4", { staticClass: "pull-right text-dark" }, [
                 _c("small", { staticClass: "text-mute" }, [
-                  _vm._v(_vm._s(_vm.startDate + " " + _vm.segmentDay) + " "),
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.startDate + " " + _vm.segmentDay) +
+                      "\n            "
+                  ),
                   _c(
                     "b",
                     {
@@ -74208,7 +75033,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        " | " +
+                        "| " +
                           _vm._s(
                             "File duration : " +
                               _vm.getFileDurations +
@@ -74540,10 +75365,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    " " +
-                                      _vm._s(
-                                        _vm.segment.sec1 + _vm.segment.time1
-                                      )
+                                    _vm._s(_vm.segment.sec1 + _vm.segment.time1)
                                   )
                                 ]
                               )
@@ -74683,10 +75505,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "  " +
-                                      _vm._s(
-                                        _vm.segment.sec1 + _vm.segment.time1
-                                      )
+                                    _vm._s(_vm.segment.sec1 + _vm.segment.time1)
                                   )
                                 ]
                               )
@@ -74826,10 +75645,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "  " +
-                                      _vm._s(
-                                        _vm.segment.sec1 + _vm.segment.time1
-                                      )
+                                    _vm._s(_vm.segment.sec1 + _vm.segment.time1)
                                   )
                                 ]
                               )
@@ -74969,10 +75785,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "  " +
-                                      _vm._s(
-                                        _vm.segment.sec1 + _vm.segment.time1
-                                      )
+                                    _vm._s(_vm.segment.sec1 + _vm.segment.time1)
                                   )
                                 ]
                               )
@@ -75266,13 +76079,7 @@ var render = function() {
                                 }
                               ]
                             },
-                            [
-                              _vm._v(
-                                "\n                                  " +
-                                  _vm._s(seg.mon_spots) +
-                                  "\n                                "
-                              )
-                            ]
+                            [_vm._v(_vm._s(seg.mon_spots))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -75290,13 +76097,7 @@ var render = function() {
                                 }
                               ]
                             },
-                            [
-                              _vm._v(
-                                "\n                                    " +
-                                  _vm._s(seg.tue_spots) +
-                                  "\n                                "
-                              )
-                            ]
+                            [_vm._v(_vm._s(seg.tue_spots))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -75314,13 +76115,7 @@ var render = function() {
                                 }
                               ]
                             },
-                            [
-                              _vm._v(
-                                "\n                                    " +
-                                  _vm._s(seg.wed_spots) +
-                                  "\n                                "
-                              )
-                            ]
+                            [_vm._v(_vm._s(seg.wed_spots))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -75338,13 +76133,7 @@ var render = function() {
                                 }
                               ]
                             },
-                            [
-                              _vm._v(
-                                "\n                                    " +
-                                  _vm._s(seg.thu_spots) +
-                                  "\n                                "
-                              )
-                            ]
+                            [_vm._v(_vm._s(seg.thu_spots))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -75362,13 +76151,7 @@ var render = function() {
                                 }
                               ]
                             },
-                            [
-                              _vm._v(
-                                "\n                                    " +
-                                  _vm._s(seg.fri_spots) +
-                                  "\n                                "
-                              )
-                            ]
+                            [_vm._v(_vm._s(seg.fri_spots))]
                           ),
                           _vm._v(" "),
                           _c(
@@ -75441,6 +76224,8 @@ var render = function() {
                                         "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                                     }
                                   ],
+                                  staticClass: "form-control",
+                                  staticStyle: { width: "100px" },
                                   attrs: { name: "select" },
                                   on: {
                                     change: function($event) {
@@ -75466,8 +76251,6 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("option", [_vm._v("--choose--")]),
-                                  _vm._v(" "),
                                   _vm._l(
                                     _vm.checkIfSegmentExist(
                                       seg.mon_duration +
@@ -75479,12 +76262,13 @@ var render = function() {
                                         seg.mon_d_duration,
                                       seg.mon_spots
                                     ),
-                                    function(s) {
+                                    function(s, opt1) {
                                       return _vm.segment_exist
                                         ? _c(
                                             "option",
                                             {
-                                              attrs: { name: "seB" + index },
+                                              key: opt1,
+                                              attrs: { name: "seB" + opt1 },
                                               domProps: { value: s }
                                             },
                                             [_vm._v(_vm._s(s))]
@@ -75495,7 +76279,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _vm._l(
                                     _vm.spot_avail(seg.mon_spots),
-                                    function(s) {
+                                    function(s, opt2) {
                                       return _c(
                                         "option",
                                         {
@@ -75508,6 +76292,7 @@ var render = function() {
                                                 "segment_exist == false"
                                             }
                                           ],
+                                          key: opt2,
                                           attrs: { name: "seB" + index },
                                           domProps: { value: s }
                                         },
@@ -75591,6 +76376,8 @@ var render = function() {
                                         "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                                     }
                                   ],
+                                  staticClass: "form-control",
+                                  staticStyle: { width: "100px" },
                                   attrs: { name: "select" },
                                   on: {
                                     change: function($event) {
@@ -75616,8 +76403,6 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("option", [_vm._v("--choose--")]),
-                                  _vm._v(" "),
                                   _vm._l(
                                     _vm.checkIfSegmentExist(
                                       seg.tue_duration +
@@ -75629,12 +76414,13 @@ var render = function() {
                                         seg.tue_d_duration,
                                       seg.tue_spots
                                     ),
-                                    function(s) {
+                                    function(s, opt3) {
                                       return _vm.segment_exist
                                         ? _c(
                                             "option",
                                             {
-                                              attrs: { name: "seB" + index },
+                                              key: opt3,
+                                              attrs: { name: "seB" + opt3 },
                                               domProps: { value: s }
                                             },
                                             [_vm._v(_vm._s(s))]
@@ -75645,7 +76431,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _vm._l(
                                     _vm.spot_avail(seg.tue_spots),
-                                    function(s) {
+                                    function(s, opt4) {
                                       return _c(
                                         "option",
                                         {
@@ -75658,7 +76444,8 @@ var render = function() {
                                                 "segment_exist == false"
                                             }
                                           ],
-                                          attrs: { name: "seB" + index },
+                                          key: opt4,
+                                          attrs: { name: "seB" + opt4 },
                                           domProps: { value: s }
                                         },
                                         [_vm._v(_vm._s(s))]
@@ -75741,6 +76528,8 @@ var render = function() {
                                         "checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
                                     }
                                   ],
+                                  staticClass: "form-control",
+                                  staticStyle: { width: "100px" },
                                   attrs: { name: "select" },
                                   on: {
                                     change: function($event) {
@@ -75766,8 +76555,6 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("option", [_vm._v("--choose--")]),
-                                  _vm._v(" "),
                                   _vm._l(
                                     _vm.checkIfSegmentExist(
                                       seg.wed_duration +
@@ -75779,11 +76566,12 @@ var render = function() {
                                         seg.wed_d_duration,
                                       seg.wed_spots
                                     ),
-                                    function(s) {
+                                    function(s, opt6) {
                                       return _vm.segment_exist
                                         ? _c(
                                             "option",
                                             {
+                                              key: opt6,
                                               attrs: { name: "seB" + index },
                                               domProps: { value: s }
                                             },
@@ -75891,6 +76679,8 @@ var render = function() {
                                         "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                                     }
                                   ],
+                                  staticClass: "form-control",
+                                  staticStyle: { width: "100px" },
                                   attrs: { name: "select" },
                                   on: {
                                     change: function($event) {
@@ -75916,8 +76706,6 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("option", [_vm._v("--choose--")]),
-                                  _vm._v(" "),
                                   _vm._l(
                                     _vm.checkIfSegmentExist(
                                       seg.thu_duration +
@@ -75929,12 +76717,13 @@ var render = function() {
                                         seg.thu_d_duration,
                                       seg.thu_spots
                                     ),
-                                    function(s) {
+                                    function(s, opt4) {
                                       return _vm.segment_exist
                                         ? _c(
                                             "option",
                                             {
-                                              attrs: { name: "seB" + index },
+                                              key: opt4,
+                                              attrs: { name: "seB" + opt4 },
                                               domProps: { value: s }
                                             },
                                             [_vm._v(_vm._s(s))]
@@ -75945,7 +76734,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _vm._l(
                                     _vm.spot_avail(seg.thu_spots),
-                                    function(s) {
+                                    function(s, opt4) {
                                       return _c(
                                         "option",
                                         {
@@ -75958,7 +76747,8 @@ var render = function() {
                                                 "segment_exist == false"
                                             }
                                           ],
-                                          attrs: { name: "seB" + index },
+                                          key: opt4,
+                                          attrs: { name: "seB" + opt4 },
                                           domProps: { value: s }
                                         },
                                         [_vm._v(_vm._s(s))]
@@ -76041,6 +76831,8 @@ var render = function() {
                                         "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                                     }
                                   ],
+                                  staticClass: "form-control",
+                                  staticStyle: { width: "100px" },
                                   attrs: { name: "select" },
                                   on: {
                                     change: function($event) {
@@ -76066,8 +76858,6 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("option", [_vm._v("--choose--")]),
-                                  _vm._v(" "),
                                   _vm._l(
                                     _vm.checkIfSegmentExist(
                                       seg.wed_duration +
@@ -76079,12 +76869,13 @@ var render = function() {
                                         seg.wed_d_duration,
                                       seg.wed_spots
                                     ),
-                                    function(s) {
+                                    function(s, opt5) {
                                       return _vm.segment_exist
                                         ? _c(
                                             "option",
                                             {
-                                              attrs: { name: "seB" + index },
+                                              key: opt5,
+                                              attrs: { name: "seB" + opt5 },
                                               domProps: { value: s }
                                             },
                                             [_vm._v(_vm._s(s))]
@@ -76095,7 +76886,7 @@ var render = function() {
                                   _vm._v(" "),
                                   _vm._l(
                                     _vm.spot_avail(seg.fri_spots),
-                                    function(s) {
+                                    function(s, opt5) {
                                       return _c(
                                         "option",
                                         {
@@ -76108,7 +76899,8 @@ var render = function() {
                                                 "segment_exist == false"
                                             }
                                           ],
-                                          attrs: { name: "seB" + index },
+                                          key: opt5,
+                                          attrs: { name: "seB" + opt5 },
                                           domProps: { value: s }
                                         },
                                         [_vm._v(_vm._s(s))]
@@ -76142,121 +76934,141 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.mon_duration +
-                                              ":" +
-                                              seg.mon_b_duration +
-                                              "-" +
-                                              seg.mon_c_duration +
-                                              ":" +
-                                              seg.mon_d_duration,
-                                            seg.mon_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      checked: _vm.reset_disabled == true,
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.mon_duration +
-                                            ":" +
-                                            seg.mon_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.mon_c_duration +
-                                            ":" +
-                                            seg.mon_d_duration,
-                                          endTime: seg.mon_b_duration,
-                                          durations:
-                                            _vm.segment.sec1 +
-                                            _vm.segment.time1,
-                                          rate: seg.sec1_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration +
-                                          "-" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        seg.mon_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec1_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.mon_duration +
+                                                      ":" +
+                                                      seg.mon_b_duration +
+                                                      "-" +
+                                                      seg.mon_c_duration +
+                                                      ":" +
+                                                      seg.mon_d_duration,
+                                                    seg.mon_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              checked:
+                                                _vm.reset_disabled == true,
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.mon_duration +
+                                                  ":" +
+                                                  seg.mon_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.mon_c_duration +
+                                                  ":" +
+                                                  seg.mon_d_duration,
+                                                endTime: seg.mon_b_duration,
+                                                durations:
+                                                  _vm.segment.sec1 +
+                                                  _vm.segment.time1,
+                                                rate: seg.sec1_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration +
+                                                    "-" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  seg.mon_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec1_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -76282,121 +77094,141 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.mon_duration +
-                                              ":" +
-                                              seg.mon_b_duration +
-                                              "-" +
-                                              seg.mon_c_duration +
-                                              ":" +
-                                              seg.mon_d_duration,
-                                            seg.mon_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      checked: _vm.reset_disabled == true,
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.mon_duration +
-                                            ":" +
-                                            seg.mon_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.mon_c_duration +
-                                            ":" +
-                                            seg.mon_d_duration,
-                                          endTime: seg.mon_b_duration,
-                                          durations:
-                                            _vm.segment.sec2 +
-                                            _vm.segment.time2,
-                                          rate: seg.sec2_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration +
-                                          "-" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        seg.mon_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec2_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.mon_duration +
+                                                      ":" +
+                                                      seg.mon_b_duration +
+                                                      "-" +
+                                                      seg.mon_c_duration +
+                                                      ":" +
+                                                      seg.mon_d_duration,
+                                                    seg.mon_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              checked:
+                                                _vm.reset_disabled == true,
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.mon_duration +
+                                                  ":" +
+                                                  seg.mon_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.mon_c_duration +
+                                                  ":" +
+                                                  seg.mon_d_duration,
+                                                endTime: seg.mon_b_duration,
+                                                durations:
+                                                  _vm.segment.sec2 +
+                                                  _vm.segment.time2,
+                                                rate: seg.sec2_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration +
+                                                    "-" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  seg.mon_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec2_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -76422,121 +77254,141 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.mon_duration +
-                                              ":" +
-                                              seg.mon_b_duration +
-                                              "-" +
-                                              seg.mon_c_duration +
-                                              ":" +
-                                              seg.mon_d_duration,
-                                            seg.mon_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      checked: _vm.reset_disabled == true,
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.mon_duration +
-                                            ":" +
-                                            seg.mon_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.mon_c_duration +
-                                            ":" +
-                                            seg.mon_d_duration,
-                                          endTime: seg.mon_b_duration,
-                                          durations:
-                                            _vm.segment.sec3 +
-                                            _vm.segment.time3,
-                                          rate: seg.sec3_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration +
-                                          "-" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        seg.mon_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec3_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.mon_duration +
+                                                      ":" +
+                                                      seg.mon_b_duration +
+                                                      "-" +
+                                                      seg.mon_c_duration +
+                                                      ":" +
+                                                      seg.mon_d_duration,
+                                                    seg.mon_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              checked:
+                                                _vm.reset_disabled == true,
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.mon_duration +
+                                                  ":" +
+                                                  seg.mon_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.mon_c_duration +
+                                                  ":" +
+                                                  seg.mon_d_duration,
+                                                endTime: seg.mon_b_duration,
+                                                durations:
+                                                  _vm.segment.sec3 +
+                                                  _vm.segment.time3,
+                                                rate: seg.sec3_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration +
+                                                    "-" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  seg.mon_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec3_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -76562,121 +77414,141 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.mon_duration +
-                                              ":" +
-                                              seg.mon_b_duration +
-                                              "-" +
-                                              seg.mon_c_duration +
-                                              ":" +
-                                              seg.mon_d_duration,
-                                            seg.mon_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      checked: _vm.reset_disabled == true,
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.mon_duration +
-                                            ":" +
-                                            seg.mon_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.mon_c_duration +
-                                            ":" +
-                                            seg.mon_d_duration,
-                                          endTime: seg.mon_b_duration,
-                                          durations:
-                                            _vm.segment.sec4 +
-                                            _vm.segment.time4,
-                                          rate: seg.sec4_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration +
-                                          "-" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        seg.mon_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec4_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.mon_duration +
+                                                      ":" +
+                                                      seg.mon_b_duration +
+                                                      "-" +
+                                                      seg.mon_c_duration +
+                                                      ":" +
+                                                      seg.mon_d_duration,
+                                                    seg.mon_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              checked:
+                                                _vm.reset_disabled == true,
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.mon_duration +
+                                                  ":" +
+                                                  seg.mon_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.mon_c_duration +
+                                                  ":" +
+                                                  seg.mon_d_duration,
+                                                endTime: seg.mon_b_duration,
+                                                durations:
+                                                  _vm.segment.sec4 +
+                                                  _vm.segment.time4,
+                                                rate: seg.sec4_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration +
+                                                    "-" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  seg.mon_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec4_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -76702,121 +77574,141 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.mon_duration +
-                                              ":" +
-                                              seg.mon_b_duration +
-                                              "-" +
-                                              seg.mon_c_duration +
-                                              ":" +
-                                              seg.mon_d_duration,
-                                            seg.mon_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      checked: _vm.reset_disabled == true,
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        endTime: seg.mon_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.mon_duration +
-                                            ":" +
-                                            seg.mon_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.mon_c_duration +
-                                            ":" +
-                                            seg.mon_d_duration,
-                                          endTime: seg.mon_b_duration,
-                                          durations:
-                                            _vm.segment.sec5 +
-                                            _vm.segment.time5,
-                                          rate: seg.sec5_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.mon_b_duration +
-                                          "-" +
-                                          seg.mon_c_duration +
-                                          ":" +
-                                          seg.mon_d_duration,
-                                        seg.mon_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec5_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.mon_duration +
+                                                      ":" +
+                                                      seg.mon_b_duration +
+                                                      "-" +
+                                                      seg.mon_c_duration +
+                                                      ":" +
+                                                      seg.mon_d_duration,
+                                                    seg.mon_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              checked:
+                                                _vm.reset_disabled == true,
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.mon_duration +
+                                                  ":" +
+                                                  seg.mon_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.mon_c_duration +
+                                                  ":" +
+                                                  seg.mon_d_duration,
+                                                endTime: seg.mon_b_duration,
+                                                durations:
+                                                  _vm.segment.sec5 +
+                                                  _vm.segment.time5,
+                                                rate: seg.sec5_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  endTime: seg.mon_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.mon_b_duration +
+                                                    "-" +
+                                                    seg.mon_c_duration +
+                                                    ":" +
+                                                    seg.mon_d_duration,
+                                                  seg.mon_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec5_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -76842,123 +77734,142 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.tue_duration +
-                                              ":" +
-                                              seg.tue_b_duration +
-                                              "-" +
-                                              seg.tue_c_duration +
-                                              ":" +
-                                              seg.tue_d_duration,
-                                            seg.tue_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.enableResetButton(index)
-                                      },
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.tue_duration +
-                                            ":" +
-                                            seg.tue_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.tue_c_duration +
-                                            ":" +
-                                            seg.tue_d_duration,
-                                          endTime: seg.tue_b_duration,
-                                          durations:
-                                            _vm.segment.sec1 +
-                                            _vm.segment.time1,
-                                          rate: seg.sec1_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration +
-                                          "-" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        seg.tue_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec1_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.tue_duration +
+                                                      ":" +
+                                                      seg.tue_b_duration +
+                                                      "-" +
+                                                      seg.tue_c_duration +
+                                                      ":" +
+                                                      seg.tue_d_duration,
+                                                    seg.tue_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.tue_duration +
+                                                  ":" +
+                                                  seg.tue_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.tue_c_duration +
+                                                  ":" +
+                                                  seg.tue_d_duration,
+                                                endTime: seg.tue_b_duration,
+                                                durations:
+                                                  _vm.segment.sec1 +
+                                                  _vm.segment.time1,
+                                                rate: seg.sec1_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.enableResetButton(index)
+                                              },
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration +
+                                                    "-" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  seg.tue_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec1_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -76984,123 +77895,142 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.tue_duration +
-                                              ":" +
-                                              seg.tue_b_duration +
-                                              "-" +
-                                              seg.tue_c_duration +
-                                              ":" +
-                                              seg.tue_d_duration,
-                                            seg.tue_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.enableResetButton(index)
-                                      },
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.tue_duration +
-                                            ":" +
-                                            seg.tue_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.tue_c_duration +
-                                            ":" +
-                                            seg.tue_d_duration,
-                                          endTime: seg.tue_b_duration,
-                                          durations:
-                                            _vm.segment.sec2 +
-                                            _vm.segment.time2,
-                                          rate: seg.sec2_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration +
-                                          "-" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        seg.tue_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec2_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.tue_duration +
+                                                      ":" +
+                                                      seg.tue_b_duration +
+                                                      "-" +
+                                                      seg.tue_c_duration +
+                                                      ":" +
+                                                      seg.tue_d_duration,
+                                                    seg.tue_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.tue_duration +
+                                                  ":" +
+                                                  seg.tue_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.tue_c_duration +
+                                                  ":" +
+                                                  seg.tue_d_duration,
+                                                endTime: seg.tue_b_duration,
+                                                durations:
+                                                  _vm.segment.sec2 +
+                                                  _vm.segment.time2,
+                                                rate: seg.sec2_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.enableResetButton(index)
+                                              },
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration +
+                                                    "-" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  seg.tue_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec2_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -77126,123 +78056,142 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.tue_duration +
-                                              ":" +
-                                              seg.tue_b_duration +
-                                              "-" +
-                                              seg.tue_c_duration +
-                                              ":" +
-                                              seg.tue_d_duration,
-                                            seg.tue_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.enableResetButton(index)
-                                      },
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.tue_duration +
-                                            ":" +
-                                            seg.tue_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.tue_c_duration +
-                                            ":" +
-                                            seg.tue_d_duration,
-                                          endTime: seg.tue_b_duration,
-                                          durations:
-                                            _vm.segment.sec3 +
-                                            _vm.segment.time3,
-                                          rate: seg.sec3_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration +
-                                          "-" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        seg.tue_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec3_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.tue_duration +
+                                                      ":" +
+                                                      seg.tue_b_duration +
+                                                      "-" +
+                                                      seg.tue_c_duration +
+                                                      ":" +
+                                                      seg.tue_d_duration,
+                                                    seg.tue_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.tue_duration +
+                                                  ":" +
+                                                  seg.tue_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.tue_c_duration +
+                                                  ":" +
+                                                  seg.tue_d_duration,
+                                                endTime: seg.tue_b_duration,
+                                                durations:
+                                                  _vm.segment.sec3 +
+                                                  _vm.segment.time3,
+                                                rate: seg.sec3_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.enableResetButton(index)
+                                              },
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration +
+                                                    "-" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  seg.tue_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec3_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -77268,123 +78217,142 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.tue_duration +
-                                              ":" +
-                                              seg.tue_b_duration +
-                                              "-" +
-                                              seg.tue_c_duration +
-                                              ":" +
-                                              seg.tue_d_duration,
-                                            seg.tue_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.enableResetButton(index)
-                                      },
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.tue_duration +
-                                            ":" +
-                                            seg.tue_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.tue_c_duration +
-                                            ":" +
-                                            seg.tue_d_duration,
-                                          endTime: seg.tue_b_duration,
-                                          durations:
-                                            _vm.segment.sec4 +
-                                            _vm.segment.time4,
-                                          rate: seg.sec4_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration +
-                                          "-" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        seg.tue_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec4_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.tue_duration +
+                                                      ":" +
+                                                      seg.tue_b_duration +
+                                                      "-" +
+                                                      seg.tue_c_duration +
+                                                      ":" +
+                                                      seg.tue_d_duration,
+                                                    seg.tue_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.tue_duration +
+                                                  ":" +
+                                                  seg.tue_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.tue_c_duration +
+                                                  ":" +
+                                                  seg.tue_d_duration,
+                                                endTime: seg.tue_b_duration,
+                                                durations:
+                                                  _vm.segment.sec4 +
+                                                  _vm.segment.time4,
+                                                rate: seg.sec4_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.enableResetButton(index)
+                                              },
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration +
+                                                    "-" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  seg.tue_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec4_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -77410,123 +78378,142 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.tue_duration +
-                                              ":" +
-                                              seg.tue_b_duration +
-                                              "-" +
-                                              seg.tue_c_duration +
-                                              ":" +
-                                              seg.tue_d_duration,
-                                            seg.tue_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seB" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        endTime: seg.tue_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.enableResetButton(index)
-                                      },
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.tue_duration +
-                                            ":" +
-                                            seg.tue_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.tue_c_duration +
-                                            ":" +
-                                            seg.tue_d_duration,
-                                          endTime: seg.tue_b_duration,
-                                          durations:
-                                            _vm.segment.sec5 +
-                                            _vm.segment.time5,
-                                          rate: seg.sec5_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.tue_duration +
-                                          ":" +
-                                          seg.tue_b_duration +
-                                          "-" +
-                                          seg.tue_c_duration +
-                                          ":" +
-                                          seg.tue_d_duration,
-                                        seg.tue_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec5_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.tue_duration +
+                                                      ":" +
+                                                      seg.tue_b_duration +
+                                                      "-" +
+                                                      seg.tue_c_duration +
+                                                      ":" +
+                                                      seg.tue_d_duration,
+                                                    seg.tue_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seB" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.tue_duration +
+                                                  ":" +
+                                                  seg.tue_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.tue_c_duration +
+                                                  ":" +
+                                                  seg.tue_d_duration,
+                                                endTime: seg.tue_b_duration,
+                                                durations:
+                                                  _vm.segment.sec5 +
+                                                  _vm.segment.time5,
+                                                rate: seg.sec5_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.enableResetButton(index)
+                                              },
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  endTime: seg.tue_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.tue_duration +
+                                                    ":" +
+                                                    seg.tue_b_duration +
+                                                    "-" +
+                                                    seg.tue_c_duration +
+                                                    ":" +
+                                                    seg.tue_d_duration,
+                                                  seg.tue_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec5_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -77552,120 +78539,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.wed_duration +
-                                              ":" +
-                                              seg.tue_b_duration +
-                                              "-" +
-                                              seg.wed_c_duration +
-                                              ":" +
-                                              seg.wed_d_duration,
-                                            seg.wed_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.wed_duration + ':' + seg.tue_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seC" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.wed_duration +
-                                            ":" +
-                                            seg.wed_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.wed_c_duration +
-                                            ":" +
-                                            seg.wed_d_duration,
-                                          endTime: seg.wed_b_duration,
-                                          durations:
-                                            _vm.segment.sec1 +
-                                            _vm.segment.time1,
-                                          rate: seg.sec1_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.wed_b_duration +
-                                          "-" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        seg.wed_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec1_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.wed_duration +
+                                                      ":" +
+                                                      seg.tue_b_duration +
+                                                      "-" +
+                                                      seg.wed_c_duration +
+                                                      ":" +
+                                                      seg.wed_d_duration,
+                                                    seg.wed_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.wed_duration + ':' + seg.tue_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seC" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.wed_duration +
+                                                  ":" +
+                                                  seg.wed_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.wed_c_duration +
+                                                  ":" +
+                                                  seg.wed_d_duration,
+                                                endTime: seg.wed_b_duration,
+                                                durations:
+                                                  _vm.segment.sec1 +
+                                                  _vm.segment.time1,
+                                                rate: seg.sec1_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration +
+                                                    "-" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  seg.wed_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec1_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -77789,21 +78795,25 @@ var render = function() {
                                       }
                                     }
                                   }),
+                                  _vm._v(" "),
+                                  _c("i", { staticClass: "helper" }),
                                   _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.wed_b_duration +
-                                          "-" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        seg.wed_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec2_rate
-                                    )
+                                    "\n                  " +
+                                      _vm._s(
+                                        _vm.checkIfSegmentExist(
+                                          seg.mon_duration +
+                                            ":" +
+                                            seg.wed_b_duration +
+                                            "-" +
+                                            seg.wed_c_duration +
+                                            ":" +
+                                            seg.wed_d_duration,
+                                          seg.wed_spots
+                                        ) === 0
+                                          ? "Booked"
+                                          : "GHS" + seg.sec2_rate
+                                      ) +
+                                      "\n                "
                                   )
                                 ]
                               )
@@ -77830,120 +78840,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.wed_duration +
-                                              ":" +
-                                              seg.wed_b_duration +
-                                              "-" +
-                                              seg.wed_c_duration +
-                                              ":" +
-                                              seg.wed_d_duration,
-                                            seg.wed_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seC" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.wed_duration +
-                                            ":" +
-                                            seg.wed_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.wed_c_duration +
-                                            ":" +
-                                            seg.wed_d_duration,
-                                          endTime: seg.wed_b_duration,
-                                          durations:
-                                            _vm.segment.sec3 +
-                                            _vm.segment.time3,
-                                          rate: seg.sec3_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.wed_b_duration +
-                                          "-" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        seg.wed_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec3_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.wed_duration +
+                                                      ":" +
+                                                      seg.wed_b_duration +
+                                                      "-" +
+                                                      seg.wed_c_duration +
+                                                      ":" +
+                                                      seg.wed_d_duration,
+                                                    seg.wed_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seC" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.wed_duration +
+                                                  ":" +
+                                                  seg.wed_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.wed_c_duration +
+                                                  ":" +
+                                                  seg.wed_d_duration,
+                                                endTime: seg.wed_b_duration,
+                                                durations:
+                                                  _vm.segment.sec3 +
+                                                  _vm.segment.time3,
+                                                rate: seg.sec3_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration +
+                                                    "-" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  seg.wed_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec3_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -77969,120 +78998,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.wed_duration +
-                                              ":" +
-                                              seg.wed_b_duration +
-                                              "-" +
-                                              seg.wed_c_duration +
-                                              ":" +
-                                              seg.wed_d_duration,
-                                            seg.wed_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seC" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.wed_duration +
-                                            ":" +
-                                            seg.wed_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.wed_c_duration +
-                                            ":" +
-                                            seg.wed_d_duration,
-                                          endTime: seg.wed_b_duration,
-                                          durations:
-                                            _vm.segment.sec4 +
-                                            _vm.segment.time4,
-                                          rate: seg.sec4_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.wed_b_duration +
-                                          "-" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        seg.wed_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec4_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.wed_duration +
+                                                      ":" +
+                                                      seg.wed_b_duration +
+                                                      "-" +
+                                                      seg.wed_c_duration +
+                                                      ":" +
+                                                      seg.wed_d_duration,
+                                                    seg.wed_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seC" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.wed_duration +
+                                                  ":" +
+                                                  seg.wed_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.wed_c_duration +
+                                                  ":" +
+                                                  seg.wed_d_duration,
+                                                endTime: seg.wed_b_duration,
+                                                durations:
+                                                  _vm.segment.sec4 +
+                                                  _vm.segment.time4,
+                                                rate: seg.sec4_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration +
+                                                    "-" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  seg.wed_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec4_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78108,120 +79156,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.tue_duration +
-                                              ":" +
-                                              seg.wed_b_duration +
-                                              "-" +
-                                              seg.wed_c_duration +
-                                              ":" +
-                                              seg.wed_d_duration,
-                                            seg.wed_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.tue_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seC" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.wed_duration +
-                                          ":" +
-                                          seg.wed_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        endTime: seg.wed_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.wed_duration +
-                                            ":" +
-                                            seg.wed_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.wed_c_duration +
-                                            ":" +
-                                            seg.wed_d_duration,
-                                          endTime: seg.wed_b_duration,
-                                          durations:
-                                            _vm.segment.sec5 +
-                                            _vm.segment.time5,
-                                          rate: seg.sec5_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.mon_duration +
-                                          ":" +
-                                          seg.wed_b_duration +
-                                          "-" +
-                                          seg.wed_c_duration +
-                                          ":" +
-                                          seg.wed_d_duration,
-                                        seg.wed_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec5_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.tue_duration +
+                                                      ":" +
+                                                      seg.wed_b_duration +
+                                                      "-" +
+                                                      seg.wed_c_duration +
+                                                      ":" +
+                                                      seg.wed_d_duration,
+                                                    seg.wed_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.tue_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seC" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.wed_duration +
+                                                  ":" +
+                                                  seg.wed_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.wed_c_duration +
+                                                  ":" +
+                                                  seg.wed_d_duration,
+                                                endTime: seg.wed_b_duration,
+                                                durations:
+                                                  _vm.segment.sec5 +
+                                                  _vm.segment.time5,
+                                                rate: seg.sec5_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.wed_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  endTime: seg.wed_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.mon_duration +
+                                                    ":" +
+                                                    seg.wed_b_duration +
+                                                    "-" +
+                                                    seg.wed_c_duration +
+                                                    ":" +
+                                                    seg.wed_d_duration,
+                                                  seg.wed_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec5_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78247,120 +79314,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.thu_duration +
-                                              ":" +
-                                              seg.thu_b_duration +
-                                              "-" +
-                                              seg.thu_c_duration +
-                                              ":" +
-                                              seg.thu_d_duration,
-                                            seg.thu_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seD" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.thu_duration +
-                                            ":" +
-                                            seg.thu_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.thu_c_duration +
-                                            ":" +
-                                            seg.thu_d_duration,
-                                          endTime: seg.thu_b_duration,
-                                          durations:
-                                            _vm.segment.sec1 +
-                                            _vm.segment.time1,
-                                          rate: seg.sec1_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration +
-                                          "-" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        seg.thu_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec1_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.thu_duration +
+                                                      ":" +
+                                                      seg.thu_b_duration +
+                                                      "-" +
+                                                      seg.thu_c_duration +
+                                                      ":" +
+                                                      seg.thu_d_duration,
+                                                    seg.thu_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seD" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.thu_duration +
+                                                  ":" +
+                                                  seg.thu_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.thu_c_duration +
+                                                  ":" +
+                                                  seg.thu_d_duration,
+                                                endTime: seg.thu_b_duration,
+                                                durations:
+                                                  _vm.segment.sec1 +
+                                                  _vm.segment.time1,
+                                                rate: seg.sec1_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration +
+                                                    "-" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  seg.thu_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec1_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78386,120 +79472,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.thu_duration +
-                                              ":" +
-                                              seg.thu_b_duration +
-                                              "-" +
-                                              seg.thu_c_duration +
-                                              ":" +
-                                              seg.thu_d_duration,
-                                            seg.thu_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seD" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.thu_duration +
-                                            ":" +
-                                            seg.thu_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.thu_c_duration +
-                                            ":" +
-                                            seg.thu_d_duration,
-                                          endTime: seg.thu_b_duration,
-                                          durations:
-                                            _vm.segment.sec2 +
-                                            _vm.segment.time2,
-                                          rate: seg.sec2_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration +
-                                          "-" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        seg.thu_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec2_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.thu_duration +
+                                                      ":" +
+                                                      seg.thu_b_duration +
+                                                      "-" +
+                                                      seg.thu_c_duration +
+                                                      ":" +
+                                                      seg.thu_d_duration,
+                                                    seg.thu_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seD" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.thu_duration +
+                                                  ":" +
+                                                  seg.thu_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.thu_c_duration +
+                                                  ":" +
+                                                  seg.thu_d_duration,
+                                                endTime: seg.thu_b_duration,
+                                                durations:
+                                                  _vm.segment.sec2 +
+                                                  _vm.segment.time2,
+                                                rate: seg.sec2_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration +
+                                                    "-" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  seg.thu_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec2_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78525,120 +79630,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.thu_duration +
-                                              ":" +
-                                              seg.thu_b_duration +
-                                              "-" +
-                                              seg.thu_c_duration +
-                                              ":" +
-                                              seg.thu_d_duration,
-                                            seg.thu_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seD" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.thu_duration +
-                                            ":" +
-                                            seg.thu_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.thu_c_duration +
-                                            ":" +
-                                            seg.thu_d_duration,
-                                          endTime: seg.thu_b_duration,
-                                          durations:
-                                            _vm.segment.sec3 +
-                                            _vm.segment.time3,
-                                          rate: seg.sec3_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration +
-                                          "-" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        seg.thu_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec3_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.thu_duration +
+                                                      ":" +
+                                                      seg.thu_b_duration +
+                                                      "-" +
+                                                      seg.thu_c_duration +
+                                                      ":" +
+                                                      seg.thu_d_duration,
+                                                    seg.thu_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seD" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.thu_duration +
+                                                  ":" +
+                                                  seg.thu_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.thu_c_duration +
+                                                  ":" +
+                                                  seg.thu_d_duration,
+                                                endTime: seg.thu_b_duration,
+                                                durations:
+                                                  _vm.segment.sec3 +
+                                                  _vm.segment.time3,
+                                                rate: seg.sec3_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration +
+                                                    "-" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  seg.thu_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec3_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78664,120 +79788,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.thu_duration +
-                                              ":" +
-                                              seg.thu_b_duration +
-                                              "-" +
-                                              seg.thu_c_duration +
-                                              ":" +
-                                              seg.thu_d_duration,
-                                            seg.thu_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seD" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.thu_duration +
-                                            ":" +
-                                            seg.thu_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.thu_c_duration +
-                                            ":" +
-                                            seg.thu_d_duration,
-                                          endTime: seg.thu_b_duration,
-                                          durations:
-                                            _vm.segment.sec4 +
-                                            _vm.segment.time4,
-                                          rate: seg.sec4_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.thu_duration +
-                                          ":" +
-                                          seg.thub_duration +
-                                          "-" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        seg.thu_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec4_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.thu_duration +
+                                                      ":" +
+                                                      seg.thu_b_duration +
+                                                      "-" +
+                                                      seg.thu_c_duration +
+                                                      ":" +
+                                                      seg.thu_d_duration,
+                                                    seg.thu_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seD" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.thu_duration +
+                                                  ":" +
+                                                  seg.thu_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.thu_c_duration +
+                                                  ":" +
+                                                  seg.thu_d_duration,
+                                                endTime: seg.thu_b_duration,
+                                                durations:
+                                                  _vm.segment.sec4 +
+                                                  _vm.segment.time4,
+                                                rate: seg.sec4_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.thu_duration +
+                                                    ":" +
+                                                    seg.thub_duration +
+                                                    "-" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  seg.thu_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec4_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78803,120 +79946,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.thu_duration +
-                                              ":" +
-                                              seg.thu_b_duration +
-                                              "-" +
-                                              seg.thu_c_duration +
-                                              ":" +
-                                              seg.thu_d_duration,
-                                            seg.thu_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seD" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        endTime: seg.thu_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.thu_duration +
-                                            ":" +
-                                            seg.thu_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.thu_c_duration +
-                                            ":" +
-                                            seg.thu_d_duration,
-                                          endTime: seg.thu_b_duration,
-                                          durations:
-                                            _vm.segment.sec5 +
-                                            _vm.segment.time5,
-                                          rate: seg.sec5_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.thu_duration +
-                                          ":" +
-                                          seg.thu_b_duration +
-                                          "-" +
-                                          seg.thu_c_duration +
-                                          ":" +
-                                          seg.thu_d_duration,
-                                        seg.thu_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec5_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.thu_duration +
+                                                      ":" +
+                                                      seg.thu_b_duration +
+                                                      "-" +
+                                                      seg.thu_c_duration +
+                                                      ":" +
+                                                      seg.thu_d_duration,
+                                                    seg.thu_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seD" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.thu_duration +
+                                                  ":" +
+                                                  seg.thu_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.thu_c_duration +
+                                                  ":" +
+                                                  seg.thu_d_duration,
+                                                endTime: seg.thu_b_duration,
+                                                durations:
+                                                  _vm.segment.sec5 +
+                                                  _vm.segment.time5,
+                                                rate: seg.sec5_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  endTime: seg.thu_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.thu_duration +
+                                                    ":" +
+                                                    seg.thu_b_duration +
+                                                    "-" +
+                                                    seg.thu_c_duration +
+                                                    ":" +
+                                                    seg.thu_d_duration,
+                                                  seg.thu_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec5_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -78942,120 +80104,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.fri_duration +
-                                              ":" +
-                                              seg.fir_b_duration +
-                                              "-" +
-                                              seg.fri_c_duration +
-                                              ":" +
-                                              seg.fri_d_duration,
-                                            seg.fri_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.fri_duration + ':' + seg.fir_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seE" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec1 + _vm.segment.time1,
-                                        rate: seg.sec1_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.fri_duration +
-                                            ":" +
-                                            seg.fri_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.fri_c_duration +
-                                            ":" +
-                                            seg.fri_d_duration,
-                                          endTime: seg.fri_b_duration,
-                                          durations:
-                                            _vm.segment.sec1 +
-                                            _vm.segment.time1,
-                                          rate: seg.sec1_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration +
-                                          "-" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        seg.fri_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec1_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.fri_duration +
+                                                      ":" +
+                                                      seg.fir_b_duration +
+                                                      "-" +
+                                                      seg.fri_c_duration +
+                                                      ":" +
+                                                      seg.fri_d_duration,
+                                                    seg.fri_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.fri_duration + ':' + seg.fir_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seE" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.fri_duration +
+                                                  ":" +
+                                                  seg.fri_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.fri_c_duration +
+                                                  ":" +
+                                                  seg.fri_d_duration,
+                                                endTime: seg.fri_b_duration,
+                                                durations:
+                                                  _vm.segment.sec1 +
+                                                  _vm.segment.time1,
+                                                rate: seg.sec1_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec1 +
+                                                    _vm.segment.time1,
+                                                  rate: seg.sec1_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration +
+                                                    "-" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  seg.fri_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec1_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -79081,120 +80262,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.fri_duration +
-                                              ":" +
-                                              seg.fri_b_duration +
-                                              "-" +
-                                              seg.fri_c_duration +
-                                              ":" +
-                                              seg.fri_d_duration,
-                                            seg.fri_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seE" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec2 + _vm.segment.time2,
-                                        rate: seg.sec2_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.fri_duration +
-                                            ":" +
-                                            seg.fri_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.fri_c_duration +
-                                            ":" +
-                                            seg.fri_d_duration,
-                                          endTime: seg.fri_b_duration,
-                                          durations:
-                                            _vm.segment.sec2 +
-                                            _vm.segment.time2,
-                                          rate: seg.sec2_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration +
-                                          "-" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        seg.fri_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec2_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.fri_duration +
+                                                      ":" +
+                                                      seg.fri_b_duration +
+                                                      "-" +
+                                                      seg.fri_c_duration +
+                                                      ":" +
+                                                      seg.fri_d_duration,
+                                                    seg.fri_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seE" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.fri_duration +
+                                                  ":" +
+                                                  seg.fri_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.fri_c_duration +
+                                                  ":" +
+                                                  seg.fri_d_duration,
+                                                endTime: seg.fri_b_duration,
+                                                durations:
+                                                  _vm.segment.sec2 +
+                                                  _vm.segment.time2,
+                                                rate: seg.sec2_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec2 +
+                                                    _vm.segment.time2,
+                                                  rate: seg.sec2_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration +
+                                                    "-" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  seg.fri_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec2_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -79220,120 +80420,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.fri_duration +
-                                              ":" +
-                                              seg.fri_b_duration +
-                                              "-" +
-                                              seg.fri_c_duration +
-                                              ":" +
-                                              seg.fri_d_duration,
-                                            seg.fri_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seE" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec3 + _vm.segment.time3,
-                                        rate: seg.sec3_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.fri_duration +
-                                            ":" +
-                                            seg.fri_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.fri_c_duration +
-                                            ":" +
-                                            seg.fri_d_duration,
-                                          endTime: seg.fri_b_duration,
-                                          durations:
-                                            _vm.segment.sec3 +
-                                            _vm.segment.time3,
-                                          rate: seg.sec3_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration +
-                                          "-" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        seg.fri_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec3_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.fri_duration +
+                                                      ":" +
+                                                      seg.fri_b_duration +
+                                                      "-" +
+                                                      seg.fri_c_duration +
+                                                      ":" +
+                                                      seg.fri_d_duration,
+                                                    seg.fri_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seE" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.fri_duration +
+                                                  ":" +
+                                                  seg.fri_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.fri_c_duration +
+                                                  ":" +
+                                                  seg.fri_d_duration,
+                                                endTime: seg.fri_b_duration,
+                                                durations:
+                                                  _vm.segment.sec3 +
+                                                  _vm.segment.time3,
+                                                rate: seg.sec3_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec3 +
+                                                    _vm.segment.time3,
+                                                  rate: seg.sec3_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration +
+                                                    "-" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  seg.fri_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec3_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -79359,120 +80578,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.fri_duration +
-                                              ":" +
-                                              seg.fri_b_duration +
-                                              "-" +
-                                              seg.fri_c_duration +
-                                              ":" +
-                                              seg.fri_d_duration,
-                                            seg.fri_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seE" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec4 + _vm.segment.time4,
-                                        rate: seg.sec4_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.fri_duration +
-                                            ":" +
-                                            seg.fri_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.fri_c_duration +
-                                            ":" +
-                                            seg.fri_d_duration,
-                                          endTime: seg.fri_b_duration,
-                                          durations:
-                                            _vm.segment.sec4 +
-                                            _vm.segment.time4,
-                                          rate: seg.sec4_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration +
-                                          "-" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        seg.fri_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec4_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.fri_duration +
+                                                      ":" +
+                                                      seg.fri_b_duration +
+                                                      "-" +
+                                                      seg.fri_c_duration +
+                                                      ":" +
+                                                      seg.fri_d_duration,
+                                                    seg.fri_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seE" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.fri_duration +
+                                                  ":" +
+                                                  seg.fri_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.fri_c_duration +
+                                                  ":" +
+                                                  seg.fri_d_duration,
+                                                endTime: seg.fri_b_duration,
+                                                durations:
+                                                  _vm.segment.sec4 +
+                                                  _vm.segment.time4,
+                                                rate: seg.sec4_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec4 +
+                                                    _vm.segment.time4,
+                                                  rate: seg.sec4_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration +
+                                                    "-" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  seg.fri_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec4_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e(),
@@ -79498,120 +80736,139 @@ var render = function() {
                                   ]
                                 },
                                 [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value:
-                                          _vm.checkIfSegmentExist(
-                                            seg.fri_duration +
-                                              ":" +
-                                              seg.fri_b_duration +
-                                              "-" +
-                                              seg.fri_c_duration +
-                                              ":" +
-                                              seg.fri_d_duration,
-                                            seg.fri_spots
-                                          ) != 0,
-                                        expression:
-                                          "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
-                                      },
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.seg_data[index],
-                                        expression: "seg_data[index]"
-                                      }
-                                    ],
-                                    attrs: {
-                                      type: "radio",
-                                      name: "seE" + index
-                                    },
-                                    domProps: {
-                                      value: {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      },
-                                      checked: _vm._q(_vm.seg_data[index], {
-                                        startDate:
-                                          _vm.startDate +
-                                          "" +
-                                          seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration,
-                                        endDate:
-                                          _vm.endDate +
-                                          "" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        endTime: seg.fri_b_duration,
-                                        durations:
-                                          _vm.segment.sec5 + _vm.segment.time5,
-                                        rate: seg.sec5_rate,
-                                        rate_card: _vm.getTitle,
-                                        spot: _vm.spots[index]
-                                      })
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.$set(_vm.seg_data, index, {
-                                          startDate:
-                                            _vm.startDate +
-                                            "" +
-                                            seg.fri_duration +
-                                            ":" +
-                                            seg.fri_b_duration,
-                                          endDate:
-                                            _vm.endDate +
-                                            "" +
-                                            seg.fri_c_duration +
-                                            ":" +
-                                            seg.fri_d_duration,
-                                          endTime: seg.fri_b_duration,
-                                          durations:
-                                            _vm.segment.sec5 +
-                                            _vm.segment.time5,
-                                          rate: seg.sec5_rate,
-                                          rate_card: _vm.getTitle,
-                                          spot: _vm.spots[index]
-                                        })
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.checkIfSegmentExist(
-                                        seg.fri_duration +
-                                          ":" +
-                                          seg.fri_b_duration +
-                                          "-" +
-                                          seg.fri_c_duration +
-                                          ":" +
-                                          seg.fri_d_duration,
-                                        seg.fri_spots
-                                      ) === 0
-                                        ? "Booked"
-                                        : "GHC" + seg.sec5_rate
+                                  _c("div", { staticClass: "form-radio" }, [
+                                    _c(
+                                      "div",
+                                      { staticClass: "radio radio-inline" },
+                                      [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "show",
+                                                rawName: "v-show",
+                                                value:
+                                                  _vm.checkIfSegmentExist(
+                                                    seg.fri_duration +
+                                                      ":" +
+                                                      seg.fri_b_duration +
+                                                      "-" +
+                                                      seg.fri_c_duration +
+                                                      ":" +
+                                                      seg.fri_d_duration,
+                                                    seg.fri_spots
+                                                  ) != 0,
+                                                expression:
+                                                  "checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
+                                              },
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.seg_data[index],
+                                                expression: "seg_data[index]"
+                                              }
+                                            ],
+                                            attrs: {
+                                              type: "radio",
+                                              name: "seE" + index
+                                            },
+                                            domProps: {
+                                              value: {
+                                                startDate:
+                                                  _vm.startDate +
+                                                  "" +
+                                                  seg.fri_duration +
+                                                  ":" +
+                                                  seg.fri_b_duration,
+                                                endDate:
+                                                  _vm.endDate +
+                                                  "" +
+                                                  seg.fri_c_duration +
+                                                  ":" +
+                                                  seg.fri_d_duration,
+                                                endTime: seg.fri_b_duration,
+                                                durations:
+                                                  _vm.segment.sec5 +
+                                                  _vm.segment.time5,
+                                                rate: seg.sec5_rate,
+                                                rate_card: _vm.getTitle,
+                                                spot: _vm.spots[index]
+                                              },
+                                              checked: _vm._q(
+                                                _vm.seg_data[index],
+                                                {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                }
+                                              )
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                _vm.$set(_vm.seg_data, index, {
+                                                  startDate:
+                                                    _vm.startDate +
+                                                    "" +
+                                                    seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration,
+                                                  endDate:
+                                                    _vm.endDate +
+                                                    "" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  endTime: seg.fri_b_duration,
+                                                  durations:
+                                                    _vm.segment.sec5 +
+                                                    _vm.segment.time5,
+                                                  rate: seg.sec5_rate,
+                                                  rate_card: _vm.getTitle,
+                                                  spot: _vm.spots[index]
+                                                })
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("i", { staticClass: "helper" }),
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.checkIfSegmentExist(
+                                                  seg.fri_duration +
+                                                    ":" +
+                                                    seg.fri_b_duration +
+                                                    "-" +
+                                                    seg.fri_c_duration +
+                                                    ":" +
+                                                    seg.fri_d_duration,
+                                                  seg.fri_spots
+                                                ) === 0
+                                                  ? "Booked"
+                                                  : "GHS" + seg.sec5_rate
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ])
+                                      ]
                                     )
-                                  )
+                                  ])
                                 ]
                               )
                             : _vm._e()
@@ -80060,13 +81317,7 @@ var render = function() {
                                   }
                                 ]
                               },
-                              [
-                                _vm._v(
-                                  "\n                                                   " +
-                                    _vm._s(seg.sat_spots) +
-                                    "\n                                               "
-                                )
-                              ]
+                              [_vm._v(_vm._s(seg.sat_spots))]
                             ),
                             _vm._v(" "),
                             _c(
@@ -80085,13 +81336,7 @@ var render = function() {
                                   }
                                 ]
                               },
-                              [
-                                _vm._v(
-                                  "\n                                                   " +
-                                    _vm._s(seg.sun_spots) +
-                                    "\n                                               "
-                                )
-                              ]
+                              [_vm._v(_vm._s(seg.sun_spots))]
                             ),
                             _vm._v(" "),
                             _c(
@@ -80433,7 +81678,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec1_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec1_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -80539,7 +81788,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec2_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec2_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -80645,7 +81898,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec3_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec3_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -80751,7 +82008,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec4_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec4_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -80857,7 +82118,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec5_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec5_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -80963,7 +82228,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec1_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec1_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -81069,7 +82338,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec2_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec2_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -81175,7 +82448,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec3_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec3_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -81281,7 +82558,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec4_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec4_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e(),
@@ -81387,7 +82668,11 @@ var render = function() {
                                         }
                                       }
                                     }),
-                                    _vm._v(_vm._s("GHC" + seg.wsec5_rate))
+                                    _vm._v(
+                                      "\n                    " +
+                                        _vm._s("GHS" + seg.wsec5_rate) +
+                                        "\n                  "
+                                    )
                                   ]
                                 )
                               : _vm._e()
@@ -81407,7 +82692,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-default waves-effect ",
+                    staticClass: "btn btn-default waves-effect",
                     attrs: { type: "button", "data-dismiss": "modal" }
                   },
                   [_vm._v("Close")]
@@ -81427,7 +82712,7 @@ var render = function() {
                           }
                         ],
                         staticClass:
-                          "btn btn-primary waves-effect waves-light animated fadeIn ",
+                          "btn btn-primary waves-effect waves-light animated fadeIn",
                         attrs: { to: { name: "invoice" } },
                         nativeOn: {
                           click: function($event) {
@@ -81607,6 +82892,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -81617,341 +82921,369 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'fullcalender',
-    components: { PrintRateCard: __WEBPACK_IMPORTED_MODULE_2__fetch_ratecards_printRateCare___default.a },
-    data: function data() {
-        return {
-            invoice: '/user-account/create-sub-invoice',
-            segment_date: '/user-account/create-sub-date',
-            selSegment_url: 'selectRateCard',
-            day: '',
-            selectedStartTime: null,
-            selectedEndDate: null,
-            myEvents: 'Pending',
-            config: {
-                defaultDate: new Date(),
-                defaultView: 'month',
-                timezone: 'local',
-                timeFormat: 'h:mm t',
-                header: {
-                    right: 'month'
-                },
-                views: {
-                    agenda: {
-                        eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
-                    }
-                },
-                selectable: true,
-                selectConstraint: {
-                    start: $.fullCalendar.moment().subtract(1, 'days'),
-                    end: $.fullCalendar.moment().startOf('month').add(1, 'month')
-                }
-            },
-            showSummary: false,
-            segments_data: [],
-            card_title: null,
-            process: false,
-            days_of_week: '',
-            weekdaySegment: [],
-            wSegments: [],
-            days_of_weekend: '',
-            spot_check: [],
-            print_ratecard: [],
-            main_seg: null
+  name: "fullcalender",
+  components: { PrintRateCard: __WEBPACK_IMPORTED_MODULE_2__fetch_ratecards_printRateCare___default.a },
+  data: function data() {
+    return {
+      invoice: "/user-account/create-sub-invoice",
+      segment_date: "/user-account/create-sub-date",
+      selSegment_url: "selectRateCard",
+      day: "",
+      selectedStartTime: null,
+      selectedEndDate: null,
+      myEvents: "Pending",
+      config: {
+        defaultDate: new Date(),
+        defaultView: "month",
+        timezone: "local",
+        timeFormat: "h:mm t",
+        header: {
+          right: "month"
+        },
+        views: {
+          agenda: {
+            eventLimit: 6 // adjust to 6 only for agendaWeek/agendaDay
+          }
+        },
+        selectable: true,
+        selectConstraint: {
+          start: $.fullCalendar.moment().subtract(1, "days"),
+          end: $.fullCalendar.moment().startOf("month").add(1, "month")
+        }
+      },
+      showSummary: false,
+      segments_data: [],
+      card_title: null,
+      process: false,
+      days_of_week: "",
+      weekdaySegment: [],
+      wSegments: [],
+      days_of_weekend: "",
+      spot_check: [],
+      print_ratecard: [],
+      main_seg: null
+    };
+  },
+  mount: function mount() {},
 
-        };
+  methods: {
+    daySelected: function daySelected(date, jsEvent, view) {
+      if (this.getSelectMedia === "PRINT") {
+        $("#print").modal("show");
+        this.selectedStartTime = date.format("YYYY-MM-DD ");
+        this.selectedEndDate = date.format("YYYY-MM-DD ");
+        this.getSelDay(date);
+        this.fetchPrintRateCard();
+      } else if (this.getSelectMedia === "RADIO" || this.getSelectMedia === "TV") {
+        var oldDate = new Date(date.format("YYYY-MM-DD "));
+        var today = new Date();
+        // if(oldDate > today || oldDate == today){
+        if (oldDate > today || oldDate == today) {
+          this.selectedStartTime = date.format("YYYY-MM-DD ");
+          this.selectedEndDate = date.format("YYYY-MM-DD ");
+          this.getSelDay(date);
+          this.fetchSelectedRate();
+        }
+      } else {
+        alert("select a media type");
+      }
     },
-    mount: function mount() {},
+    submit: function submit(title) {
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSegmentTitle", title);
+      $("#radio_tv").modal("hide");
+      // $('#print').modal('hide');
+    },
+    fetchSelectedRate: function fetchSelectedRate() {
+      var self = this;
+      self.process = true;
+      axios.get("fetch-segments", {
+        params: {
+          media_id: self.mediaHouseId,
+          card_id: self.rateCard,
+          startDate: self.selectedStartTime
+        }
+      }).then(function (res) {
+        self.days_of_week = JSON.parse(res.data.days_of_week);
+        self.days_of_weekend = JSON.parse(res.data.days_of_weekend);
+        self.wSegments = res.data.wsegments;
+        self.weekdaySegment = res.data.segments;
+        self.card_title = res.data.card_title;
+        self.spot_check = res.data.spots_check;
+        // console.log(res.data.segments);
+        // self.main_seg = [...res.data.segments,...res.data.spot_check];
+        setTimeout(function () {
+          self.process = false;
+          $("#radio_tv").modal("show");
+        }, 2000);
+      }).catch(function (error) {});
+    },
+    fetchPrintRateCard: function fetchPrintRateCard() {
+      var self = this;
+      self.process = true;
+      axios.get("fetch-printsegments", {
+        params: {
+          media_id: self.mediaHouseId,
+          card_id: self.rateCard,
+          startDate: self.selectedStartTime
+        }
+      }).then(function (res) {
+        self.card_title = res.data.card_title;
+        self.print_ratecard = JSON.parse(res.data.print_rate_cards[0].rate_card_data);
+        //  console.log(self.print_ratecard);
+        //self.spot_check = res.data.spots_check;
+        self.process = false;
+      }).catch(function (error) {});
+    },
 
-    methods: {
-        daySelected: function daySelected(date, jsEvent, view) {
-            if (this.getSelectMedia === 'PRINT') {
-                $('#print').modal('show');
-                this.selectedStartTime = date.format("YYYY-MM-DD ");
-                this.selectedEndDate = date.format("YYYY-MM-DD ");
-                this.getSelDay(date);
-                this.fetchPrintRateCard();
-            } else if (this.getSelectMedia === 'RADIO' || this.getSelectMedia === 'TV') {
-                var oldDate = new Date(date.format("YYYY-MM-DD "));
-                var today = new Date();
-                // if(oldDate > today || oldDate == today){
-                if (oldDate > today || oldDate == today) {
-                    $('#radio_tv').modal('show');
-                    this.selectedStartTime = date.format("YYYY-MM-DD ");
-                    this.selectedEndDate = date.format("YYYY-MM-DD ");
-                    this.getSelDay(date);
-                    this.fetchSelectedRate();
+    // create a subscription
+    saveSegmentData: function saveSegmentData(title, segments) {
+      var self = this;
+      var formData = new FormData();
+      if (title !== "") {
+        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSegmentTitle", title);
+        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("startDate", self.startDate);
+        formData.append("title", self.segTitle);
+        formData.append("created_ad_data", JSON.stringify(self.schedAdsData));
+        formData.append("uploadedFile", self.file);
+        formData.append("rate_card_title", self.rateCard);
+        formData.append("media_house_id", self.mediaHouseId);
+
+        axios.post("ads-store", formData).then(function (response) {
+          if (response.data === "success") {
+            self.$refs.calendar.$emit("refetch-events");
+
+            new PNotify({
+              title: "Success Desktop Notice",
+              type: "success",
+              text: "New subscription successfully created.",
+              desktop: {
+                desktop: true,
+                icon: "assets/images/pnotify/success.png"
+              }
+            });
+          }
+          if (response.data === "booked") {
+            new PNotify({
+              title: "Error Desktop Notice",
+              type: "error",
+              text: "Segment already booked",
+              desktop: {
+                desktop: true,
+                icon: "assets/images/pnotify/success.png"
+              }
+            });
+          }
+
+          if (response.data === "failed") {
+            new PNotify({
+              title: "Info Desktop Notice",
+              type: "info",
+              text: "Kindly select a media type to create your subscription",
+              desktop: {
+                desktop: true,
+                icon: "assets/images/pnotify/success.png"
+              }
+            });
+          }
+        });
+        $("#radio_tv").modal("hide");
+        $("#print").modal("hide");
+      }
+    },
+
+    eventDrop: function eventDrop(event, delta, revertFunc) {
+      sweetAlert({
+        title: "Warning",
+        text: "Are you sure about this change?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Change",
+        confirmButtonColor: "#FFB800",
+        closeOnConfirm: true,
+
+        showLoaderOnConfirm: true
+      }, function (isConfirm) {
+        var s = event.start.format("YYYY-MM-DD ") + event.start.format("h:mm");
+        if (isConfirm) {
+          var formData = new FormData();
+          formData.append("startDate", event.start.format("YYYY-MM-DD ") + event.start.format("h:mm"));
+
+          axios.post("check-sub/api", formData).then(function (response) {
+            //  console.log(response.data);
+            if (response.data === "available") {
+              formData.append("endDate", event.end.format("YYYY-MM-DD " + event.end.format("h:mm")));
+              formData.append("id", event.id);
+
+              axios.post("sub-update-api", formData).then(function (response) {
+                //self.$refs.calendar.$emit('refetch-events');
+                if (response) {
+                  // PNotify.desktop.permission();
+                  new PNotify({
+                    title: "Update Desktop Notice",
+                    type: "info",
+                    text: "Subscription date updated successfully.",
+                    desktop: {
+                      desktop: true,
+                      icon: "assets/images/pnotify/success.png"
+                    }
+                  });
                 }
+              });
             } else {
-                alert('select a media type');
-            }
-        },
-        submit: function submit(title) {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', title);
-            $('#radio_tv').modal('hide');
-            // $('#print').modal('hide');
-        },
-        fetchSelectedRate: function fetchSelectedRate() {
-            var self = this;
-            self.process = true;
-            axios.get('fetch-segments', { params: { media_id: self.mediaHouseId, card_id: self.rateCard, startDate: self.selectedStartTime } }).then(function (res) {
-                self.days_of_week = JSON.parse(res.data.days_of_week);
-                self.days_of_weekend = JSON.parse(res.data.days_of_weekend);
-                self.wSegments = res.data.wsegments;
-                self.weekdaySegment = res.data.segments;
-                self.card_title = res.data.card_title;
-                self.spot_check = res.data.spots_check;
-                // console.log(res.data.segments);
-                // self.main_seg = [...res.data.segments,...res.data.spot_check];
-                self.process = false;
-            }).catch(function (error) {});
-        },
-        fetchPrintRateCard: function fetchPrintRateCard() {
-            var self = this;
-            self.process = true;
-            axios.get('fetch-printsegments', { params: { media_id: self.mediaHouseId, card_id: self.rateCard, startDate: self.selectedStartTime } }).then(function (res) {
-                self.card_title = res.data.card_title;
-                self.print_ratecard = JSON.parse(res.data.print_rate_cards[0].rate_card_data);
-                //  console.log(self.print_ratecard);
-                //self.spot_check = res.data.spots_check;
-                self.process = false;
-            }).catch(function (error) {});
-        },
-
-        // create a subscription
-        saveSegmentData: function saveSegmentData(title, segments) {
-            var self = this;
-            var formData = new FormData();
-            if (title !== '') {
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentTitle', title);
-                __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('startDate', self.startDate);
-                formData.append('title', self.segTitle);
-                formData.append('created_ad_data', JSON.stringify(self.schedAdsData));
-                formData.append('uploadedFile', self.file);
-                formData.append('rate_card_title', self.rateCard);
-                formData.append('media_house_id', self.mediaHouseId);
-
-                axios.post('ads-store', formData).then(function (response) {
-                    if (response.data === 'success') {
-                        self.$refs.calendar.$emit('refetch-events');
-
-                        new PNotify({
-                            title: 'Success Desktop Notice', type: 'success', text: 'New subscription successfully created.', desktop: {
-                                desktop: true, icon: 'assets/images/pnotify/success.png'
-                            }
-                        });
-                    }
-                    if (response.data === 'booked') {
-                        new PNotify({
-                            title: 'Error Desktop Notice', type: 'error', text: 'Segment already booked', desktop: {
-                                desktop: true, icon: 'assets/images/pnotify/success.png'
-                            }
-                        });
-                    }
-
-                    if (response.data === 'failed') {
-                        new PNotify({
-                            title: 'Info Desktop Notice', type: 'info', text: 'Kindly select a media type to create your subscription', desktop: {
-                                desktop: true, icon: 'assets/images/pnotify/success.png'
-                            }
-                        });
-                    }
-                });
-                $('#radio_tv').modal('hide');
-                $('#print').modal('hide');
-            }
-        },
-
-        eventDrop: function eventDrop(event, delta, revertFunc) {
-            sweetAlert({
-                title: 'Warning',
-                text: 'Are you sure about this change?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Change',
-                confirmButtonColor: '#FFB800',
-                closeOnConfirm: true,
-
-                showLoaderOnConfirm: true
-            }, function (isConfirm) {
-
-                var s = event.start.format("YYYY-MM-DD ") + event.start.format('h:mm');
-                if (isConfirm) {
-
-                    var formData = new FormData();
-                    formData.append('startDate', event.start.format("YYYY-MM-DD ") + event.start.format('h:mm'));
-
-                    axios.post('check-sub/api', formData).then(function (response) {
-                        //  console.log(response.data);
-                        if (response.data === 'available') {
-
-                            formData.append('endDate', event.end.format("YYYY-MM-DD " + event.end.format('h:mm')));
-                            formData.append('id', event.id);
-
-                            axios.post('sub-update-api', formData).then(function (response) {
-                                //self.$refs.calendar.$emit('refetch-events');
-                                if (response) {
-                                    // PNotify.desktop.permission();
-                                    new PNotify({
-                                        title: 'Update Desktop Notice', type: 'info', text: 'Subscription date updated successfully.', desktop: {
-                                            desktop: true, icon: 'assets/images/pnotify/success.png'
-                                        }
-                                    });
-                                }
-                            });
-                        } else {
-                            revertFunc();
-                            new PNotify({
-                                title: 'Failure Desktop Notice', type: 'error', text: 'Please this segment is already booked.Try another segment', desktop: {
-                                    desktop: true, icon: 'assets/images/pnotify/success.png'
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    revertFunc();
+              revertFunc();
+              new PNotify({
+                title: "Failure Desktop Notice",
+                type: "error",
+                text: "Please this segment is already booked.Try another segment",
+                desktop: {
+                  desktop: true,
+                  icon: "assets/images/pnotify/success.png"
                 }
-            });
-        },
-        eventClick: function eventClick(calEvent, jsEvent, view) {
-
-            alert('Event: ' + calEvent.title);
-            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-            alert('View: ' + view.name);
-
-            // change the border color just for fun
-            $(this).css('border-color', 'red');
-        },
-        //  select date to create subscription
-        getSelDay: function getSelDay(date) {
-            //  axios.get('testing').then(function (res) {
-            //      console.log(res.data);
-            // });
-            //  }
-            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            // let selDay =  $('.sub_date').val();
-            //segment date
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSegmentDate', date);
-            // this.sub_date = dat.split("/").join("-");
-            var d = new Date(date);
-            this.day = days[d.getDay()];
-            //console.log(this.segmentDay.substr(0,3).toUpperCase());
-            //selected segment day
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch('getSelSegmentDay', this.day);
-        },
-        spot_avail: function spot_avail() {
-
-            this.sched.forEach(function (element, index, arrayItem) {
-                var x = element.start;
-                //
-                //  console.log(x + ' => '+ element.spots);
-            });
-
-            // let s = parseInt(spot);
-            // let results = [];
-            // for (let i = 1; i < s + 1; i++){
-            //     results.push(i);
-            // }
-            // return results;
-        },
-        checkSpots: function checkSpots(card_spots) {
-            // let s = parseInt(spot);
-            // let usp  = parseInt(used_spot);
-            // let results = s - usp;
-            // let spots = [];
-            // for (let i = 1; i < results + 1; i++) {
-            //     spots.push(i);
-            // }
-            // return spots;
-            this.spot_check.forEach(function (spot) {
-                return alert(spot.spots_used);
-            });
-
-            //    let sum = 0;
-            //    let x = 0;
-            //
-            //   this.spot_check.forEach(function(spot){
-            //         x = spot.spots_used;
-            //       console.log(x);
-            //   });
-            // //  sum = parseInt(card_spots) - parseInt(x);
-            return '06:30-08:30 AM';
-        },
-        tests: function tests(segments, spots) {
-            var arr = [{ 'name': 'Joojo' }, { 'sex': 34 }];
-
-            var p = JSON.parse(JSON.stringify(spots));
-            var m = void 0;
-
-            m = _extends({}, segments[0], p);
-            //   console.log(m);
-            return m;
+              });
+            }
+          });
+        } else {
+          revertFunc();
         }
+      });
+    },
+    eventClick: function eventClick(calEvent, jsEvent, view) {
+      alert("Event: " + calEvent.title);
+      alert("Coordinates: " + jsEvent.pageX + "," + jsEvent.pageY);
+      alert("View: " + view.name);
+
+      // change the border color just for fun
+      $(this).css("border-color", "red");
+    },
+    //  select date to create subscription
+    getSelDay: function getSelDay(date) {
+      //  axios.get('testing').then(function (res) {
+      //      console.log(res.data);
+      // });
+      //  }
+      var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      // let selDay =  $('.sub_date').val();
+      //segment date
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSegmentDate", date);
+      // this.sub_date = dat.split("/").join("-");
+      var d = new Date(date);
+      this.day = days[d.getDay()];
+      //console.log(this.segmentDay.substr(0,3).toUpperCase());
+      //selected segment day
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSelSegmentDay", this.day);
+    },
+    spot_avail: function spot_avail() {
+      this.sched.forEach(function (element, index, arrayItem) {
+        var x = element.start;
+        //
+        //  console.log(x + ' => '+ element.spots);
+      });
+
+      // let s = parseInt(spot);
+      // let results = [];
+      // for (let i = 1; i < s + 1; i++){
+      //     results.push(i);
+      // }
+      // return results;
+    },
+    checkSpots: function checkSpots(card_spots) {
+      // let s = parseInt(spot);
+      // let usp  = parseInt(used_spot);
+      // let results = s - usp;
+      // let spots = [];
+      // for (let i = 1; i < results + 1; i++) {
+      //     spots.push(i);
+      // }
+      // return spots;
+      this.spot_check.forEach(function (spot) {
+        return alert(spot.spots_used);
+      });
+
+      //    let sum = 0;
+      //    let x = 0;
+      //
+      //   this.spot_check.forEach(function(spot){
+      //         x = spot.spots_used;
+      //       console.log(x);
+      //   });
+      // //  sum = parseInt(card_spots) - parseInt(x);
+      return "06:30-08:30 AM";
+    },
+    tests: function tests(segments, spots) {
+      var arr = [{ name: "Joojo" }, { sex: 34 }];
+
+      var p = JSON.parse(JSON.stringify(spots));
+      var m = void 0;
+
+      m = _extends({}, segments[0], p);
+      //   console.log(m);
+      return m;
+    }
+  },
+
+  computed: {
+    // get subscription title
+    segTitle: function segTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
     },
 
-    computed: {
-        // get subscription title
-        segTitle: function segTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segTitle;
+    // fetch and display subscriptions
+    eventSources: function eventSources() {
+      return [{
+        events: function events(start, end, timezone, callback) {
+          axios.get("fetch-ads/api").then(function (res) {
+            //  console.log(res.data);
+            //   callback(res.data);
+          });
         },
 
-        // fetch and display subscriptions
-        eventSources: function eventSources() {
-            return [{
-                events: function events(start, end, timezone, callback) {
-                    axios.get('fetch-ads/api').then(function (res) {
-                        //  console.log(res.data);
-                        //   callback(res.data);
-                    });
-                },
+        color: "red",
+        textColor: "white"
+      }];
+    },
 
-                color: 'red',
-                textColor: 'white'
-            }];
-        },
+    // get selected file
+    file: function file() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.file;
+    },
 
-        // get selected file
-        file: function file() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.file;
-        },
+    // get seleceted media house id
+    mediaHouseId: function mediaHouseId() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.mediaHouseId;
+    },
 
-        // get seleceted media house id
-        mediaHouseId: function mediaHouseId() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.mediaHouseId;
-        },
+    //get selected rate card title
+    rateCard: function rateCard() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.card_id;
+    },
 
-        //get selected rate card title
-        rateCard: function rateCard() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.card_id;
-        },
-
-        // get subscription start time
-        startTimes: function startTimes() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.startTime;
-        },
-        //get subscription end time
-        endTimes: function endTimes() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.endTime;
-        },
-        schedAdsData: function schedAdsData() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
-        },
-        getSelectMedia: function getSelectMedia() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
-        },
-        segmentDay: function segmentDay() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
-        },
-        getRateCardTitle: function getRateCardTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
-        },
-        getTitle: function getTitle() {
-            return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
-        },
-        date: function date() {
-            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDate;
-        }
+    // get subscription start time
+    startTimes: function startTimes() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.startTime;
+    },
+    //get subscription end time
+    endTimes: function endTimes() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.endTime;
+    },
+    schedAdsData: function schedAdsData() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.subData;
+    },
+    getSelectMedia: function getSelectMedia() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.selMedia;
+    },
+    segmentDay: function segmentDay() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDay;
+    },
+    getRateCardTitle: function getRateCardTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentTitle;
+    },
+    getTitle: function getTitle() {
+      return __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].state.rate_card_title;
+    },
+    date: function date() {
+      __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].getters.segmentDate;
     }
+  }
 });
 
 /***/ }),
@@ -82826,6 +84158,7 @@ var render = function() {
                       staticStyle: { height: "20px", width: "20px" },
                       attrs: { src: "/images/loading.gif" }
                     }),
+                    _vm._v(" "),
                     _c("strong", [_vm._v("Loading ratecard. Please wait.....")])
                   ]
                 )

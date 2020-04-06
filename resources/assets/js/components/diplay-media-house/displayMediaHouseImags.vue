@@ -18,8 +18,7 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="page-header-breadcrumb">
-          </div>
+          <div class="page-header-breadcrumb"></div>
         </div>
       </div>
     </div>
@@ -37,13 +36,13 @@
                 <label class="image-checkbox" :id="index">
                   <img
                     class="img-fluid"
-                    v-bind:src="[ live_assets_path + logos.logo]"
+                    v-bind:src="[ logo_path + logos.logo]"
                     @click="getSelMediaHouseId(logos.client_id)"
                     width="600"
                     height="515"
                   />
-                  <input type="radio" :value="logos.media_house" v-model="selMediaH"/>
-<!--                  <i class="fa fa-check hidden"></i>-->
+                  <input type="radio" :value="logos.media_house" v-model="selMediaH" />
+                  <!--                  <i class="fa fa-check hidden"></i>-->
                 </label>
               </a>
             </div>
@@ -53,7 +52,7 @@
                 <b class="text-danger">{{logos.media_house}}</b>
               </div>
               <div v-show="getSelectMedia === 'RADIO'" class="job-meta-data">
-<!--                <b class="text-info">104.3fm</b>-->
+                <!--                <b class="text-info">104.3fm</b>-->
               </div>
             </div>
           </div>
@@ -79,18 +78,16 @@ import ShowProcessing from "../payment/showProcess.vue";
 
 export default {
   components: {
-    ShowProcessing,
+    ShowProcessing
   },
   name: "displayMediaHouseImags",
   mounted() {
-    if (this.getSelectMedia == ''){
+    if (this.getSelectMedia == "") {
       this.$router.push({
-        name : 'selectMedia'
+        name: "selectMedia"
       });
-    }
-    else{
+    } else {
       this.fetchMediaHouse();
-
     }
   },
   created() {},
@@ -104,9 +101,9 @@ export default {
       mediaHouseId: null,
       loading: false,
       logo_path: "/thumbnails/",
-      live_assets_path: 'http://uploads.kokrokooad.com/mediaHouseLogos/',
+      live_assets_path: "http://uploads.kokrokooad.com/mediaHouseLogos/",
 
-      no_media : '',
+      no_media: ""
     };
   },
   methods: {
@@ -120,16 +117,14 @@ export default {
       store.dispatch("getProcessing", true);
 
       axios.get("media-houses-api/" + self.getSelectMedia).then(function(res) {
-
-          if (res && res !== "") {
-            store.dispatch("getMediaHouses", res.data);
-            // store.dispatch('getSelMediaType',self.getSelectMedia);
-            store.dispatch("getProcessing", false);
-            self.loading = true;
-            store.dispatch("getFadeIn", "animated fadeIn");
-            store.dispatch("getShowMediaForm", true);
-          }
-
+        if (res && res !== "") {
+          store.dispatch("getMediaHouses", res.data);
+          // store.dispatch('getSelMediaType',self.getSelectMedia);
+          store.dispatch("getProcessing", false);
+          self.loading = true;
+          store.dispatch("getFadeIn", "animated fadeIn");
+          store.dispatch("getShowMediaForm", true);
+        }
       });
     },
     getSelMediaHouseId(id) {
@@ -160,9 +155,7 @@ export default {
     },
     getProcessStatus() {
       return store.state.processing;
-    },
-
-
+    }
   }
 };
 </script>
