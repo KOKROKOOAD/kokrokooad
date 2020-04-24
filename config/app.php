@@ -180,7 +180,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Reliese\Coders\CodersServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
+       // Yajra\DataTables\DataTablesServiceProvider::class,
 
 
 
@@ -234,7 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => 'Intervention\Image\Facades\Image',
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        //'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
 
     ],
