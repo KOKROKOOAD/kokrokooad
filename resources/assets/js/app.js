@@ -19,6 +19,8 @@ import { routes } from './vue-router/routes';
 
 Vue.use(VueRouter);
 
+import VueBootstrap4Table from "vue-bootstrap4-table";
+import Pagination from "vue-bootstrap4-table";
 import FullCalendar from 'vue-full-calendar'; //Import Full-calendar
 Vue.use(FullCalendar);
 

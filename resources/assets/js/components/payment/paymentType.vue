@@ -270,6 +270,7 @@ export default {
     },
     getAmount() {
       let self = this;
+
       axios
         .get("api-payment/amount", { params: { id: self.subId } })
         .then(function(res) {
@@ -308,7 +309,7 @@ export default {
       let total = [];
       let t = 0;
       for (let i = 0; i < subs.length; i++) {
-        total.push(parseInt(subs[i].rate) * parseInt(subs[i].spots));
+        total.push(parseFloat(subs[i].rate) * parseFloat(subs[i].spots));
       }
 
       for (let j = 0; j < total.length; j++) {

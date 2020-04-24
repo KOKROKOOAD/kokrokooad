@@ -10,10 +10,10 @@
             </div>
           </div>
         </div>
-        <span class="pull-right" v-show="show_cart">
+        <!-- <span class="pull-right" v-show="show_cart">
           Items :
           <b class="text-danger">{{ totalItems}}</b>
-        </span>
+        </span>-->
       </div>
     </div>
     <!-- Page-header end -->
@@ -33,10 +33,21 @@
           <!-- Shopping cart start -->
           <div class="card animated fadeIn">
             <div class="card-header">
-              <!--                            <h5>Subscription Cart</h5>-->
+              <!-- <h5>Subscription Cart</h5> -->
+              <div class="row">
+                <div class="col-md-offset-6 col-md-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="filter"
+                    placeholder="search item"
+                    @keyup="search()"
+                  />
+                </div>
+              </div>
               <div class="row">
                 <div class="col-md-5"></div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                   <router-link
                     :to="{name : 'selectMedia'}"
                     class="btn btn-danger"
@@ -46,14 +57,14 @@
                     <i class="fa fa-shopping-cart"></i>
                     {{msg}}
                   </router-link>
-                </div>
+                </div>-->
                 <div class="col-md-4"></div>
               </div>
             </div>
             <div class="card-block">
               <div class="row">
                 <div class="col-md-12">
-                  <div id="wizard animated fadeIn" v-show="table">
+                  <div id="wizard animated fadeIn">
                     <section>
                       <form class="wizard-form" id="basic-forms" action="#">
                         <!-- Shopping cart field et start -->
@@ -73,6 +84,18 @@
                                   colspan="1"
                                   style="width: 125px;"
                                 >#</th>
+                                <th
+                                  class="sorting_disabled"
+                                  rowspan="1"
+                                  colspan="1"
+                                  style="width: 125px;"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    @click="selectAll(subs.data)"
+                                    v-model="allSelected"
+                                  />
+                                </th>
                                 <th
                                   class="sorting_disabled"
                                   rowspan="1"
@@ -135,12 +158,17 @@
                                 >Action</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr class="odd" v-for="(sub,index) in subs" :key="index">
+                            <tbody v-if="subs.data != ''">
+                              <tr class="odd" v-for="(sub,index) in subs.data" :key="index">
                                 <td>{{index + 1}}</td>
-                                <!--                                                            <td>-->
-                                <!--                                                                <input type="checkbox">-->
-                                <!--                                                            </td>-->
+                                <td>
+                                  <input
+                                    type="checkbox"
+                                    v-model="selected"
+                                    :value="sub.subscription_id"
+                                    @change="select(parseInt(sub.spots) * parseFloat(sub.rate))"
+                                  />
+                                </td>
                                 <td
                                   style="font-weight: bolder"
                                 >{{sub.start.substr(0,10) + ' - ' + sub.end.substr(0,10)}}</td>
@@ -174,9 +202,7 @@
                                 <td>{{sub.durations}}</td>
 
                                 <td>
-                                  <b
-                                    class="text-primary"
-                                  >{{'GHS' + (sub.spots * sub.rate).toFixed(2)}}</b>
+                                  <b class="text-primary">{{'GHS' + subBill(sub.rate,sub.spots)}}</b>
                                 </td>
                                 <td class="action-icon text-center">
                                   <router-link
@@ -194,22 +220,58 @@
                                 </td>
                               </tr>
                             </tbody>
+                            <tbody v-show="subs.length == 0" class="text-center">
+                              <tr class="odd text-center">
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name">{{ msg }}</td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                                <td class="pro-name"></td>
+                              </tr>
+                            </tbody>
                           </table>
+                          <!-- pagination starts here -->
+                          <!-- <div class="row">
+                          <div class="text-center col-md-12">-->
+                          <pagination :subs="subs" @clicked="fetchSubs" :mid-size="9"></pagination>
+                          <!-- </div>
+                          </div>-->
                         </fieldset>
                         <!-- Shopping cart fieldset end -->
                       </form>
-                      <div>
-                        <p>
-                          <strong>Total:</strong>
-                          <span
-                            style="padding-left:20px;color:rgb(246, 139, 30);font-weight: bolder;font-size: 20px;"
-                          >GHS{{ ' ' + total()}}</span>
-                        </p>
-                        <button
-                          class="btn btn-danger"
-                          type="button"
-                          @click="getSubsIds(subs)"
-                        >Checkout</button>
+                      <div class="row">
+                        <div class="col-md-9">
+                          <div class="btn-group">
+                            <button
+                              class="btn btn-secondary"
+                              type="button"
+                              @click="getSubsIds(subs.data,selected)"
+                            >Checkout</button>
+                            <button
+                              v-show="selected.length > 1"
+                              class="btn btn-danger animated fadeIn"
+                              type="button"
+                              @click="deleteSubs(selected)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <h5 style="margin-top:20px;">
+                            <strong>Total:</strong>
+                            <span
+                              style="color:rgb(246, 139, 30);font-weight: bolder;font-size: 20px;"
+                            >GHS{{ ' ' + total_amount.toFixed(2)}}</span>
+                          </h5>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -227,9 +289,12 @@
 
 <script>
 import store from "../../vuex/store";
-
+import pagination from "../../components/partials/pagination";
 export default {
   name: "cart",
+  components: {
+    pagination
+  },
   data() {
     return {
       subs: [],
@@ -243,38 +308,62 @@ export default {
       msg: "",
       total_items: 0,
       show_cart: false,
-      show_process: true
+      show_process: true,
+      filter: "",
+      selected: [],
+      allSelected: false,
+      subIds: [],
+      getAmount: [],
+      total_amount: 0.0
     };
   },
   mounted() {
-    this.fetchSubs();
+    this.fetchSubs(1);
     store.dispatch("getCheckoutIds", []);
     store.dispatch("getSubId", "");
   },
   methods: {
-    fetchSubs() {
+    fetchSubs(pageNo, filter) {
       let self = this;
       self.process = true;
-      axios.get("fetch-subs/api").then(function(res) {
-        if (res.data.status == "success") {
-          self.subs = res.data.subs;
-          //self.media_ratecard = res.data.card_title;
-          self.media_h = res.data.media_house;
-          self.process = false;
-          self.table = true;
-          self.show_process = false;
-          self.show_cart = true;
-        } else {
-          self.msg = res.data.status;
-        }
-      });
+      if (pageNo) {
+        pageNo = pageNo;
+      } else {
+        pageNo = self.subs.current_page;
+      }
+
+      if (filter) {
+        filter = filter;
+      } else {
+        filter = "";
+      }
+
+      axios
+        .get("fetch-subs/api?page=" + pageNo + "&filter=" + filter)
+        .then(function(res) {
+          if (res.data.subs) {
+            self.subs = res.data.subs;
+            self.media_h = res.data.media_house;
+            self.process = false;
+            self.table = true;
+            self.show_process = false;
+            self.show_cart = true;
+          } else {
+            self.subs = [];
+            self.msg = res.data.msg;
+          }
+        });
+    },
+    search() {
+      this.fetchSubs(1, this.filter);
     },
     total() {
       let total = [];
       let t = 0;
       for (let i = 0; i < this.subs.length; i++) {
         total.push(
-          parseFloat(this.subs[i].rate) * parseFloat(this.subs[i].spots)
+          parseFloat(this.subs.data[i].rate) *
+            parseFloat(this.subs.data[i].spots)
         );
       }
 
@@ -286,18 +375,68 @@ export default {
     getSubId(id) {
       store.dispatch("getSubId", id);
     },
-    getSubsIds(subs) {
+    getSubsIds(subs, selected_items) {
       let id = [];
-      subs.forEach(function(arrayItem) {
-        let x = arrayItem.subscription_id;
-        id.push(x);
-        store.dispatch("getCheckoutIds", id);
-      });
-      this.$router.push({
-        name: "payment"
-      });
+      if (selected_items.length > 0) {
+        store.dispatch("getCheckoutIds", selected_items);
+        this.$router.push({
+          name: "payment"
+        });
+      } else {
+        subs.forEach(function(arrayItem) {
+          let x = arrayItem.subscription_id;
+          id.push(x);
+          store.dispatch("getCheckoutIds", id);
+        });
+        this.$router.push({
+          name: "payment"
+        });
+      }
+    },
+    selectAll(subs) {
+      this.allSelected = !this.allSelected;
+      this.selected = [];
+
+      if (this.allSelected) {
+        for (let sub in subs) {
+          this.selected.push(subs[sub].subscription_id);
+        }
+        console.log(this.selected);
+      }
+    },
+    select: function(amount) {
+      if (this.selected.length == this.allSelected.length) {
+        this.allSelected = true;
+      } else {
+        this.allSelected = false;
+      }
+      this.getAmount.push(amount);
+      let t = 0.0;
+      for (let i = 0; i < this.getAmount.length; i++) {
+        console.log("initial amount :" + this.total_amount);
+
+        t = t + this.getAmount[i];
+      }
+      this.total_amount = t;
+      console.log(t);
+      //return this.total_amount.toFixed(2);
+    },
+    amounts() {
+      for (let i = 0; i < this.getAmount.length; i++) {
+        this.total_amount = this.total_amount + parseInt(this.getAmount[i]);
+      }
+      return this.total_amount.toFixed(2);
+    },
+    subBill(rate, spot) {
+      let total = 0;
+      total = parseFloat(rate) * parseFloat(spot);
+      return total.toFixed(2);
     },
     deleteSub(id) {
+      setInterval(this.deleteSubModal(id), 100);
+      clearInterval(this.deleteSubModal(id));
+    },
+    deleteSubs(id) {
       setInterval(this.deleteSubModal(id), 100);
       clearInterval(this.deleteSubModal(id));
     },

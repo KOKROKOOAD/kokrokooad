@@ -102,7 +102,18 @@
             <h4 class="modal-title">
               <b class="text-danger">Subscription details</b>
             </h4>
-            <!--                            <span>Your file : <b class="text-info">{{fileName}}</b><i style="margin-left: 20px;">File size :</i> <b>{{fileSize}}bytes</b></span>-->
+            <span
+              class="float-right"
+              v-show="config.subs.status == 'rejected' && checkSubDate(config.subs.start) == false"
+            >
+              This subscription has expired.Kindly contact kokrokooad.com for assistance.
+              <!-- <button
+                data-toggle="tooltip"
+                class="edit btn btn-secondary btn-sm"
+              >
+                <i class="fa fa-pencil"></i>
+              </button> to reschedule.-->
+            </span>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -124,7 +135,13 @@
             <div class="form-group">
               <!--                                <input class="form-control" required="required" name="title" type="text" v-model="title"  placeholder="Enter segment title  eg:short video  on  history of gold coast">-->
             </div>
-            <div class="table-responsive">
+            <div class="card" v-for="(msg,index) in messages" :key="index" v-show="message">
+              <div class="card-block">
+                <input type="checkbox" name="message" :value="msg.message" />
+                <label style="font-size:14px;">{{msg.message}}</label>
+              </div>
+            </div>
+            <div class="table-responsive" v-show="sub_details">
               <table class="table table-bordered" v-show="details">
                 <thead>
                   <tr style="background: #36475F;color: #ffffff;">
@@ -161,11 +178,21 @@
 
                     <td>
                       <div class="btn-group btn-group-sm">
+                        <router-link
+                          :to="{name: 'view-client-file',params:{id:config.subs.subscription_id}}"
+                          data-toggle="tooltip"
+                          class="edit btn btn-primary btn-sm"
+                          @click.native="viewClientFile(config.subs.subscription_id)"
+                        >
+                          <i class="fa fa-eye"></i>
+                        </router-link>
+
                         <button
                           @click="closeSubDetails(config.subs.subscription_id)"
                           data-toggle="tooltip"
-                          v-show="config.subs.status == 'in cart'"
+                          v-show="config.subs.status == 'in cart' || config.subs.status == 'rejected' || config.subs.status != 'pending'"
                           class="edit btn btn-success btn-sm"
+                          v-if="checkSubDate(config.subs.start) ==true"
                         >
                           <i class="fa fa-edit"></i>
                         </button>
@@ -174,6 +201,7 @@
                           data-toggle="tooltip"
                           v-show="config.subs.status == 'in cart'"
                           class="edit btn btn-default btn-sm"
+                          v-if="checkSubDate(config.subs.start)"
                         >
                           <i class="fa fa-paypal"></i>
                         </button>
@@ -183,6 +211,7 @@
                           :disabled="config.subs.status == 'processing_payment' || config.subs.status == 'pending' || config.subs.status == 'active' || config.subs.status == 'live'"
                           data-id="'.$row->admin_id.'"
                           data-original-title="Delete"
+                          v-show="config.subs.status == 'in cart' || config.subs.status == 'completed'"
                           class="btn btn-danger btn-sm block-admin"
                         >
                           <i class="fa fa-trash"></i>
@@ -192,9 +221,24 @@
                   </tr>
                 </tbody>
               </table>
+              <p class="float-right" style="font-size:18px;">
+                <strong>
+                  Total:
+                  <span
+                    class="text-danger"
+                    style="font-weight:900"
+                  >GHS{{ config.subs.spots * config.subs.rate }}</span>
+                </strong>
+              </p>
             </div>
           </div>
           <div class="modal-footer">
+            <button
+              @click="fetchRejectionMessage(config.subs.subscription_id)"
+              type="button"
+              class="btn btn-danger waves-effect"
+              v-show="config.subs.status == 'rejected'"
+            >{{ reject_button_label }}</button>
             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
             <!--                            <router-link :to="{name : 'invoice'}" v-if="title" v-show="validateRateCardSelection(this.seg_data)"   class="btn btn-primary waves-effect waves-light " @click.native="submit(title)" >Schedule</router-link>-->
           </div>
@@ -238,6 +282,10 @@ export default {
       update: false,
       show_process: false,
       show_calendar: false,
+      message: false,
+      messages: [],
+      reject_button_label: "View Reasons",
+      sub_details: true,
 
       sub: "/user-account/subscriptions",
       config: {
@@ -256,6 +304,8 @@ export default {
         eventClick: event => {
           let self = this;
           self.process = true;
+          self.sub_details = true;
+          self.message = false;
           axios
             .get(
               "fetch/media/ratecard/" +
@@ -300,6 +350,9 @@ export default {
           });
         }
       });
+    },
+    viewClientFile() {
+      $("#show_details").modal("hide");
     },
     deleteSub(id) {
       $("#show_details").modal("hide");
@@ -363,6 +416,36 @@ export default {
           }
         }
       );
+    },
+    fetchRejectionMessage(id) {
+      let self = this;
+      if (self.reject_button_label == "View Reasons") {
+        self.process = true;
+        axios.get("fetch/rej-message/" + id).then(function(res) {
+          if (res.data) {
+            console.log(res.data);
+            self.messages = res.data;
+            self.process = false;
+            self.message = true;
+            self.sub_details = false;
+            self.reject_button_label = "View Details";
+          }
+        });
+      } else if (self.reject_button_label == "View Details") {
+        self.message = false;
+        self.sub_details = true;
+        self.reject_button_label = "View Reasons";
+      }
+    },
+    checkSubDate(sub_date) {
+      let currentDate = new Date();
+      sub_date = new Date(sub_date);
+      if (sub_date < currentDate) {
+        this.is_expired =
+          "This subscription has expired.Kindly click on to reschedule";
+        return false;
+      }
+      return true;
     },
     drop: function() {
       alert("testing drop");

@@ -21,6 +21,7 @@
         <div class="modal-body">
           <div class="form-group">
             <input
+              v-show="segment_avail"
               class="form-control"
               required="required"
               name="title"
@@ -178,29 +179,28 @@
                   <!-- spots available -->
                   <td v-show="segmentDay.substr(0,3).toUpperCase() == segment.mon">
                     <span
-                      v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) == 0"
+                      v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) == 0 "
                     >{{booked}}</span>
                     <select
-                      name="select"
                       style="width:100px;"
                       class="form-control"
                       v-model="spots[index]"
                       v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                     >
+                      <option disabled value>Please select one</option>
+
                       <option
-                        v-for=" (s,opt1) in checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots)"
-                        v-if="segment_exist"
+                        v-show="segment_exist"
+                        v-for=" (sp1,opt1) in checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots)"
                         :key="opt1"
-                        :name="'seB' + (opt1)"
-                        :value="s"
-                      >{{s}}</option>
-                      <option
+                        :value="sp1"
+                      >{{sp1}}</option>-->
+                      <!-- <option
                         v-show="segment_exist == false"
-                        v-for="(s,opt2) in  spot_avail(seg.mon_spots)"
+                        v-for="(sp2,opt2) in  spot_avail(seg.mon_spots)"
                         :key="opt2"
-                        :name="'seB' + (index)"
-                        :value="s"
-                      >{{s}}</option>
+                        :value="sp2"
+                      >{{sp2}}</option>
                     </select>
                   </td>
 
@@ -215,21 +215,18 @@
                       v-model="spots[index]"
                       v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                     >
-                      <!-- <option value disabled selected>Spots</option> -->
                       <option
+                        v-show="segment_exist"
                         v-for=" (s,opt3) in checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) "
-                        v-if="segment_exist"
                         :key="opt3"
-                        :name="'seB' + (opt3)"
                         :value="s"
                       >{{s}}</option>
-                      <option
+                      <!-- <option
                         v-show="segment_exist == false"
                         v-for=" (s,opt4) in  spot_avail(seg.tue_spots)"
-                        :name="'seB' + (opt4)"
                         :key="opt4"
                         :value="s"
-                      >{{s}}</option>
+                      >{{s}}</option>-->
                     </select>
                   </td>
 
@@ -244,20 +241,19 @@
                       v-model="spots[index]"
                       v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
                     >
-                      <!-- <option>--choose--</option> -->
                       <option
-                        v-for=" (s,opt6) in checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots)"
-                        :key="opt6"
-                        v-if="segment_exist"
-                        :name="'seB' + (index)"
+                        v-for=" (s,opt5) in checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots)"
+                        :key="opt5"
+                        v-show="segment_exist"
                         :value="s"
                       >{{s}}</option>
-                      <option
+                      <!-- <option
                         v-show="segment_exist == false"
-                        v-for=" s in  spot_avail(seg.wed_spots)"
-                        :name="'seB' + (index)"
+                        :key="opt6"
+                        v-for=" (s,opt6) in  spot_avail(seg.wed_spots)"
+                        :name="'seB' + (opt6)"
                         :value="s"
-                      >{{s}}</option>
+                      >{{s}}</option>-->
                     </select>
                   </td>
 
@@ -272,21 +268,19 @@
                       v-model="spots[index]"
                       v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                     >
-                      <!-- <option value disabled selected>Spots</option> -->
                       <option
-                        v-for=" (s,opt4) in checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots)"
-                        v-if="segment_exist"
-                        :key="opt4"
-                        :name="'seB' + (opt4)"
+                        v-for=" (s,opt7) in checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots)"
+                        v-show="segment_exist"
+                        :key="opt7"
                         :value="s"
                       >{{s}}</option>
-                      <option
+                      <!-- <option
                         v-show="segment_exist == false"
-                        v-for=" (s,opt4) in  spot_avail(seg.thu_spots)"
-                        :key="opt4"
-                        :name="'seB' + (opt4)"
+                        v-for=" (s,opt8) in  spot_avail(seg.thu_spots)"
+                        :key="opt8"
+                        :name="'seB' + (opt8)"
                         :value="s"
-                      >{{s}}</option>
+                      >{{s}}</option>-->
                     </select>
                   </td>
 
@@ -301,21 +295,20 @@
                       v-model="spots[index]"
                       v-show="checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                     >
-                      <!-- <option>--choose--</option> -->
+                      <option value disabled :selected="true">choose</option>
                       <option
-                        v-for=" (s,opt5) in checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots)"
-                        v-if="segment_exist"
-                        :key="opt5"
-                        :name="'seB' + (opt5)"
+                        v-for=" (s,opt9) in checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots)"
+                        v-show="segment_exist"
+                        :key="opt9"
                         :value="s"
                       >{{s}}</option>
-                      <option
+                      <!-- <option
                         v-show="segment_exist == false"
-                        v-for=" (s,opt5) in  spot_avail(seg.fri_spots)"
-                        :name="'seB' + (opt5)"
-                        :key="opt5"
+                        v-for=" (s,opt10) in  spot_avail(seg.fri_spots)"
+                        :key="opt10"
+                        :name="'seB' + (opt10)"
                         :value="s"
-                      >{{s}}</option>
+                      >{{s}}</option>-->
                     </select>
                   </td>
 
@@ -331,9 +324,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                             type="radio"
-                            :checked="reset_disabled == true"
-                            :name="'seB' + (index)"
-                            :value="{'startDate': startDate + '' + seg.mon_duration + ':' + seg.mon_b_duration  ,'endDate':endDate + '' + seg.mon_c_duration + ':' + seg.mon_d_duration  ,'endTime' :seg.mon_b_duration,durations : segment.sec1 + segment.time1,'rate': seg.sec1_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            :name="'mon' + (index)"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
@@ -352,9 +343,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                             type="radio"
-                            :checked="reset_disabled == true"
-                            :name="'seB' + (index)"
-                            :value="{'startDate': startDate + '' + seg.mon_duration + ':' + seg.mon_b_duration  ,'endDate':endDate + '' + seg.mon_c_duration + ':' + seg.mon_d_duration  ,'endTime' :seg.mon_b_duration,durations : segment.sec2 + segment.time2,'rate': seg.sec2_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            :name="'mon' + (index)"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
@@ -373,9 +362,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                             type="radio"
-                            :checked="reset_disabled == true"
-                            :name="'seB' + (index)"
-                            :value="{'startDate': startDate + '' + seg.mon_duration + ':' + seg.mon_b_duration  ,'endDate':endDate + '' + seg.mon_c_duration + ':' + seg.mon_d_duration  ,'endTime' :seg.mon_b_duration,durations : segment.sec3 + segment.time3,'rate': seg.sec3_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            :name="'mon' + (index)"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
@@ -394,9 +381,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                             type="radio"
-                            :checked="reset_disabled == true"
-                            :name="'seB' + (index)"
-                            :value="{'startDate': startDate + '' + seg.mon_duration + ':' + seg.mon_b_duration  ,'endDate':endDate + '' + seg.mon_c_duration + ':' + seg.mon_d_duration  ,'endTime' :seg.mon_b_duration,durations : segment.sec4 + segment.time4,'rate': seg.sec4_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            :name="'mon' + (index)"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
@@ -415,9 +400,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.mon_duration + ':' + seg.mon_b_duration + '-' + seg.mon_c_duration + ':' + seg.mon_d_duration,seg.mon_spots) != 0"
                             type="radio"
-                            :checked="reset_disabled == true"
-                            :name="'seB' + (index)"
-                            :value="{'startDate': startDate + '' + seg.mon_duration + ':' + seg.mon_b_duration  ,'endDate':endDate + '' + seg.mon_c_duration + ':' + seg.mon_d_duration  ,'endTime' :seg.mon_b_duration,durations : segment.sec5 + segment.time5,'rate': seg.sec5_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            :name="'mon' + (index)"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
@@ -438,7 +421,7 @@
                             v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                             type="radio"
                             @click="enableResetButton(index)"
-                            :name="'seB' + (index)"
+                            :name="'tue' + (index)"
                             :value="{'startDate': startDate + '' + seg.tue_duration + ':' + seg.tue_b_duration  ,'endDate':endDate + '' + seg.tue_c_duration + ':' + seg.tue_d_duration  ,'endTime' :seg.tue_b_duration,durations : segment.sec1 + segment.time1,'rate': seg.sec1_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -459,7 +442,7 @@
                             v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                             type="radio"
                             @click="enableResetButton(index)"
-                            :name="'seB' + (index)"
+                            :name="'tue' + (index)"
                             :value="{'startDate': startDate + '' + seg.tue_duration + ':' + seg.tue_b_duration  ,'endDate':endDate + '' + seg.tue_c_duration + ':' + seg.tue_d_duration  ,'endTime' :seg.tue_b_duration,durations : segment.sec2 + segment.time2,'rate': seg.sec2_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -480,7 +463,7 @@
                             v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                             type="radio"
                             @click="enableResetButton(index)"
-                            :name="'seB' + (index)"
+                            :name="'tue' + (index)"
                             :value="{'startDate': startDate + '' + seg.tue_duration + ':' + seg.tue_b_duration  ,'endDate':endDate + '' + seg.tue_c_duration + ':' + seg.tue_d_duration  ,'endTime' :seg.tue_b_duration,durations : segment.sec3 + segment.time3,'rate': seg.sec3_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -501,7 +484,7 @@
                             v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                             type="radio"
                             @click="enableResetButton(index)"
-                            :name="'seB' + (index)"
+                            :name="'tue' + (index)"
                             :value="{'startDate': startDate + '' + seg.tue_duration + ':' + seg.tue_b_duration  ,'endDate':endDate + '' + seg.tue_c_duration + ':' + seg.tue_d_duration  ,'endTime' :seg.tue_b_duration,durations : segment.sec4 + segment.time4,'rate': seg.sec4_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -522,7 +505,7 @@
                             v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.tue_b_duration + '-' + seg.tue_c_duration + ':' + seg.tue_d_duration,seg.tue_spots) != 0"
                             type="radio"
                             @click="enableResetButton(index)"
-                            :name="'seB' + (index)"
+                            :name="'tue' + (index)"
                             :value="{'startDate': startDate + '' + seg.tue_duration + ':' + seg.tue_b_duration  ,'endDate':endDate + '' + seg.tue_c_duration + ':' + seg.tue_d_duration  ,'endTime' :seg.tue_b_duration,durations : segment.sec5 + segment.time5,'rate': seg.sec5_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -541,14 +524,14 @@
                       <div class="radio radio-inline">
                         <label>
                           <input
-                            v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.tue_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                            v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
                             type="radio"
-                            :name="'seC' + (index)"
+                            :name="'wed' + (index)"
                             :value="{'startDate': startDate + '' + seg.wed_duration + ':' + seg.wed_b_duration  ,'endDate':endDate + '' + seg.wed_c_duration + ':' + seg.wed_d_duration  ,'endTime' :seg.wed_b_duration,durations : segment.sec1 + segment.time1,'rate': seg.sec1_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
-                          {{checkIfSegmentExist(seg.mon_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec1_rate}}
+                          {{checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec1_rate}}
                         </label>
                       </div>
                     </div>
@@ -557,15 +540,21 @@
                     v-show="segmentDay.substr(0,3).toUpperCase() == segment.wed"
                     v-if="segment.sec2 > 0 && segment.sec2 > getFileDurations || segment.sec2 == getFileDurations && segment.sec2 != 0"
                   >
-                    <input
-                      v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
-                      type="radio"
-                      :name="'seC' + (index)"
-                      :value="{'startDate': startDate + '' + seg.wed_duration + ':' + seg.wed_b_duration  ,'endDate':endDate + '' + seg.wed_c_duration + ':' + seg.wed_d_duration  ,'endTime' :seg.wed_b_duration,durations : segment.sec2 + segment.time2,'rate': seg.sec2_rate,'rate_card':getTitle,'spot':spots[index]}"
-                      v-model="seg_data[index]"
-                    />
-                    <i class="helper"></i>
-                    {{checkIfSegmentExist(seg.mon_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec2_rate}}
+                    <div class="form-radio">
+                      <div class="radio radio-inline">
+                        <label>
+                          <input
+                            v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                            type="radio"
+                            :name="'wed' + (index)"
+                            :value="{'startDate': startDate + '' + seg.wed_duration + ':' + seg.wed_b_duration  ,'endDate':endDate + '' + seg.wed_c_duration + ':' + seg.wed_d_duration  ,'endTime' :seg.wed_b_duration,durations : segment.sec2 + segment.time2,'rate': seg.sec2_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            v-model="seg_data[index]"
+                          />
+                          <i class="helper"></i>
+                          {{checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec2_rate}}
+                        </label>
+                      </div>
+                    </div>
                   </td>
                   <td
                     v-show="segmentDay.substr(0,3).toUpperCase() == segment.wed"
@@ -577,12 +566,12 @@
                           <input
                             v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
                             type="radio"
-                            :name="'seC' + (index)"
+                            :name="'wed' + (index)"
                             :value="{'startDate': startDate + '' + seg.wed_duration + ':' + seg.wed_b_duration  ,'endDate':endDate + '' + seg.wed_c_duration + ':' + seg.wed_d_duration  ,'endTime' :seg.wed_b_duration,durations : segment.sec3 + segment.time3,'rate': seg.sec3_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
-                          {{checkIfSegmentExist(seg.mon_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec3_rate}}
+                          {{checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec3_rate}}
                         </label>
                       </div>
                     </div>
@@ -597,12 +586,12 @@
                           <input
                             v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
                             type="radio"
-                            :name="'seC' + (index)"
+                            :name="'wed' + (index)"
                             :value="{'startDate': startDate + '' + seg.wed_duration + ':' + seg.wed_b_duration  ,'endDate':endDate + '' + seg.wed_c_duration + ':' + seg.wed_d_duration  ,'endTime' :seg.wed_b_duration,durations : segment.sec4 + segment.time4,'rate': seg.sec4_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
-                          {{checkIfSegmentExist(seg.mon_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec4_rate}}
+                          {{checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec4_rate}}
                         </label>
                       </div>
                     </div>
@@ -615,14 +604,14 @@
                       <div class="radio radio-inline">
                         <label>
                           <input
-                            v-show="checkIfSegmentExist(seg.tue_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
+                            v-show="checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) != 0"
                             type="radio"
-                            :name="'seC' + (index)"
+                            :name="'wed' + (index)"
                             :value="{'startDate': startDate + '' + seg.wed_duration + ':' + seg.wed_b_duration  ,'endDate':endDate + '' + seg.wed_c_duration + ':' + seg.wed_d_duration  ,'endTime' :seg.wed_b_duration,durations : segment.sec5 + segment.time5,'rate': seg.sec5_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
                           <i class="helper"></i>
-                          {{checkIfSegmentExist(seg.mon_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec5_rate}}
+                          {{checkIfSegmentExist(seg.wed_duration + ':' + seg.wed_b_duration + '-' + seg.wed_c_duration + ':' + seg.wed_d_duration,seg.wed_spots) === 0 ? 'Booked' :'GHS'+ seg.sec5_rate}}
                         </label>
                       </div>
                     </div>
@@ -638,7 +627,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                             type="radio"
-                            :name="'seD' + (index)"
+                            :name="'thu' + (index)"
                             :value="{'startDate': startDate + '' + seg.thu_duration + ':' + seg.thu_b_duration  ,'endDate':endDate + '' + seg.thu_c_duration + ':' + seg.thu_d_duration  ,'endTime' :seg.thu_b_duration,durations : segment.sec1 + segment.time1,'rate': seg.sec1_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -658,7 +647,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                             type="radio"
-                            :name="'seD' + (index)"
+                            :name="'thu' + (index)"
                             :value="{'startDate': startDate + '' + seg.thu_duration + ':' + seg.thu_b_duration  ,'endDate':endDate + '' + seg.thu_c_duration + ':' + seg.thu_d_duration  ,'endTime' :seg.thu_b_duration,durations : segment.sec2 + segment.time2,'rate': seg.sec2_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -678,7 +667,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                             type="radio"
-                            :name="'seD' + (index)"
+                            :name="'thu' + (index)"
                             :value="{'startDate': startDate + '' + seg.thu_duration + ':' + seg.thu_b_duration  ,'endDate':endDate + '' + seg.thu_c_duration + ':' + seg.thu_d_duration  ,'endTime' :seg.thu_b_duration,durations : segment.sec3 + segment.time3,'rate': seg.sec3_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -687,6 +676,21 @@
                         </label>
                       </div>
                     </div>
+                    <!-- <div class="form-radio">
+                      <div class="radio radio-inline">
+                        <label>
+                          <input
+                            v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
+                            type="radio"
+                            :name="'seD' + (index)"
+                            :value="{'startDate': startDate + '' + seg.thu_duration + ':' + seg.thu_b_duration  ,'endDate':endDate + '' + seg.thu_c_duration + ':' + seg.thu_d_duration  ,'endTime' :seg.thu_b_duration,durations : segment.sec3 + segment.time3,'rate': seg.sec3_rate,'rate_card':getTitle,'spot':spots[index]}"
+                            v-model="seg_data[index]"
+                          />
+                          <i class="helper"></i>
+                          {{checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) === 0 ? 'Booked' :'GHS'+ seg.sec3_rate}}
+                        </label>
+                      </div>
+                    </div>-->
                   </td>
                   <td
                     v-show="segmentDay.substr(0,3).toUpperCase() == segment.thu"
@@ -698,7 +702,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                             type="radio"
-                            :name="'seD' + (index)"
+                            :name="'thu' + (index)"
                             :value="{'startDate': startDate + '' + seg.thu_duration + ':' + seg.thu_b_duration  ,'endDate':endDate + '' + seg.thu_c_duration + ':' + seg.thu_d_duration  ,'endTime' :seg.thu_b_duration,durations : segment.sec4 + segment.time4,'rate': seg.sec4_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -708,6 +712,7 @@
                       </div>
                     </div>
                   </td>
+
                   <td
                     v-show="segmentDay.substr(0,3).toUpperCase() == segment.thu"
                     v-if="segment.sec5 > 0 && segment.sec5 > getFileDurations || segment.sec5 == getFileDurations && segment.sec5 != 0"
@@ -718,7 +723,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.thu_duration + ':' + seg.thu_b_duration + '-' + seg.thu_c_duration + ':' + seg.thu_d_duration,seg.thu_spots) != 0"
                             type="radio"
-                            :name="'seD' + (index)"
+                            :name="'thu' + (index)"
                             :value="{'startDate': startDate + '' + seg.thu_duration + ':' + seg.thu_b_duration  ,'endDate':endDate + '' + seg.thu_c_duration + ':' + seg.thu_d_duration  ,'endTime' :seg.thu_b_duration,durations : segment.sec5 + segment.time5,'rate': seg.sec5_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -739,7 +744,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.fri_duration + ':' + seg.fir_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                             type="radio"
-                            :name="'seE' + (index)"
+                            :name="'fri' + (index)"
                             :value="{'startDate': startDate + '' + seg.fri_duration + ':' + seg.fri_b_duration  ,'endDate':endDate + '' + seg.fri_c_duration + ':' + seg.fri_d_duration  ,'endTime' :seg.fri_b_duration,durations : segment.sec1 + segment.time1,'rate': seg.sec1_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -759,7 +764,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                             type="radio"
-                            :name="'seE' + (index)"
+                            :name="'fri' + (index)"
                             :value="{'startDate': startDate + '' + seg.fri_duration + ':' + seg.fri_b_duration  ,'endDate':endDate + '' + seg.fri_c_duration + ':' + seg.fri_d_duration  ,'endTime' :seg.fri_b_duration,durations : segment.sec2 + segment.time2,'rate': seg.sec2_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -779,7 +784,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                             type="radio"
-                            :name="'seE' + (index)"
+                            :name="'fri' + (index)"
                             :value="{'startDate': startDate + '' + seg.fri_duration + ':' + seg.fri_b_duration  ,'endDate':endDate + '' + seg.fri_c_duration + ':' + seg.fri_d_duration  ,'endTime' :seg.fri_b_duration,durations : segment.sec3 + segment.time3,'rate': seg.sec3_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -799,7 +804,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                             type="radio"
-                            :name="'seE' + (index)"
+                            :name="'fri' + (index)"
                             :value="{'startDate': startDate + '' + seg.fri_duration + ':' + seg.fri_b_duration  ,'endDate':endDate + '' + seg.fri_c_duration + ':' + seg.fri_d_duration  ,'endTime' :seg.fri_b_duration,durations : segment.sec4 + segment.time4,'rate': seg.sec4_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -819,7 +824,7 @@
                           <input
                             v-show="checkIfSegmentExist(seg.fri_duration + ':' + seg.fri_b_duration + '-' + seg.fri_c_duration + ':' + seg.fri_d_duration,seg.fri_spots) != 0"
                             type="radio"
-                            :name="'seE' + (index)"
+                            :name="'fri' + (index)"
                             :value="{'startDate': startDate + '' + seg.fri_duration + ':' + seg.fri_b_duration  ,'endDate':endDate + '' + seg.fri_c_duration + ':' + seg.fri_d_duration  ,'endTime' :seg.fri_b_duration,durations : segment.sec5 + segment.time5,'rate': seg.sec5_rate,'rate_card':getTitle,'spot':spots[index]}"
                             v-model="seg_data[index]"
                           />
@@ -899,7 +904,6 @@
                       v-show="segmentDay.substr(0,3).toUpperCase() == days.sun"
                     >{{seg.sun_duration + ':' + seg.sun_b_duration }}-{{seg.sun_c_duration + ':' + seg.sun_d_duration }}</td>
 
-                    <!--spots for rate card-->
                     <td v-show="segmentDay.substr(0,3).toUpperCase() == days.sat">{{seg.sat_spots}}</td>
                     <td v-show="segmentDay.substr(0,3).toUpperCase() == days.sun">{{seg.sun_spots}}</td>
 
@@ -907,16 +911,9 @@
                       <select name="select" v-model="spots[index]">
                         <option disabled value selected>spots</option>
                         <option
-                          v-for=" s in checkIfSegmentExist(seg.sat_duration + ':' + seg.sat_b_duration + '-' + seg.sat_c_duration + ':' + seg.sat_d_duration,seg.sat_spots)"
-                          v-if="segment_exist"
-                          :name="'seB' + (index)"
-                          :value="s"
-                        >{{s}}</option>
-
-                        <option
-                          v-show="segment_exist == false"
-                          v-for=" s in  spot_avail(seg.sat_spots)"
-                          :name="'seB' + (index)"
+                          v-for=" (s,sat) in checkIfSegmentExist(seg.sat_duration + ':' + seg.sat_b_duration + '-' + seg.sat_c_duration + ':' + seg.sat_d_duration,seg.sat_spots)"
+                          v-show="segment_exist"
+                          :key="sat"
                           :value="s"
                         >{{s}}</option>
                       </select>
@@ -926,16 +923,9 @@
                       <select name="select" v-model="spots[index]">
                         <option disabled value selected>spots</option>
                         <option
-                          v-for=" s in checkIfSegmentExist(seg.sun_duration + ':' + seg.sun_b_duration + '-' + seg.sun_c_duration + ':' + seg.sun_d_duration,seg.sun_spots)"
-                          v-if="segment_exist"
-                          :name="'seB' + (index)"
-                          :value="s"
-                        >{{s}}</option>
-
-                        <option
-                          v-show="segment_exist == false"
-                          v-for=" s in  spot_avail(seg.sun_spots)"
-                          :name="'seB' + (index)"
+                          v-for=" (s,sun) in checkIfSegmentExist(seg.sun_duration + ':' + seg.sun_b_duration + '-' + seg.sun_c_duration + ':' + seg.sun_d_duration,seg.sun_spots)"
+                          v-show="segment_exist"
+                          :key="sun"
                           :value="s"
                         >{{s}}</option>
                       </select>
@@ -947,7 +937,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sat_duration + ':' + seg.sat_b_duration  ,'endDate':endDate + '' + seg.sat_c_duration + ':' + seg.sat_d_duration  ,'endTime' :seg.sat_b_duration,durations : days.wsec1 + days.time1,'rate': seg.wsec1_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -959,7 +948,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sat_duration + ':' + seg.sat_b_duration  ,'endDate':endDate + '' + seg.sat_c_duration + ':' + seg.sat_d_duration  ,'endTime' :seg.sat_b_duration,durations : days.wsec2 + days.time2,'rate': seg.wsec2_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -971,7 +959,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sat_duration + ':' + seg.sat_b_duration  ,'endDate':endDate + '' + seg.sat_c_duration + ':' + seg.sat_d_duration  ,'endTime' :seg.sat_b_duration,durations : days.wsec3 + days.time3,'rate': seg.wsec3_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -983,7 +970,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sat_duration + ':' + seg.sat_b_duration  ,'endDate':endDate + '' + seg.sat_c_duration + ':' + seg.sat_d_duration  ,'endTime' :seg.sat_b_duration,durations : days.wsec4 + days.time4,'rate': seg.wsec4_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -995,7 +981,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sat_duration + ':' + seg.sat_b_duration  ,'endDate':endDate + '' + seg.sat_c_duration + ':' + seg.sat_d_duration  ,'endTime' :seg.sat_b_duration,durations : days.wsec5 + days.time5,'rate': seg.wsec5_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -1008,7 +993,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sun_duration + ':' + seg.sun_b_duration  ,'endDate':endDate + '' + seg.sun_c_duration + ':' + seg.sun_d_duration  ,'endTime' :seg.sun_b_duration,durations : days.wsec1 + days.time1,'rate': seg.wsec1_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -1020,7 +1004,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sun_duration + ':' + seg.sun_b_duration  ,'endDate':endDate + '' + seg.sun_c_duration + ':' + seg.sun_d_duration  ,'endTime' :seg.sun_b_duration,durations : days.wsec2 + days.time2,'rate': seg.wsec2_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -1032,7 +1015,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sun_duration + ':' + seg.sun_b_duration  ,'endDate':endDate + '' + seg.sun_c_duration + ':' + seg.sun_d_duration  ,'endTime' :seg.sun_b_duration,durations : days.wsec3 + days.time3,'rate': seg.wsec3_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -1044,7 +1026,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sun_duration + ':' + seg.sun_b_duration  ,'endDate':endDate + '' + seg.sun_c_duration + ':' + seg.sun_d_duration  ,'endTime' :seg.sun_b_duration,durations : days.wsec4 + days.time4,'rate': seg.wsec4_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -1056,7 +1037,6 @@
                     >
                       <input
                         type="radio"
-                        :name="'seA' + (index)"
                         :value="{'startDate': startDate + '' + seg.sun_duration + ':' + seg.sun_b_duration  ,'endDate':endDate + '' + seg.sun_c_duration + ':' + seg.sun_d_duration  ,'endTime' :seg.sun_b_duration,durations : days.wsec5 + days.time5,'rate': seg.wsec5_rate,'rate_card':getTitle,'spot':spots[index]}"
                         v-model="seg_data[index]"
                       />
@@ -1073,8 +1053,7 @@
           <!--<button class="btn btn-mat btn-secondary ">save</button>-->
           <router-link
             :to="{name : 'invoice'}"
-            v-if="title"
-            v-show="validateRateCardSelection(this.seg_data)"
+            v-show="validateRateCardSelection(this.seg_data) && checkIfSpotSelected() && title.length > 0"
             class="btn btn-primary waves-effect waves-light animated fadeIn"
             @click.native="submit(title)"
           >Schedule</router-link>
@@ -1151,7 +1130,9 @@ export default {
       booked: "Booked",
       addSegment: true,
       reset_disabled: null,
-      reset_button_index: []
+      reset_button_index: [],
+      segment_avail: true,
+      mycheck: false
     };
   },
   methods: {
@@ -1173,6 +1154,7 @@ export default {
       for (let i = 1; i < s + 1; i++) {
         results.push(i);
       }
+      this.segment_avail = true;
       return results;
     },
     checkIfSegmentExist(segment, spots) {
@@ -1184,11 +1166,19 @@ export default {
           n = segment[index];
         }
       });
+
       if (n == 0 || n > 0) {
         let spots_left = parseInt(spots) - parseInt(z);
-        this.segment_exist = true;
+        if (spots_left > 0) {
+          this.segment_exist = true;
+          // this.segment_avail = false;
+        } else {
+          this.segment_avail = true;
+        }
 
         return parseInt(spots_left);
+      } else {
+        spot_avail(spots);
       }
     },
     removeSegment(addSegment) {
@@ -1200,9 +1190,11 @@ export default {
       $("#radio_tv").modal("hide");
     },
     validateRateCardSelection(segment) {
-      // alert(segment.length > 0);
-
       return segment.length > 0;
+    },
+
+    checkIfSpotSelected() {
+      return this.spots.length > 0;
     },
     checkDays(days) {
       for (let i = 0; i < days.length; i++) {

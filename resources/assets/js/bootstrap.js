@@ -1,5 +1,4 @@
-
-window._ = require('lodash');
+//window._ = require('lodash');
 window.Popper = require('popper.js').default;
 window.moment = require('moment').default;
 
@@ -12,8 +11,8 @@ window.moment = require('moment').default;
  */
 
 try {
-   // window.$ = window.jQuery = require('./app-assets/jquery.min');
-   //  require('bootstrap');
+    // window.$ = window.jQuery = require('./app-assets/jquery.min');
+    //  require('bootstrap');
 
 } catch (e) {}
 

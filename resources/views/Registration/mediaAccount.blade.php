@@ -255,9 +255,66 @@
                                         </div>
 
                                     </div>
-                                    <button type="submit" class="btn button" id="submit_btn" style="color: #1b1e21;background: #F1CF00">Submit</button>
-                                <span style="color:#E6AA00 ">Already  registered?
-                                </span><a href="http://media.kokrokooad.com" class="link text-info">Login</a>
+
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
+                                            {{-- <label for="password">Password<span class="required">*</span></label> --}}
+                                            <input type="checkbox" name="terms" value="true" {{ !old('terms') ?: 'checked' }}>
+                                            <a href="{{route('terms')}}" target="_blank" class="text-primary">Agree with the terms and conditions</a>
+                                            <span class="agileits_grid">
+                                                    @if ($errors->has('terms'))
+                                                    <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('terms') }}</span>
+                                                @endif
+							                       </span>
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="col-sm-4">
+                                         <button type="submit" class="btn button" id="submit_btn" style="color: #1b1e21;background: #F1CF00">Submit</button>
+                                         <span style="color:#E6AA00 ">Registered?
+                                         </span><a href="{{route('login')}}" class="link text-info">Login</a>
+                                    </div> --}}
+
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
+                                            {{-- <label for="password">Password<span class="required">*</span></label> --}}
+                                            <input type="checkbox" name="terms" value="true" {{ !old('terms') ?: 'checked' }}>
+                                            <a href="{{route('terms')}}" target="_blank" class="text-primary">Agree with the terms and conditions</a>
+                                            <span class="agileits_grid">
+                                                    @if ($errors->has('terms'))
+                                                    <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('terms') }}</span>
+                                                @endif
+							                       </span>
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="col-sm-4">
+                                         <button type="submit" class="btn button" id="submit_btn" style="color: #1b1e21;background: #F1CF00">Submit</button>
+                                         <span style="color:#E6AA00 ">Registered?
+                                         </span><a href="{{route('login')}}" class="link text-info">Login</a>
+                                    </div> --}}
+
+                                </div>
+
+
+                                <div class="row">
+
+
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn button" id="submit_btn" style="color: #1b1e21;background: #F1CF00">Submit</button>
+                                        <span style="color:#E6AA00 ">Already registered?
+                                                 </span><a href="{{route('login')}}" class="link text-info">Login</a>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
 

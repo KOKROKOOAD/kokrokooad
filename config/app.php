@@ -38,11 +38,11 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
-     /*
+    /*
     Store files in below path
      */
 
-     'storage_path' =>env('STORAGE_PATH', 'http://144.76.44.117/opt/lampp/htdocs/kokrokoo-app/docs'),
+    'storage_path' => env('STORAGE_PATH', 'http://144.76.44.117/opt/lampp/htdocs/kokrokoo-app/docs'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
 
+
         /*
          * Package Service Providers...
          */
@@ -179,6 +180,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Reliese\Coders\CodersServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+
 
 
     ],
@@ -231,6 +234,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => 'Intervention\Image\Facades\Image',
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
 
     ],
 

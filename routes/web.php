@@ -103,6 +103,9 @@ Route::prefix('/user-account')->group(function () {
     Route::get('program-date-api/{mediaProgram}', 'SubController@fetchProgramDates');
     Route::get('fetch-segments-titles/{id}', 'SegmentController@fetchSegmentTitles');
     Route::get('checkratecard/duration-api/{id}', 'SpotsController@checkRateCardDurations');
+    Route::get('fetch-client-file/{id}','SubController@viewClientFile');
+    Route::get('download-sub/{id}', 'SubController@downloadFile')->name('download.sub');
+    Route::get('fetch/rej-message/{id}','SubController@fetchRejMessage');
 
     Route::get('testing', 'testingController@testing');
 
@@ -112,10 +115,11 @@ Route::prefix('/user-account')->group(function () {
     Route::get('check-spots-api/{segment}', 'SegmentController@checkSpots');
     Route::post('sub-update-api', 'SubController@updateAds');
     Route::post('check-sub/api', 'SubController@checkIfSubExist');
-    Route::get('fetch-transac/api', 'TransactionsController@index');
+    Route::get('fetch-transac-api', 'TransactionsController@index');
     Route::post('delete/sub', 'SubController@softDeleteSub');
     Route::get('fetch/sub-details/{id}', 'SubController@getSubSelectedMedia');
     Route::post('subs-update', 'SubController@updateFile');
+    Route::get('policies/terms',"TermsController@index")->name('terms');
 
     //    Route::post('demo','SubController@test');
 

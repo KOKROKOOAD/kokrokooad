@@ -14,10 +14,12 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        $trans = Transactions::select('*')
-            ->whereTransactionStatus('paid')
-            ->whereClientId(auth()->user()->client_id)->get();
-        return response()->json($trans);
+        
+            $trans = Transactions::select('*')
+                ->whereTransactionStatus('paid')
+                ->whereClientId(auth()->user()->client_id)->get();
+            return  response()->json($trans);
+        
     }
 
     /**

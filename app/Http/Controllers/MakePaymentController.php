@@ -157,7 +157,6 @@ class MakePaymentController extends Controller
     {
 
         if (is_array($request->id)) {
-
             $payment = ScheduledAds::select('spots', 'rate', 'media_house_id')->whereIn('subscription_id', $request->id)->get();
             return response()->json(['status' => 'success', 'payment' => $payment, 'media_house_id' => $payment[0]->media_house_id]);
         } else {

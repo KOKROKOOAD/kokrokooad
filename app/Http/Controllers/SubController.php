@@ -12,6 +12,7 @@ use App\Jobs\RegistrationSuccessfullJob;
 use App\Jobs\SendAdCreatedMessagedJob;
 use App\Models\RateCardTitles;
 use App\RateCards;
+use App\RejectedMessages;
 use App\ScheduledAds;
 use App\SpotsUsed;
 use App\Transactions;
@@ -54,8 +55,8 @@ class SubController extends Controller
 
         if (auth()->check()) {
 
-             $path =  "/var/www/html/uploads/subscription-files/";
-            //$path = "/home/jarthur/Documents/kokroko-downds/";
+            // $path =  "/var/www/html/uploads/subscription-files/";
+            $path = "/home/jarthur/Documents/kokroko-downds/";
             $file = Input::file('uploadedFile');
             $fileName =  $file->getClientOriginalName();
             $user_name  = explode(' ', auth()->user()->name);
@@ -207,10 +208,13 @@ class SubController extends Controller
     }
 
 
-    public function checkIfSubExist(Request $request)
-    { }
+    public function viewClientFile($id)
+    {
+        $file =   ScheduledAds::select('file_name', 'file_type', 'title', 'file_path')->whereSubscriptionId($id)->get();
+        return response()->json($file);
+    }
 
-    public function fetchClientSubsInCart()
+    public function fetchClientSubsInCart(Request $request)
     {
 
         //        $subs  =  DB::table('scheduled_ads')
@@ -219,13 +223,26 @@ class SubController extends Controller
         //            -> where('user.client_id','=',auth()->user()->client_id)->where('scheduled_ads.status','=','in cart')->where('scheduled_ads','!=','deleted')
         //            ->get();
 
-        $subs =  ScheduledAds::select()->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->get();
+        $subs = ScheduledAds::query();
+
+        if ($request->filter != '') {
+
+            $subs =  ScheduledAds::where('title', 'LIKE', '%' . $request->filter . '%')
+                ->orWhere('start', 'like', '%' . $request->filter . '%')
+                ->orWhere('end', 'like', '%' . $request->filter . '%')
+                ->orWhere('spots', 'like', '%' . $request->filter . '%')
+                ->orWhere('durations', 'like', '%' . $request->filter . '%')
+                ->orWhere('status', 'like', '%' . $request->filter . '%')
+                ->orWhere('rate', 'like', '%' . $request->filter . '%');
+        }
+
+        $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(10);
         if (!$subs->isEmpty()) {
             $media_house = User::select('media_house')->where('client_id', '=', $subs[0]->media_house_id)->get();
             // $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$subs[0]->rate_card_id)->get();
             return response()->json(['status' => 'success', 'subs' => $subs, 'media_house' => $media_house[0]->media_house]);
         } else {
-            return response()->json(['status' => 'Add subscriptions to cart']);
+            return response()->json(['status' => 'success', 'msg' => 'No subscription found']);
         }
     }
 
@@ -294,15 +311,54 @@ class SubController extends Controller
     //soft delete subs
     public function  softDeleteSub(Request $request)
     {
-        $sub = ScheduledAds::select('deleted', 'deleted_at')->where('subscription_id', '=', $request->input('id'))->update([
-            'deleted' => 'deleted',
-            'deleted_at' => Carbon::now()->toDateString(),
-        ]);
+        $id = explode(',', $request->id);
+        if (count($id) > 1) {
+            $sub = ScheduledAds::select('deleted', 'deleted_at')->whereIn('subscription_id', $id)->update([
+                'deleted' => 'deleted',
+                'deleted_at' => Carbon::now()->toDateString(),
+            ]);
+        } else {
+            $sub = ScheduledAds::select('deleted', 'deleted_at')->where('subscription_id', '=', $request->input('id'))->update([
+                'deleted' => 'deleted',
+                'deleted_at' => Carbon::now()->toDateString(),
+            ]);
+        }
+
         return response()->json('success');
     }
 
     public function test()
     {
         dd('hello');
+    }
+
+    //download file
+    public function downloadFile($id)
+    {
+
+        $file_name = ScheduledAds::select('file_name', 'file_type')->whereSubscription_id($id)->first();
+
+        $ext = explode('/', $file_name->file_type);
+
+        $headers = [
+            'Content-Type' => 'application/' . $ext[0]
+        ];
+
+
+
+        //  $file = '/var/www/html/uploads/subscription-files/' . $file_name->file_name;
+        $file = '/home/jarthur/Documents/kokroko-downds/' . $file_name->file_name;
+
+        if (file_exists($file)) {
+            return response()->download($file, $file_name->file_name, $headers);
+        } else {
+            return redirect()->back()->with('download', 'Sorry download failed.Try again later');
+        }
+    }
+
+    public function fetchRejMessage($id)
+    {
+        $messages =  RejectedMessages::all()->where('subscription_id', $id);
+        return response()->json($messages);
     }
 }

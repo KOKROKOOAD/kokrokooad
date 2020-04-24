@@ -19,7 +19,8 @@
         "phpmailer/phpmailer": "^6.0",
         "pusher/pusher-php-server": "^3.3",
         "reliese/laravel": "^0.0.13",
-        "spatie/pdf-to-image": "^1.8"
+        "spatie/pdf-to-image": "^1.8",
+        "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

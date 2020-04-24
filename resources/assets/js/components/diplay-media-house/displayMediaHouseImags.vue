@@ -1,74 +1,88 @@
 <template>
   <div class="page-wrapper">
     <pre-loader v-show="getProcessStatus"></pre-loader>
-
     <!-- Page-header start -->
-    <div v-show="loading" class="page-header">
+    <div class="page-header" v-show="loading">
       <div class="row align-items-end">
         <div class="col-lg-8">
           <div class="page-header-title">
             <div class="d-inline">
-              <h4>Media house selection form</h4>
+              <h4>Media Houses</h4>
+              <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
               <span>
                 Which media house do you want to
-                <code>Publish to</code>, Select and click a media house to continue.
+                <code>Publish to</code>, Click to select a media house to continue.
               </span>
-              <p>{{no_media}}</p>
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-          <div class="page-header-breadcrumb"></div>
-        </div>
+        <div class="col-lg-4"></div>
       </div>
     </div>
-    <div v-show="loading" class="default-grid row" :class="fadeIn">
-      <div class="row lightboxgallery-popup">
-        <div
-          class="col-lg-3 col-md-6 default-grid-item"
-          v-for="(logos,index) in mediaHouse"
-          :key="index"
-        >
-          <div class="card gallery-desc">
-            <div class="masonry-media">
-              <a class="media-middle" href="#!">
-                <!--<img class="img-fluid" src="https://colorlib.com//polygon/adminty/files/assets/images/gallery-grid/masonry-1.jpg" alt="masonary">-->
-                <label class="image-checkbox" :id="index">
-                  <img
-                    class="img-fluid"
-                    v-bind:src="[ live_assets_path + logos.logo]"
-                    @click="getSelMediaHouseId(logos.client_id)"
-                    width="600"
-                    height="515"
-                  />
-                  <input type="radio" :value="logos.media_house" v-model="selMediaH" />
-                  <!--                  <i class="fa fa-check hidden"></i>-->
-                </label>
-              </a>
+    <!-- Page-header end -->
+
+    <!-- Page body start -->
+    <div class="page-body gallery-page">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- Gallery advance card start -->
+          <div class="card">
+            <div class="card-header">
+              <h5>
+                Selected media house :
+                <strong
+                  class="text-danger"
+                  style="font-weight:900"
+                >{{ selected_media }}</strong>
+              </h5>
+
+              <!-- <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span> -->
             </div>
-            <div class="card-block">
-              <div class="job-meta-data">
-                <i class="fa fa-recycle"></i>
-                <b class="text-danger">{{logos.media_house}}</b>
+            <div class="card-block text-center">
+              <div class="row">
+                <div
+                  style="margin-right:-36px;border-color:green !important"
+                  class="col-sm-3"
+                  v-for="(logos,index) in mediaHouse"
+                  :key="index"
+                  @click="getSelMediaHouseId(logos.client_id,logos.media_house)"
+                >
+                  <div class="grid">
+                    <figure class="effect-apollo" style="width:70px !important;height:160px;">
+                      <img class="img-fluid" v-bind:src="[ live_assets_path + logos.logo]" />
+                      <figcaption>
+                        <!-- <h2>
+                          Strong
+                          <span>Apollo</span>
+                        </h2>-->
+                        <p>{{ logos.media_house }}</p>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
               </div>
-              <div v-show="getSelectMedia === 'RADIO'" class="job-meta-data">
-                <!--                <b class="text-info">104.3fm</b>-->
+            </div>
+            <div class="row">
+              <div class="animated fadeIn" style="padding:40px;">
+                <router-link :to="{name : selectMedia}" class="btn btn-mat btn-info">Back</router-link>
+                <router-link
+                  :to="{name:file_upload}"
+                  class="btn btn-mat btn-inverse animated fadeIn"
+                  v-show="selMediaH"
+                  @click.native="fetchSegmentTitles()"
+                >Next</router-link>
               </div>
             </div>
           </div>
+          <!-- Gallery advance card end -->
         </div>
       </div>
-      <div style="padding-left: 16px;"></div>
     </div>
-    <div v-show="loading" class="animated fadeIn">
-      <router-link :to="{name : selectMedia}" class="btn btn-mat btn-info">Back</router-link>
-      <router-link
-        :to="{name:file_upload}"
-        class="btn btn-mat btn-inverse animated fadeIn"
-        v-show="selMediaH"
-        @click.native="fetchSegmentTitles()"
-      >Next</router-link>
-    </div>
+    <!-- Page body end -->
+
+    <!-- Main-body end -->
+
+    <div id="styleSelector"></div>
   </div>
 </template>
 
@@ -103,7 +117,8 @@ export default {
       logo_path: "/thumbnails/",
       live_assets_path: "http://uploads.kokrokooad.com/mediaHouseLogos/",
 
-      no_media: ""
+      no_media: "",
+      selected_media: ""
     };
   },
   methods: {
@@ -127,9 +142,11 @@ export default {
         }
       });
     },
-    getSelMediaHouseId(id) {
+    getSelMediaHouseId(id, media_house) {
       this.mediaHouseId = id;
       store.dispatch("getMediaHouseId", this.mediaHouseId);
+      this.selMediaH = this.mediaHouseId;
+      this.selected_media = media_house;
     },
     showSubmitBtn() {
       if (this.selMediaH.length > 0) {

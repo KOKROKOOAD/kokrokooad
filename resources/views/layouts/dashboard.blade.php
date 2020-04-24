@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
     <!-- Required Fremwork -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css"
           href="https://colorlib.com//polygon/adminty/files/bower_components/sweetalert/css/sweetalert.css">
 
@@ -34,29 +36,17 @@
     <!-- notify js Fremwork -->
     <link rel="stylesheet" type="text/css"
           href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.brighttheme.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.buttons.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.history.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.mobile.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://colorlib.com//polygon/adminty/files/assets/pages/pnotify/notify.css">
-
+   
+            <!-- Data Table Css -->
+   
  <!-- Switch component css -->
-    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/switchery/css/switchery.min.css">
-    <!-- Tags css -->
-    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap-tagsinput/css/bootstrap-tagsinput.css" />
+    {{--  <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/switchery/css/switchery.min.css">  --}}
     <!-- Style.css -->
-    {{--<link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/style.css">--}}
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/css/style.css">
     <link rel="stylesheet" type="text/css"
           href="https://colorlib.com//polygon/adminty/files/assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css"
-          href="https://colorlib.com//polygon/adminty/files/bower_components/datedropper/css/datedropper.min.css">
 
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 @endsection
 {{--@section('dashboard')--}}
 {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
@@ -129,13 +119,6 @@
 
                     <div class="navbar-container container-fluid">
 
-{{--                        @if(session()->has('payment-success'))--}}
-{{--                            <div class="alert alert-success">--}}
-{{--                                <p>{{session('payment-success')}}</p>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-
-{{--                        <div class="alert alert-success">hello</div>--}}
                         <ul class="nav-right">
 
                             <li class="user-profile header-notification">
@@ -153,26 +136,7 @@
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu"
                                         data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        {{--                                        <li>--}}
-                                        {{--                                            <a href="#!">--}}
-                                        {{--                                                <i class="feather icon-settings"></i> Settings--}}
-                                        {{--                                            </a>--}}
-                                        {{--                                        </li>--}}
-                                        {{--                                        <li>--}}
-                                        {{--                                            <a href="{{route('profile.show')}}">--}}
-                                        {{--                                                <i class="feather icon-user"></i> Profile--}}
-                                        {{--                                            </a>--}}
-                                        {{--                                        </li>--}}
-                                        {{--<li>--}}
-                                        {{--<a href="email-inbox.html">--}}
-                                        {{--<i class="feather icon-mail"></i> My Messages--}}
-                                        {{--</a>--}}
-                                        {{--</li>--}}
-                                        {{--<li>--}}
-                                        {{--<a href="auth-lock-screen.html">--}}
-                                        {{--<i class="feather icon-lock"></i> Lock Screen--}}
-                                        {{--</a>--}}
-                                        {{--</li>--}}
+                                        
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -328,72 +292,44 @@
 
 @endsection
 @section('scripts')
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/popper.js/js/popper.min.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/fullcalendar/js/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/modernizr/js/modernizr.js"></script>
+    <script type="text/javascript"  src="https://colorlib.com//polygon/adminty/files/bower_components/modernizr/js/css-scrollbars.js"></script>
+    <script type="text/javascript"  src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.desktop.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/sweetalert/js/sweetalert.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/switchery/js/switchery.min.js"></script>
+    <script src="https://colorlib.com//polygon/adminty/files/assets/js/pcoded.min.js"></script>
+    <script src="https://colorlib.com//polygon/adminty/files/assets/js/vartical-layout.min.js"></script>
+    <script src="https://colorlib.com//polygon/adminty/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    {{--<script src="{{asset('js/app.js')}}"></script>--}}
-    <![endif]-->
-    <!-- Warning Section Ends -->
-    <!-- Required Jquery -->
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/jquery/js/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/popper.js/js/popper.min.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <script type="text/javascript"
+
+
+
+
+
+    {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/script.js"></script>--}}
+
+    {{--  <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/assets/js/bootstrap-growl.min.js"></script>
+  --}}
     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/notification/notification.js"></script>--}}
-
-
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/moment-with-locales.min.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/bootstrap-datetimepicker.min.js"></script>
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap-daterangepicker/js/daterangepicker.js"></script>
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/datedropper/js/datedropper.min.js"></script>
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/spectrum/js/spectrum.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/jscolor/js/jscolor.js"></script>
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-minicolors/js/jquery.minicolors.min.js"></script>
-
     <!-- calender js -->
     {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/moment/js/moment.min.js"></script>--}}
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/fullcalendar/js/fullcalendar.min.js"></script>
-
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/modernizr/js/modernizr.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/modernizr/js/css-scrollbars.js"></script>
-
     {{--<!-- jquery file upload js -->--}}
     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/jquery.filer/js/jquery.filer.min.js"></script>--}}
     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/filer/custom-filer.js" type="text/javascript"></script>--}}
     {{--<script src="https://colorlib.com//polygon/adminty/files/assets/pages/filer/jquery.fileuploads.init.js" type="text/javascript"></script>--}}
-
-
     <!-- pnotify js -->
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.js"></script>
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.desktop.js"></script>
-    <script type="text/javascript"
+    {{--  <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.buttons.js"></script>
     <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.confirm.js"></script>
@@ -406,55 +342,24 @@
     <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.mobile.js"></script>
     <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+            src="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.nonblock.js"></script>  --}}
     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/pnotify/notify.js"></script>--}}
-
-    <!-- sweet alert js -->
-    <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/sweetalert/js/sweetalert.min.js"></script>
     {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/modal.js"></script>--}}
     <!-- sweet alert modal.js intialize js -->
     <!-- modalEffects js nifty modal window effects -->
-    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/modalEffects.js"></script>
-    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/classie.js"></script>
-
-
-    <script type="text/javascript"
+    {{--  <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/modalEffects.js"></script>
+    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/classie.js"></script>  --}}
+    {{--  <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/bower_components/i18next/js/i18next.min.js"></script>
     <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
     <script type="text/javascript"
             src="https://colorlib.com//polygon/adminty/files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript"
-            src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+            src="https://colorlib.com//polygon/adminty/files/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>  --}}
 
     {{--                    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/advance-elements/custom-picker.js"></script>--}}
     {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/pages/full-calender/calendar.js"></script>--}}
-      <!-- Switch component js -->
-    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/switchery/js/switchery.min.js"></script>
-    <!-- Tags js -->
-    <script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/bower_components/bootstrap-tagsinput/js/bootstrap-tagsinput.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
-
-    <script src="https://colorlib.com//polygon/adminty/files/assets/js/pcoded.min.js"></script>
-    <script src="https://colorlib.com//polygon/adminty/files/assets/js/vartical-layout.min.js"></script>
-    <script src="https://colorlib.com//polygon/adminty/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    {{--<script type="text/javascript" src="https://colorlib.com//polygon/adminty/files/assets/js/script.js"></script>--}}
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
-
+   
 
 @endsection
