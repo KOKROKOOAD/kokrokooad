@@ -234,10 +234,11 @@ class SubController extends Controller
                 ->orWhere('durations', 'like', '%' . $request->filter . '%')
                 ->orWhere('status', 'like', '%' . $request->filter . '%')
                 ->orWhere('rate', 'like', '%' . $request->filter . '%')
+                ->whereClientId(auth()->user()->client_id)
                 ->where('status','!=','deleted');
         }
 
-        $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(10);
+        $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(5);
         if (!$subs->isEmpty()) {
             $media_house = User::select('media_house')->where('client_id', '=', $subs[0]->media_house_id)->get();
             // $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$subs[0]->rate_card_id)->get();
