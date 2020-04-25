@@ -228,7 +228,6 @@ class SubController extends Controller
         if ($request->filter != '') {
 
             $subs =  ScheduledAds::whereClientId(auth()->user()->client_id)
-                ->whereStatus('in cart')
                 ->orwhere('title', 'LIKE', '%' . $request->filter . '%')
                 ->orWhere('start', 'like', '%' . $request->filter . '%')
                 ->orWhere('end', 'like', '%' . $request->filter . '%')
@@ -236,7 +235,8 @@ class SubController extends Controller
                 ->orWhere('durations', 'like', '%' . $request->filter . '%')
               //  ->orWhere('status', 'like', '%' . $request->filter . '%')
                 ->orWhere('rate', 'like', '%' . $request->filter . '%')
-                ->where('status','!=','deleted');
+                ->orWhere('status','!=','deleted')
+                ->orWhere('status','=','in cart');
         }
 
         $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(5);
