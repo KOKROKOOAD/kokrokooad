@@ -165,9 +165,15 @@
                                   <input
                                     type="checkbox"
                                     v-model="selected"
-                                    :value="sub.subscription_id"
-                                    @change="select(parseInt(sub.spots) * parseFloat(sub.rate))"
+                                    :value="{id : sub.subscription_id, amount :  parseInt(sub.spots) * parseFloat(sub.rate)}"
+
+                                    @change="select()"
                                   />
+<!--                                  <input-->
+<!--                                          type="checkbox"-->
+<!--                                          @click="selectAll(subs.data)"-->
+<!--                                          v-model="allSelected"-->
+<!--                                  />-->
                                 </td>
                                 <td
                                   style="font-weight: bolder"
@@ -246,7 +252,7 @@
                         </fieldset>
                         <!-- Shopping cart fieldset end -->
                       </form>
-                      <div class="row">
+                      <div class="row" style="margin-top: 10px;">
                         <div class="col-md-9">
                           <div class="btn-group">
                             <button
@@ -312,6 +318,7 @@ export default {
       filter: "",
       selected: [],
       allSelected: false,
+      singleSelected:false,
       subIds: [],
       getAmount: [],
       total_amount: 0.0
@@ -342,6 +349,7 @@ export default {
         .get("fetch-subs/api?page=" + pageNo + "&filter=" + filter)
         .then(function(res) {
           if (res.data.subs) {
+            console.log(res.data.subs);
             self.subs = res.data.subs;
             self.media_h = res.data.media_house;
             self.process = false;
@@ -396,31 +404,37 @@ export default {
     selectAll(subs) {
       this.allSelected = !this.allSelected;
       this.selected = [];
+      let amt = 0;
 
       if (this.allSelected) {
         for (let sub in subs) {
-          this.selected.push(subs[sub].subscription_id);
+          this.selected.push({id : subs[sub].subscription_id,amount :  parseInt(subs[sub].spots) * parseFloat(subs[sub].rate)});
+          amt += parseFloat(subs[sub].rate) * parseInt(subs[sub].spots);
         }
-        console.log(this.selected);
+        this.total_amount = amt;
+      }
+      else{
+        this.selected = [];
+        this.total_amount = 0.00;
+
       }
     },
-    select: function(amount) {
+    select: function() {
+      let t = 0.00;
+
+      this.singleSelected = !this.singleSelected
       if (this.selected.length == this.allSelected.length) {
         this.allSelected = true;
       } else {
         this.allSelected = false;
+        for (let i = 0; i < this.selected.length; i++) {
+          t = t + parseFloat(this.selected[i].amount);
+        }
       }
-      this.getAmount.push(amount);
-      let t = 0.0;
-      for (let i = 0; i < this.getAmount.length; i++) {
-        console.log("initial amount :" + this.total_amount);
 
-        t = t + this.getAmount[i];
-      }
       this.total_amount = t;
-      console.log(t);
-      //return this.total_amount.toFixed(2);
     },
+
     amounts() {
       for (let i = 0; i < this.getAmount.length; i++) {
         this.total_amount = this.total_amount + parseInt(this.getAmount[i]);

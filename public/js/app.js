@@ -70199,7 +70199,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70213,6 +70213,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_partials_pagination__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_partials_pagination___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_partials_pagination__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -70527,6 +70533,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       filter: "",
       selected: [],
       allSelected: false,
+      singleSelected: false,
       subIds: [],
       getAmount: [],
       total_amount: 0.0
@@ -70556,6 +70563,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       axios.get("fetch-subs/api?page=" + pageNo + "&filter=" + filter).then(function (res) {
         if (res.data.subs) {
+          console.log(res.data.subs);
           self.subs = res.data.subs;
           self.media_h = res.data.media_house;
           self.process = false;
@@ -70607,32 +70615,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     selectAll: function selectAll(subs) {
       this.allSelected = !this.allSelected;
       this.selected = [];
+      var amt = 0;
 
       if (this.allSelected) {
         for (var sub in subs) {
-          this.selected.push(subs[sub].subscription_id);
+          this.selected.push({ id: subs[sub].subscription_id, amount: parseInt(subs[sub].spots) * parseFloat(subs[sub].rate) });
+          amt += parseFloat(subs[sub].rate) * parseInt(subs[sub].spots);
         }
-        console.log(this.selected);
+        this.total_amount = amt;
+      } else {
+        this.selected = [];
+        this.total_amount = 0.00;
       }
     },
 
-    select: function select(amount) {
+    select: function select() {
+      var t = 0.00;
+
+      this.singleSelected = !this.singleSelected;
       if (this.selected.length == this.allSelected.length) {
         this.allSelected = true;
       } else {
         this.allSelected = false;
+        for (var i = 0; i < this.selected.length; i++) {
+          t = t + parseFloat(this.selected[i].amount);
+        }
       }
-      this.getAmount.push(amount);
-      var t = 0.0;
-      for (var i = 0; i < this.getAmount.length; i++) {
-        console.log("initial amount :" + this.total_amount);
 
-        t = t + this.getAmount[i];
-      }
       this.total_amount = t;
-      console.log(t);
-      //return this.total_amount.toFixed(2);
     },
+
     amounts: function amounts() {
       for (var i = 0; i < this.getAmount.length; i++) {
         this.total_amount = this.total_amount + parseInt(this.getAmount[i]);
@@ -71343,15 +71355,26 @@ var render = function() {
                                                     ],
                                                     attrs: { type: "checkbox" },
                                                     domProps: {
-                                                      value:
-                                                        sub.subscription_id,
+                                                      value: {
+                                                        id: sub.subscription_id,
+                                                        amount:
+                                                          parseInt(sub.spots) *
+                                                          parseFloat(sub.rate)
+                                                      },
                                                       checked: Array.isArray(
                                                         _vm.selected
                                                       )
-                                                        ? _vm._i(
-                                                            _vm.selected,
-                                                            sub.subscription_id
-                                                          ) > -1
+                                                        ? _vm._i(_vm.selected, {
+                                                            id:
+                                                              sub.subscription_id,
+                                                            amount:
+                                                              parseInt(
+                                                                sub.spots
+                                                              ) *
+                                                              parseFloat(
+                                                                sub.rate
+                                                              )
+                                                          }) > -1
                                                         : _vm.selected
                                                     },
                                                     on: {
@@ -71367,8 +71390,17 @@ var render = function() {
                                                           if (
                                                             Array.isArray($$a)
                                                           ) {
-                                                            var $$v =
-                                                                sub.subscription_id,
+                                                            var $$v = {
+                                                                id:
+                                                                  sub.subscription_id,
+                                                                amount:
+                                                                  parseInt(
+                                                                    sub.spots
+                                                                  ) *
+                                                                  parseFloat(
+                                                                    sub.rate
+                                                                  )
+                                                              },
                                                               $$i = _vm._i(
                                                                 $$a,
                                                                 $$v
@@ -71393,14 +71425,7 @@ var render = function() {
                                                           }
                                                         },
                                                         function($event) {
-                                                          _vm.select(
-                                                            parseInt(
-                                                              sub.spots
-                                                            ) *
-                                                              parseFloat(
-                                                                sub.rate
-                                                              )
-                                                          )
+                                                          _vm.select()
                                                         }
                                                       ]
                                                     }
@@ -71436,14 +71461,14 @@ var render = function() {
                                                   },
                                                   [
                                                     _vm._v(
-                                                      "\n                                " +
+                                                      "\n                                  " +
                                                         _vm._s(
                                                           sub.start.substr(
                                                             11,
                                                             16
                                                           )
                                                         ) +
-                                                        "\n                                "
+                                                        "\n                                  "
                                                     ),
                                                     _c(
                                                       "span",
@@ -71465,11 +71490,11 @@ var render = function() {
                                                       [_vm._v("-")]
                                                     ),
                                                     _vm._v(
-                                                      "\n                                " +
+                                                      "\n                                  " +
                                                         _vm._s(
                                                           sub.end.substr(11, 16)
                                                         ) +
-                                                        "\n                              "
+                                                        "\n                                "
                                                     )
                                                   ]
                                                 ),
@@ -71716,79 +71741,87 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-md-9" }, [
-                            _c("div", { staticClass: "btn-group" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-secondary",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.getSubsIds(
-                                        _vm.subs.data,
-                                        _vm.selected
-                                      )
-                                    }
-                                  }
-                                },
-                                [_vm._v("Checkout")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value: _vm.selected.length > 1,
-                                      expression: "selected.length > 1"
-                                    }
-                                  ],
-                                  staticClass: "btn btn-danger animated fadeIn",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.deleteSubs(_vm.selected)
-                                    }
-                                  }
-                                },
-                                [_c("i", { staticClass: "fa fa-trash" })]
-                              )
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-3" }, [
-                            _c(
-                              "h5",
-                              { staticStyle: { "margin-top": "20px" } },
-                              [
-                                _c("strong", [_vm._v("Total:")]),
-                                _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "row",
+                            staticStyle: { "margin-top": "10px" }
+                          },
+                          [
+                            _c("div", { staticClass: "col-md-9" }, [
+                              _c("div", { staticClass: "btn-group" }, [
                                 _c(
-                                  "span",
+                                  "button",
                                   {
-                                    staticStyle: {
-                                      color: "rgb(246, 139, 30)",
-                                      "font-weight": "bolder",
-                                      "font-size": "20px"
+                                    staticClass: "btn btn-secondary",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.getSubsIds(
+                                          _vm.subs.data,
+                                          _vm.selected
+                                        )
+                                      }
                                     }
                                   },
-                                  [
-                                    _vm._v(
-                                      "GHS" +
-                                        _vm._s(
-                                          " " + _vm.total_amount.toFixed(2)
-                                        )
-                                    )
-                                  ]
+                                  [_vm._v("Checkout")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: _vm.selected.length > 1,
+                                        expression: "selected.length > 1"
+                                      }
+                                    ],
+                                    staticClass:
+                                      "btn btn-danger animated fadeIn",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        _vm.deleteSubs(_vm.selected)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-trash" })]
                                 )
-                              ]
-                            )
-                          ])
-                        ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c(
+                                "h5",
+                                { staticStyle: { "margin-top": "20px" } },
+                                [
+                                  _c("strong", [_vm._v("Total:")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticStyle: {
+                                        color: "rgb(246, 139, 30)",
+                                        "font-weight": "bolder",
+                                        "font-size": "20px"
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "GHS" +
+                                          _vm._s(
+                                            " " + _vm.total_amount.toFixed(2)
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ]
+                        )
                       ])
                     ])
                   ])

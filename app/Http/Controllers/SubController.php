@@ -233,7 +233,8 @@ class SubController extends Controller
                 ->orWhere('spots', 'like', '%' . $request->filter . '%')
                 ->orWhere('durations', 'like', '%' . $request->filter . '%')
                 ->orWhere('status', 'like', '%' . $request->filter . '%')
-                ->orWhere('rate', 'like', '%' . $request->filter . '%');
+                ->orWhere('rate', 'like', '%' . $request->filter . '%')
+                ->where('status','!=','deleted');
         }
 
         $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(10);

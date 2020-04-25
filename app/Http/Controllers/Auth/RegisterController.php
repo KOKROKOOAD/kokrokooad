@@ -70,6 +70,7 @@ class RegisterController extends Controller
                 'address' => 'required|string|max:100',
                 'industry_type' => 'required|string|max:255',
                 'title' => 'required|string|max:50',
+                'terms' => 'required',
                 'password' => 'required|string|min:6|confirmed',
             ]);
         }
@@ -90,6 +91,7 @@ class RegisterController extends Controller
                 'website' => 'required|string|max:100|unique:user_profiles',
                 'company_name' => 'required|string|max:100|unique:user_profiles',
                 'password' => 'required|string|min:6|confirmed',
+                'terms' => 'required'
             ]);
         }
 
@@ -110,6 +112,7 @@ class RegisterController extends Controller
                 'title' => 'required|string|max:50',
                 'website' => 'required|string|max:100|unique:user_profiles',
                 'company_name' => 'required|string|max:100|unique:user_profiles',
+                'terms' => 'required',
                 'password' => 'required|string|min:6|confirmed',
             ]);
         }
