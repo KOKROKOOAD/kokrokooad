@@ -228,7 +228,6 @@ class SubController extends Controller
         if ($request->filter != '') {
 
             $subs =  ScheduledAds::whereClientId(auth()->user()->client_id)
-                  ->whereDeleted('deleted')
                   ->where('title', 'LIKE', '%' . $request->filter . '%')
                   ->orWhere('start', 'like', '%' . $request->filter . '%');
 //                ->orWhere('end', 'like', '%' . $request->filter . '%')
