@@ -51869,162 +51869,146 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "page-wrapper" },
-    [
-      _c("pre-loader", {
+  return _c("div", { staticClass: "page-wrapper" }, [
+    _c(
+      "div",
+      {
         directives: [
           {
             name: "show",
             rawName: "v-show",
-            value: _vm.getProcessStatus,
-            expression: "getProcessStatus"
+            value: _vm.loading,
+            expression: "loading"
           }
-        ]
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.loading,
-              expression: "loading"
-            }
-          ],
-          staticClass: "page-header"
-        },
-        [_vm._m(0)]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "page-body gallery-page" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c("h5", [
-                  _vm._v(
-                    "\n              Selected media house :\n              "
-                  ),
-                  _c(
-                    "strong",
-                    {
-                      staticClass: "text-danger",
-                      staticStyle: { "font-weight": "900" }
-                    },
-                    [_vm._v(_vm._s(_vm.selected_media))]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-block text-center" }, [
+        ],
+        staticClass: "page-header"
+      },
+      [_vm._m(0)]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "page-body gallery-page" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("h5", [
+                _vm._v(
+                  "\n                Selected media house :\n                "
+                ),
                 _c(
-                  "div",
-                  { staticClass: "row" },
-                  _vm._l(_vm.mediaHouse, function(logos, index) {
-                    return _c(
-                      "div",
-                      {
-                        key: index,
-                        staticClass: "col-sm-3",
-                        staticStyle: {
-                          "margin-right": "-36px",
-                          "border-color": "green !important"
-                        },
-                        on: {
-                          click: function($event) {
-                            _vm.getSelMediaHouseId(
-                              logos.client_id,
-                              logos.media_house
-                            )
-                          }
-                        }
-                      },
-                      [
-                        _c("div", { staticClass: "grid" }, [
-                          _c(
-                            "figure",
-                            {
-                              staticClass: "effect-apollo",
-                              staticStyle: {
-                                width: "70px !important",
-                                height: "160px"
-                              }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "img-fluid",
-                                attrs: {
-                                  src: [_vm.live_assets_path + logos.logo]
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("figcaption", [
-                                _c("p", [_vm._v(_vm._s(logos.media_house))])
-                              ])
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  })
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
+                  "strong",
                   {
-                    staticClass: "animated fadeIn",
-                    staticStyle: { padding: "40px" }
+                    staticClass: "text-danger",
+                    staticStyle: { "font-weight": "900" }
                   },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-mat btn-info",
-                        attrs: { to: { name: _vm.selectMedia } }
-                      },
-                      [_vm._v("Back")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.selMediaH,
-                            expression: "selMediaH"
-                          }
-                        ],
-                        staticClass: "btn btn-mat btn-inverse animated fadeIn",
-                        attrs: { to: { name: _vm.file_upload } },
-                        nativeOn: {
-                          click: function($event) {
-                            _vm.fetchSegmentTitles()
-                          }
-                        }
-                      },
-                      [_vm._v("Next")]
-                    )
-                  ],
-                  1
+                  [_vm._v(_vm._s(_vm.selected_media))]
                 )
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-block text-center" }, [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.mediaHouse, function(logos, index) {
+                  return _c(
+                    "div",
+                    {
+                      key: index,
+                      staticClass: "col-sm-3",
+                      staticStyle: {
+                        "margin-right": "-36px",
+                        "border-color": "green !important"
+                      },
+                      on: {
+                        click: function($event) {
+                          _vm.getSelMediaHouseId(
+                            logos.client_id,
+                            logos.media_house
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "grid" }, [
+                        _c(
+                          "figure",
+                          {
+                            staticClass: "effect-apollo",
+                            staticStyle: {
+                              width: "70px !important",
+                              height: "160px"
+                            }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: {
+                                src: [_vm.live_assets_path + logos.logo]
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("figcaption", [
+                              _c("p", [_vm._v(_vm._s(logos.media_house))])
+                            ])
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                })
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "animated fadeIn",
+                  staticStyle: { padding: "40px" }
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-mat btn-info",
+                      attrs: { to: { name: _vm.selectMedia } }
+                    },
+                    [_vm._v("Back")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.selMediaH,
+                          expression: "selMediaH"
+                        }
+                      ],
+                      staticClass: "btn btn-mat btn-inverse animated fadeIn",
+                      attrs: { to: { name: _vm.file_upload } },
+                      nativeOn: {
+                        click: function($event) {
+                          _vm.fetchSegmentTitles()
+                        }
+                      }
+                    },
+                    [_vm._v("Next")]
+                  )
+                ],
+                1
+              )
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "styleSelector" } })
-    ],
-    1
-  )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "styleSelector" } })
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -52039,11 +52023,11 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("span", [
               _vm._v(
-                "\n              Which media house do you want to\n              "
+                "\n                Which media house do you want to\n                "
               ),
               _c("code", [_vm._v("Publish to")]),
               _vm._v(
-                ", Click to select a media house to continue.\n            "
+                ", Click to select a media house to continue.\n              "
               )
             ])
           ])

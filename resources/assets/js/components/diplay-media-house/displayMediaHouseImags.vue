@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <pre-loader v-show="getProcessStatus"></pre-loader>
+<!--    <pre-loader v-show="getProcessStatus"></pre-loader>-->
     <!-- Page-header start -->
     <div class="page-header" v-show="loading">
       <div class="row align-items-end">
