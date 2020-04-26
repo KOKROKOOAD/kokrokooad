@@ -104,7 +104,7 @@
             </h4>
             <span
               class="float-right"
-              v-show="config.subs.status == 'rejected' && checkSubDate(config.subs.start) == false || config.subs.status == 'in cart' && checkSubDate(config.subs.start) == false"
+              v-show="config.subs.status == 'rejected' && checkSubDate(config.subs.start) == false"
             >
               This subscription has expired.Kindly contact kokrokooad.com for assistance.
               <!-- <button
