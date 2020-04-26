@@ -48,8 +48,8 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                   <img :src="'http://uploads.kokrokooad.com/subscription-files/' + file" v-show="imageFile(ext)" />
-                  <audio controls :src="file_path + file" type="audio/*" v-show="audioFile(ext)"></audio>
-                  <video v-show="videoFile(ext)" :src="file_path + file"></video>
+                  <audio controls :src="'http://uploads.kokrokooad.com/subscription-files/' + file" type="audio/*" v-show="audioFile(ext)"></audio>
+                  <video v-show="videoFile(ext)" :src="'http://uploads.kokrokooad.com/subscription-files/' + file"></video>
                   <a
                     :href="'download-sub/' + id"
                     role="button"

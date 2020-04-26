@@ -74479,7 +74479,9 @@ var render = function() {
                     ],
                     attrs: {
                       controls: "",
-                      src: _vm.file_path + _vm.file,
+                      src:
+                        "http://uploads.kokrokooad.com/subscription-files/" +
+                        _vm.file,
                       type: "audio/*"
                     }
                   }),
@@ -74493,7 +74495,11 @@ var render = function() {
                         expression: "videoFile(ext)"
                       }
                     ],
-                    attrs: { src: _vm.file_path + _vm.file }
+                    attrs: {
+                      src:
+                        "http://uploads.kokrokooad.com/subscription-files/" +
+                        _vm.file
+                    }
                   }),
                   _vm._v(" "),
                   _c(
