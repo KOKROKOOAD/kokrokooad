@@ -55,8 +55,8 @@ class SubController extends Controller
 
         if (auth()->check()) {
 
-            // $path =  "/var/www/html/uploads/subscription-files/";
-            $path = "/home/jarthur/Documents/kokroko-downds/";
+            $path =  "/var/www/html/uploads/subscription-files/";
+           // $path = "/home/jarthur/Documents/kokroko-downds/";
             $file = Input::file('uploadedFile');
             $fileName =  $file->getClientOriginalName();
             $user_name  = explode(' ', auth()->user()->name);
@@ -294,7 +294,9 @@ class SubController extends Controller
             $file_size = Input::file('file')->getClientSize();
             $mime_type = Input::file('file')->getClientMimeType();
             $ext = explode('.', $fileName);
-            $path = '/home/jarthur/ads/uploads';
+           // $path = '/home/jarthur/ads/uploads';
+            $path = '/var/www/html/uploads/subscription-files/';
+
             if (File::isDirectory($path)) {
                 $file->move($path, $name);
             }
@@ -348,8 +350,8 @@ class SubController extends Controller
 
 
 
-        //  $file = '/var/www/html/uploads/subscription-files/' . $file_name->file_name;
-        $file = '/home/jarthur/Documents/kokroko-downds/' . $file_name->file_name;
+        $file = '/var/www/html/uploads/subscription-files/' . $file_name->file_name;
+       // $file = '/home/jarthur/Documents/kokroko-downds/' . $file_name->file_name;
 
         if (file_exists($file)) {
             return response()->download($file, $file_name->file_name, $headers);
