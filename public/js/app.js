@@ -68990,7 +68990,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69002,6 +69002,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
+//
 //
 //
 //
@@ -69122,7 +69123,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       print_segments: [],
       processing: false,
       loader: true,
-      medi: ""
+      medi: "",
+      loading_card: false
     };
   },
   mounted: function mounted() {
@@ -69146,6 +69148,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     getSelectedRatedCard: function getSelectedRatedCard(id) {
       var self = this;
+      self.loading_card = true;
       var m = self.media.toLowerCase();
       self.medi = m.charAt(0).toUpperCase() + m.slice(1);
       if (self.medi == "Print") {
@@ -69155,7 +69158,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           if (res.data) {
             self.print_segments = res.data.rate_card;
             self.loader = false;
-            self.processing = true;
+            self.loading_card = false;
             self.rate_card_title = res.data.rate_card_title;
             $(".bd-example-modal-lg1").modal("show");
           }
@@ -69168,12 +69171,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             self.view_rate_card = res.data.segments;
             self.view_rate_card_w = res.data.w_segments;
             self.days_of_week = JSON.parse(res.data.days_of_week);
-            console.log(self.view_rate_card_w);
+            // console.log(self.view_rate_card_w);
 
             self.days_of_weekend = JSON.parse(res.data.days_of_weekends);
             self.rate_card_title = res.data.rate_card_title;
             self.loader = false;
-            self.processing = true;
+            self.loading_card = false;
             $(".bd-example-modal-lg1").modal("show");
           }
         });
@@ -69358,7 +69361,18 @@ var render = function() {
                             attrs: { to: { name: "view-mediahouses" } }
                           },
                           [_vm._v("Back")]
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("show-processing", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.loading_card,
+                              expression: "loading_card"
+                            }
+                          ]
+                        })
                       ],
                       1
                     ),

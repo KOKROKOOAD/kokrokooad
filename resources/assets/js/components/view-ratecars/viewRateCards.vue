@@ -53,6 +53,7 @@
                 </div>
                 <div class="animated fadeIn" style="padding-left: 16px;">
                   <router-link :to="{name : 'view-mediahouses'}" class="btn btn-mat btn-info">Back</router-link>
+                  <show-processing v-show="loading_card"></show-processing>
                 </div>
                 <div
                   class="animated fadeIn"
@@ -118,7 +119,8 @@ export default {
       print_segments: [],
       processing: false,
       loader: true,
-      medi: ""
+      medi: "",
+      loading_card : false
     };
   },
   mounted() {
@@ -144,6 +146,7 @@ export default {
     },
     getSelectedRatedCard(id) {
       let self = this;
+      self.loading_card = true;
       let m = self.media.toLowerCase();
       self.medi = m.charAt(0).toUpperCase() + m.slice(1);
       if (self.medi == "Print") {
@@ -155,7 +158,7 @@ export default {
             if (res.data) {
               self.print_segments = res.data.rate_card;
               self.loader = false;
-              self.processing = true;
+              self.loading_card = false;
               self.rate_card_title = res.data.rate_card_title;
               $(".bd-example-modal-lg1").modal("show");
             }
@@ -170,12 +173,12 @@ export default {
               self.view_rate_card = res.data.segments;
               self.view_rate_card_w = res.data.w_segments;
               self.days_of_week = JSON.parse(res.data.days_of_week);
-              console.log(self.view_rate_card_w);
+             // console.log(self.view_rate_card_w);
 
               self.days_of_weekend = JSON.parse(res.data.days_of_weekends);
               self.rate_card_title = res.data.rate_card_title;
               self.loader = false;
-              self.processing = true;
+              self.loading_card = false;
               $(".bd-example-modal-lg1").modal("show");
             }
           });
