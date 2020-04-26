@@ -18,7 +18,7 @@
     <div class="row" v-show="process">
       <div class="col-md-4"></div>
       <div class="col-md-3">
-                          <show-processing class="float-right"></show-processing>
+        <show-processing class="float-right"></show-processing>
       </div>
       <div class="col-md-4"></div>
     </div>
@@ -329,8 +329,11 @@ export default {
         .then(function(res) {
           if (res.data) {
             self.user = res.data;
-            self.process = false;
-            self.show_profile = true;
+            setTimeout(function(){
+              self.process = false;
+              self.show_profile = true;
+
+            },2000);
             self.disabled = false;
             self.loader = false;
           }
