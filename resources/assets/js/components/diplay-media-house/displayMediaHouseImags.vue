@@ -2,7 +2,7 @@
   <div class="page-wrapper">
 <!--    <pre-loader v-show="getProcessStatus"></pre-loader>-->
     <!-- Page-header start -->
-    <div class="page-header" v-show="loading">
+    <div class="page-header">
       <div class="row align-items-end">
         <div class="col-lg-8">
           <div class="page-header-title">

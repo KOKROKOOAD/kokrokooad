@@ -51870,21 +51870,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "page-wrapper" }, [
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.loading,
-            expression: "loading"
-          }
-        ],
-        staticClass: "page-header"
-      },
-      [_vm._m(0)]
-    ),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "page-body gallery-page" }, [
       _c("div", { staticClass: "row" }, [
@@ -52015,26 +52001,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row align-items-end" }, [
-      _c("div", { staticClass: "col-lg-8" }, [
-        _c("div", { staticClass: "page-header-title" }, [
-          _c("div", { staticClass: "d-inline" }, [
-            _c("h4", [_vm._v("Media Houses")]),
-            _vm._v(" "),
-            _c("span", [
-              _vm._v(
-                "\n                Which media house do you want to\n                "
-              ),
-              _c("code", [_vm._v("Publish to")]),
-              _vm._v(
-                ", Click to select a media house to continue.\n              "
-              )
+    return _c("div", { staticClass: "page-header" }, [
+      _c("div", { staticClass: "row align-items-end" }, [
+        _c("div", { staticClass: "col-lg-8" }, [
+          _c("div", { staticClass: "page-header-title" }, [
+            _c("div", { staticClass: "d-inline" }, [
+              _c("h4", [_vm._v("Media Houses")]),
+              _vm._v(" "),
+              _c("span", [
+                _vm._v(
+                  "\n                Which media house do you want to\n                "
+                ),
+                _c("code", [_vm._v("Publish to")]),
+                _vm._v(
+                  ", Click to select a media house to continue.\n              "
+                )
+              ])
             ])
           ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-4" })
+      ])
     ])
   }
 ]
