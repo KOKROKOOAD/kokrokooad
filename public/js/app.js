@@ -56119,7 +56119,8 @@ var render = function() {
                             "config.subs.status == 'rejected' && checkSubDate(config.subs.start) == false"
                         }
                       ],
-                      staticClass: "float-right"
+                      staticClass: "float-right",
+                      staticStyle: { "padding-left": "50px" }
                     },
                     [
                       _vm._v(
@@ -56142,7 +56143,8 @@ var render = function() {
                             " config.subs.status == 'in cart' && checkSubDate(config.subs.start) == false"
                         }
                       ],
-                      staticClass: "float-right"
+                      staticClass: "float-right",
+                      staticStyle: { "padding-left": "50px" }
                     },
                     [
                       _vm._v(
