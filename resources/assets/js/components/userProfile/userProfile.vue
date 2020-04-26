@@ -7,14 +7,6 @@
           <div class="page-header-title">
             <div class="d-inline">
               <h4>Edit Profile</h4>
-              <div class="row" v-show="process">
-                <div class="col-md-4"></div>
-                <div class="col-md-3">
-                  <show-processing class="float-right"></show-processing>
-                </div>
-                <div class="col-md-4"></div>
-              </div>
-
 
             </div>
           </div>
@@ -23,7 +15,13 @@
       </div>
     </div>
     <!-- Page-header end -->
-
+    <div class="row" v-show="process">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+                          <show-processing class="float-right"></show-processing>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
     <!-- Page body start -->
     <div class="page-body">
       <div class="row">
