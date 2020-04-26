@@ -74341,6 +74341,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           self.ext = res.data[0].file_type;
           self.title = res.data[0].title;
           self.file_path = res.data[0].file_path;
+
           self.loader = false;
         }
       });
@@ -74460,7 +74461,11 @@ var render = function() {
                         expression: "imageFile(ext)"
                       }
                     ],
-                    attrs: { src: _vm.file_path + _vm.file }
+                    attrs: {
+                      src:
+                        "http://uploads.kokrokooad.com/subscription-files/" +
+                        _vm.file
+                    }
                   }),
                   _vm._v(" "),
                   _c("audio", {

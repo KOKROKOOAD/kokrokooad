@@ -47,7 +47,7 @@
               <div class="row text-center">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                  <img :src="file_path + file" v-show="imageFile(ext)" />
+                  <img :src="'http://uploads.kokrokooad.com/subscription-files/' + file" v-show="imageFile(ext)" />
                   <audio controls :src="file_path + file" type="audio/*" v-show="audioFile(ext)"></audio>
                   <video v-show="videoFile(ext)" :src="file_path + file"></video>
                   <a
@@ -101,6 +101,7 @@ export default {
           self.ext = res.data[0].file_type;
           self.title = res.data[0].title;
           self.file_path = res.data[0].file_path;
+
           self.loader = false;
         }
       });
