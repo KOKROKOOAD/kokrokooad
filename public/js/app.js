@@ -69304,7 +69304,7 @@ var render = function() {
                             staticClass: "form-control form-control-primary",
                             attrs: { name: "select" },
                             on: {
-                              click: function($event) {
+                              select: function($event) {
                                 _vm.getSelectedRatedCard(_vm.card_title_id)
                               },
                               change: function($event) {

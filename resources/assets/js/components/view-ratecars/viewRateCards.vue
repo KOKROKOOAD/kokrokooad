@@ -41,7 +41,7 @@
                     name="select"
                     class="form-control form-control-primary"
                     v-model="card_title_id"
-                    @click="getSelectedRatedCard(card_title_id)"
+                    @select="getSelectedRatedCard(card_title_id)"
                   >
                     <option disabled value selected>Select Ratecard</option>
                     <option
