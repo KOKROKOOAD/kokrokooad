@@ -44,20 +44,13 @@
                     @keyup="search()"
                   />
                 </div>
+                <div class="col-md-9" v-show="searching">
+                  <p>Searching...</p>
+
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-5"></div>
-                <!-- <div class="col-md-3">
-                  <router-link
-                    :to="{name : 'selectMedia'}"
-                    class="btn btn-danger"
-                    role="button"
-                    v-show="msg != ''"
-                  >
-                    <i class="fa fa-shopping-cart"></i>
-                    {{msg}}
-                  </router-link>
-                </div>-->
                 <div class="col-md-4"></div>
               </div>
             </div>
@@ -324,6 +317,7 @@ export default {
       getAmount: [],
       total_amount: 0.0,
       item_selected : false,
+      searching : false
     };
   },
   mounted() {
@@ -342,25 +336,30 @@ export default {
       }
 
       if (filter) {
+        this.searching = true
         filter = filter;
       } else {
         filter = "";
+        this.searching = false;
       }
 
       axios
         .get("fetch-subs/api?page=" + pageNo + "&filter=" + filter)
         .then(function(res) {
           if (res.data.subs) {
-            console.log(res.data.subs);
             self.subs = res.data.subs;
             self.media_h = res.data.media_house;
             self.process = false;
             self.table = true;
             self.show_process = false;
             self.show_cart = true;
+            self.searching = false;
+
           } else {
             self.subs = [];
             self.msg = res.data.msg;
+            self.searching = false;
+
           }
         });
     },
