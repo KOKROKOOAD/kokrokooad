@@ -56119,7 +56119,7 @@ var render = function() {
                             "config.subs.status == 'rejected' && checkSubDate(config.subs.start) == false"
                         }
                       ],
-                      staticClass: "float-right",
+                      staticClass: "float-right text-primary",
                       staticStyle: {
                         "padding-left": "50px",
                         "margin-top": "10px"
@@ -56146,7 +56146,7 @@ var render = function() {
                             " config.subs.status == 'in cart' && checkSubDate(config.subs.start) == false"
                         }
                       ],
-                      staticClass: "float-right",
+                      staticClass: "float-right text-primary",
                       staticStyle: {
                         "padding-left": "50px",
                         "margin-top": "10px"

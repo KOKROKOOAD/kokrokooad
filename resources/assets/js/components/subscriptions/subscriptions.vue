@@ -103,7 +103,7 @@
               <b class="text-danger">Subscription details</b>
             </h4>
             <span
-              class="float-right" style="padding-left: 50px;margin-top: 10px;"
+              class="float-right text-primary" style="padding-left: 50px;margin-top: 10px;"
               v-show="config.subs.status == 'rejected' && checkSubDate(config.subs.start) == false"
             >
               This subscription has expired.Kindly contact kokrokooad.com for assistance.
@@ -115,7 +115,7 @@
               </button> to reschedule.-->
             </span>
             <span
-                    class="float-right"
+                    class="float-right text-primary"
                     v-show=" config.subs.status == 'in cart' && checkSubDate(config.subs.start) == false" style="padding-left: 50px;margin-top: 10px;"
             >
               Please note that this subscription date has passed and can not be processed.
