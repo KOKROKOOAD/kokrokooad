@@ -56120,7 +56120,10 @@ var render = function() {
                         }
                       ],
                       staticClass: "float-right",
-                      staticStyle: { "padding-left": "50px" }
+                      staticStyle: {
+                        "padding-left": "50px",
+                        "margin-top": "10px"
+                      }
                     },
                     [
                       _vm._v(
@@ -56144,11 +56147,14 @@ var render = function() {
                         }
                       ],
                       staticClass: "float-right",
-                      staticStyle: { "padding-left": "50px" }
+                      staticStyle: {
+                        "padding-left": "50px",
+                        "margin-top": "10px"
+                      }
                     },
                     [
                       _vm._v(
-                        "\n            Subscription date has passed and can not be processed.\n            "
+                        "\n            Please note that this subscription date has passed and can not be processed.\n            "
                       )
                     ]
                   ),
