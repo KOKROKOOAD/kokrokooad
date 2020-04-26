@@ -55614,6 +55614,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -56115,6 +56127,29 @@ var render = function() {
                     [
                       _vm._v(
                         "\n            This subscription has expired.Kindly contact kokrokooad.com for assistance.\n            "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value:
+                            _vm.config.subs.status == "in cart" &&
+                            _vm.checkSubDate(_vm.config.subs.start) == false,
+                          expression:
+                            " config.subs.status == 'in cart' && checkSubDate(config.subs.start) == false"
+                        }
+                      ],
+                      staticClass: "float-right"
+                    },
+                    [
+                      _vm._v(
+                        "\n            Subscription date has passed and can not be processed.\n            "
                       )
                     ]
                   ),

@@ -114,6 +114,18 @@
                 <i class="fa fa-pencil"></i>
               </button> to reschedule.-->
             </span>
+            <span
+                    class="float-right"
+                    v-show=" config.subs.status == 'in cart' && checkSubDate(config.subs.start) == false"
+            >
+              Subscription date has passed and can not be processed.
+              <!-- <button
+                data-toggle="tooltip"
+                class="edit btn btn-secondary btn-sm"
+              >
+                <i class="fa fa-pencil"></i>
+              </button> to reschedule.-->
+            </span>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
