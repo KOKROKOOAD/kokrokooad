@@ -70199,7 +70199,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70213,6 +70213,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_partials_pagination__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_partials_pagination___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_partials_pagination__);
+//
 //
 //
 //
@@ -70536,7 +70537,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       singleSelected: false,
       subIds: [],
       getAmount: [],
-      total_amount: 0.0
+      total_amount: 0.0,
+      item_selected: false
     };
   },
   mounted: function mounted() {
@@ -70595,22 +70597,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getSubId", id);
     },
     getSubsIds: function getSubsIds(subs, selected_items) {
-      var id = [];
+      this.subIds = [];
       if (selected_items.length > 0) {
-        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getCheckoutIds", selected_items);
-        this.$router.push({
-          name: "payment"
-        });
-      } else {
-        subs.forEach(function (arrayItem) {
-          var x = arrayItem.subscription_id;
-          id.push(x);
-          __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getCheckoutIds", id);
-        });
+        for (var items in selected_items) {
+          this.subIds.push(selected_items[items].id);
+        }
+        __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getCheckoutIds", this.subIds);
         this.$router.push({
           name: "payment"
         });
       }
+      // else {
+      //   subs.forEach(function(arrayItem) {
+      //     let x = arrayItem.subscription_id;
+      //     id.push(x);
+      //     store.dispatch("getCheckoutIds", id);
+      //   });
+      //   this.$router.push({
+      //     name: "payment"
+      //   });
+      // }
     },
     selectAll: function selectAll(subs) {
       this.allSelected = !this.allSelected;
@@ -70618,6 +70624,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var amt = 0;
 
       if (this.allSelected) {
+        this.item_selected = true;
         for (var sub in subs) {
           this.selected.push({ id: subs[sub].subscription_id, amount: parseInt(subs[sub].spots) * parseFloat(subs[sub].rate) });
           amt += parseFloat(subs[sub].rate) * parseInt(subs[sub].spots);
@@ -70631,6 +70638,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     select: function select() {
       var t = 0.00;
+      this.item_selected = true;
 
       this.singleSelected = !this.singleSelected;
       if (this.selected.length == this.allSelected.length) {
@@ -70660,9 +70668,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       setInterval(this.deleteSubModal(id), 100);
       clearInterval(this.deleteSubModal(id));
     },
-    deleteSubs: function deleteSubs(id) {
-      setInterval(this.deleteSubModal(id), 100);
-      clearInterval(this.deleteSubModal(id));
+    deleteSubs: function deleteSubs(selected_items) {
+      this.subIds = [];
+      for (var items in selected_items) {
+        this.subIds.push(selected_items[items].id);
+      }
+      setInterval(this.deleteSubModal(this.subIds), 100);
+      clearInterval(this.deleteSubModal(this.subIds));
     },
     deleteSubModal: function deleteSubModal(id) {
       var self = this;
@@ -71754,7 +71766,10 @@ var render = function() {
                                   "button",
                                   {
                                     staticClass: "btn btn-secondary",
-                                    attrs: { type: "button" },
+                                    attrs: {
+                                      type: "button",
+                                      disabled: _vm.item_selected == false
+                                    },
                                     on: {
                                       click: function($event) {
                                         _vm.getSubsIds(

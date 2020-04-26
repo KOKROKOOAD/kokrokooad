@@ -258,6 +258,7 @@
                             <button
                               class="btn btn-secondary"
                               type="button"
+                              :disabled="item_selected == false"
                               @click="getSubsIds(subs.data,selected)"
                             >Checkout</button>
                             <button
@@ -321,7 +322,8 @@ export default {
       singleSelected:false,
       subIds: [],
       getAmount: [],
-      total_amount: 0.0
+      total_amount: 0.0,
+      item_selected : false,
     };
   },
   mounted() {
@@ -384,22 +386,26 @@ export default {
       store.dispatch("getSubId", id);
     },
     getSubsIds(subs, selected_items) {
-      let id = [];
+      this.subIds = [];
       if (selected_items.length > 0) {
-        store.dispatch("getCheckoutIds", selected_items);
+        for(let items in selected_items){
+          this.subIds.push(selected_items[items].id);
+        }
+        store.dispatch("getCheckoutIds", this.subIds);
         this.$router.push({
           name: "payment"
         });
-      } else {
-        subs.forEach(function(arrayItem) {
-          let x = arrayItem.subscription_id;
-          id.push(x);
-          store.dispatch("getCheckoutIds", id);
-        });
-        this.$router.push({
-          name: "payment"
-        });
-      }
+       }
+        // else {
+      //   subs.forEach(function(arrayItem) {
+      //     let x = arrayItem.subscription_id;
+      //     id.push(x);
+      //     store.dispatch("getCheckoutIds", id);
+      //   });
+      //   this.$router.push({
+      //     name: "payment"
+      //   });
+      // }
     },
     selectAll(subs) {
       this.allSelected = !this.allSelected;
@@ -407,6 +413,7 @@ export default {
       let amt = 0;
 
       if (this.allSelected) {
+        this.item_selected = true;
         for (let sub in subs) {
           this.selected.push({id : subs[sub].subscription_id,amount :  parseInt(subs[sub].spots) * parseFloat(subs[sub].rate)});
           amt += parseFloat(subs[sub].rate) * parseInt(subs[sub].spots);
@@ -421,6 +428,7 @@ export default {
     },
     select: function() {
       let t = 0.00;
+      this.item_selected = true;
 
       this.singleSelected = !this.singleSelected
       if (this.selected.length == this.allSelected.length) {
@@ -450,9 +458,13 @@ export default {
       setInterval(this.deleteSubModal(id), 100);
       clearInterval(this.deleteSubModal(id));
     },
-    deleteSubs(id) {
-      setInterval(this.deleteSubModal(id), 100);
-      clearInterval(this.deleteSubModal(id));
+    deleteSubs(selected_items) {
+     this.subIds = [];
+      for(let items in selected_items){
+        this.subIds.push(selected_items[items].id);
+      }
+      setInterval(this.deleteSubModal(this.subIds), 100);
+      clearInterval(this.deleteSubModal(this.subIds));
     },
     deleteSubModal(id) {
       let self = this;
