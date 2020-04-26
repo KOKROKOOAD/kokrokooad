@@ -20,13 +20,19 @@
       </div>
     </div>
     <!-- Page-header end -->
-
+    <div class="row" v-show="process">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+        <show-processing class="float-right"></show-processing>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
     <!-- Page body start -->
     <div class="page-body gallery-page">
       <div class="row">
         <div class="col-sm-12">
           <!-- Gallery advance card start -->
-          <div class="card">
+          <div class="card" v-show="loading">
             <div class="card-header">
               <h5>
                 Selected media house :
@@ -116,7 +122,7 @@ export default {
       loading: false,
       logo_path: "/thumbnails/",
       live_assets_path: "http://uploads.kokrokooad.com/mediaHouseLogos/",
-
+      process : true,
       no_media: "",
       selected_media: ""
     };
@@ -136,6 +142,7 @@ export default {
           store.dispatch("getMediaHouses", res.data);
           // store.dispatch('getSelMediaType',self.getSelectMedia);
           store.dispatch("getProcessing", false);
+          self.process = false;
           self.loading = true;
           store.dispatch("getFadeIn", "animated fadeIn");
           store.dispatch("getShowMediaForm", true);

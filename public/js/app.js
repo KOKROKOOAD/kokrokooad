@@ -51701,6 +51701,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -51731,7 +51737,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       loading: false,
       logo_path: "/thumbnails/",
       live_assets_path: "http://uploads.kokrokooad.com/mediaHouseLogos/",
-
+      process: true,
       no_media: "",
       selected_media: ""
     };
@@ -51752,6 +51758,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getMediaHouses", res.data);
           // store.dispatch('getSelMediaType',self.getSelectMedia);
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getProcessing", false);
+          self.process = false;
           self.loading = true;
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getFadeIn", "animated fadeIn");
           __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].dispatch("getShowMediaForm", true);
@@ -51872,123 +51879,164 @@ var render = function() {
   return _c("div", { staticClass: "page-wrapper" }, [
     _vm._m(0),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.process,
+            expression: "process"
+          }
+        ],
+        staticClass: "row"
+      },
+      [
+        _c("div", { staticClass: "col-md-4" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-3" },
+          [_c("show-processing", { staticClass: "float-right" })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4" })
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "page-body gallery-page" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-sm-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _c("h5", [
-                _vm._v(
-                  "\n                Selected media house :\n                "
-                ),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.loading,
+                  expression: "loading"
+                }
+              ],
+              staticClass: "card"
+            },
+            [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h5", [
+                  _vm._v(
+                    "\n                Selected media house :\n                "
+                  ),
+                  _c(
+                    "strong",
+                    {
+                      staticClass: "text-danger",
+                      staticStyle: { "font-weight": "900" }
+                    },
+                    [_vm._v(_vm._s(_vm.selected_media))]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-block text-center" }, [
                 _c(
-                  "strong",
+                  "div",
+                  { staticClass: "row" },
+                  _vm._l(_vm.mediaHouse, function(logos, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: index,
+                        staticClass: "col-sm-3",
+                        staticStyle: {
+                          "margin-right": "-36px",
+                          "border-color": "green !important"
+                        },
+                        on: {
+                          click: function($event) {
+                            _vm.getSelMediaHouseId(
+                              logos.client_id,
+                              logos.media_house
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "grid" }, [
+                          _c(
+                            "figure",
+                            {
+                              staticClass: "effect-apollo",
+                              staticStyle: {
+                                width: "70px !important",
+                                height: "160px"
+                              }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "img-fluid",
+                                attrs: {
+                                  src: [_vm.live_assets_path + logos.logo]
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("figcaption", [
+                                _c("p", [_vm._v(_vm._s(logos.media_house))])
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
                   {
-                    staticClass: "text-danger",
-                    staticStyle: { "font-weight": "900" }
+                    staticClass: "animated fadeIn",
+                    staticStyle: { padding: "40px" }
                   },
-                  [_vm._v(_vm._s(_vm.selected_media))]
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-mat btn-info",
+                        attrs: { to: { name: _vm.selectMedia } }
+                      },
+                      [_vm._v("Back")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.selMediaH,
+                            expression: "selMediaH"
+                          }
+                        ],
+                        staticClass: "btn btn-mat btn-inverse animated fadeIn",
+                        attrs: { to: { name: _vm.file_upload } },
+                        nativeOn: {
+                          click: function($event) {
+                            _vm.fetchSegmentTitles()
+                          }
+                        }
+                      },
+                      [_vm._v("Next")]
+                    )
+                  ],
+                  1
                 )
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-block text-center" }, [
-              _c(
-                "div",
-                { staticClass: "row" },
-                _vm._l(_vm.mediaHouse, function(logos, index) {
-                  return _c(
-                    "div",
-                    {
-                      key: index,
-                      staticClass: "col-sm-3",
-                      staticStyle: {
-                        "margin-right": "-36px",
-                        "border-color": "green !important"
-                      },
-                      on: {
-                        click: function($event) {
-                          _vm.getSelMediaHouseId(
-                            logos.client_id,
-                            logos.media_house
-                          )
-                        }
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "grid" }, [
-                        _c(
-                          "figure",
-                          {
-                            staticClass: "effect-apollo",
-                            staticStyle: {
-                              width: "70px !important",
-                              height: "160px"
-                            }
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "img-fluid",
-                              attrs: {
-                                src: [_vm.live_assets_path + logos.logo]
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("figcaption", [
-                              _c("p", [_vm._v(_vm._s(logos.media_house))])
-                            ])
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                })
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "animated fadeIn",
-                  staticStyle: { padding: "40px" }
-                },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-mat btn-info",
-                      attrs: { to: { name: _vm.selectMedia } }
-                    },
-                    [_vm._v("Back")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.selMediaH,
-                          expression: "selMediaH"
-                        }
-                      ],
-                      staticClass: "btn btn-mat btn-inverse animated fadeIn",
-                      attrs: { to: { name: _vm.file_upload } },
-                      nativeOn: {
-                        click: function($event) {
-                          _vm.fetchSegmentTitles()
-                        }
-                      }
-                    },
-                    [_vm._v("Next")]
-                  )
-                ],
-                1
-              )
-            ])
-          ])
+            ]
+          )
         ])
       ])
     ]),
