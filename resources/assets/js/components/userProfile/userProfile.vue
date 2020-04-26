@@ -7,10 +7,15 @@
           <div class="page-header-title">
             <div class="d-inline">
               <h4>Edit Profile</h4>
-
-              <div class="default-grid row" v-show="process_payment">
-                <show-processing></show-processing>
+              <div class="row" v-show="process">
+                <div class="col-md-4"></div>
+                <div class="col-md-3">
+                  <show-processing class="float-right"></show-processing>
+                </div>
+                <div class="col-md-4"></div>
               </div>
+
+
             </div>
           </div>
         </div>
@@ -22,7 +27,7 @@
     <!-- Page body start -->
     <div class="page-body">
       <div class="row">
-        <div class="col-sm-12">z
+        <div class="col-sm-12">
           <!-- Basic Inputs Validation start -->
           <div class="card" v-show="show_profile">
             <div class="card-header"></div>
@@ -170,7 +175,7 @@
                   >{{error}}</span>
                 </div>
               </div>
-              <div class="form-group row" v-if="user.company_profile == ''">
+              <div class="form-group row" v-if="user.profile.company_profile == ''">
                 <label class="col-sm-2 col-form-label">Company profile</label>
                 <div class="col-sm-10">
                   <textarea
@@ -317,16 +322,16 @@ export default {
     //  }
     },
     showUserProfile() {
-      this.process_payment = true;
+    //  this.process_payment = true;
       let self = this;
+      self.process = true
       let formData = new FormData();
       axios
         .get("user/profile")
         .then(function(res) {
           if (res.data) {
             self.user = res.data;
-            console.log(self.user.profile.phone2);
-            self.process_payment = false;
+            self.process = false;
             self.show_profile = true;
             self.disabled = false;
             self.loader = false;

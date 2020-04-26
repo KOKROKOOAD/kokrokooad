@@ -36,7 +36,7 @@ class UserProfileController extends Controller
             ],
             'phone2' => [
                 'required',
-                Rule::unique('user_profiles')->ignore(auth()->user()->id)
+                Rule::unique('user_profiles')->ignore(auth()->user()->profile->id)
             ],
             'address' => 'required|string|max:100',
             'industry_type' => 'required|string|max:255',
