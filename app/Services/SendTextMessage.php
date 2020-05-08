@@ -7,6 +7,7 @@ class SendTextMessage
 
     private $sms_username;
     private $sms_pass;
+    private $ampm;
 
     public function __construct($sms_username, $sms_pass)
     {
@@ -53,4 +54,28 @@ class SendTextMessage
 
         return $response;
     }
+
+    public function checkTime($time){
+        if(substr($time,10,11) >= 12){
+            $this->ampm = 'PM';
+        }
+        else{
+            $this->ampm = "AM";
+        }
+    }
+
+    public function subCreationSuccessText($name, $phone,$sub_title,$sub_start_date)
+    {
+       $this->checkTime($sub_start_date);
+
+        $message = "Hello $name,Congratulations and welcome to Kokrokooad.Your subscription ($sub_title) going live on $sub_start_date"."$this->ampm is successfully created.Subscription will be reviewed for  approval.Thank you for signing up with ".config('app.name');
+        $phone = '233' . substr($phone, -9);
+
+        $sms_url = "https://api.nalosolutions.com/bulksms/?" . "username=" . $this->sms_username . "&password=" . urlencode($this->sms_pass) . "&" .
+            "type=0&dlr=1&destination=$phone" . "&source=" . urlencode('kokrokoad') . "&message=" . urlencode($message);
+
+        $response = file_get_contents($sms_url);
+        return $response;
+    }
+
 }

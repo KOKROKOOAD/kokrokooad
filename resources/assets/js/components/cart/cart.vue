@@ -162,21 +162,23 @@
 
                                     @change="select()"
                                   />
-<!--                                  <input-->
-<!--                                          type="checkbox"-->
-<!--                                          @click="selectAll(subs.data)"-->
-<!--                                          v-model="allSelected"-->
-<!--                                  />-->
+
                                 </td>
                                 <td
                                   style="font-weight: bolder"
                                 >{{sub.start.substr(0,10) + ' - ' + sub.end.substr(0,10)}}</td>
-                                <td class="pro-list-img" tabindex="0">
+                                <td class="pro-list-img" tabindex="0" v-if="sub.start.substr(11,16) !== ''">
                                   {{sub.start.substr(11,16) }}
-                                  <span
-                                    v-show="sub.start.substr(11,16) != ''"
-                                  >-</span>
+<!--                                  <span-->
+<!--                                    v-show="sub.start.substr(11,16) != ''"-->
+<!--                                  >-</span>-->
                                   {{ sub.end.substr(11,16)}}
+
+                                  <am-pm :time="sub.end.substr(0,1)"></am-pm>
+                                </td>
+                                <td class="pro-list-img" tabindex="0"  v-else>
+                                  {{sub.segments.advert_size}}
+
                                 </td>
                                 <td class="pro-name">
                                   <span>{{sub.title}}</span>
@@ -248,12 +250,12 @@
                       <div class="row" style="margin-top: 10px;">
                         <div class="col-md-9">
                           <div class="btn-group">
-                            <button
-                              class="btn btn-secondary"
-                              type="button"
-                              :disabled="item_selected == false"
-                              @click="getSubsIds(subs.data,selected)"
-                            >Checkout</button>
+<!--                            <button-->
+<!--                              class="btn btn-secondary"-->
+<!--                              type="button"-->
+<!--                              :disabled="item_selected == false"-->
+<!--                              @click="getSubsIds(subs.data,selected)"-->
+<!--                            >Checkout</button>-->
                             <button
                               v-show="selected.length > 1"
                               class="btn btn-danger animated fadeIn"
@@ -290,10 +292,11 @@
 <script>
 import store from "../../vuex/store";
 import pagination from "../../components/partials/pagination";
+import amPm from "../time/amPm";
 export default {
   name: "cart",
   components: {
-    pagination
+    pagination,amPm
   },
   data() {
     return {
@@ -359,6 +362,8 @@ export default {
             self.subs = [];
             self.msg = res.data.msg;
             self.searching = false;
+            self.show_process = false;
+            self.show_cart = true;
 
           }
         });
@@ -385,7 +390,6 @@ export default {
       store.dispatch("getSubId", id);
     },
     getSubsIds(subs, selected_items) {
-      this.subIds = [];
       if (selected_items.length > 0) {
         for(let items in selected_items){
           this.subIds.push(selected_items[items].id);

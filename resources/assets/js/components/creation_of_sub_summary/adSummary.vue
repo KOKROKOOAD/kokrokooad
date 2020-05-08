@@ -111,7 +111,7 @@
                         <tr class="thead-default">
                           <th scope="row">#</th>
                           <th v-show="getSelectMedia !== 'PRINT'">Subscription date&time</th>
-                          <th v-show="getSelectMedia !== 'PRINT'">Suscription duration</th>
+                          <th v-show="getSelectMedia !== 'PRINT'">Subcription duration</th>
                           <th v-show="getSelectMedia == 'PRINT'">Date</th>
 
                           <th>Day</th>
@@ -131,7 +131,7 @@
                           <td v-show="getSelectMedia == 'PRINT'">{{sched_data.startDate}}</td>
                           <td v-show="getSelectMedia == 'PRINT'">{{segmentDay}}</td>
                           <td v-show="getSelectMedia === 'PRINT'">{{sched_data.advert_size}}</td>
-                          <td v-show="getSelectMedia == 'PRINT'">{{sched_data.spot}}</td>
+                          <td v-show="getSelectMedia == 'PRINT'">{{getSpots[index]}}</td>
 
                           <td
                             v-show="getSelectMedia !== 'PRINT'"
@@ -142,15 +142,15 @@
 
                           <!--                                                <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.startTime}}-{{sched_data.endTime}}</td>-->
                           <!--<td v-show="getSelectMedia !== 'PRINT'"></td>-->
-                          <td v-show="getSelectMedia !== 'PRINT'">{{sched_data.spot}}</td>
+                          <td v-show="getSelectMedia !== 'PRINT'">{{getSpots[index]}}</td>
 
                           <td>{{sched_data.rate}}</td>
                           <td
                             v-show="getSelectMedia !== 'PRINT'"
-                          >{{sched_data.rate * sched_data.spot}}</td>
+                          >{{sched_data.rate * getSpots[index]}}</td>
                           <td
                             v-show="getSelectMedia === 'PRINT'"
-                          >{{sched_data.rate * sched_data.spot}}</td>
+                          >{{sched_data.rate * getSpots[index]}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -260,7 +260,7 @@ export default {
       for (let i = 0; i < this.schedAdsData.length; i++) {
         total.push(
           parseFloat(this.schedAdsData[i].rate) *
-            parseFloat(this.schedAdsData[i].spot)
+            parseFloat(this.getSpots[i])
         );
       }
 
@@ -295,7 +295,6 @@ export default {
     saveSegmentData(title, segments) {
       let self = this;
       let formData = new FormData();
-      console.log(self.schedAdsData);
       if (title !== "") {
         formData.append("title", title);
         formData.append("durations", self.schedAdsData[0].durations);
@@ -315,6 +314,7 @@ export default {
         formData.append("scheduledData", JSON.stringify(self.schedAdsData));
         formData.append("startDate", self.schedAdsData[0].startDate);
         formData.append("endDate", self.schedAdsData[0].endDate);
+        formData.append("spots", self.getSpots);
 
         self.process = true;
         axios.post("ads-store", formData).then(function(response) {
@@ -416,6 +416,9 @@ export default {
     },
     mediaHouses() {
       return store.state.selMediaHouse;
+    },
+    getSpots(){
+      return store.getters.getSpots;
     }
   }
 };

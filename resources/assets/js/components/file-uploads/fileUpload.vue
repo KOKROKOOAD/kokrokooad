@@ -132,7 +132,8 @@ export default {
       k: "",
       file_dura: "",
       time: "",
-      mytest: false
+      mytest: false,
+      url : null
     };
   },
   mounted() {
@@ -214,6 +215,7 @@ export default {
           store.dispatch("getUploadFileName", "");
         }
       }
+
     },
     getAudioDurations() {
       let self = this;
@@ -222,6 +224,12 @@ export default {
       $("#audio").on("canplaythrough", function(e) {
         let seconds = e.currentTarget.duration;
         let duration = moment.duration(seconds, "seconds");
+        if(duration != ''){
+          console.log(duration.hours() +':'+ duration.minutes() + ':' + duration.seconds());
+
+          store.dispatch('getMediaFileDuration', duration.hours() +':'+ duration.minutes() + ':' + duration.seconds());
+
+        }
 
         let time = "";
         let hours = duration.hours();
@@ -318,6 +326,9 @@ export default {
     },
     getFileDurations() {
       return store.state.fileDuration;
+    },
+    getUrl(){
+      return store.state.readFile;
     }
   }
 };

@@ -49,7 +49,12 @@ const debug = process.env.NODE_ENV !== 'production';
        total_bill : '',
        card_id : '',
        checkout_ids : [],
-       fileDuration : ''
+       fileDuration : '',
+       total_spots : [],
+       media_file_duration : '',
+       amountBilled : 0.00,
+       selected_item : '',
+       readFile : ''
 
     },
 
@@ -157,6 +162,21 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          setFileDuration(state,payload){
              state.fileDuration = payload;
+         },
+         setTotalSpots(state,payload){
+             state.total_spots = payload;
+         },
+         setMediaFileDuration(state,payload){
+             state.media_file_duration = payload;
+         },
+         setAmountBilled(state,payload){
+             state.amountBilled = payload;
+         },
+         setSelectedItem(state,payload){
+             state.selected_item = payload;
+         },
+         setReadFile(state,payload){
+             state.readFile = payload;
          }
 
 
@@ -185,6 +205,9 @@ const debug = process.env.NODE_ENV !== 'production';
 
          changeStateShowSelMediaHouseTable(context, status){
              context.commit('setShowSelMediaHouseTable', status);
+         },
+         getTotalSpots(context, spots){
+             context.commit('setTotalSpots', spots);
          },
          getCreatedAdData(context, data){
              context.commit('setCreateAdData', data);
@@ -272,6 +295,18 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          getFIleDuration(context, payload){
             context.commit('setFileDuration',payload);
+         },
+         getMediaFileDuration(context, payload){
+             context.commit('setMediaFileDuration',payload);
+         },
+         getAmountBilled(context, payload){
+            context.commit('setAmountBilled',payload);
+         },
+         getSelectedItem(context, payload){
+            context.commit('setSelectedItem', payload);
+         },
+         getReadFile(context,payload){
+            context.commit('setReadFile',payload);
          }
      },
      getters:{
@@ -341,6 +376,9 @@ const debug = process.env.NODE_ENV !== 'production';
          },
          checkoutIds(state){
              return state.checkout_ids;
+         },
+         getSpots(state){
+             return state.total_spots;
          }
 
 

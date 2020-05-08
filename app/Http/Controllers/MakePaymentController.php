@@ -32,80 +32,59 @@ class MakePaymentController extends Controller
             $this->middleware('auth');
         }
 
-
-        // $trans_info = Transactions::select('amount', 'phone', 'subscription_id', 'transaction_id')->whereInvoice_id('10033459')->first();
-        // $users = ScheduledAds::find($trans_info->subscription_id);
-
-        // // send email
-        // $mail  =  $this->dispatch(new PaymentSuccessfullJob($users->user));
-        // Log::info('getting mail ' . $mail);
-        // die($mail);
-
         $item_desc = null;
         if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
             $form_data = $request->validate([
                 'payby' => 'required|alpha',
-                'phone' => 'required|regex:/(0)[0-9]{9}/',
+                'phone' => 'required|regex:/(233)[0-9]{9}/',
                 'subscription_id' => 'required',
                 'amount' => 'required|numeric',
                 'media_house_id' => 'required'
-
             ]);
             $item_desc = "subscription purchase";
         } else {
             $form_data = $request->validate([
                 'payby' => 'required|alpha',
-                'phone' => 'required|regex:/(0)[0-9]{9}/',
+                'phone' => 'required|regex:/(233)[0-9]{9}/',
                 'subscription_id' => 'required',
                 'amount' => 'required|numeric',
                 'voucher_code' => 'required|numeric',
                 'media_house_id' => 'required'
-
             ]);
             $item_desc = $request->voucher_code;
         }
-
-
-        // $name = time() . auth()->user()->email;
         $name =  auth()->user()->name;
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
         $customer = $name;
         $amount = $request->input('amount');
         $subscription_id = $request->input('subscription_id');
-
         $callback = env("PAY_CALLBACK");
-
-        $msisdn = substr($msisdn, 1, 9);
-
         $api_key = 'vUqBR$Hz';
         $key = rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9);
         $secret = md5('kokrokoogh' . $key . md5('vUqBR$Hz'));
         $src = $_SERVER['REMOTE_ADDR'];
         $transaction_id = uniqid('K', true);
-
         if (Transactions::where('transaction_id', '=', $transaction_id)) {
             $transaction_id = uniqid('K', true);
         }
 
 
-        $dataArray = array(
-            'merchant_id' => 'NPS_000035',
-            'secrete' => $secret,
-            'key' => $key,
-            'order_id' => $transaction_id,
-            'customerName' => $name,
-            'amount' => 0.1,
-            'item_desc' => $item_desc,
-            'customerNumber' => '233' . $msisdn,
-            'payby' => $payby,
-            'callback' => 'http://kokrokooad.com/user-account/payment/update'
-        );
-
-
-        $data = json_encode($dataArray, true);
-
         if ($payby == 'MTN' || $payby == 'AIRTELTIGO') {
+
+            $dataArray = array(
+                'merchant_id' => 'NPS_000035',
+                'secrete' => $secret,
+                'key' => $key,
+                'order_id' => $transaction_id,
+                'customerName' => $name,
+                'amount' => 0.1,
+                'item_desc' => $item_desc,
+                'customerNumber' => '233' . $msisdn,
+                'payby' => $payby,
+                'callback' => 'http://kokrokooad.com/user-account/payment/update'
+            );
+            $data = json_encode($dataArray, true);
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
@@ -113,7 +92,7 @@ class MakePaymentController extends Controller
 
                 $transac = Transactions::create([
                     'client_id' => auth()->user()->client_id,
-                    'phone' => '233' . $msisdn,
+                    'phone' => $msisdn,
                     'payment_source' => $payby,
                     'transaction_id' => $transaction_id,
                     'amount' => $amount,
@@ -128,6 +107,20 @@ class MakePaymentController extends Controller
                 return response()->json(['success' => 'success']);
             }
         } elseif ($payby === 'VODAFONE') {
+            $dataArray = array(
+                'merchant_id' => 'NPS_000035',
+                'secrete' => $secret,
+                'key' => $key,
+                'order_id' => $transaction_id,
+                'customerName' => $name,
+                'amount' => 0.1,
+                'item_desc' => 'Vodafone Payment',
+                'newVodaPayment' => true,
+                'customerNumber' => '233' . $msisdn,
+                'payby' => $payby,
+                'callback' => 'http://kokrokooad.com/user-account/payment/update'
+            );
+            $data = json_encode($dataArray, true);
 
             $res = shell_exec("curl -X POST 'https://api.nalosolutions.com/payplus/api/index.php' -d '$data'");
             $res_obj = json_decode($res, true);
@@ -135,7 +128,7 @@ class MakePaymentController extends Controller
 
                 $transac = Transactions::create([
                     'client_id' => auth()->user()->client_id,
-                    'phone' => '233' . $msisdn,
+                    'phone' => $msisdn,
                     'payment_source' => $payby,
                     'transaction_id' => $transaction_id,
                     'amount' => $amount,

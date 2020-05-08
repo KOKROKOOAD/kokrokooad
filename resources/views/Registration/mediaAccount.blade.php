@@ -116,7 +116,7 @@
 
                                             <div class="form-group{{ $errors->has('industry_type') ? ' has-error' : '' }}">
                                                 <label>Industry type<span class="required">*</span></label>
-                                                <input class="form-control" required   id="industry_type" name="industry_type" {{old('industry_type')}}>
+                                                <input class="form-control" required   id="industry_type" name="industry_type" value="{{old('industry_type')}}">
                                                 @if ($errors->has('industry_type'))
                                                     <span class="text-danger animated fadeIn" role="alert">
                                                        {{ $errors->first('industry_type') }}
@@ -262,7 +262,7 @@
                                         <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
                                             {{-- <label for="password">Password<span class="required">*</span></label> --}}
                                             <input type="checkbox" name="terms" value="true" {{ !old('terms') ?: 'checked' }}>
-                                            <a href="{{route('terms')}}" target="_blank" class="text-primary">Agree with the terms and conditions</a>
+                                            <a href="{{route('terms')}}" target="_blank" class="text-primary">Agree with the terms and conditions</a><br>
                                             <span class="agileits_grid">
                                                     @if ($errors->has('terms'))
                                                     <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('terms') }}</span>

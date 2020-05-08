@@ -68,9 +68,58 @@ Vue.component('view-card-details', require('./components/view-ratecars/viewRateC
 Vue.component('view-print-rate-card', require('./components/view-ratecars/printRateCare'));
 Vue.component('cart', require('./components/cart'));
 Vue.component('payment-success-feedback', require('./components/payment/paymentSuccessFeedback'));
+Vue.component('days-of-week', require('./components/display-selected-rate/daysOfWeek.vue'));
+Vue.component('days-of-week-segments', require('./components/display-selected-rate/daysOfWeekSegments'));
+Vue.component('spots-for-segment-for-days-of-week', require('./components/display-selected-rate/spotsForSegmentForDaysOfWeek'));
+Vue.component('monday-spots-available', require('./components/display-selected-rate/mondaySpotsAvailable'));
+Vue.component('tuesday-spots-available', require('./components/display-selected-rate/tuesdaySpotsAvailable'));
+Vue.component('wednesday-spots-available', require('./components/display-selected-rate/wednesdaySpotsAvailable'));
+Vue.component('thursday-spots-available', require('./components/display-selected-rate/thursdaySpotsAvailable'));
+Vue.component('friday-spots-available', require('./components/display-selected-rate/fridaySpotsAvailable'));
+Vue.component('print-spots-available', require('./components/fetch-ratecards/printSpotsAvailable'));
 
-
-
+Vue.component('table-head', require('./components/display-selected-rate/tableHead'));
+Vue.component('monday-rate-1', require('./components/display-selected-rate/mondayRates1'));
+Vue.component('monday-rate-2', require('./components/display-selected-rate/mondayRates2'));
+Vue.component('monday-rate-3', require('./components/display-selected-rate/mondayRates3'));
+Vue.component('monday-rate-4', require('./components/display-selected-rate/mondayRate4'));
+Vue.component('monday-rate-5', require('./components/display-selected-rate/mondayRate5'));
+Vue.component('tuesday-rate-1', require('./components/display-selected-rate/tuesdayRate1'));
+Vue.component('tuesday-rate-2', require('./components/display-selected-rate/tuesdayRate2'));
+Vue.component('tuesday-rate-3', require('./components/display-selected-rate/tuesdayRate3'));
+Vue.component('tuesday-rate-4', require('./components/display-selected-rate/tuesdayRate4'));
+Vue.component('tuesday-rate-5', require('./components/display-selected-rate/tuesdayRate5'));
+Vue.component('wednesday-rate-1', require('./components/display-selected-rate/wednesdayRate1'));
+Vue.component('wednesday-rate-2', require('./components/display-selected-rate/wednesdayRate2'));
+Vue.component('wednesday-rate-3', require('./components/display-selected-rate/wednesdayRate3'));
+Vue.component('wednesday-rate-4', require('./components/display-selected-rate/wednesdayRate4'));
+Vue.component('wednesday-rate-5', require('./components/display-selected-rate/wednesdayRate5'));
+Vue.component('thursday-rate-1', require('./components/display-selected-rate/thursdayRate1'));
+Vue.component('thursday-rate-2', require('./components/display-selected-rate/thursdayRate2'));
+Vue.component('thursday-rate-3', require('./components/display-selected-rate/thursdayRate3'));
+Vue.component('thursday-rate-4', require('./components/display-selected-rate/thursdayRate4'));
+Vue.component('thursday-rate-5', require('./components/display-selected-rate/thursdayRate5'));
+Vue.component('friday-rate-1', require('./components/display-selected-rate/fridayRate1'));
+Vue.component('friday-rate-2', require('./components/display-selected-rate/fridayRate2'));
+Vue.component('friday-rate-3', require('./components/display-selected-rate/fridayRate3'));
+Vue.component('friday-rate-4', require('./components/display-selected-rate/fridayRate4'));
+Vue.component('friday-rate-5', require('./components/display-selected-rate/fridayRate5'));
+Vue.component('am-pm', require('./components/time/amPm'));
+Vue.component('w-table-head', require('./components/display-selected-rate/wTableHead'));
+Vue.component('saturday-spots-available', require('./components/display-selected-rate/weekendSpots/saturdaySpotsAvailable'));
+Vue.component('sunday-spots-available', require('./components/display-selected-rate/weekendSpots/sundaySpotsAvailable'));
+// Vue.component('saturday-r-1', require('./components/display-selected-rate/weekendSpots/sundaySpotsAvailable'));
+Vue.component('saturday-rate-1', require('./components/display-selected-rate/weekendRates/saturdayRate1'));
+Vue.component('saturday-rate-2', require('./components/display-selected-rate/weekendRates/saturdayRate2'));
+Vue.component('saturday-rate-3', require('./components/display-selected-rate/weekendRates/saturdayRate3'));
+Vue.component('saturday-rate-4', require('./components/display-selected-rate/weekendRates/saturdayRate4'));
+Vue.component('saturday-rate-5', require('./components/display-selected-rate/weekendRates/saturdayRate5'));
+// Vue.component('saturday-rate-1', require('./components/display-selected-rate/weekendSpots/sundaySpotsAvailable'));
+Vue.component('sunday-rate-1', require('./components/display-selected-rate/weekendRates/saturdayRate1'));
+Vue.component('sunday-rate-2', require('./components/display-selected-rate/weekendRates/saturdayRate2'));
+Vue.component('sunday-rate-3', require('./components/display-selected-rate/weekendRates/saturdayRate3'));
+Vue.component('sunday-rate-4', require('./components/display-selected-rate/weekendRates/saturdayRate4'));
+Vue.component('sunday-rate-5', require('./components/display-selected-rate/weekendRates/saturdayRate5'));
 
 
 

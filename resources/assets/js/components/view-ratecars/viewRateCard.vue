@@ -78,11 +78,26 @@
                                         <tr class="animated fadeIn" v-for="(card,index) in view_rate_card" v-show="weekdays">
                                             <th scope="row" >{{index + 1}}</th>
 <!--                                            <td>{{card.rate_card_id}}</td>-->
-                                            <td>{{card.mon_duration.substr(0,2) + ':' + card.mon_b_duration}} - {{ card.mon_c_duration.substr(0,2) + ':'+ card.mon_d_duration + '' +  card.mon_c_duration.substr(2,3)}} <span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.mon_spots}}</span></td>
-                                            <td>{{card.tue_duration.substr(0,2) + ':' + card.tue_b_duration}} - {{ card.tue_c_duration.substr(0,2) + ':'+ card.tue_d_duration + '' +  card.tue_c_duration.substr(2,3)}}<span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.tue_spots}}</span></td>
-                                            <td>{{card.wed_duration.substr(0,2) + ':' + card.wed_b_duration}} - {{ card.wed_c_duration.substr(0,2) + ':'+ card.wed_d_duration + '' +  card.wed_c_duration.substr(2,3)}}<span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.wed_spots}}</span></td>
-                                            <td>{{card.thu_duration.substr(0,2) + ':' + card.thu_b_duration}} - {{ card.thu_c_duration.substr(0,2) + ':'+ card.thu_d_duration + '' +  card.thu_c_duration.substr(2,3)}}<span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.tue_spots}}</span></td>
-                                            <td>{{card.fri_duration.substr(0,2) + ':' + card.fri_b_duration}} - {{ card.fri_c_duration.substr(0,2) + ':'+ card.fri_d_duration + '' +  card.fri_c_duration.substr(2,3)}}<span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.fri_spots}}</span></td>
+                                            <td>{{card.mon_duration.substr(0,2) + ':' + card.mon_b_duration}} - {{ card.mon_c_duration.substr(0,2) + ':'+ card.mon_d_duration + '' +  card.mon_c_duration.substr(2,3)}}
+                                                 <am-pm :time="card.mon_c_duration.substr(0,2) "> </am-pm>
+                                                <span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.mon_spots}}</span>
+                                            </td>
+
+                                            <td>{{card.tue_duration.substr(0,2) + ':' + card.tue_b_duration}} - {{ card.tue_c_duration.substr(0,2) + ':'+ card.tue_d_duration + '' +  card.tue_c_duration.substr(2,3)}}
+                                                <am-pm :time="card.tue_c_duration.substr(0,2) "> </am-pm>
+
+                                                <span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.tue_spots}}</span></td>
+                                            <td>{{card.wed_duration.substr(0,2) + ':' + card.wed_b_duration}} - {{ card.wed_c_duration.substr(0,2) + ':'+ card.wed_d_duration + '' +  card.wed_c_duration.substr(2,3)}}
+                                                <am-pm :time="card.wed_c_duration.substr(0,2) "> </am-pm>
+
+                                                <span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.wed_spots}}</span></td>
+                                            <td>{{card.thu_duration.substr(0,2) + ':' + card.thu_b_duration}} - {{ card.thu_c_duration.substr(0,2) + ':'+ card.thu_d_duration + '' +  card.thu_c_duration.substr(2,3)}}
+                                                <am-pm :time="card.thu_c_duration.substr(0,2) "> </am-pm>
+
+                                                <span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.tue_spots}}</span></td>
+                                            <td>{{card.fri_duration.substr(0,2) + ':' + card.fri_b_duration}} - {{ card.fri_c_duration.substr(0,2) + ':'+ card.fri_d_duration + '' +  card.fri_c_duration.substr(2,3)}}
+                                                <am-pm :time="card.fri_c_duration.substr(0,2) "> </am-pm>
+                                                <span class="pull-right text-primary" style="font-weight:bolder">{{'SPOTS :' + card.fri_spots}}</span></td>
                                             <td v-show="days_of_week.sec1 > 0">{{'GHS'+ card.sec1_rate}}</td>
                                             <td v-show="days_of_week.sec2 > 0">{{'GHS'+ card.sec2_rate}}</td>
                                             <td v-show="days_of_week.sec3 > 0">{{'GHS'+ card.sec3_rate}}</td>

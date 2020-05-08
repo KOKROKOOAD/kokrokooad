@@ -36,8 +36,16 @@
     <!-- notify js Fremwork -->
     <link rel="stylesheet" type="text/css"
           href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.css">
-   
-            <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css"  href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/js/pnotify.desktop.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.brighttheme.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.buttons.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.history.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/pnotify/css/pnotify.mobile.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/assets/pages/pnotify/notify.css">
+
+    <!-- Data Table Css -->
+    <!-- Data Table Css -->
    
  <!-- Switch component css -->
     {{--  <link rel="stylesheet" type="text/css" href="https://colorlib.com//polygon/adminty/files/bower_components/switchery/css/switchery.min.css">  --}}

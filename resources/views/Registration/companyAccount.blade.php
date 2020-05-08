@@ -192,7 +192,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group{{ $errors->has('phone2') ? ' has-error' : '' }}">
                                                 <label for="phone2">Phone no. 2</label>
-                                                <input type="text" class="form-control"  placeholder="Optional"  id="phone2" name="phone2" value="{{old('phone2')}}" required>
+                                                <input type="text" class="form-control"  placeholder="Optional"  id="phone2" name="phone2" value="{{old('phone2')}}">
                                                 <span class="agileits_grid">
                                                     @if ($errors->has('phone2'))
                                                         <span class="text-danger animated fadeIn" role="alert">
@@ -235,7 +235,7 @@
                                         <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
                                             {{-- <label for="password">Password<span class="required">*</span></label> --}}
                                             <input type="checkbox" name="terms" value="true" {{ !old('terms') ?: 'checked' }}>
-                                            <a href="{{route('terms')}}" target="_blank" class="text-primary">Agree with the terms and conditions</a>
+                                            <a href="{{route('terms')}}" target="_blank" class="text-primary">Agree with the terms and conditions</a><br>
                                             <span class="agileits_grid">
                                                     @if ($errors->has('terms'))
                                                     <span class="text-danger animated fadeIn" role="alert">{{ $errors->first('terms') }}</span>

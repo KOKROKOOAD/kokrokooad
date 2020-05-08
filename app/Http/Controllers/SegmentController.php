@@ -52,13 +52,15 @@ class SegmentController extends Controller
          // fetch print segments
     public  function fetchPrintSegments(Request $request){
         $print_rate_cards  = PrintRateCard::select('rate_card_data')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
+        $spots_check = SpotsUsed::select('segments','spots_used')->whereRateCardId($request->card_id)->whereSegmentDate($request->startDate)->get();
+
         $card_title = null;
         $title   = RateCardTitles::select('rate_card_title')->whereMedia_house_id($request->media_id)->whereRate_card_title_id($request->card_id)->get();
 
         foreach ($title as $value){
             $card_title =   $value->rate_card_title;
         }
-        return response()->json(['card_title'=>$card_title, 'print_rate_cards'=> $print_rate_cards]);
+        return response()->json(['card_title'=>$card_title, 'print_rate_cards'=> $print_rate_cards,'spots_check' => $spots_check]);
     }
 
 

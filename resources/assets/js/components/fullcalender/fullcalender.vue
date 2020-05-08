@@ -8,6 +8,7 @@
             <div class="d-inline">
               <h4>Create Segments</h4>
               <span style="color: #9e1317 ">Click a date to create your ad.</span>
+
             </div>
           </div>
         </div>
@@ -110,6 +111,8 @@
       :endDate="selectedEndDate"
       :print_card="print_ratecard"
       :submit="submit"
+      :spot_check="spot_check"
+      :segmentDay="segmentDay"
     ></print-rate-card>
     <!--        <update-segment></update-segment>-->
     <ad-summary v-show="showSummary" :saveSegment="saveSegmentData" :day="segmentDay"></ad-summary>
@@ -171,9 +174,12 @@ export default {
       main_seg: null
     };
   },
-  mount() {},
+  mounted() {
+
+  },
   methods: {
     daySelected(date, jsEvent, view) {
+
       if (this.getSelectMedia === "PRINT") {
         $("#print").modal("show");
         this.selectedStartTime = date.format("YYYY-MM-DD ");
@@ -186,8 +192,9 @@ export default {
       ) {
         let oldDate = new Date(date.format("YYYY-MM-DD "));
         let today = new Date();
-        // if(oldDate > today || oldDate == today){
-        if (oldDate > today || oldDate == today) {
+        this.selectedStartTime = date.format("YYYY-MM-DD ");
+
+        if (oldDate > today ||  today.toDateString() === new Date(this.selectedStartTime).toDateString()) {
           this.selectedStartTime = date.format("YYYY-MM-DD ");
           this.selectedEndDate = date.format("YYYY-MM-DD ");
           this.getSelDay(date);
@@ -205,6 +212,8 @@ export default {
     fetchSelectedRate() {
       let self = this;
       self.process = true;
+      store.dispatch('getAmountBilled', 0.00);
+      store.dispatch('getTotalSpots', []);
       axios
         .get("fetch-segments", {
           params: {
@@ -247,6 +256,7 @@ export default {
           );
           //  console.log(self.print_ratecard);
           //self.spot_check = res.data.spots_check;
+          self.spot_check = res.data.spots_check;
           self.process = false;
         })
         .catch(function(error) {});
@@ -383,6 +393,10 @@ export default {
     },
     //  select date to create subscription
     getSelDay(date) {
+      store.dispatch('getAmountBilled', 0.00);
+      store.dispatch('getTotalSpots', []);
+
+
       //  axios.get('testing').then(function (res) {
       //      console.log(res.data);
       // });
@@ -509,6 +523,9 @@ export default {
     },
     date() {
       store.getters.segmentDate;
+    },
+    getUrl(){
+      return store.state.readFile;
     }
   }
 };

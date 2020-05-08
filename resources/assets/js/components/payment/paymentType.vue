@@ -179,6 +179,7 @@ export default {
     } else {
       this.getAmount();
     }
+    console.log(typeof  this.checkoutIds);
   },
   methods: {
     showPayForm(value) {
@@ -223,13 +224,12 @@ export default {
       let self = this;
       self.loader = true;
       let formData = new FormData();
-      formData.append("phone", self.network.mobileNumber);
+      formData.append("phone", this.checkPhoneNumberPrefix(self.network.mobileNumber));
       formData.append("voucher_code", self.network.code);
       formData.append("amount", self.amounts);
       formData.append("payby", self.selNetworks);
       formData.append("subscription_id", self.subId);
       formData.append("media_house_id", self.media_house_id);
-      console.log(self.media_house_id);
       axios
         .post("api-purchasesubs", formData)
         .then(function(res) {
@@ -247,6 +247,10 @@ export default {
 
             self.$router.push("payment-success");
           } else {
+            self.process_payment = false;
+            self.disable_payment_btn = false;
+            self.submit_btn = true;
+            self.loader = false;
             new PNotify({
               title: "Payment Error Notice",
               type: "error",
@@ -360,6 +364,14 @@ export default {
           }
         }
       );
+    },
+    checkPhoneNumberPrefix(phone){
+      if(phone.substr(0,1) == '0'){
+         return '233' + phone.substr(1,9);
+      }
+      else{
+        return phone;
+      }
     },
 
     // validate phone number

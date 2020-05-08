@@ -131,7 +131,7 @@ export default {
     fetchSegmentTitles() {
       let self = this;
       store.dispatch("getProcessing", false);
-      store.dispatch("getSelMediaHouse", self.selMediaH);
+      store.dispatch("getSelMediaHouse", self.selected_media);
     },
     fetchMediaHouse() {
       let self = this;

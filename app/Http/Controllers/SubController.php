@@ -14,6 +14,7 @@ use App\Models\RateCardTitles;
 use App\RateCards;
 use App\RejectedMessages;
 use App\ScheduledAds;
+use App\Services\SendTextMessage;
 use App\SpotsUsed;
 use App\Transactions;
 use App\User;
@@ -29,13 +30,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Spatie\PdfToImage\Pdf;
 
 class SubController extends Controller
 
 {
-
 
     // fetch media houses for selected media
     public function fetchMediaHouse($media)
@@ -50,6 +51,17 @@ class SubController extends Controller
     public function createSub(Request $request)
 
     {
+
+      $rules =  [
+            'title' => 'required|regex:/^[\pL\s\-]+$/u|unique:scheduled_ads',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if($validator->fails()){
+            return response()->json(['errors' => $validator->getMessageBag()->toArray()]);
+        }
+
         $unique_id  = null;
         $sub = null;
 
@@ -67,6 +79,8 @@ class SubController extends Controller
             $mime_type = $file->getClientMimeType();
             $ex = explode('.', $fileName);
             $file->move($path, $name);
+          //  $sub_spots   = explode(',',$request->spots);
+
 
 
             //            $thumbnailPath = public_path() . '/thumbnails/';
@@ -108,68 +122,76 @@ class SubController extends Controller
             $spots_to_be_insert = 0;
             $id = null;
             $seg = null;
+            $spot_array = explode(',',$request->spots);
+            $sendTxt = new SendTextMessage(env('SMS_USERNAME'),env('SMS_PASSWORD'));
+            $getStartDates = array();
 
             foreach (json_decode($request->scheduledData) as $key => $values) {
                 $subscription_id = uniqid('k', true);
                 array_push($sub_id, $subscription_id);
                 $invoice_id = uniqid('k', true);
-                $spots_to_be_insert = $values->spot;
+                $spots_to_be_insert = $spot_array[$key];
+                array_push($getStartDates,$values->startDate);
 
 
-                $sub_data = [
-                    'client_id' => auth()->user()->client_id,
-                    'media_house_id' => $request->input('media_house_id'),
-                    'rate_card_id' => $request->input('card_id'),
-                    'subscription_id' => $subscription_id,
-                    'start' => $values->startDate,
-                    'end' => $values->endDate,
-                    'title' => $request->input('title'),
-                    'spots' => $values->spot,
-                    'durations' => $values->durations,
-                    'rate' => $values->rate,
-                    'rate_card_title' => $card_title,
-                    'media_house' => $request->media_house,
-                    'segments' => json_encode(['startDat' => $values->startDate, 'endDate' => $values->endDate]),
-                    'status' => 'in cart',
-                    'payment_status' => 'pending',
-                    //                    'spots_used' => '0',
-                    'file_path' => $path,
-                    'file_name' => $name,
-                    'file_size' => $file_size,
-                    'file_type' => $ex[1]
-                ];
-
-                $spots_used = [
-                    'rate_card_id' => $request->input('card_id'),
-                    'spots_used' => $values->spot,
-                    'segment_date' => substr($values->startDate, 0, 10),
-                    'segments' => substr($values->startDate, 11, 14) . '-' . substr($values->endDate, 11, 19),
-                ];
-
-                $seg = substr($values->startDate, 11, 14) . '-' . substr($values->endDate, 11, 19);
-
-                $ad  = ScheduledAds::insert($sub_data);
+                if(isset($values->advert_size)){
+                    $advert = $values->advert_size;
+                    $seg = $values->advert_size;
+                }
+                else{
+                    $advert = '';
+                    $seg = substr($values->startDate, 11, 14) . '-' . substr($values->endDate, 11, 19);
+                }
+                $ad  = ScheduledAds::insert(
+                    [
+                        'client_id' => auth()->user()->client_id,
+                        'media_house_id' => $request->input('media_house_id'),
+                        'rate_card_id' => $request->input('card_id'),
+                        'subscription_id' => $subscription_id,
+                        'start' => $values->startDate,
+                        'end' => $values->endDate,
+                        'title' => $request->input('title'),
+                        'spots' => $spot_array[$key],
+                        'durations' => $values->durations,
+                        'rate' => $values->rate,
+                        'rate_card_title' => $card_title,
+                        'media_house' => $request->media_house,
+                        'segments' => json_encode(['startDat' => $values->startDate, 'endDate' => $values->endDate,'advert_size' => $advert]),
+                        'status' => 'in cart',
+                        'payment_status' => 'pending',
+                        'file_path' => $path,
+                        'file_name' => $name,
+                        'file_size' => $file_size,
+                        'file_type' => $ex[1]
+                    ]
+                );
 
                 if ($ad) {
-
                     $chk_spots  = SpotsUsed::select('id', 'spots_used')->whereRateCardId($request->card_id)->whereSegmentDate(substr($request->startDate, 0, 10))->whereSegments($seg)->get();
-
                     if (sizeof($chk_spots) < 1) {
-                        $spots = SpotsUsed::insert($spots_used);
+                        $spots = SpotsUsed::insert(
+                            [
+                                'rate_card_id' => $request->input('card_id'),
+                                'spots_used' => $spot_array[$key],
+                                'segment_date' => substr($values->startDate, 0, 10),
+                                'segments' => $seg,
+                            ]
+                        );
                     } else {
                         foreach ($chk_spots as $spots) {
                             $spots_left  = $spots->spots_used;
                             $id  =  $spots->id;
                         }
 
-                        $total = $spots_left + $spots_to_be_insert;
+                        $total = (int)$spots_left + (int)$spots_to_be_insert;
                         SpotsUsed::whereId($id)->update([
                             'spots_used' => $total
                         ]);
                     }
                 }
-            }
 
+            }
+            $sendTxt->subCreationSuccessText(auth()->user()->name,auth()->user()->phone1,$request->input('title'),implode(',',$getStartDates));
             $this->dispatch(new SendAdCreatedMessagedJob(auth()->user()));
             return response()->json(['success' => 'success', 'sub_id' => $sub_id]);
         } else {
@@ -238,7 +260,7 @@ class SubController extends Controller
                 ->where('status','!=','deleted');
         }
 
-        $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(3);
+        $subs = $subs->orderBy('id', 'desc')->whereClientId(auth()->user()->client_id)->whereStatus('in cart')->whereNull('deleted')->paginate(10);
         if (!$subs->isEmpty()) {
             $media_house = User::select('media_house')->where('client_id', '=', $subs[0]->media_house_id)->get();
             // $rate_card =  RateCardTitles::select('rate_card_title')->where('rate_card_title_id','=',$subs[0]->rate_card_id)->get();
