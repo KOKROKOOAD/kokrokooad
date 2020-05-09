@@ -191,7 +191,7 @@ class SubController extends Controller
                 }
 
             }
-            $sendTxt->subCreationSuccessText(auth()->user()->name,auth()->user()->phone1,$request->input('title'),implode(',',$getStartDates));
+            //$sendTxt->subCreationSuccessText(auth()->user()->name,auth()->user()->phone1,$request->input('title'),implode(',',$getStartDates));
             $this->dispatch(new SendAdCreatedMessagedJob(auth()->user()));
             return response()->json(['success' => 'success', 'sub_id' => $sub_id]);
         } else {
