@@ -54924,7 +54924,7 @@ var render = function() {
                       staticStyle: { height: "20px", width: "20px" },
                       attrs: { src: "/images/loading.gif" }
                     }),
-                    _vm._v("Please wait....\n        ")
+                    _vm._v("Please wait....\n          ")
                   ]
                 ),
                 _vm._v(" "),
@@ -55095,9 +55095,9 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n          " +
+                            "\n            " +
                               _vm._s(_vm.selPaymentType) +
-                              "\n          "
+                              "\n            "
                           ),
                           _c(
                             "small",
@@ -55173,49 +55173,6 @@ var render = function() {
                                 return
                               }
                               _vm.amounts = $event.target.value
-                            }
-                          }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.voda,
-                            expression: "voda"
-                          }
-                        ],
-                        staticClass: "form-group",
-                        class: _vm.momo_anim_faIn
-                      },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.network.code,
-                              expression: "network.code"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          style: _vm.border_color,
-                          attrs: {
-                            type: "text",
-                            placeholder: "Enter voucher code"
-                          },
-                          domProps: { value: _vm.network.code },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.network, "code", $event.target.value)
                             }
                           }
                         })

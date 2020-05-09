@@ -65,15 +65,15 @@
               style="background:transparent;font-weight:bolder;color:black"
             />
           </div>
-          <div v-show="voda" class="form-group" :class="momo_anim_faIn">
-            <input
-              type="text"
-              class="form-control"
-              :style="border_color"
-              placeholder="Enter voucher code"
-              v-model="network.code"
-            />
-          </div>
+<!--          <div v-show="voda" class="form-group" :class="momo_anim_faIn">-->
+<!--            <input-->
+<!--              type="text"-->
+<!--              class="form-control"-->
+<!--              :style="border_color"-->
+<!--              placeholder="Enter voucher code"-->
+<!--              v-model="network.code"-->
+<!--            />-->
+<!--          </div>-->
           <div v-show="momo" class="form-group" :class="momo_anim_faIn">
             <input
               type="text"
