@@ -33,26 +33,19 @@ class MakePaymentController extends Controller
         }
 
         $item_desc = null;
-        if ($request->payby == 'MTN' || $request->payby == 'AIRTELTIGO') {
             $form_data = $request->validate([
                 'payby' => 'required|alpha',
-                'phone' => 'required|regex:/(0)[0-9]{9}/',
+                'phone' => 'required|numeric',
                 'subscription_id' => 'required',
                 'amount' => 'required|numeric',
-                'media_house_id' => 'required'
+                'media_house_id' => 'required',
             ]);
+            $msisdn = null;
+            if(substr($request->input('phone'),0,1) == '0'){
+                $msisdn = '233'.$request->input('phone');
+            }
+            die($msisdn);
             $item_desc = "subscription purchase";
-        } else {
-            $form_data = $request->validate([
-                'payby' => 'required|alpha',
-                'phone' => 'required|regex:/(0)[0-9]{9}/',
-                'subscription_id' => 'required',
-                'amount' => 'required|numeric',
-                'voucher_code' => 'required|numeric',
-                'media_house_id' => 'required'
-            ]);
-            $item_desc = $request->voucher_code;
-        }
         $name =  auth()->user()->name;
         $payby = $request->input('payby');
         $msisdn = $request->input('phone');
