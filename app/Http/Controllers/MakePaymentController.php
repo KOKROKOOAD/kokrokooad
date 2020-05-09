@@ -29,7 +29,7 @@ class MakePaymentController extends Controller
 
         function __construct()
         {
-            $this->middleware('auth');
+           // $this->middleware('auth');
         }
 
         $item_desc = null;
